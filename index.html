@@ -7,7 +7,15 @@
 <meta name="description" content="Loja online, caixa, fiado e pagamento por Pix num sistema só, adaptado para o seu tipo de comércio. Desenvolvido em Cascavel, PR.">
 <meta property="og:title" content="gimfreires.tech | Sistemas para o seu comércio">
 <meta property="og:description" content="Loja online, caixa, fiado e Pix num sistema só, adaptado para o seu ramo.">
-<meta property="og:image" content="img/loja-desktop.webp">
+<meta property="og:image" content="https://gimfreires.tech/img/compartilhar.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="512">
+<meta property="og:url" content="https://gimfreires.tech/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#05120C">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="256x256" href="img/logo.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -42,8 +50,12 @@
   /* Topo */
   .topo { padding: 22px 0; }
   .topo .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-  .marca { font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; text-decoration: none; }
-  .marca span { color: var(--pago); }
+  .marca {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; text-decoration: none;
+  }
+  .marca img { width: 40px; height: 40px; }
+  .marca-nome span { color: var(--pago); }
   .topo nav { display: flex; gap: 24px; font-size: 0.95rem; }
   .topo nav a { text-decoration: none; color: var(--tinta-suave); }
   .topo nav a:hover { color: var(--tinta); }
@@ -204,7 +216,7 @@
 
 <header class="topo">
   <div class="container">
-    <a class="marca" href="#">gimfreires<span>.tech</span></a>
+    <a class="marca" href="#"><img src="img/logo-96.png" width="40" height="40" alt=""> <span class="marca-nome">gimfreires<span>.tech</span></span></a>
     <nav aria-label="Seções">
       <a href="#projeto">Projeto no ar</a>
       <a href="#sistema">O que vem no sistema</a>
