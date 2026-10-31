@@ -137,6 +137,7 @@
   /* Projeto */
   .projeto { background: var(--tinta); color: var(--papel); }
   .projeto .intro { color: #B9C2D6; }
+  .projeto-explosom { border-top: 1px solid rgba(255,255,255,.12); }
   .projeto-grade {
     display: grid; grid-template-columns: 1fr 210px 210px; gap: 20px; align-items: start;
   }
@@ -218,7 +219,7 @@
   <div class="container">
     <a class="marca" href="#"><img src="img/logo-96.png" width="40" height="40" alt=""> <span class="marca-nome">gimfreires<span>.tech</span></span></a>
     <nav aria-label="Seções">
-      <a href="#projeto">Projeto no ar</a>
+      <a href="#projeto">Projetos no ar</a>
       <a href="#sistema">O que vem no sistema</a>
       <a href="#contato">Contato</a>
     </nav>
@@ -285,6 +286,33 @@
       <div class="projeto-rodape">
         <p>Tudo foi adaptado ao ramo: categorias de bebidas, aviso de venda só para maiores de 18 anos e destaque automático para o churrasco aos domingos.</p>
         <a class="botao botao-principal" href="https://clubedacerveja.gimfreires.tech" target="_blank" rel="noopener">Abrir a loja</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="projeto projeto-explosom" id="explosom" aria-labelledby="titulo-explosom">
+    <div class="container">
+      <h2 id="titulo-explosom">Explosom Eletrônicos</h2>
+      <p class="intro">Loja de eletrônicos, som automotivo e eletrodomésticos em Cascavel. A vitrine mostra o preço no Pix e em 10x, produtos sob encomenda com prazo, e o painel cuida do caixa, do estoque, dos relatórios e do crediário dos clientes.</p>
+
+      <div class="projeto-grade">
+        <figure>
+          <img src="img/explosom-desktop.webp" width="1200" height="833" loading="lazy" alt="Página inicial da loja Explosom no computador, com os produtos mais vendidos.">
+          <figcaption>A loja no computador</figcaption>
+        </figure>
+        <figure>
+          <img src="img/explosom-celular.webp" width="420" height="862" loading="lazy" alt="Loja Explosom aberta no celular.">
+          <figcaption>No celular</figcaption>
+        </figure>
+        <figure>
+          <img src="img/explosom-produto.webp" width="420" height="862" loading="lazy" alt="Página de uma geladeira Philco no celular, com preço no Pix, parcelamento e prazo de encomenda.">
+          <figcaption>Página de produto</figcaption>
+        </figure>
+      </div>
+
+      <div class="projeto-rodape">
+        <p>Adaptado ao ramo: categorias como som automotivo, alarmes e baterias, filtro de achadinhos até R$ 100, entrada de estoque pela nota do fornecedor e linha de crédito por cliente.</p>
+        <a class="botao botao-principal" href="explosom/">Ver a apresentação</a>
       </div>
     </div>
   </section>
