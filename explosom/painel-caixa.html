@@ -1,0 +1,391 @@
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>PDV</title><meta name="theme-color" content="#0A0A0A"></head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+
+
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo com-imagem">
+                            <img src="assets/img/logo/logo-explosom.png" alt="" onerror="this.parentNode.classList.remove('com-imagem'); this.remove()">
+                        <span class="site-logo-texto">Explosom Gestão</span>
+        </a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Dashboard</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger" aria-expanded="false">Produtos</button>
+                <div class="nav-submenu">
+                    <a href="painel-produtos.html">Todos os produtos</a>
+                    <a href="#">Categorias</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger" aria-expanded="false">Clientes</button>
+                <div class="nav-submenu">
+                    <a href="painel-clientes.html">Todos os clientes</a>
+                    <a href="painel-devedores.html">Devedores</a>
+                                        <a href="#">Solicitações de crédito</a>
+                                    </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger" aria-expanded="false">Caixa</button>
+                <div class="nav-submenu">
+                    <a href="painel-caixa.html">PDV</a>
+                    <a href="#">Vendas do caixa</a>
+                                        <a href="#">Histórico de caixas</a>
+                                    </div>
+            </div>
+            <a href="painel-pedidos.html">Pedidos</a>
+                        <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger" aria-expanded="false">Gestão</button>
+                <div class="nav-submenu">
+                    <a href="painel-relatorios.html">Relatórios</a>
+                    <a href="painel-estoque.html">Estoque baixo</a>
+                    <a href="painel-entrada-xml.html">Entrada por XML da nota</a>
+                    <a href="painel-backup.html">Backup</a>
+                </div>
+            </div>
+                                                <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger" aria-expanded="false">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="#">Usuários</a>
+                    <a href="#">Aparência</a>
+                    <a href="#">Entrega</a>
+                    <a href="#">PDV</a>
+                    <a href="#">Mercado Pago</a>
+                    <a href="painel-catalogo.html">Catálogo Instagram/Google</a>
+                                                            <a href="#">Nota fiscal</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Administrador</span>
+            <a href="#">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer=""></script>
+<main class="container">
+    <div class="page-title">
+        <span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M6 20V10a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v10M9 8V6a3 3 0 0 1 6 0v2M10 14h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        <div>
+            <h1>PDV</h1>
+            <span class="subtitulo">Caixa aberto desde 31/10/2026 17:28</span>
+        </div>
+    </div>
+
+    <p class="acoes-topo">
+        <a href="#" class="btn-outline btn-sm">Fechar caixa</a>
+        <a href="#" class="btn-outline btn-sm">Vendas do caixa</a>
+                <a href="#" class="btn-outline btn-sm">Histórico de caixas</a>        <span class="status-pill">Venda #103</span>    </p>
+
+        <p id="msg-pdv" class="alert alert-erro" style="display:none;"></p>
+
+    <div class="grade-2col">
+        <div class="card">
+            <h2>Buscar produto</h2>
+            <div style="display:flex; gap:8px; align-items:flex-start;">
+                <input type="text" id="termo-busca" aria-label="Buscar produto" placeholder="Nome do produto ou código da etiqueta..." style="flex:1;">
+                <button type="button" class="btn-outline btn-icone" id="btn-abrir-scanner-pdv" title="Ler código de barras com a câmera" aria-label="Ler código de barras com a câmera">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="12" cy="13" r="3.2" fill="none" stroke="currentColor" stroke-width="1.8"></circle></svg>
+                </button>
+            </div>
+            <div id="resultados-busca" class="lista-resultados"><div class="linha-resultado"><div class="linha-resultado-info"><strong>[3006] Geladeira Philco French Door PRF53A 523 L</strong><span class="linha-resultado-meta">R$ 5980,00 · Estoque livre</span></div><button type="button" class="btn-sm btn-outline">Adicionar</button></div><div class="linha-resultado"><div class="linha-resultado-info"><strong>[3002] Geladeira Philco PRF45A 458 L</strong><span class="linha-resultado-meta">R$ 4899,00 · Estoque livre</span></div><button type="button" class="btn-sm btn-outline">Adicionar</button></div><div class="linha-resultado"><div class="linha-resultado-info"><strong>[3001] Geladeira Philco PRF506TI 480 L</strong><span class="linha-resultado-meta">R$ 4349,00 · Estoque livre</span></div><button type="button" class="btn-sm btn-outline">Adicionar</button></div><div class="linha-resultado"><div class="linha-resultado-info"><strong>[3004] Geladeira Philco Side by Side PRF52C 525 L</strong><span class="linha-resultado-meta">R$ 5780,00 · Estoque livre</span></div><button type="button" class="btn-sm btn-outline">Adicionar</button></div><div class="linha-resultado"><div class="linha-resultado-info"><strong>[3005] Geladeira Philco Side by Side PRF52D 522 L</strong><span class="linha-resultado-meta">R$ 5950,00 · Estoque livre</span></div><button type="button" class="btn-sm btn-outline">Adicionar</button></div><div class="linha-resultado"><div class="linha-resultado-info"><strong>[3003] Geladeira Philco Side by Side PRF535ID 434 L</strong><span class="linha-resultado-meta">R$ 5299,00 · Estoque livre</span></div><button type="button" class="btn-sm btn-outline">Adicionar</button></div><div class="linha-resultado"><div class="linha-resultado-info"><strong>[3007] Geladeira Philco Side by Side PRF613ID 513 L</strong><span class="linha-resultado-meta">R$ 7599,00 · Estoque livre</span></div><button type="button" class="btn-sm btn-outline">Adicionar</button></div></div>
+            <button type="button" class="btn-outline btn-bloco" id="btn-venda-avulsa" style="margin-top:14px;">Venda avulsa</button>
+        </div>
+
+        <div>
+            <div class="card">
+                <h2>Carrinho</h2>
+                <div id="carrinho" class="lista-carrinho"><div class="linha-carrinho"><div class="linha-carrinho-info"><strong>1x Geladeira Philco French Door PRF53A 523 L</strong></div><div class="linha-carrinho-direita"><span class="linha-carrinho-subtotal">R$ 5980,00</span><button type="button" class="btn-sm btn-perigo btn-icone" title="Remover item" aria-label="Remover item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3m-8 0 1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div></div><div class="linha-carrinho"><div class="linha-carrinho-info"><strong>1x Geladeira Philco French Door PRF53A 523 L</strong></div><div class="linha-carrinho-direita"><span class="linha-carrinho-subtotal">R$ 5980,00</span><button type="button" class="btn-sm btn-perigo btn-icone" title="Remover item" aria-label="Remover item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3m-8 0 1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div></div><div class="linha-carrinho"><div class="linha-carrinho-info"><strong>1x Geladeira Philco French Door PRF53A 523 L</strong></div><div class="linha-carrinho-direita"><span class="linha-carrinho-subtotal">R$ 5980,00</span><button type="button" class="btn-sm btn-perigo btn-icone" title="Remover item" aria-label="Remover item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3m-8 0 1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div></div><div class="linha-carrinho"><div class="linha-carrinho-info"><strong>1x Geladeira Philco French Door PRF53A 523 L</strong></div><div class="linha-carrinho-direita"><span class="linha-carrinho-subtotal">R$ 5980,00</span><button type="button" class="btn-sm btn-perigo btn-icone" title="Remover item" aria-label="Remover item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3m-8 0 1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div></div><div class="linha-carrinho"><div class="linha-carrinho-info"><strong>1x Geladeira Philco French Door PRF53A 523 L</strong></div><div class="linha-carrinho-direita"><span class="linha-carrinho-subtotal">R$ 5980,00</span><button type="button" class="btn-sm btn-perigo btn-icone" title="Remover item" aria-label="Remover item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3m-8 0 1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div></div><div class="linha-carrinho"><div class="linha-carrinho-info"><strong>1x Geladeira Philco French Door PRF53A 523 L</strong></div><div class="linha-carrinho-direita"><span class="linha-carrinho-subtotal">R$ 5980,00</span><button type="button" class="btn-sm btn-perigo btn-icone" title="Remover item" aria-label="Remover item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3m-8 0 1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div></div><div class="linha-carrinho"><div class="linha-carrinho-info"><strong>1x Geladeira Philco French Door PRF53A 523 L</strong></div><div class="linha-carrinho-direita"><span class="linha-carrinho-subtotal">R$ 5980,00</span><button type="button" class="btn-sm btn-perigo btn-icone" title="Remover item" aria-label="Remover item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3m-8 0 1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div></div><div class="linha-carrinho"><div class="linha-carrinho-info"><strong>1x Geladeira Philco French Door PRF53A 523 L</strong></div><div class="linha-carrinho-direita"><span class="linha-carrinho-subtotal">R$ 5980,00</span><button type="button" class="btn-sm btn-perigo btn-icone" title="Remover item" aria-label="Remover item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3m-8 0 1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div></div><div class="linha-carrinho"><div class="linha-carrinho-info"><strong>1x Geladeira Philco French Door PRF53A 523 L</strong></div><div class="linha-carrinho-direita"><span class="linha-carrinho-subtotal">R$ 5980,00</span><button type="button" class="btn-sm btn-perigo btn-icone" title="Remover item" aria-label="Remover item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3m-8 0 1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div></div><div class="linha-carrinho"><div class="linha-carrinho-info"><strong>1x Geladeira Philco French Door PRF53A 523 L</strong></div><div class="linha-carrinho-direita"><span class="linha-carrinho-subtotal">R$ 5980,00</span><button type="button" class="btn-sm btn-perigo btn-icone" title="Remover item" aria-label="Remover item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3m-8 0 1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div></div><div class="linha-carrinho"><div class="linha-carrinho-info"><strong>1x Geladeira Philco French Door PRF53A 523 L</strong></div><div class="linha-carrinho-direita"><span class="linha-carrinho-subtotal">R$ 5980,00</span><button type="button" class="btn-sm btn-perigo btn-icone" title="Remover item" aria-label="Remover item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3m-8 0 1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div></div></div>
+                <div class="carrinho-rodape">
+                    <span>Total</span>
+                    <strong>R$ <span id="total-venda">65780,00</span></strong>
+                </div>
+                <a href="#" class="btn btn-bloco btn-lg" style="margin-top:16px;">Ir para pagamento →</a>
+            </div>
+
+            <div class="card" style="margin-top:20px;">
+                <h2>Cliente</h2>
+                <div id="cliente-vinculado"><div class="cliente-vinculado-pill cliente-vinculado-pill-neutro">Consumidor</div></div>
+                <input type="text" id="termo-cliente" aria-label="Buscar cliente" placeholder="Buscar cliente (opcional)...">
+                <div id="resultados-cliente" class="lista-resultados"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-scanner" hidden="">
+        <div class="modal-card">
+            <h3>Ler código de barras</h3>
+            <p style="color:var(--cor-texto-suave); font-size:0.9rem; margin-bottom:14px;">Aponte a câmera pro código de barras do produto.</p>
+            <div id="scanner-viewport" style="position:relative; width:100%; aspect-ratio:4/3; background:#000; border-radius:var(--raio-sm); overflow:hidden;"></div>
+            <p id="scanner-erro" class="alert alert-erro" hidden="" style="margin-top:12px;"></p>
+            <div class="modal-acoes">
+                <button type="button" class="btn-outline" id="btn-cancelar-scanner">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-avulsa" hidden="">
+        <div class="modal-card">
+            <h3>Venda avulsa</h3>
+            <p style="color:var(--cor-texto-suave); font-size:0.9rem; margin-bottom:14px;">Pra vender algo que ainda não está cadastrado no sistema. Informe só o valor.</p>
+            <input type="text" id="valor-avulsa" class="js-mascara-moeda" placeholder="0,00">
+            <p id="erro-avulsa" class="alert alert-erro" style="display:none; margin-top:10px;"></p>
+            <div class="modal-acoes">
+                <button type="button" class="btn-outline" id="btn-cancelar-avulsa">Cancelar</button>
+                <button type="button" class="btn" id="btn-confirmar-avulsa">Adicionar ao carrinho</button>
+            </div>
+        </div>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+<script>
+const idVenda = 103;
+
+function mostrarErroPdv(mensagem) {
+    const msg = document.getElementById('msg-pdv');
+    msg.textContent = mensagem;
+    msg.style.display = '';
+}
+
+(function () {
+    const modalAvulsa = document.getElementById('modal-avulsa');
+    const campoValorAvulsa = document.getElementById('valor-avulsa');
+    const erroAvulsa = document.getElementById('erro-avulsa');
+
+    document.getElementById('btn-venda-avulsa').addEventListener('click', function () {
+        campoValorAvulsa.value = '';
+        erroAvulsa.style.display = 'none';
+        modalAvulsa.hidden = false;
+        campoValorAvulsa.focus();
+    });
+    document.getElementById('btn-cancelar-avulsa').addEventListener('click', function () { modalAvulsa.hidden = true; });
+    modalAvulsa.addEventListener('click', function (e) { if (e.target === modalAvulsa) { modalAvulsa.hidden = true; } });
+
+    document.getElementById('btn-confirmar-avulsa').addEventListener('click', function () {
+        fetch('/caixa/ajax/adicionar_item_avulso.php', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: 'id_venda=' + idVenda + '&valor=' + encodeURIComponent(campoValorAvulsa.value)
+        }).then(r => r.json()).then(data => {
+            if (data.success) {
+                modalAvulsa.hidden = true;
+                carregarCarrinho();
+            } else {
+                erroAvulsa.textContent = data.message;
+                erroAvulsa.style.display = '';
+            }
+        });
+    });
+})();
+
+document.getElementById('termo-busca').addEventListener('input', function () {
+    const termo = this.value;
+    const container = document.getElementById('resultados-busca');
+    if (termo.length < 2) { container.innerHTML = ''; return; }
+    fetch('/caixa/ajax/buscar_produtos.php?termo=' + encodeURIComponent(termo))
+        .then(r => r.json())
+        .then(data => {
+            container.innerHTML = '';
+            if (data.produtos.length === 0) {
+                container.innerHTML = '<p class="lista-vazia">Nenhum produto encontrado.</p>';
+                return;
+            }
+            data.produtos.forEach(p => {
+                const linha = document.createElement('div');
+                linha.className = 'linha-resultado';
+
+                const info = document.createElement('div');
+                info.className = 'linha-resultado-info';
+                const nome = document.createElement('strong');
+                nome.textContent = p.nome_completo;
+                const meta = document.createElement('span');
+                meta.className = 'linha-resultado-meta';
+                meta.textContent = 'R$ ' + p.preco.toFixed(2).replace('.', ',') + ' · ' + (p.estoque_gerenciado ? ('Estoque: ' + p.estoque) : 'Estoque livre');
+                info.appendChild(nome);
+                info.appendChild(meta);
+
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'btn-sm btn-outline';
+                btn.textContent = 'Adicionar';
+                btn.addEventListener('click', function () { adicionarItem(p.id_produto_variacao); });
+
+                linha.appendChild(info);
+                linha.appendChild(btn);
+                container.appendChild(linha);
+            });
+        });
+});
+
+function adicionarItem(idProdutoVariacao) {
+    fetch('/caixa/ajax/adicionar_item.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'id_venda=' + idVenda + '&id_produto_variacao=' + idProdutoVariacao + '&quantidade=1'
+    }).then(r => r.json()).then(data => {
+        if (data.success) { carregarCarrinho(); } else { mostrarErroPdv(data.message); }
+    });
+}
+
+function removerItem(idItem) {
+    fetch('/caixa/ajax/remover_item.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'id_item=' + idItem + '&id_venda=' + idVenda
+    }).then(r => r.json()).then(data => {
+        if (data.success) { carregarCarrinho(); } else { mostrarErroPdv(data.message); }
+    });
+}
+
+function carregarCarrinho() {
+    fetch('/caixa/ajax/ver_carrinho.php?id_venda=' + idVenda)
+        .then(r => r.json())
+        .then(data => {
+            const container = document.getElementById('carrinho');
+            container.innerHTML = '';
+
+            if (data.itens.length === 0) {
+                container.innerHTML = '<p class="lista-vazia">Carrinho vazio — busque um produto ao lado.</p>';
+            }
+
+            data.itens.forEach(item => {
+                const linha = document.createElement('div');
+                linha.className = 'linha-carrinho';
+
+                const info = document.createElement('div');
+                info.className = 'linha-carrinho-info';
+                const nome = document.createElement('strong');
+                nome.textContent = item.quantidade + 'x ' + item.nome_produto;
+                info.appendChild(nome);
+                if (item.descricao_combinacao) {
+                    const meta = document.createElement('span');
+                    meta.className = 'linha-carrinho-meta';
+                    meta.textContent = item.descricao_combinacao;
+                    info.appendChild(meta);
+                }
+
+                const direita = document.createElement('div');
+                direita.className = 'linha-carrinho-direita';
+                const subtotal = document.createElement('span');
+                subtotal.className = 'linha-carrinho-subtotal';
+                subtotal.textContent = 'R$ ' + item.subtotal.toFixed(2).replace('.', ',');
+                const btnRemover = document.createElement('button');
+                btnRemover.type = 'button';
+                btnRemover.className = 'btn-sm btn-perigo btn-icone';
+                btnRemover.title = 'Remover item';
+                btnRemover.setAttribute('aria-label', 'Remover item');
+                btnRemover.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3m-8 0 1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+                btnRemover.addEventListener('click', function () { removerItem(item.id_item); });
+                direita.appendChild(subtotal);
+                direita.appendChild(btnRemover);
+
+                linha.appendChild(info);
+                linha.appendChild(direita);
+                container.appendChild(linha);
+            });
+            document.getElementById('total-venda').textContent = data.total.toFixed(2).replace('.', ',');
+        });
+}
+
+// iniciarLeitorCodigoBarras() vive em admin.js, carregado com "defer" — ele
+// só existe depois que o HTML inteiro terminar de ser interpretado. Chamar
+// direto aqui (fora de DOMContentLoaded) lançava ReferenceError e travava
+// TODO o restante deste script, inclusive a busca de cliente e o
+// carregarCarrinho() final lá embaixo.
+document.addEventListener('DOMContentLoaded', function () {
+    iniciarLeitorCodigoBarras('btn-abrir-scanner-pdv', function (codigo) {
+        const campoBusca = document.getElementById('termo-busca');
+        const containerResultados = document.getElementById('resultados-busca');
+        campoBusca.value = codigo;
+        fetch('/caixa/ajax/buscar_produtos.php?termo=' + encodeURIComponent(codigo))
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+                // Código só é ambíguo se o mesmo produto tiver mais de uma
+                // combinação (cor/tamanho) — nesse caso mostra a lista normal
+                // pro operador escolher qual. Uma única combinação encontrada
+                // já vai direto pro carrinho, sem precisar clicar "Adicionar".
+                if (data.produtos.length === 1) {
+                    adicionarItem(data.produtos[0].id_produto_variacao);
+                    campoBusca.value = '';
+                    containerResultados.innerHTML = '';
+                } else {
+                    campoBusca.dispatchEvent(new Event('input'));
+                }
+            });
+    });
+});
+
+document.getElementById('termo-cliente').addEventListener('input', function () {
+    const termo = this.value;
+    const container = document.getElementById('resultados-cliente');
+    if (termo.length < 2) { container.innerHTML = ''; return; }
+    fetch('/caixa/ajax/buscar_clientes.php?termo=' + encodeURIComponent(termo))
+        .then(r => r.json())
+        .then(data => {
+            container.innerHTML = '';
+            if (data.clientes.length === 0) {
+                container.innerHTML = '<p class="lista-vazia">Nenhum cliente encontrado.</p>';
+                return;
+            }
+            data.clientes.forEach(c => {
+                const linha = document.createElement('div');
+                linha.className = 'linha-resultado';
+
+                const info = document.createElement('div');
+                info.className = 'linha-resultado-info';
+                const nome = document.createElement('strong');
+                nome.textContent = c.nome;
+                const meta = document.createElement('span');
+                meta.className = 'linha-resultado-meta';
+                meta.textContent = c.whatsapp;
+                info.appendChild(nome);
+                info.appendChild(meta);
+
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'btn-sm btn-outline';
+                btn.textContent = 'Vincular';
+                btn.addEventListener('click', function () { vincularCliente(c.id_cliente, c.nome); });
+
+                linha.appendChild(info);
+                linha.appendChild(btn);
+                container.appendChild(linha);
+            });
+        });
+});
+
+function vincularCliente(idCliente, nome) {
+    fetch('/caixa/ajax/vincular_cliente.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'id_venda=' + idVenda + '&id_cliente=' + idCliente
+    }).then(r => r.json()).then(data => {
+        if (data.success) {
+            const painel = document.getElementById('cliente-vinculado');
+            painel.innerHTML = '';
+            const pill = document.createElement('div');
+            pill.className = 'cliente-vinculado-pill';
+            const texto = document.createElement('span');
+            texto.textContent = '✓ ' + nome;
+            pill.appendChild(texto);
+            painel.appendChild(pill);
+            document.getElementById('resultados-cliente').innerHTML = '';
+            document.getElementById('termo-cliente').value = '';
+        } else {
+            mostrarErroPdv(data.message);
+        }
+    });
+}
+
+carregarCarrinho();
+</script>
+    </main>
+
+
+<div style="position:fixed;left:12px;bottom:12px;z-index:9999;display:flex;gap:6px;flex-wrap:wrap;align-items:center;background:#0A0A0A;border:1px solid #F7801A;border-radius:999px;padding:6px 10px;font:600 13px Manrope,system-ui,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.4);max-width:calc(100vw - 24px)"><a href="./" style="color:#F7801A;padding:0 4px;text-decoration:none">PRÉVIA</a><a href="loja.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Loja</a><a href="login.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Login equipe</a><a href="painel.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Painel</a><a href="painel-caixa.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Caixa</a><a href="painel-pedidos.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Pedidos</a><a href="painel-relatorios.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Relatórios</a></div></body></html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Clientes</title><meta name="theme-color" content="#0A0A0A"></head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+
+
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo com-imagem">
+                            <img src="assets/img/logo/logo-explosom.png" alt="" onerror="this.parentNode.classList.remove('com-imagem'); this.remove()">
+                        <span class="site-logo-texto">Explosom Gestão</span>
+        </a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Dashboard</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger" aria-expanded="false">Produtos</button>
+                <div class="nav-submenu">
+                    <a href="painel-produtos.html">Todos os produtos</a>
+                    <a href="#">Categorias</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger" aria-expanded="false">Clientes</button>
+                <div class="nav-submenu">
+                    <a href="painel-clientes.html">Todos os clientes</a>
+                    <a href="painel-devedores.html">Devedores</a>
+                                        <a href="#">Solicitações de crédito</a>
+                                    </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger" aria-expanded="false">Caixa</button>
+                <div class="nav-submenu">
+                    <a href="painel-caixa.html">PDV</a>
+                    <a href="#">Vendas do caixa</a>
+                                        <a href="#">Histórico de caixas</a>
+                                    </div>
+            </div>
+            <a href="painel-pedidos.html">Pedidos</a>
+                        <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger" aria-expanded="false">Gestão</button>
+                <div class="nav-submenu">
+                    <a href="painel-relatorios.html">Relatórios</a>
+                    <a href="painel-estoque.html">Estoque baixo</a>
+                    <a href="painel-entrada-xml.html">Entrada por XML da nota</a>
+                    <a href="painel-backup.html">Backup</a>
+                </div>
+            </div>
+                                                <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger" aria-expanded="false">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="#">Usuários</a>
+                    <a href="#">Aparência</a>
+                    <a href="#">Entrega</a>
+                    <a href="#">PDV</a>
+                    <a href="#">Mercado Pago</a>
+                    <a href="painel-catalogo.html">Catálogo Instagram/Google</a>
+                                                            <a href="#">Nota fiscal</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Administrador</span>
+            <a href="#">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer=""></script>
+<main class="container">
+    <div class="page-title">
+        <span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-7 8c0-3.31 3.13-6 7-6s7 2.69 7 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        <div>
+            <h1>Clientes</h1>
+            <span class="subtitulo">6 clientes cadastrados</span>
+        </div>
+    </div>
+
+        
+    <p class="acoes-topo">
+        <a href="#" class="btn">+ Novo cliente</a>
+                <a href="#" class="btn-outline">Lixeira</a>
+            </p>
+
+    <div class="layout-lateral">
+        <aside class="filtros-lateral">
+            <h2>E-mail</h2>
+            <nav>
+                <a href="#" class="ativa">Todos</a>
+                <a href="#" class="">Verificados</a>
+                <a href="#" class="">Não verificados</a>
+                <a href="#" class="">Sem e-mail</a>
+            </nav>
+        </aside>
+
+        <div>
+            <div class="filtros-mobile">
+                <a href="#" class="filtro-pill ativa">Todos</a>
+                <a href="#" class="filtro-pill">Verificados</a>
+                <a href="#" class="filtro-pill">Não verificados</a>
+                <a href="#" class="filtro-pill">Sem e-mail</a>
+            </div>
+
+            <form method="get" class="busca-lista">
+                                <input type="text" name="busca" placeholder="Buscar por nome, WhatsApp ou e-mail..." value="">
+                <button type="submit">Buscar</button>
+            </form>
+
+                        <div class="alternador-visualizacao" data-chave="clientes" data-alvo-lista="visualizacao-lista" data-alvo-cards="visualizacao-cards">
+                <button type="button" class="btn-sm btn-outline ativo" data-modo="lista" title="Ver em lista">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg>
+                </button>
+                <button type="button" class="btn-sm btn-outline" data-modo="cards" title="Ver em cards">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg>
+                </button>
+            </div>
+
+            <div id="visualizacao-lista">
+            <div class="tabela-wrap">
+            <table>
+                <tbody><tr><th>Nome</th><th>WhatsApp</th><th>WhatsApp validado</th><th>E-mail</th><th>E-mail validado</th><th></th></tr>
+                                <tr>
+                    <td>Ana Paula Ribeiro</td>
+                    <td>45999110001</td>
+                    <td><span class="status-pill" title="A validação por WhatsApp está desativada no sistema">Sem validação</span></td>
+                    <td>ana.ribeiro@email.com</td>
+                    <td><span class="status-pill sucesso" title="Validado em 11/10/2026 17:27">✓ Validado</span></td>
+                    <td><a href="painel-cliente-1.html" class="btn-sm btn-outline">ver</a></td>
+                </tr>
+                                <tr>
+                    <td>Carlos Eduardo Lima</td>
+                    <td>45999110002</td>
+                    <td><span class="status-pill" title="A validação por WhatsApp está desativada no sistema">Sem validação</span></td>
+                    <td>carlos.lima@email.com</td>
+                    <td><span class="status-pill sucesso" title="Validado em 11/10/2026 17:27">✓ Validado</span></td>
+                    <td><a href="painel-cliente-2.html" class="btn-sm btn-outline">ver</a></td>
+                </tr>
+                                <tr>
+                    <td>Cliente teste</td>
+                    <td>+55 (34) 90000-0000</td>
+                    <td><span class="status-pill sucesso" title="Validado em 10/10/2026 04:08">✓ Validado</span></td>
+                    <td></td>
+                    <td><span class="status-pill">Sem cadastro</span></td>
+                    <td><a href="painel-cliente-12.html" class="btn-sm btn-outline">ver</a></td>
+                </tr>
+                                <tr>
+                    <td>Fernanda Alves</td>
+                    <td>45999110005</td>
+                    <td><span class="status-pill" title="A validação por WhatsApp está desativada no sistema">Sem validação</span></td>
+                    <td>fe.alves@email.com</td>
+                    <td><span class="status-pill sucesso" title="Validado em 11/10/2026 17:27">✓ Validado</span></td>
+                    <td><a href="painel-cliente-5.html" class="btn-sm btn-outline">ver</a></td>
+                </tr>
+                                <tr>
+                    <td>Juliana Martins</td>
+                    <td>45999110003</td>
+                    <td><span class="status-pill" title="A validação por WhatsApp está desativada no sistema">Sem validação</span></td>
+                    <td>ju.martins@email.com</td>
+                    <td><span class="status-pill sucesso" title="Validado em 11/10/2026 17:27">✓ Validado</span></td>
+                    <td><a href="painel-cliente-3.html" class="btn-sm btn-outline">ver</a></td>
+                </tr>
+                                <tr>
+                    <td>Rafael Souza</td>
+                    <td>45999110004</td>
+                    <td><span class="status-pill" title="A validação por WhatsApp está desativada no sistema">Sem validação</span></td>
+                    <td>rafael.souza@email.com</td>
+                    <td><span class="status-pill sucesso" title="Validado em 11/10/2026 17:27">✓ Validado</span></td>
+                    <td><a href="painel-cliente-4.html" class="btn-sm btn-outline">ver</a></td>
+                </tr>
+                            </tbody></table>
+            </div>
+            </div>
+
+            <div id="visualizacao-cards" hidden="">
+            <div class="grade-cards">
+                                <div class="item-card">
+                    <div class="item-card-topo">
+                        <strong>Ana Paula Ribeiro</strong>
+                    </div>
+                    <p>45999110001 <span class="status-pill" title="A validação por WhatsApp está desativada no sistema">Sem validação</span></p>
+                    <p>ana.ribeiro@email.com <span class="status-pill sucesso" title="Validado em 11/10/2026 17:27">✓ Validado</span></p>                    <div class="celula-acoes">
+                        <a href="painel-cliente-1.html" class="btn-sm btn-outline">ver</a>
+                    </div>
+                </div>
+                                <div class="item-card">
+                    <div class="item-card-topo">
+                        <strong>Carlos Eduardo Lima</strong>
+                    </div>
+                    <p>45999110002 <span class="status-pill" title="A validação por WhatsApp está desativada no sistema">Sem validação</span></p>
+                    <p>carlos.lima@email.com <span class="status-pill sucesso" title="Validado em 11/10/2026 17:27">✓ Validado</span></p>                    <div class="celula-acoes">
+                        <a href="painel-cliente-2.html" class="btn-sm btn-outline">ver</a>
+                    </div>
+                </div>
+                                <div class="item-card">
+                    <div class="item-card-topo">
+                        <strong>Cliente teste</strong>
+                    </div>
+                    <p>+55 (34) 90000-0000 <span class="status-pill sucesso" title="Validado em 10/10/2026 04:08">✓ Validado</span></p>
+                                        <div class="celula-acoes">
+                        <a href="painel-cliente-12.html" class="btn-sm btn-outline">ver</a>
+                    </div>
+                </div>
+                                <div class="item-card">
+                    <div class="item-card-topo">
+                        <strong>Fernanda Alves</strong>
+                    </div>
+                    <p>45999110005 <span class="status-pill" title="A validação por WhatsApp está desativada no sistema">Sem validação</span></p>
+                    <p>fe.alves@email.com <span class="status-pill sucesso" title="Validado em 11/10/2026 17:27">✓ Validado</span></p>                    <div class="celula-acoes">
+                        <a href="painel-cliente-5.html" class="btn-sm btn-outline">ver</a>
+                    </div>
+                </div>
+                                <div class="item-card">
+                    <div class="item-card-topo">
+                        <strong>Juliana Martins</strong>
+                    </div>
+                    <p>45999110003 <span class="status-pill" title="A validação por WhatsApp está desativada no sistema">Sem validação</span></p>
+                    <p>ju.martins@email.com <span class="status-pill sucesso" title="Validado em 11/10/2026 17:27">✓ Validado</span></p>                    <div class="celula-acoes">
+                        <a href="painel-cliente-3.html" class="btn-sm btn-outline">ver</a>
+                    </div>
+                </div>
+                                <div class="item-card">
+                    <div class="item-card-topo">
+                        <strong>Rafael Souza</strong>
+                    </div>
+                    <p>45999110004 <span class="status-pill" title="A validação por WhatsApp está desativada no sistema">Sem validação</span></p>
+                    <p>rafael.souza@email.com <span class="status-pill sucesso" title="Validado em 11/10/2026 17:27">✓ Validado</span></p>                    <div class="celula-acoes">
+                        <a href="painel-cliente-4.html" class="btn-sm btn-outline">ver</a>
+                    </div>
+                </div>
+                            </div>
+            </div>
+
+                                </div>
+    </div>
+</main>
+
+
+<div style="position:fixed;left:12px;bottom:12px;z-index:9999;display:flex;gap:6px;flex-wrap:wrap;align-items:center;background:#0A0A0A;border:1px solid #F7801A;border-radius:999px;padding:6px 10px;font:600 13px Manrope,system-ui,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.4);max-width:calc(100vw - 24px)"><a href="./" style="color:#F7801A;padding:0 4px;text-decoration:none">PRÉVIA</a><a href="loja.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Loja</a><a href="login.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Login equipe</a><a href="painel.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Painel</a><a href="painel-caixa.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Caixa</a><a href="painel-pedidos.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Pedidos</a><a href="painel-relatorios.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Relatórios</a></div></body></html>

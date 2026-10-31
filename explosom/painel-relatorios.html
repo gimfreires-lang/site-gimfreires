@@ -1,0 +1,272 @@
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Relatórios</title>
+<style>
+.rel-atalhos { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+.rel-barra { display:flex; align-items:center; gap:10px; }
+.rel-barra span.barra { flex:1; height:10px; border-radius:999px; background:var(--cor-primaria-suave, rgba(224,103,10,.15)); overflow:hidden; min-width:60px; }
+.rel-barra span.barra i { display:block; height:100%; background:var(--cor-primaria); border-radius:999px; }
+.rel-num { text-align:right; white-space:nowrap; font-variant-numeric: tabular-nums; }
+.rel-grade { display:grid; grid-template-columns: 1fr; gap:0; }
+.rel-aviso { font-size:.85rem; color:var(--cor-texto-suave); margin:-6px 0 14px; }
+.lucro-neg { color: var(--cor-erro); }
+</style>
+<meta name="theme-color" content="#0A0A0A"></head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+
+
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo com-imagem">
+                            <img src="assets/img/logo/logo-explosom.png" alt="" onerror="this.parentNode.classList.remove('com-imagem'); this.remove()">
+                        <span class="site-logo-texto">Explosom Gestão</span>
+        </a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Dashboard</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger" aria-expanded="false">Produtos</button>
+                <div class="nav-submenu">
+                    <a href="painel-produtos.html">Todos os produtos</a>
+                    <a href="#">Categorias</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger" aria-expanded="false">Clientes</button>
+                <div class="nav-submenu">
+                    <a href="painel-clientes.html">Todos os clientes</a>
+                    <a href="painel-devedores.html">Devedores</a>
+                                        <a href="#">Solicitações de crédito</a>
+                                    </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger" aria-expanded="false">Caixa</button>
+                <div class="nav-submenu">
+                    <a href="painel-caixa.html">PDV</a>
+                    <a href="#">Vendas do caixa</a>
+                                        <a href="#">Histórico de caixas</a>
+                                    </div>
+            </div>
+            <a href="painel-pedidos.html">Pedidos</a>
+                        <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger" aria-expanded="false">Gestão</button>
+                <div class="nav-submenu">
+                    <a href="painel-relatorios.html">Relatórios</a>
+                    <a href="painel-estoque.html">Estoque baixo</a>
+                    <a href="painel-entrada-xml.html">Entrada por XML da nota</a>
+                    <a href="painel-backup.html">Backup</a>
+                </div>
+            </div>
+                                                <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger" aria-expanded="false">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="#">Usuários</a>
+                    <a href="#">Aparência</a>
+                    <a href="#">Entrega</a>
+                    <a href="#">PDV</a>
+                    <a href="#">Mercado Pago</a>
+                    <a href="painel-catalogo.html">Catálogo Instagram/Google</a>
+                                                            <a href="#">Nota fiscal</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Administrador</span>
+            <a href="#">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer=""></script>
+<main class="container">
+    <div class="page-title">
+        <span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></span>
+        <div>
+            <h1>Relatórios</h1>
+            <span class="subtitulo">01/10/2026 a 31/10/2026 · só vendas pagas</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="rel-atalhos">
+                            <a class="btn-sm btn-outline" href="#">Hoje</a>
+                            <a class="btn-sm btn-outline" href="#">7 dias</a>
+                            <a class="btn-sm " href="#">Este mês</a>
+                            <a class="btn-sm btn-outline" href="#">Mês passado</a>
+                    </div>
+        <form method="get" class="form-linha-compacta">
+            <input type="date" name="de" aria-label="De" title="De" value="2026-10-01">
+            <input type="date" name="ate" aria-label="Até" title="Até" value="2026-10-31">
+            <select name="origem">
+                <option value="">Caixa e loja online</option>
+                <option value="pdv">Só caixa (PDV)</option>
+                <option value="loja">Só loja online</option>
+            </select>
+            <select name="vendedor">
+                <option value="0">Todos os vendedores</option>
+                                    <option value="1">Administrador</option>
+                            </select>
+            <button type="submit">Ver</button>
+        </form>
+    </div>
+
+    <div class="stats-credito">
+        <div class="stat-credito"><span class="stat-label">Faturamento</span><span class="stat-valor">R$ 94.507,00</span><span class="stat-obs">16 vendas · 16 itens</span></div>
+        <div class="stat-credito"><span class="stat-label">Ticket médio</span><span class="stat-valor">R$ 5.906,69</span><span class="stat-obs">por venda</span></div>
+        <div class="stat-credito"><span class="stat-label">Lucro bruto</span><span class="stat-valor sucesso">R$ 20.784,94</span><span class="stat-obs">todos os itens com custo</span></div>
+        <div class="stat-credito"><span class="stat-label">Comissões</span><span class="stat-valor">R$ 1.446,62</span><span class="stat-obs">a pagar aos vendedores</span></div>
+    </div>
+    
+    <div class="rel-grade">
+        <div class="card">
+            <div class="card-cabecalho"><h2>Por dia</h2><a class="btn-sm btn-outline" href="#">Baixar planilha</a></div>
+                        <div class="tabela-wrap"><table>
+                <thead><tr><th>Dia</th><th></th><th class="rel-num">Vendas</th><th class="rel-num">Total</th></tr></thead>
+                <tbody>
+                                    <tr>
+                        <td>22/10 <small style="color:var(--cor-texto-suave)">qui</small></td>
+                        <td style="width:40%"><div class="rel-barra"><span class="barra"><i style="width:34%"></i></span></div></td>
+                        <td class="rel-num">1</td>
+                        <td class="rel-num">R$ 7.599,00</td>
+                    </tr>
+                                    <tr>
+                        <td>23/10 <small style="color:var(--cor-texto-suave)">sex</small></td>
+                        <td style="width:40%"><div class="rel-barra"><span class="barra"><i style="width:69%"></i></span></div></td>
+                        <td class="rel-num">2</td>
+                        <td class="rel-num">R$ 15.198,00</td>
+                    </tr>
+                                    <tr>
+                        <td>24/10 <small style="color:var(--cor-texto-suave)">sáb</small></td>
+                        <td style="width:40%"><div class="rel-barra"><span class="barra"><i style="width:58%"></i></span></div></td>
+                        <td class="rel-num">2</td>
+                        <td class="rel-num">R$ 12.898,00</td>
+                    </tr>
+                                    <tr>
+                        <td>25/10 <small style="color:var(--cor-texto-suave)">dom</small></td>
+                        <td style="width:40%"><div class="rel-barra"><span class="barra"><i style="width:54%"></i></span></div></td>
+                        <td class="rel-num">2</td>
+                        <td class="rel-num">R$ 11.960,00</td>
+                    </tr>
+                                    <tr>
+                        <td>27/10 <small style="color:var(--cor-texto-suave)">ter</small></td>
+                        <td style="width:40%"><div class="rel-barra"><span class="barra"><i style="width:42%"></i></span></div></td>
+                        <td class="rel-num">2</td>
+                        <td class="rel-num">R$ 9.248,00</td>
+                    </tr>
+                                    <tr>
+                        <td>28/10 <small style="color:var(--cor-texto-suave)">qua</small></td>
+                        <td style="width:40%"><div class="rel-barra"><span class="barra"><i style="width:26%"></i></span></div></td>
+                        <td class="rel-num">1</td>
+                        <td class="rel-num">R$ 5.780,00</td>
+                    </tr>
+                                    <tr>
+                        <td>30/10 <small style="color:var(--cor-texto-suave)">sex</small></td>
+                        <td style="width:40%"><div class="rel-barra"><span class="barra"><i style="width:100%"></i></span></div></td>
+                        <td class="rel-num">4</td>
+                        <td class="rel-num">R$ 22.161,00</td>
+                    </tr>
+                                    <tr>
+                        <td>31/10 <small style="color:var(--cor-texto-suave)">sáb</small></td>
+                        <td style="width:40%"><div class="rel-barra"><span class="barra"><i style="width:44%"></i></span></div></td>
+                        <td class="rel-num">2</td>
+                        <td class="rel-num">R$ 9.663,00</td>
+                    </tr>
+                                </tbody>
+            </table></div>
+                    </div>
+
+        <div class="card">
+            <div class="card-cabecalho"><h2>Por vendedor</h2><a class="btn-sm btn-outline" href="#">Baixar planilha</a></div>
+            <p class="rel-aviso">A comissão usa o percentual de cada usuário (Configurações › Usuários) sobre as vendas pagas do caixa.</p>
+                        <div class="tabela-wrap"><table>
+                <thead><tr><th>Vendedor</th><th class="rel-num">Vendas</th><th class="rel-num">Total</th><th class="rel-num">Comissão</th></tr></thead>
+                <tbody>
+                                    <tr>
+                        <td>Administrador</td>
+                        <td class="rel-num">12</td>
+                        <td class="rel-num">R$ 72.331,00</td>
+                        <td class="rel-num">R$ 1.446,62 <small style="color:var(--cor-texto-suave)">(2%)</small></td>
+                    </tr>
+                                    <tr>
+                        <td>Loja online</td>
+                        <td class="rel-num">4</td>
+                        <td class="rel-num">R$ 22.176,00</td>
+                        <td class="rel-num">—</td>
+                    </tr>
+                                </tbody>
+            </table></div>
+            
+            <h2 style="margin-top:22px;">Por forma de pagamento</h2>
+                        <div class="tabela-wrap"><table>
+                <tbody>
+                                    <tr><td>Dinheiro</td><td class="rel-num">6</td><td class="rel-num">R$ 39.456,00</td></tr>
+                                    <tr><td>Pix</td><td class="rel-num">6</td><td class="rel-num">R$ 32.505,00</td></tr>
+                                    <tr><td>Crédito</td><td class="rel-num">2</td><td class="rel-num">R$ 12.898,00</td></tr>
+                                    <tr><td>Débito</td><td class="rel-num">2</td><td class="rel-num">R$ 9.648,00</td></tr>
+                                </tbody>
+            </table></div>
+                    </div>
+    </div>
+
+    <div class="card">
+        <div class="card-cabecalho"><h2>Por produto</h2><a class="btn-sm btn-outline" href="#">Baixar planilha</a></div>
+                <div class="tabela-wrap"><table>
+            <thead><tr><th>Produto</th><th class="rel-num">Qtd</th><th class="rel-num">Faturamento</th><th class="rel-num">Custo</th><th class="rel-num">Lucro</th><th class="rel-num">Margem</th></tr></thead>
+            <tbody>
+                            <tr>
+                    <td><a href="#">Geladeira Philco Side by Side PRF613ID 513 L</a></td>
+                    <td class="rel-num">5</td>
+                    <td class="rel-num">R$ 37.995,00</td>
+                    <td class="rel-num">R$ 29.636,10</td>
+                    <td class="rel-num ">R$ 8.358,90</td>
+                    <td class="rel-num">22,0%</td>
+                </tr>
+                            <tr>
+                    <td><a href="#">Geladeira Philco Side by Side PRF535ID 434 L</a></td>
+                    <td class="rel-num">3</td>
+                    <td class="rel-num">R$ 15.897,00</td>
+                    <td class="rel-num">R$ 12.399,66</td>
+                    <td class="rel-num ">R$ 3.497,34</td>
+                    <td class="rel-num">22,0%</td>
+                </tr>
+                            <tr>
+                    <td><a href="painel-produto-editar.html">Geladeira Philco PRF506TI 480 L</a></td>
+                    <td class="rel-num">3</td>
+                    <td class="rel-num">R$ 13.047,00</td>
+                    <td class="rel-num">R$ 10.176,66</td>
+                    <td class="rel-num ">R$ 2.870,34</td>
+                    <td class="rel-num">22,0%</td>
+                </tr>
+                            <tr>
+                    <td><a href="#">Geladeira Philco French Door PRF53A 523 L</a></td>
+                    <td class="rel-num">2</td>
+                    <td class="rel-num">R$ 11.960,00</td>
+                    <td class="rel-num">R$ 9.328,80</td>
+                    <td class="rel-num ">R$ 2.631,20</td>
+                    <td class="rel-num">22,0%</td>
+                </tr>
+                            <tr>
+                    <td><a href="#">Geladeira Philco PRF45A 458 L</a></td>
+                    <td class="rel-num">2</td>
+                    <td class="rel-num">R$ 9.798,00</td>
+                    <td class="rel-num">R$ 7.642,44</td>
+                    <td class="rel-num ">R$ 2.155,56</td>
+                    <td class="rel-num">22,0%</td>
+                </tr>
+                            <tr>
+                    <td><a href="#">Geladeira Philco Side by Side PRF52C 525 L</a></td>
+                    <td class="rel-num">1</td>
+                    <td class="rel-num">R$ 5.780,00</td>
+                    <td class="rel-num">R$ 4.508,40</td>
+                    <td class="rel-num ">R$ 1.271,60</td>
+                    <td class="rel-num">22,0%</td>
+                </tr>
+                        </tbody>
+        </table></div>
+            </div>
+</main>
+
+
+<div style="position:fixed;left:12px;bottom:12px;z-index:9999;display:flex;gap:6px;flex-wrap:wrap;align-items:center;background:#0A0A0A;border:1px solid #F7801A;border-radius:999px;padding:6px 10px;font:600 13px Manrope,system-ui,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.4);max-width:calc(100vw - 24px)"><a href="./" style="color:#F7801A;padding:0 4px;text-decoration:none">PRÉVIA</a><a href="loja.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Loja</a><a href="login.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Login equipe</a><a href="painel.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Painel</a><a href="painel-caixa.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Caixa</a><a href="painel-pedidos.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Pedidos</a><a href="painel-relatorios.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Relatórios</a></div></body></html>

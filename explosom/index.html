@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="assets/img/logo/logo-explosom.png">
+<title>Prévia Explosom</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800&family=Manrope:wght@400;500;700&display=swap">
+<style>
+/* Layout: logo e chamada no topo, três portas de entrada (loja, painel, caixa), notas da prévia embaixo. Visual único, escuro, igual à loja. */
+:root {
+  --bg: #0A0A0A; --surface: #151517; --line: #2A2A2E;
+  --fg: #F2F2F2; --muted: #A9ACB3; --accent: #F7801A; --silver: #C7CBD1;
+  --display: 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif;
+  --body: 'Manrope', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: radial-gradient(90% 50% at 50% 0%, #2A1606 0%, var(--bg) 70%) var(--bg); color: var(--fg); font-family: var(--body); line-height: 1.5; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 40px 56px; display: flex; flex-direction: column; gap: 36px; }
+header { display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; }
+header img { width: min(440px, 88vw); height: auto; }
+h1 { font-family: var(--display); font-style: italic; font-weight: 800; text-transform: uppercase; font-size: clamp(2rem, 6vw, 3.4rem); line-height: 1; margin: 0; text-wrap: balance; }
+h1 span { color: var(--accent); }
+.lead { color: var(--muted); max-width: 62ch; margin: 0; font-size: 1.05rem; }
+.portas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 760px) { .portas { grid-template-columns: 1fr; } }
+.porta { display: flex; flex-direction: column; gap: 10px; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; color: var(--fg); text-decoration: none; transition: border-color .15s, transform .15s; min-width: 0; }
+.porta:hover, .porta:focus-visible { border-color: var(--accent); transform: translateY(-2px); outline: none; }
+.porta .tag { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.porta h2 { font-family: var(--display); font-style: italic; font-weight: 700; text-transform: uppercase; font-size: 1.9rem; line-height: 1; margin: 0; }
+.porta p { margin: 0; color: var(--muted); font-size: .95rem; }
+.porta .ir { margin-top: auto; padding-top: 8px; font-weight: 700; color: var(--accent); }
+.atalhos { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.atalhos a { color: var(--silver); text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; font-size: .9rem; }
+.atalhos a:hover, .atalhos a:focus-visible { border-color: var(--accent); color: var(--fg); outline: none; }
+.notas { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 22px 24px; display: flex; flex-direction: column; gap: 10px; }
+.notas h3 { margin: 0; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--silver); }
+.notas ul { margin: 0; padding-left: 1.1em; color: var(--muted); display: flex; flex-direction: column; gap: 6px; }
+.notas b { color: var(--fg); font-weight: 700; }
+.novidades { display: flex; flex-direction: column; gap: 14px; }
+.novidades h3 { margin: 0; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--silver); text-align: center; }
+.novos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 860px) { .novos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 420px) { .novos { grid-template-columns: 1fr; } }
+.novos a { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; text-decoration: none; color: var(--fg); min-width: 0; }
+.novos a:hover, .novos a:focus-visible { border-color: var(--accent); outline: none; }
+.novos b { color: var(--accent); font-size: .95rem; }
+.novos span { color: var(--muted); font-size: .85rem; }
+@media (prefers-reduced-motion: reduce) { .porta { transition: none; } .porta:hover { transform: none; } }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="assets/img/logo/logo-explosom.png" alt="Explosom Eletrônicos e Acessórios">
+    <h1>Prévia do <span>sistema</span></h1>
+    <p class="lead">Telas reais do sistema rodando, com o catálogo da loja montado a partir das artes da Explosom. Navegue como cliente ou como equipe.</p>
+  </header>
+
+  <nav class="portas" aria-label="Partes do sistema">
+    <a class="porta" href="loja.html">
+      <span class="tag">Para o cliente</span>
+      <h2>Loja online</h2>
+      <p>Vitrine com 25 produtos reais, categorias, busca e página de cada produto com orçamento no WhatsApp.</p>
+      <span class="ir">Abrir a loja →</span>
+    </a>
+    <a class="porta" href="painel.html">
+      <span class="tag">Para a equipe</span>
+      <h2>Painel</h2>
+      <p>Vendas do dia, gráficos, produtos, pedidos online por etapa e clientes com crediário.</p>
+      <span class="ir">Abrir o painel →</span>
+    </a>
+    <a class="porta" href="painel-caixa.html">
+      <span class="tag">No balcão</span>
+      <h2>Caixa (PDV)</h2>
+      <p>Uma venda montada: busca por "philco" e geladeira no carrinho, pronta para o pagamento.</p>
+      <span class="ir">Abrir o caixa →</span>
+    </a>
+  </nav>
+
+  <div class="atalhos" aria-label="Atalhos">
+    <a href="categoria-11.html">Geladeiras</a>
+    <a href="categoria-5.html">Smart TVs</a>
+    <a href="categoria-1.html">Smartphones</a>
+    <a href="categoria-12.html">Climatização</a>
+    <a href="categoria-13.html">Eletrodomésticos</a>
+    <a href="categoria-10.html">Eletroportáteis</a>
+    <a href="categoria-7.html">Som Automotivo</a>
+    <a href="categoria-14.html">Alarmes</a>
+    <a href="login.html">Login da equipe</a>
+    <a href="painel-pedidos.html">Pedidos</a>
+    <a href="painel-cliente-1.html">Linha de crédito</a>
+    <a href="painel-devedores.html">Devedores</a>
+  </div>
+
+  <section class="novidades" aria-labelledby="tit-novo">
+    <h3 id="tit-novo">Novo nesta versão</h3>
+    <div class="novos">
+      <a href="categoria-11.html"><b>Pix e parcelas</b><span>"R$ X no Pix · 5% off" e "ou 10x de R$ Y" em cada produto</span></a>
+      <a href="produto-3001.html"><b>Sob encomenda</b><span>Selo e prazo nas geladeiras Philco</span></a>
+      <a href="painel-relatorios.html"><b>Relatórios</b><span>Faturamento, lucro e comissão por período</span></a>
+      <a href="painel-estoque.html"><b>Estoque baixo</b><span>Aviso no painel quando está acabando</span></a>
+      <a href="painel-entrada-xml.html"><b>Entrada por XML</b><span>Nota do fornecedor direto no estoque</span></a>
+      <a href="achadinhos.html"><b>Até R$ 100</b><span>Filtro de achadinhos, como no reel</span></a>
+      <a href="categoria-8.html"><b>Baterias Moura e Zetta</b><span>Categoria e descrição vindas dos reels</span></a>
+      <a href="links.html"><b>Link da bio</b><span>Página de botões para o Instagram @_explosom_</span></a>
+      <a href="painel-catalogo.html"><b>Instagram e Google</b><span>Catálogo automático para as redes</span></a>
+      <a href="painel-backup.html"><b>Backup diário</b><span>Cópia do banco todo dia, 14 guardadas</span></a>
+      <a href="painel-produto-editar.html"><b>Custo e encomenda</b><span>Campos novos no cadastro do produto</span></a>
+    </div>
+  </section>
+
+  <section class="notas">
+    <h3>Sobre esta prévia</h3>
+    <ul>
+      <li><b>Geladeiras Philco</b> com os preços reais das artes. Os outros produtos aparecem como <b>"Consulte o preço"</b> até a loja cadastrar o valor.</li>
+      <li>Parcelamento exibido em <b>até 10x</b> e WhatsApp da loja <b>(45) 99905-3431</b>. O desconto de <b>5% no Pix</b> e o prazo de <b>15 dias</b> das geladeiras são exemplos, a loja ajusta no painel.</li>
+      <li>Vendas, clientes, pedidos, custos e a nota do fornecedor do painel são de demonstração.</li>
+      <li>É uma cópia navegável: botões que precisam do servidor (comprar, entrar, finalizar venda) não funcionam aqui, só no sistema instalado.</li>
+    </ul>
+  </section>
+</div>
+</body>
+</html>
