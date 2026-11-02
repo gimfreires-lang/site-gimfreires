@@ -1,5 +1,6 @@
 FROM nginx:1.27-alpine
-COPY index.html /usr/share/nginx/html/index.html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY index.html 404.html robots.txt sitemap.xml /usr/share/nginx/html/
 COPY img /usr/share/nginx/html/img
 COPY explosom /usr/share/nginx/html/explosom
 EXPOSE 80
