@@ -3,4 +3,5 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY index.html 404.html robots.txt sitemap.xml /usr/share/nginx/html/
 COPY img /usr/share/nginx/html/img
 COPY explosom /usr/share/nginx/html/explosom
+COPY stillo /usr/share/nginx/html/stillo
 EXPOSE 80

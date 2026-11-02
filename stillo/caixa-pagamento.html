@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<script src="previa.js"></script><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Pagamento</title></head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/pwa.css">
+<link rel="apple-touch-icon" href="assets/marca/logo-stillo.png">
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo"><img src="assets/marca/logo-stillo.png" alt="" onerror="this.remove()">Stillo Reparos Automotivos</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Dashboard</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Oficina</button>
+                <div class="nav-submenu">
+                    <a href="os.html">Ordens de serviço</a>
+                    <a href="os-nova.html">Nova OS</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Produtos</button>
+                <div class="nav-submenu">
+                    <a href="produtos.html">Todos os produtos</a>
+                    <a href="categorias.html">Categorias</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Clientes</button>
+                <div class="nav-submenu">
+                    <a href="clientes.html">Todos os clientes</a>
+                    <a href="clientes-devedores.html">Devedores</a>
+                                        <a href="#" data-previa="1">Solicitações de crédito</a>
+                                    </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Caixa</button>
+                <div class="nav-submenu">
+                    <a href="caixa.html">PDV</a>
+                    <a href="caixa-vendas.html">Vendas do caixa</a>
+                                        <a href="caixa-historico.html">Histórico de caixas</a>
+                                    </div>
+            </div>
+            <a href="pedidos.html">Pedidos</a>
+                                    <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="usuarios.html">Usuários</a>
+                    <a href="aparencia.html">Aparência</a>
+                    <a href="#" data-previa="1">Entrega</a>
+                    <a href="config-pdv.html">PDV</a>
+                    <a href="#" data-previa="1">Mercado Pago</a>
+                                                            <a href="#" data-previa="1">Nota fiscal</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Veronica</span>
+            <a href="#" data-previa="1">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer></script>
+<main class="container">
+    <div class="page-title">
+        <span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M6 20V10a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v10M9 8V6a3 3 0 0 1 6 0v2M10 14h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div>
+            <h1>Pagamento</h1>
+            <span class="subtitulo">Venda #107 · Fernanda Lima</span>
+        </div>
+    </div>
+
+    <div class="card" style="max-width:560px;">
+        <div class="carrinho-rodape" style="padding-top:0; margin-top:0; border-top:none;">
+            <span>Total da venda</span>
+            <strong>R$ <span id="total-venda">319,50</span></strong>
+        </div>
+
+        <p id="msg-pagamento" class="alert alert-erro" style="display:none; margin-top:16px;"></p>
+
+        <div id="pagamentos-lancados" class="lista-pills" style="margin-top:16px;"></div>
+
+        <label style="margin-top:16px;">Forma de pagamento
+            <select id="forma-pagamento">
+                <option value="Dinheiro">Dinheiro</option>
+                <option value="Débito">Débito</option>
+                <option value="Crédito">Crédito</option>
+                <option value="Pix">Pix (QR Code)</option>
+                <option value="Linha de Crédito" >
+                    Linha de Crédito (disponível: R$ 0,00)                </option>
+            </select>
+        </label>
+
+        <div id="campos-manual" class="form-linha-compacta" style="margin-top:14px;">
+            <input type="text" id="valor-pagamento" class="js-mascara-moeda" placeholder="0,00">
+            <button type="button" id="btn-adicionar-pagamento" class="btn-outline">Adicionar</button>
+        </div>
+        <p id="troco-aviso" class="alert alert-sucesso" style="display:none; margin-top:12px;"></p>
+
+        <div id="campos-pix" style="display:none; margin-top:14px;">
+            <button type="button" id="btn-gerar-pix" class="btn-outline">Gerar QR Code Pix</button>
+        </div>
+
+        
+        <div class="stats-credito" style="margin-top:20px;">
+            <div class="stat-credito">
+                <span class="stat-label">Pago</span>
+                <span class="stat-valor sucesso">R$ <span id="total-pago">0,00</span></span>
+            </div>
+            <div class="stat-credito">
+                <span class="stat-label">Restante</span>
+                <span class="stat-valor" id="stat-restante">R$ <span id="total-restante">319,50</span></span>
+            </div>
+        </div>
+
+        <button type="button" id="btn-finalizar" class="btn-bloco btn-lg" style="display:none; margin-top:20px;">Finalizar venda</button>
+    </div>
+
+    <div class="modal-overlay" id="modal-pix" hidden>
+        <div class="modal-card" style="text-align:center;">
+            <h3>Pix</h3>
+            <div id="pix-resultado" style="margin-top:14px;"></div>
+            <div class="modal-acoes">
+                <button type="button" class="btn-outline" id="btn-fechar-pix">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    
+<script>
+const idVenda = 107;
+const totalVenda = 319.5;
+let pagamentos = [];
+let pollingInterval = null;
+
+function mostrarErroPagamento(mensagem) {
+    const msg = document.getElementById('msg-pagamento');
+    msg.textContent = mensagem;
+    msg.style.display = '';
+}
+
+document.getElementById('forma-pagamento').addEventListener('change', function () {
+    const ehPix = this.value === 'Pix';
+    const ehCartao = this.value === 'Débito' || this.value === 'Crédito';
+    const campoPoint = document.getElementById('campos-point');
+    document.getElementById('campos-manual').style.display = ehPix ? 'none' : '';
+    document.getElementById('campos-pix').style.display = ehPix ? '' : 'none';
+    if (campoPoint) { campoPoint.style.display = ehCartao ? '' : 'none'; }
+});
+
+document.getElementById('btn-adicionar-pagamento').addEventListener('click', function () {
+    document.getElementById('msg-pagamento').style.display = 'none';
+
+    const forma = document.getElementById('forma-pagamento').value;
+    const valorRecebido = converterMoedaBrParaFloat(document.getElementById('valor-pagamento').value);
+    if (!valorRecebido || valorRecebido <= 0) { mostrarErroPagamento('Informe um valor válido.'); return; }
+
+    const totalPagoAtual = pagamentos.reduce((acc, p) => acc + p.valor, 0);
+    const restante = Math.max(0, totalVenda - totalPagoAtual);
+    const trocoAviso = document.getElementById('troco-aviso');
+
+    if (forma === 'Dinheiro' && valorRecebido > restante) {
+        // Só o que ainda falta da venda vira pagamento registrado — o excedente é
+        // troco de verdade devolvido ao cliente, nunca dinheiro que fica no caixa.
+        const valorAplicado = Math.round(restante * 100) / 100;
+        const troco = Math.round((valorRecebido - restante) * 100) / 100;
+        pagamentos.push({ forma: forma, valor: valorAplicado });
+        trocoAviso.textContent = 'Troco a devolver: R$ ' + troco.toFixed(2).replace('.', ',');
+        trocoAviso.style.display = '';
+    } else if (valorRecebido > restante + 0.001) {
+        // Só dinheiro pode "sobrar" (vira troco) — cartão/Pix/Linha de Crédito
+        // não tem troco: cobrar mais que o restante da venda é sempre um erro
+        // de digitação e nunca deveria ser aceito (ex: lançar R$100 de Linha
+        // de Crédito numa venda de R$32 criaria uma dívida sem motivo real).
+        mostrarErroPagamento('Esse valor passa do restante da venda (R$ ' + restante.toFixed(2).replace('.', ',') + '). Só dinheiro pode receber um valor maior — o troco é calculado sozinho.');
+        return;
+    } else {
+        pagamentos.push({ forma: forma, valor: valorRecebido });
+        trocoAviso.style.display = 'none';
+    }
+
+    document.getElementById('valor-pagamento').value = '';
+    atualizarResumo();
+});
+
+function removerPagamento(indice) {
+    pagamentos.splice(indice, 1);
+    document.getElementById('troco-aviso').style.display = 'none';
+    atualizarResumo();
+}
+
+function atualizarResumo() {
+    const totalPago = pagamentos.reduce((acc, p) => acc + p.valor, 0);
+    const restante = Math.max(0, totalVenda - totalPago);
+    document.getElementById('total-pago').textContent = totalPago.toFixed(2).replace('.', ',');
+    document.getElementById('total-restante').textContent = restante.toFixed(2).replace('.', ',');
+    document.getElementById('stat-restante').className = 'stat-valor' + (restante > 0 ? ' erro' : ' sucesso');
+
+    const painel = document.getElementById('pagamentos-lancados');
+    painel.innerHTML = '';
+    pagamentos.forEach((p, indice) => {
+        const pill = document.createElement('span');
+        pill.className = 'status-pill pill-removivel';
+        const texto = document.createElement('span');
+        texto.textContent = p.forma + ': R$ ' + p.valor.toFixed(2).replace('.', ',');
+        const btnRemover = document.createElement('button');
+        btnRemover.type = 'button';
+        btnRemover.setAttribute('aria-label', 'Remover este pagamento');
+        btnRemover.textContent = '×';
+        btnRemover.addEventListener('click', function () { removerPagamento(indice); });
+        pill.appendChild(texto);
+        pill.appendChild(btnRemover);
+        painel.appendChild(pill);
+    });
+
+    document.getElementById('btn-finalizar').style.display = totalPago >= totalVenda - 0.001 ? '' : 'none';
+}
+
+document.getElementById('btn-finalizar').addEventListener('click', function () {
+    fetch('/caixa/ajax/finalizar_venda.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'id_venda=' + idVenda + '&pagamentos=' + encodeURIComponent(JSON.stringify(pagamentos))
+    }).then(r => r.json()).then(data => {
+        if (data.success) {
+            window.location.href = data.redirect;
+        } else {
+            mostrarErroPagamento(data.message);
+        }
+    });
+});
+
+const modalPix = document.getElementById('modal-pix');
+document.getElementById('btn-fechar-pix').addEventListener('click', function () { modalPix.hidden = true; });
+modalPix.addEventListener('click', function (e) { if (e.target === modalPix) { modalPix.hidden = true; } });
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modalPix.hidden) { modalPix.hidden = true; } });
+
+document.getElementById('btn-gerar-pix').addEventListener('click', function () {
+    this.disabled = true;
+    fetch('/caixa/ajax/gerar_pix.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'id_venda=' + idVenda
+    }).then(r => r.json()).then(data => {
+        if (!data.success) { mostrarErroPagamento(data.message); document.getElementById('btn-gerar-pix').disabled = false; return; }
+        const div = document.getElementById('pix-resultado');
+        div.innerHTML = '';
+        const img = document.createElement('img');
+        img.src = 'data:image/png;base64,' + data.qr_code_base64;
+        img.width = 200;
+        div.appendChild(img);
+        const textarea = document.createElement('textarea');
+        textarea.readOnly = true;
+        textarea.style.width = '100%';
+        textarea.style.marginTop = '10px';
+        textarea.value = data.qr_code;
+        div.appendChild(textarea);
+        const p = document.createElement('p');
+        p.className = 'lista-vazia';
+        p.textContent = 'Aguardando pagamento...';
+        div.appendChild(p);
+        modalPix.hidden = false;
+        iniciarPolling();
+    });
+});
+
+function iniciarPolling() {
+    if (pollingInterval) return;
+    pollingInterval = setInterval(function () {
+        fetch('/caixa/ajax/verificar_pagamento.php', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: 'id_venda=' + idVenda
+        }).then(r => r.json()).then(data => {
+            if (data.aprovado) {
+                clearInterval(pollingInterval);
+                window.location.href = data.redirect;
+            } else if (!data.success) {
+                clearInterval(pollingInterval);
+                pollingInterval = null;
+                mostrarErroPagamento(data.message);
+            }
+        });
+    }, 4000);
+}
+
+</script>
+</main>
+<nav class="previa-nav" aria-label="Navegação da prévia" style="position:fixed;left:12px;bottom:12px;z-index:9999;display:flex;gap:4px;flex-wrap:wrap;align-items:center;background:#0B0B0D;border:1px solid #E10A0A;border-radius:999px;padding:6px 10px;font:600 13px Manrope,system-ui,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.45);max-width:calc(100vw - 24px)"><a href="./" style="color:#FF3B3B;padding:0 4px;text-decoration:none">PRÉVIA</a><a href="painel.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Painel</a><a href="os.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Oficina</a><a href="os-3.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Uma OS</a><a href="orcamento-3.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Link do cliente</a><a href="caixa.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Caixa</a><a href="loja.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Loja</a></nav>
+
+</body>
+</html>

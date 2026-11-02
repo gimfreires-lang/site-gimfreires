@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<script src="previa.js"></script><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Produtos</title></head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/pwa.css">
+<link rel="apple-touch-icon" href="assets/marca/logo-stillo.png">
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo"><img src="assets/marca/logo-stillo.png" alt="" onerror="this.remove()">Stillo Reparos Automotivos</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Dashboard</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Oficina</button>
+                <div class="nav-submenu">
+                    <a href="os.html">Ordens de serviço</a>
+                    <a href="os-nova.html">Nova OS</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Produtos</button>
+                <div class="nav-submenu">
+                    <a href="produtos.html">Todos os produtos</a>
+                    <a href="categorias.html">Categorias</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Clientes</button>
+                <div class="nav-submenu">
+                    <a href="clientes.html">Todos os clientes</a>
+                    <a href="clientes-devedores.html">Devedores</a>
+                                        <a href="#" data-previa="1">Solicitações de crédito</a>
+                                    </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Caixa</button>
+                <div class="nav-submenu">
+                    <a href="caixa.html">PDV</a>
+                    <a href="caixa-vendas.html">Vendas do caixa</a>
+                                        <a href="caixa-historico.html">Histórico de caixas</a>
+                                    </div>
+            </div>
+            <a href="pedidos.html">Pedidos</a>
+                                    <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="usuarios.html">Usuários</a>
+                    <a href="aparencia.html">Aparência</a>
+                    <a href="#" data-previa="1">Entrega</a>
+                    <a href="config-pdv.html">PDV</a>
+                    <a href="#" data-previa="1">Mercado Pago</a>
+                                                            <a href="#" data-previa="1">Nota fiscal</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Veronica</span>
+            <a href="#" data-previa="1">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer></script>
+<main class="container">
+        <p class="alert alert-erro">
+        A conta do Mercado Pago não está conectada — a loja online e o PDV não conseguem receber pagamentos via Pix/cartão até conectar.
+        <a href="#" data-previa="1">Conectar agora</a>
+    </p>
+        <div class="page-title">
+        <span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.8h7.2a2 2 0 0 0 2-1.6L20 8H6M9 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div>
+            <h1>Produtos</h1>
+            <span class="subtitulo">9 produtos cadastrados</span>
+        </div>
+    </div>
+        <p><a href="produto-novo.html" class="btn">+ Novo produto</a> <a href="categorias.html" class="btn-outline">Categorias</a></p>
+
+    <div class="layout-lateral">
+        <aside class="filtros-lateral">
+            <h2>Categoria</h2>
+            <nav>
+                <a href="produtos.html" class="ativa">Todas</a>
+                                    <a href="produtos.html" class="">Acessórios</a>
+                                    <a href="produtos.html" class="">Elétrica e Baterias</a>
+                                    <a href="produtos.html" class="">Freios</a>
+                                    <a href="produtos.html" class="">Motor</a>
+                                    <a href="produtos.html" class="">Óleos e Filtros</a>
+                                    <a href="produtos.html" class="">Serviços</a>
+                                    <a href="produtos.html" class="">Suspensão</a>
+                            </nav>
+            <h2>Status</h2>
+            <nav>
+                <a href="produtos.html" class="ativa">Todos</a>
+                <a href="produtos.html" class="">Ativos</a>
+                <a href="produtos.html" class="">Inativos</a>
+            </nav>
+        </aside>
+
+        <div>
+            <div class="filtros-mobile">
+                <a href="produtos.html" class="filtro-pill ativa">Todas categorias</a>
+                                    <a href="produtos.html" class="filtro-pill">Acessórios</a>
+                                    <a href="produtos.html" class="filtro-pill">Elétrica e Baterias</a>
+                                    <a href="produtos.html" class="filtro-pill">Freios</a>
+                                    <a href="produtos.html" class="filtro-pill">Motor</a>
+                                    <a href="produtos.html" class="filtro-pill">Óleos e Filtros</a>
+                                    <a href="produtos.html" class="filtro-pill">Serviços</a>
+                                    <a href="produtos.html" class="filtro-pill">Suspensão</a>
+                                <a href="produtos.html" class="filtro-pill">Ativos</a>
+                <a href="produtos.html" class="filtro-pill">Inativos</a>
+            </div>
+
+            <form method="get" class="busca-lista">
+                                                <input type="text" name="busca" placeholder="Buscar produto por nome ou código..." value="">
+                <button type="submit">Buscar</button>
+            </form>
+
+                        <div class="tabela-wrap">
+            <table class="tabela-produtos">
+                <tr><th></th><th>Código</th><th>Nome</th><th>Categoria</th><th>Preço</th><th>Estoque</th><th>Status</th><th></th><th></th></tr>
+                                                <tr>
+                    <td>
+                                                    <img src="assets/produto-indisponivel.svg" alt="" class="foto-produto-mini">
+                                            </td>
+                    <td><span class="codigo-produto-mini">102</span></td>
+                    <td>Alinhamento e balanceamento</td>
+                    <td>Serviços</td>
+                    <td>R$ 120,00</td>
+                    <td><span class="status-pill">Livre</span></td>
+                    <td><span class="status-pill sucesso">Ativo</span></td>
+                    <td><a href="produto-editar-2.html" class="btn-sm btn-outline"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14"><path d="M4 20h4l10.5-10.5a2 2 0 0 0 0-2.83l-1.17-1.17a2 2 0 0 0-2.83 0L4 16v4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Editar</a></td>
+                    <td>
+                        <a href="https://api.whatsapp.com/send?text=%F0%9F%9B%8D%EF%B8%8F+%2AAlinhamento+e+balanceamento%2A%0AR%24+120%2C00%0A%0Ahttp%3A%2F%2F127.0.0.1%3A8099%2Floja%2Fproduto.php%3Fid%3D2" target="_blank" rel="noopener" class="btn-compartilhar-whatsapp icone-so" aria-label="Compartilhar no WhatsApp" title="Compartilhar no WhatsApp">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.64-1.03-5.12-2.9-6.98A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.19 0 4.25.85 5.8 2.4a8.2 8.2 0 0 1 2.4 5.83c0 4.54-3.7 8.23-8.24 8.23a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23h.04Zm-4.6 4.2c-.16 0-.42.06-.64.31-.22.25-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.7 4.2 3.68 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.77.96-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.44-1.34-1.68-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.35-.76-1.85-.2-.48-.4-.42-.55-.42Z"/></svg>
+                        </a>
+                    </td>
+                </tr>
+                                                <tr>
+                    <td>
+                                                    <img src="assets/produto-indisponivel.svg" alt="" class="foto-produto-mini">
+                                            </td>
+                    <td><span class="codigo-produto-mini">301</span></td>
+                    <td>Amortecedor dianteiro</td>
+                    <td>Suspensão</td>
+                    <td>R$ 329,90</td>
+                    <td>2</td>
+                    <td><span class="status-pill sucesso">Ativo</span></td>
+                    <td><a href="produto-editar-6.html" class="btn-sm btn-outline"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14"><path d="M4 20h4l10.5-10.5a2 2 0 0 0 0-2.83l-1.17-1.17a2 2 0 0 0-2.83 0L4 16v4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Editar</a></td>
+                    <td>
+                        <a href="https://api.whatsapp.com/send?text=%F0%9F%9B%8D%EF%B8%8F+%2AAmortecedor+dianteiro%2A%0AR%24+329%2C90%0A%0Ahttp%3A%2F%2F127.0.0.1%3A8099%2Floja%2Fproduto.php%3Fid%3D6" target="_blank" rel="noopener" class="btn-compartilhar-whatsapp icone-so" aria-label="Compartilhar no WhatsApp" title="Compartilhar no WhatsApp">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.64-1.03-5.12-2.9-6.98A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.19 0 4.25.85 5.8 2.4a8.2 8.2 0 0 1 2.4 5.83c0 4.54-3.7 8.23-8.24 8.23a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23h.04Zm-4.6 4.2c-.16 0-.42.06-.64.31-.22.25-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.7 4.2 3.68 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.77.96-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.44-1.34-1.68-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.35-.76-1.85-.2-.48-.4-.42-.55-.42Z"/></svg>
+                        </a>
+                    </td>
+                </tr>
+                                                <tr>
+                    <td>
+                                                    <img src="assets/produto-indisponivel.svg" alt="" class="foto-produto-mini">
+                                            </td>
+                    <td><span class="codigo-produto-mini">601</span></td>
+                    <td>Bateria 60Ah</td>
+                    <td>Elétrica e Baterias</td>
+                    <td>R$ 549,90</td>
+                    <td>2</td>
+                    <td><span class="status-pill sucesso">Ativo</span></td>
+                    <td><a href="produto-editar-9.html" class="btn-sm btn-outline"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14"><path d="M4 20h4l10.5-10.5a2 2 0 0 0 0-2.83l-1.17-1.17a2 2 0 0 0-2.83 0L4 16v4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Editar</a></td>
+                    <td>
+                        <a href="https://api.whatsapp.com/send?text=%F0%9F%9B%8D%EF%B8%8F+%2ABateria+60Ah%2A%0AR%24+549%2C90%0A%0Ahttp%3A%2F%2F127.0.0.1%3A8099%2Floja%2Fproduto.php%3Fid%3D9" target="_blank" rel="noopener" class="btn-compartilhar-whatsapp icone-so" aria-label="Compartilhar no WhatsApp" title="Compartilhar no WhatsApp">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.64-1.03-5.12-2.9-6.98A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.19 0 4.25.85 5.8 2.4a8.2 8.2 0 0 1 2.4 5.83c0 4.54-3.7 8.23-8.24 8.23a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23h.04Zm-4.6 4.2c-.16 0-.42.06-.64.31-.22.25-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.7 4.2 3.68 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.77.96-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.44-1.34-1.68-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.35-.76-1.85-.2-.48-.4-.42-.55-.42Z"/></svg>
+                        </a>
+                    </td>
+                </tr>
+                                                <tr>
+                    <td>
+                                                    <img src="assets/produto-indisponivel.svg" alt="" class="foto-produto-mini">
+                                            </td>
+                    <td><span class="codigo-produto-mini">103</span></td>
+                    <td>Diagnóstico com scanner</td>
+                    <td>Serviços</td>
+                    <td>R$ 90,00</td>
+                    <td><span class="status-pill">Livre</span></td>
+                    <td><span class="status-pill sucesso">Ativo</span></td>
+                    <td><a href="produto-editar-3.html" class="btn-sm btn-outline"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14"><path d="M4 20h4l10.5-10.5a2 2 0 0 0 0-2.83l-1.17-1.17a2 2 0 0 0-2.83 0L4 16v4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Editar</a></td>
+                    <td>
+                        <a href="https://api.whatsapp.com/send?text=%F0%9F%9B%8D%EF%B8%8F+%2ADiagn%C3%B3stico+com+scanner%2A%0AR%24+90%2C00%0A%0Ahttp%3A%2F%2F127.0.0.1%3A8099%2Floja%2Fproduto.php%3Fid%3D3" target="_blank" rel="noopener" class="btn-compartilhar-whatsapp icone-so" aria-label="Compartilhar no WhatsApp" title="Compartilhar no WhatsApp">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.64-1.03-5.12-2.9-6.98A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.19 0 4.25.85 5.8 2.4a8.2 8.2 0 0 1 2.4 5.83c0 4.54-3.7 8.23-8.24 8.23a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23h.04Zm-4.6 4.2c-.16 0-.42.06-.64.31-.22.25-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.7 4.2 3.68 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.77.96-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.44-1.34-1.68-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.35-.76-1.85-.2-.48-.4-.42-.55-.42Z"/></svg>
+                        </a>
+                    </td>
+                </tr>
+                                                <tr>
+                    <td>
+                                                    <img src="assets/produto-indisponivel.svg" alt="" class="foto-produto-mini">
+                                            </td>
+                    <td><span class="codigo-produto-mini">502</span></td>
+                    <td>Filtro de óleo</td>
+                    <td>Óleos e Filtros</td>
+                    <td>R$ 39,90</td>
+                    <td>13</td>
+                    <td><span class="status-pill sucesso">Ativo</span></td>
+                    <td><a href="produto-editar-8.html" class="btn-sm btn-outline"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14"><path d="M4 20h4l10.5-10.5a2 2 0 0 0 0-2.83l-1.17-1.17a2 2 0 0 0-2.83 0L4 16v4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Editar</a></td>
+                    <td>
+                        <a href="https://api.whatsapp.com/send?text=%F0%9F%9B%8D%EF%B8%8F+%2AFiltro+de+%C3%B3leo%2A%0AR%24+39%2C90%0A%0Ahttp%3A%2F%2F127.0.0.1%3A8099%2Floja%2Fproduto.php%3Fid%3D8" target="_blank" rel="noopener" class="btn-compartilhar-whatsapp icone-so" aria-label="Compartilhar no WhatsApp" title="Compartilhar no WhatsApp">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.64-1.03-5.12-2.9-6.98A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.19 0 4.25.85 5.8 2.4a8.2 8.2 0 0 1 2.4 5.83c0 4.54-3.7 8.23-8.24 8.23a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23h.04Zm-4.6 4.2c-.16 0-.42.06-.64.31-.22.25-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.7 4.2 3.68 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.77.96-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.44-1.34-1.68-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.35-.76-1.85-.2-.48-.4-.42-.55-.42Z"/></svg>
+                        </a>
+                    </td>
+                </tr>
+                                                <tr>
+                    <td>
+                                                    <img src="assets/produto-indisponivel.svg" alt="" class="foto-produto-mini">
+                                            </td>
+                    <td><span class="codigo-produto-mini">501</span></td>
+                    <td>Óleo sintético 5W30 (1 L)</td>
+                    <td>Óleos e Filtros</td>
+                    <td>R$ 54,90</td>
+                    <td>18</td>
+                    <td><span class="status-pill sucesso">Ativo</span></td>
+                    <td><a href="produto-editar-7.html" class="btn-sm btn-outline"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14"><path d="M4 20h4l10.5-10.5a2 2 0 0 0 0-2.83l-1.17-1.17a2 2 0 0 0-2.83 0L4 16v4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Editar</a></td>
+                    <td>
+                        <a href="https://api.whatsapp.com/send?text=%F0%9F%9B%8D%EF%B8%8F+%2A%C3%93leo+sint%C3%A9tico+5W30+%281+L%29%2A%0AR%24+54%2C90%0A%0Ahttp%3A%2F%2F127.0.0.1%3A8099%2Floja%2Fproduto.php%3Fid%3D7" target="_blank" rel="noopener" class="btn-compartilhar-whatsapp icone-so" aria-label="Compartilhar no WhatsApp" title="Compartilhar no WhatsApp">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.64-1.03-5.12-2.9-6.98A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.19 0 4.25.85 5.8 2.4a8.2 8.2 0 0 1 2.4 5.83c0 4.54-3.7 8.23-8.24 8.23a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23h.04Zm-4.6 4.2c-.16 0-.42.06-.64.31-.22.25-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.7 4.2 3.68 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.77.96-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.44-1.34-1.68-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.35-.76-1.85-.2-.48-.4-.42-.55-.42Z"/></svg>
+                        </a>
+                    </td>
+                </tr>
+                                                <tr>
+                    <td>
+                                                    <img src="assets/produto-indisponivel.svg" alt="" class="foto-produto-mini">
+                                            </td>
+                    <td><span class="codigo-produto-mini">201</span></td>
+                    <td>Pastilha de freio dianteira</td>
+                    <td>Freios</td>
+                    <td>R$ 189,90</td>
+                    <td>6</td>
+                    <td><span class="status-pill sucesso">Ativo</span></td>
+                    <td><a href="produto-editar-5.html" class="btn-sm btn-outline"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14"><path d="M4 20h4l10.5-10.5a2 2 0 0 0 0-2.83l-1.17-1.17a2 2 0 0 0-2.83 0L4 16v4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Editar</a></td>
+                    <td>
+                        <a href="https://api.whatsapp.com/send?text=%F0%9F%9B%8D%EF%B8%8F+%2APastilha+de+freio+dianteira%2A%0AR%24+189%2C90%0A%0Ahttp%3A%2F%2F127.0.0.1%3A8099%2Floja%2Fproduto.php%3Fid%3D5" target="_blank" rel="noopener" class="btn-compartilhar-whatsapp icone-so" aria-label="Compartilhar no WhatsApp" title="Compartilhar no WhatsApp">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.64-1.03-5.12-2.9-6.98A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.19 0 4.25.85 5.8 2.4a8.2 8.2 0 0 1 2.4 5.83c0 4.54-3.7 8.23-8.24 8.23a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23h.04Zm-4.6 4.2c-.16 0-.42.06-.64.31-.22.25-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.7 4.2 3.68 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.77.96-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.44-1.34-1.68-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.35-.76-1.85-.2-.48-.4-.42-.55-.42Z"/></svg>
+                        </a>
+                    </td>
+                </tr>
+                                                <tr>
+                    <td>
+                                                    <img src="assets/produto-indisponivel.svg" alt="" class="foto-produto-mini">
+                                            </td>
+                    <td><span class="codigo-produto-mini">104</span></td>
+                    <td>Revisão preventiva</td>
+                    <td>Serviços</td>
+                    <td>R$ 350,00</td>
+                    <td><span class="status-pill">Livre</span></td>
+                    <td><span class="status-pill sucesso">Ativo</span></td>
+                    <td><a href="produto-editar-4.html" class="btn-sm btn-outline"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14"><path d="M4 20h4l10.5-10.5a2 2 0 0 0 0-2.83l-1.17-1.17a2 2 0 0 0-2.83 0L4 16v4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Editar</a></td>
+                    <td>
+                        <a href="https://api.whatsapp.com/send?text=%F0%9F%9B%8D%EF%B8%8F+%2ARevis%C3%A3o+preventiva%2A%0AR%24+350%2C00%0A%0Ahttp%3A%2F%2F127.0.0.1%3A8099%2Floja%2Fproduto.php%3Fid%3D4" target="_blank" rel="noopener" class="btn-compartilhar-whatsapp icone-so" aria-label="Compartilhar no WhatsApp" title="Compartilhar no WhatsApp">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.64-1.03-5.12-2.9-6.98A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.19 0 4.25.85 5.8 2.4a8.2 8.2 0 0 1 2.4 5.83c0 4.54-3.7 8.23-8.24 8.23a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23h.04Zm-4.6 4.2c-.16 0-.42.06-.64.31-.22.25-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.7 4.2 3.68 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.77.96-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.44-1.34-1.68-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.35-.76-1.85-.2-.48-.4-.42-.55-.42Z"/></svg>
+                        </a>
+                    </td>
+                </tr>
+                                                <tr>
+                    <td>
+                                                    <img src="assets/produto-indisponivel.svg" alt="" class="foto-produto-mini">
+                                            </td>
+                    <td><span class="codigo-produto-mini">101</span></td>
+                    <td>Troca de óleo (mão de obra)</td>
+                    <td>Serviços</td>
+                    <td>R$ 60,00</td>
+                    <td><span class="status-pill">Livre</span></td>
+                    <td><span class="status-pill sucesso">Ativo</span></td>
+                    <td><a href="produto-editar-1.html" class="btn-sm btn-outline"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14"><path d="M4 20h4l10.5-10.5a2 2 0 0 0 0-2.83l-1.17-1.17a2 2 0 0 0-2.83 0L4 16v4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Editar</a></td>
+                    <td>
+                        <a href="https://api.whatsapp.com/send?text=%F0%9F%9B%8D%EF%B8%8F+%2ATroca+de+%C3%B3leo+%28m%C3%A3o+de+obra%29%2A%0AR%24+60%2C00%0A%0Ahttp%3A%2F%2F127.0.0.1%3A8099%2Floja%2Fproduto.php%3Fid%3D1" target="_blank" rel="noopener" class="btn-compartilhar-whatsapp icone-so" aria-label="Compartilhar no WhatsApp" title="Compartilhar no WhatsApp">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.64-1.03-5.12-2.9-6.98A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.19 0 4.25.85 5.8 2.4a8.2 8.2 0 0 1 2.4 5.83c0 4.54-3.7 8.23-8.24 8.23a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23h.04Zm-4.6 4.2c-.16 0-.42.06-.64.31-.22.25-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.7 4.2 3.68 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.77.96-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.44-1.34-1.68-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.35-.76-1.85-.2-.48-.4-.42-.55-.42Z"/></svg>
+                        </a>
+                    </td>
+                </tr>
+                            </table>
+            </div>
+
+                                </div>
+    </div>
+</main>
+<nav class="previa-nav" aria-label="Navegação da prévia" style="position:fixed;left:12px;bottom:12px;z-index:9999;display:flex;gap:4px;flex-wrap:wrap;align-items:center;background:#0B0B0D;border:1px solid #E10A0A;border-radius:999px;padding:6px 10px;font:600 13px Manrope,system-ui,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.45);max-width:calc(100vw - 24px)"><a href="./" style="color:#FF3B3B;padding:0 4px;text-decoration:none">PRÉVIA</a><a href="painel.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Painel</a><a href="os.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Oficina</a><a href="os-3.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Uma OS</a><a href="orcamento-3.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Link do cliente</a><a href="caixa.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Caixa</a><a href="loja.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Loja</a></nav>
+
+</body>
+</html>

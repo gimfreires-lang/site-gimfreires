@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<script src="previa.js"></script><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Aparência da loja</title></head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/pwa.css">
+<link rel="apple-touch-icon" href="assets/marca/logo-stillo.png">
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo"><img src="assets/marca/logo-stillo.png" alt="" onerror="this.remove()">Stillo Reparos Automotivos</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Dashboard</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Oficina</button>
+                <div class="nav-submenu">
+                    <a href="os.html">Ordens de serviço</a>
+                    <a href="os-nova.html">Nova OS</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Produtos</button>
+                <div class="nav-submenu">
+                    <a href="produtos.html">Todos os produtos</a>
+                    <a href="categorias.html">Categorias</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Clientes</button>
+                <div class="nav-submenu">
+                    <a href="clientes.html">Todos os clientes</a>
+                    <a href="clientes-devedores.html">Devedores</a>
+                                        <a href="#" data-previa="1">Solicitações de crédito</a>
+                                    </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Caixa</button>
+                <div class="nav-submenu">
+                    <a href="caixa.html">PDV</a>
+                    <a href="caixa-vendas.html">Vendas do caixa</a>
+                                        <a href="caixa-historico.html">Histórico de caixas</a>
+                                    </div>
+            </div>
+            <a href="pedidos.html">Pedidos</a>
+                                    <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="usuarios.html">Usuários</a>
+                    <a href="aparencia.html">Aparência</a>
+                    <a href="#" data-previa="1">Entrega</a>
+                    <a href="config-pdv.html">PDV</a>
+                    <a href="#" data-previa="1">Mercado Pago</a>
+                                                            <a href="#" data-previa="1">Nota fiscal</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Veronica</span>
+            <a href="#" data-previa="1">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer></script>
+<main class="container">
+    <div class="page-title">
+        <span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18c1.1 0 1.5-.7 1.5-1.5 0-.4-.15-.75-.4-1.05-.25-.3-.4-.65-.4-1.05 0-.83.67-1.5 1.5-1.5H16a4 4 0 0 0 4-4c0-4.42-3.58-8-8-8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.5" cy="10.5" r="1.1" fill="currentColor"/><circle cx="11" cy="7" r="1.1" fill="currentColor"/><circle cx="15.5" cy="8" r="1.1" fill="currentColor"/></svg></span>
+        <div>
+            <h1>Aparência da loja</h1>
+            <span class="subtitulo">Tema, logo e contato exibidos na loja online</span>
+        </div>
+    </div>
+            <form method="post" enctype="multipart/form-data">
+    <div class="grade-2col">
+        <div class="card">
+            <h2>Identidade visual</h2>
+                            <img id="logo-previa" src="assets/marca/logo-stillo.png" width="150" alt="Logo atual" onerror="this.style.display='none'" style="border-radius:var(--raio-sm); margin-bottom:16px; display:block;">
+                        <label>Nome da loja<input type="text" name="nome_loja" value="Stillo Reparos Automotivos" required></label>
+            <div style="margin-bottom:16px;">
+                <span style="display:block; margin-bottom:6px;">Logo (JPEG ou PNG)</span>
+                <button type="button" class="btn-outline btn-sm" id="btn-trocar-logo">Trocar logo</button>
+                <input type="file" id="input-logo" accept="image/png,image/jpeg,image/webp" style="display:none;">
+                <p id="msg-logo" class="alert" style="display:none; margin-top:10px;"></p>
+            </div>
+            <label>Tema
+                <select name="tema" id="tema">
+                    <option value="claro" >Claro</option>
+                    <option value="escuro" selected>Escuro</option>
+                    <option value="personalizado" >Personalizado</option>
+                </select>
+            </label>
+            <div id="cores-personalizadas" class="form-linha" style="display:none;">
+                <label>Cor primária<input type="color" name="cor_primaria" value="#E10A0A"></label>
+                <label>Cor secundária<input type="color" name="cor_secundaria" value="#8E0B0B"></label>
+                <label>Cor de fundo<input type="color" name="cor_fundo" value="#0B0B0D"></label>
+                <label>Cor do texto<input type="color" name="cor_texto" value="#F2F2F2"></label>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Contato da loja</h2>
+            <p style="color:var(--cor-texto-suave); font-size:0.9rem; margin-top:-8px;">Aparece no rodapé e no botão flutuante de WhatsApp de todas as páginas da loja online. Deixe em branco o que não se aplica.</p>
+            <label>WhatsApp (com DDD)<input type="text" name="whatsapp_loja" id="campo-whatsapp-loja" placeholder="(11) 90000-0000" value="(45) 99818-5568"></label>
+            <label>E-mail<input type="email" name="email_loja" value=""></label>
+            <label>Endereço<input type="text" name="endereco_loja" placeholder="Ex: Atendimento online para todo o país" value="Rua Olindo Periolo, 1472 - Pacaembu, Cascavel/PR - CEP 85816-330"></label>
+            <label>Horário de atendimento<input type="text" name="horario_atendimento" placeholder="Ex: Segunda a sexta, 9h às 18h" value="Segunda a sexta, das 8h às 17h30"></label>
+        </div>
+    </div>
+
+    <button type="submit" class="btn-bloco" style="max-width:300px; margin-top:20px;">Salvar</button>
+    </form>
+
+    <div class="modal-overlay" id="modal-recorte-logo" hidden>
+        <div class="modal-card">
+            <h3>Ajustar logo</h3>
+            <div style="display:flex; gap:8px; margin-bottom:10px;">
+                <button type="button" class="btn-sm btn-outline" id="btn-corte-quadrado">Quadrado</button>
+                <button type="button" class="btn-sm btn-outline" id="btn-corte-livre">Livre</button>
+            </div>
+            <div class="area-corte"><img id="imagem-recorte-logo" alt=""></div>
+            <div class="modal-acoes">
+                <button type="button" class="btn-outline" id="btn-cancelar-recorte-logo">Cancelar</button>
+                <button type="button" class="btn" id="btn-confirmar-recorte-logo">Cortar e enviar</button>
+            </div>
+        </div>
+    </div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.js"></script>
+<script>
+document.getElementById('tema').addEventListener('change', function () {
+    document.getElementById('cores-personalizadas').style.display = this.value === 'personalizado' ? '' : 'none';
+});
+document.addEventListener('DOMContentLoaded', function () {
+    ativarMascaraTelefoneComNoveAutomatico(document.getElementById('campo-whatsapp-loja'));
+});
+</script>
+<script>
+// Logo: escolhe o arquivo, recorta (quadrado ou livre) e envia já cortada — a mesma técnica das fotos de produto.
+(function () {
+    const input = document.getElementById('input-logo');
+    const modal = document.getElementById('modal-recorte-logo');
+    const imagem = document.getElementById('imagem-recorte-logo');
+    const msg = document.getElementById('msg-logo');
+    let cropper = null;
+
+    function aviso(texto, ok) {
+        msg.textContent = texto;
+        msg.className = 'alert ' + (ok ? 'alert-sucesso' : 'alert-erro');
+        msg.style.display = '';
+    }
+    function fechar() {
+        modal.hidden = true;
+        if (cropper) { cropper.destroy(); cropper = null; }
+        input.value = '';
+    }
+
+    document.getElementById('btn-trocar-logo').addEventListener('click', function () { input.click(); });
+
+    input.addEventListener('change', function () {
+        const arquivo = input.files && input.files[0];
+        if (!arquivo) { return; }
+        const leitor = new FileReader();
+        leitor.onload = function (e) {
+            imagem.src = e.target.result;
+            modal.hidden = false;
+            if (cropper) { cropper.destroy(); }
+            cropper = new Cropper(imagem, { aspectRatio: 1, viewMode: 1, autoCropArea: 1, background: false });
+        };
+        leitor.readAsDataURL(arquivo);
+    });
+
+    document.getElementById('btn-corte-quadrado').addEventListener('click', function () { if (cropper) { cropper.setAspectRatio(1); } });
+    document.getElementById('btn-corte-livre').addEventListener('click', function () { if (cropper) { cropper.setAspectRatio(NaN); } });
+    document.getElementById('btn-cancelar-recorte-logo').addEventListener('click', fechar);
+    modal.addEventListener('click', function (e) { if (e.target === modal) { fechar(); } });
+
+    document.getElementById('btn-confirmar-recorte-logo').addEventListener('click', function () {
+        if (!cropper) { return; }
+        const botao = this;
+        botao.disabled = true;
+        cropper.getCroppedCanvas({ maxWidth: 600, maxHeight: 600 }).toBlob(function (blob) {
+            const dados = new FormData();
+            dados.append('logo', blob, 'logo.png');
+            fetch('/config_sistema/ajax/upload_logo.php', { method: 'POST', body: dados })
+                .then(function (r) { return r.json(); })
+                .then(function (d) {
+                    if (d.success) {
+                        let previa = document.getElementById('logo-previa');
+                        if (!previa) {
+                            previa = document.createElement('img');
+                            previa.id = 'logo-previa';
+                            previa.width = 150;
+                            previa.alt = 'Logo atual';
+                            previa.style.cssText = 'border-radius:var(--raio-sm); margin-bottom:16px; display:block;';
+                            const card = input.closest('.card');
+                            card.insertBefore(previa, card.querySelector('label'));
+                        }
+                        previa.style.display = 'block';
+                        previa.src = d.url;
+                        aviso('Logo atualizada.', true);
+                    } else {
+                        aviso(d.message || 'Não foi possível enviar a logo.', false);
+                    }
+                })
+                .catch(function () { aviso('Erro de conexão. Tente novamente.', false); })
+                .finally(function () { botao.disabled = false; fechar(); });
+        }, 'image/png');
+    });
+})();
+</script>
+</main>
+<nav class="previa-nav" aria-label="Navegação da prévia" style="position:fixed;left:12px;bottom:12px;z-index:9999;display:flex;gap:4px;flex-wrap:wrap;align-items:center;background:#0B0B0D;border:1px solid #E10A0A;border-radius:999px;padding:6px 10px;font:600 13px Manrope,system-ui,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.45);max-width:calc(100vw - 24px)"><a href="./" style="color:#FF3B3B;padding:0 4px;text-decoration:none">PRÉVIA</a><a href="painel.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Painel</a><a href="os.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Oficina</a><a href="os-3.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Uma OS</a><a href="orcamento-3.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Link do cliente</a><a href="caixa.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Caixa</a><a href="loja.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Loja</a></nav>
+
+</body>
+</html>

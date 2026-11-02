@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<script src="previa.js"></script><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ricardo Alves</title></head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/pwa.css">
+<link rel="apple-touch-icon" href="assets/marca/logo-stillo.png">
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo"><img src="assets/marca/logo-stillo.png" alt="" onerror="this.remove()">Stillo Reparos Automotivos</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Dashboard</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Oficina</button>
+                <div class="nav-submenu">
+                    <a href="os.html">Ordens de serviço</a>
+                    <a href="os-nova.html">Nova OS</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Produtos</button>
+                <div class="nav-submenu">
+                    <a href="produtos.html">Todos os produtos</a>
+                    <a href="categorias.html">Categorias</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Clientes</button>
+                <div class="nav-submenu">
+                    <a href="clientes.html">Todos os clientes</a>
+                    <a href="clientes-devedores.html">Devedores</a>
+                                        <a href="#" data-previa="1">Solicitações de crédito</a>
+                                    </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Caixa</button>
+                <div class="nav-submenu">
+                    <a href="caixa.html">PDV</a>
+                    <a href="caixa-vendas.html">Vendas do caixa</a>
+                                        <a href="caixa-historico.html">Histórico de caixas</a>
+                                    </div>
+            </div>
+            <a href="pedidos.html">Pedidos</a>
+                                    <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="usuarios.html">Usuários</a>
+                    <a href="aparencia.html">Aparência</a>
+                    <a href="#" data-previa="1">Entrega</a>
+                    <a href="config-pdv.html">PDV</a>
+                    <a href="#" data-previa="1">Mercado Pago</a>
+                                                            <a href="#" data-previa="1">Nota fiscal</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Veronica</span>
+            <a href="#" data-previa="1">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer></script>
+<main class="container">
+    <div class="page-title">
+        <span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-7 8c0-3.31 3.13-6 7-6s7 2.69 7 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div>
+            <h1>Ricardo Alves</h1>
+            <span class="subtitulo">+55 (45) 99911-0005</span>
+        </div>
+    </div>
+
+        <div class="card" style="margin-bottom:20px;">
+        <p style="margin:0 0 10px;">
+            <strong>WhatsApp</strong> <span class="status-pill" title="A validação por WhatsApp está desativada no sistema">Sem validação</span>            &nbsp;&nbsp;
+            <strong>E-mail</strong> <span class="status-pill">Sem cadastro</span>        </p>
+        <p style="margin:0; color:var(--cor-texto-suave); font-size:0.9rem;">O cliente ainda não validou nenhum contato — o WhatsApp e o e-mail cadastrados podem estar errados.</p>
+    </div>
+
+    <p class="acoes-topo">
+        <a href="clientes.html" class="btn-outline btn-sm">
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="14" height="14"><path d="M15 6 9 12l6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Voltar
+        </a>
+                <form method="post" style="display:inline;" data-confirm="Mover Ricardo Alves para a lixeira? Ele perde o acesso à loja na hora e some das listas. Dá pra restaurar depois, dentro da lixeira.">
+            <input type="hidden" name="acao" value="mover_lixeira">
+            <button type="submit" class="btn-perigo btn-sm">Mover para a lixeira</button>
+        </form>
+            </p>
+
+            
+    <div class="grade-2col">
+    <div class="card">
+    <h2>Dados</h2>
+    <form method="post">
+        <input type="hidden" name="acao" value="atualizar_dados">
+        <label>Nome<input type="text" name="nome" value="Ricardo Alves" required></label>
+        <label>WhatsApp (com DDD)<input type="text" name="whatsapp" id="campo-whatsapp" value="(45) 99911-0005" required></label>
+        <label>E-mail (obrigatório pro cliente conseguir entrar na loja online)<input type="email" name="email" value=""></label>
+        <label>Endereço<input type="text" name="endereco" value=""></label>
+        <button type="submit" class="btn-bloco">Salvar dados</button>
+    </form>
+    </div>
+
+    <div class="card">
+    <h2>E-mail da loja online</h2>
+        <p class="alert alert-info">Sem e-mail cadastrado — o cliente não consegue entrar na loja online até ter um e-mail.</p>
+        </div>
+    </div>
+
+    <div class="grade-2col" style="margin-top:32px;">
+    <div class="card">
+        <div class="card-cabecalho">
+            <h2>Veículos</h2>
+        </div>
+                <div class="lista-escolha">
+                    <details class="item-escolha item-veiculo">
+                <summary><span class="placa">HJK3L21</span> <strong>Toyota Corolla XEi · 2020 · Preto</strong></summary>
+                <form method="post" style="margin-top:12px;">
+                    <input type="hidden" name="acao" value="salvar_veiculo">
+                    <input type="hidden" name="id_veiculo" value="5">
+                    <div class="form-linha">
+                        <label>Placa<input type="text" name="placa" value="HJK3L21" required></label>
+                        <label>Marca<input type="text" name="marca" value="Toyota"></label>
+                    </div>
+                    <div class="form-linha">
+                        <label>Modelo<input type="text" name="modelo" value="Corolla XEi" required></label>
+                        <label>Ano<input type="number" name="ano" value="2020"></label>
+                        <label>Cor<input type="text" name="cor" value="Preto"></label>
+                    </div>
+                    <div class="celula-acoes">
+                        <button type="submit" class="btn-sm">Salvar</button>
+                        <a href="os-nova.html" class="btn-sm btn-outline">Abrir OS para este veículo</a>
+                    </div>
+                </form>
+                <form method="post" data-confirm="Remover este veículo?" style="margin-top:8px;">
+                    <input type="hidden" name="acao" value="remover_veiculo">
+                    <input type="hidden" name="id_veiculo" value="5">
+                    <button type="submit" class="btn-sm btn-texto">Remover veículo</button>
+                </form>
+            </details>
+                </div>
+        <details class="mudar-etapa" style="margin-top:14px;">
+            <summary>+ Cadastrar veículo</summary>
+            <form method="post" style="margin-top:12px;">
+                <input type="hidden" name="acao" value="salvar_veiculo">
+                <div class="form-linha">
+                    <label>Placa<input type="text" name="placa" placeholder="ABC1D23" required style="text-transform:uppercase;"></label>
+                    <label>Marca<input type="text" name="marca" placeholder="Chevrolet"></label>
+                </div>
+                <div class="form-linha">
+                    <label>Modelo<input type="text" name="modelo" placeholder="Onix 1.0" required></label>
+                    <label>Ano<input type="number" name="ano" placeholder="2020"></label>
+                    <label>Cor<input type="text" name="cor" placeholder="Prata"></label>
+                </div>
+                <button type="submit" class="btn-sm">Cadastrar veículo</button>
+            </form>
+        </details>
+    </div>
+
+    <div class="card">
+        <div class="card-cabecalho">
+            <h2>Ordens de serviço</h2>
+            <a href="os-nova.html" class="btn-sm">+ Nova OS</a>
+        </div>
+                <div class="tabela-wrap">
+        <table>
+            <tr><th>OS</th><th>Veículo</th><th>Total</th><th>Situação</th></tr>
+                        <tr>
+                <td><a href="os-5.html">OS 00005</a><br><small>02/11/2026</small></td>
+                <td>HJK3L21<br><small>Corolla XEi</small></td>
+                <td>R$ 120,00</td>
+                <td><span class="status-pill pronto">Aprovada</span></td>
+            </tr>
+                    </table>
+        </div>
+            </div>
+    </div>
+
+    <div class="card" style="margin-top:32px;">
+    <div class="card-cabecalho">
+        <h2>Linha de Crédito</h2>
+        <span class="status-pill sucesso">Em dia</span>
+    </div>
+
+    <div class="stats-credito">
+        <div class="stat-credito">
+            <span class="stat-label">Limite</span>
+            <span class="stat-valor">R$ 0,00</span>
+        </div>
+        <div class="stat-credito">
+            <span class="stat-label">Saldo devedor</span>
+            <span class="stat-valor">R$ 0,00</span>
+        </div>
+        <div class="stat-credito">
+            <span class="stat-label">Crédito disponível</span>
+            <span class="stat-valor">R$ 0,00</span>
+        </div>
+        <div class="stat-credito">
+            <span class="stat-label">Vencido</span>
+            <span class="stat-valor">R$ 0,00</span>
+        </div>
+    </div>
+
+    
+        <div style="display:flex; gap:24px; flex-wrap:wrap;">
+    <form method="post" class="form-linha-compacta">
+        <input type="hidden" name="acao" value="atualizar_limite">
+        <label>Novo limite de crédito
+            <input type="text" name="limite_credito" class="js-mascara-moeda" value="0,00">
+        </label>
+        <button type="submit" class="btn-outline">Atualizar limite</button>
+    </form>
+    <form method="post" class="form-linha-compacta">
+        <input type="hidden" name="acao" value="atualizar_prazo_credito">
+        <label>Prazo de pagamento (dias)
+            <input type="number" min="1" name="prazo_dias_credito" value="30" class="campo-valor-curto">
+        </label>
+        <button type="submit" class="btn-outline">Atualizar prazo</button>
+    </form>
+    </div>
+    <p style="color:var(--cor-texto-suave); font-size:0.85rem; margin-top:8px;">Quantos dias esse cliente tem pra pagar cada compra a partir da data dela — usado pra calcular se uma compra já venceu.</p>
+
+    <h3 style="margin-top:28px;">Lançar dívida do caderno</h3>
+    <p style="color:var(--cor-texto-suave); font-size:0.85rem; margin-top:-8px; margin-bottom:12px;">Pra passar pro sistema uma dívida antiga anotada no caderno. Não passa pelo caixa, não mexe no estoque e não depende do limite de crédito. A data é a de quando o cliente ficou devendo — o vencimento é contado a partir dela (mais o prazo de pagamento deste cliente).</p>
+    <form method="post" class="form-linha" data-confirm="Lançar essa dívida no saldo de Ricardo Alves? O saldo devedor aumenta e ela aparece no extrato como dívida do caderno.">
+        <input type="hidden" name="acao" value="lancar_divida_manual">
+        <label>Valor
+            <input type="text" name="valor_divida" class="js-mascara-moeda" placeholder="0,00" required>
+        </label>
+        <label>Data da dívida
+            <input type="date" name="data_divida" required>
+        </label>
+        <label>Descrição (opcional)
+            <input type="text" name="observacao_divida" maxlength="255" placeholder="Ex: blusa e calça — caderno de março">
+        </label>
+        <button type="submit" class="btn" style="align-self:flex-end; margin-bottom:14px;">Lançar dívida</button>
+    </form>
+    
+        </div>
+
+    <div class="card">
+    <h2>Extrato</h2>
+        <p class="alert alert-info">Nenhum movimento de crédito ainda.</p>
+        </div>
+
+</main>
+<nav class="previa-nav" aria-label="Navegação da prévia" style="position:fixed;left:12px;bottom:12px;z-index:9999;display:flex;gap:4px;flex-wrap:wrap;align-items:center;background:#0B0B0D;border:1px solid #E10A0A;border-radius:999px;padding:6px 10px;font:600 13px Manrope,system-ui,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.45);max-width:calc(100vw - 24px)"><a href="./" style="color:#FF3B3B;padding:0 4px;text-decoration:none">PRÉVIA</a><a href="painel.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Painel</a><a href="os.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Oficina</a><a href="os-3.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Uma OS</a><a href="orcamento-3.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Link do cliente</a><a href="caixa.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Caixa</a><a href="loja.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Loja</a></nav>
+
+</body>
+</html>

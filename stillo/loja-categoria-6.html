@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<script src="previa.js"></script><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Loja</title></head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/loja.css">
+    <style>
+        :root {
+            --cor-primaria: #E10A0A;
+            --cor-secundaria: #8E0B0B;
+            --cor-fundo: #0B0B0D;
+            --cor-texto: #F2F2F2;
+        }
+    </style>
+    <link rel="stylesheet" href="assets/css/pwa.css">
+<link rel="apple-touch-icon" href="assets/marca/logo-stillo.png">
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="loja.html" class="site-logo">
+                            <img src="assets/marca/logo-stillo.png" alt="Stillo Reparos Automotivos" onerror="this.remove()">
+                        <span class="site-logo-nome">Stillo Reparos Automotivos</span>
+        </a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="loja.html">Catálogo</a>
+                            <a href="entrar.html">Entrar / Cadastrar</a>
+                    </nav>
+    </div>
+</header>
+
+
+<script src="assets/js/loja.js" defer></script>
+<main class="container">
+    <div class="banner-hero">
+        <h1>Catálogo</h1>
+        <p>Peças, acessórios e serviços para o seu carro, com quem entende de mecânica.</p>
+    </div>
+
+    <div id="banner-oportunidade">
+            </div>
+
+    <form class="busca-catalogo" method="get">
+        <input type="hidden" name="categoria" value="6">        <input type="text" name="busca" placeholder="Buscar produtos..." value="">
+        <button type="submit" aria-label="Buscar">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4a6 6 0 1 0 3.76 10.66l4.79 4.79 1.41-1.41-4.79-4.79A6 6 0 0 0 10 4Zm-4 6a4 4 0 1 1 8 0 4 4 0 0 1-8 0Z"/></svg>
+        </button>
+    </form>
+
+    <div class="catalogo-layout">
+        <aside class="categorias-lateral">
+            <h2>Categorias</h2>
+            <nav>
+                <a href="loja.html" class="">Todas</a>
+                                    <a href="loja-categoria-7.html" class="">
+                        Acessórios                    </a>
+                                    <a href="loja-categoria-6.html" class="ativa">
+                        Elétrica e Baterias                    </a>
+                                    <a href="loja-categoria-2.html" class="">
+                        Freios                    </a>
+                                    <a href="loja-categoria-4.html" class="">
+                        Motor                    </a>
+                                    <a href="loja-categoria-5.html" class="">
+                        Óleos e Filtros                    </a>
+                                    <a href="loja-categoria-1.html" class="">
+                        Serviços                    </a>
+                                    <a href="loja-categoria-3.html" class="">
+                        Suspensão                    </a>
+                            </nav>
+        </aside>
+
+        <div>
+            <div class="categorias">
+                <a href="loja.html" class="categoria-pill">Todas</a>
+                                    <a href="loja-categoria-7.html" class="categoria-pill">
+                        Acessórios                    </a>
+                                    <a href="loja-categoria-6.html" class="categoria-pill ativa">
+                        Elétrica e Baterias                    </a>
+                                    <a href="loja-categoria-2.html" class="categoria-pill">
+                        Freios                    </a>
+                                    <a href="loja-categoria-4.html" class="categoria-pill">
+                        Motor                    </a>
+                                    <a href="loja-categoria-5.html" class="categoria-pill">
+                        Óleos e Filtros                    </a>
+                                    <a href="loja-categoria-1.html" class="categoria-pill">
+                        Serviços                    </a>
+                                    <a href="loja-categoria-3.html" class="categoria-pill">
+                        Suspensão                    </a>
+                            </div>
+
+            
+            <p class="alert alert-info" id="aviso-reservado" hidden>Itens com a tag "Em um carrinho" estão reservados no carrinho de outro cliente, mas ainda não foram pagos — podem voltar a ficar disponíveis a qualquer momento.</p>
+
+            <p class="alert alert-oportunidade" id="aviso-voltou-geral" hidden><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2Z"/></svg> Produto(s) que estavam no carrinho de outro cliente voltaram pra loja — garanta o seu antes que acabe!</p>
+
+            <div class="product-grid" id="grade-produtos">
+                                                <a href="produto-9.html" class="product-card" data-id-produto="9">
+                                        <div class="card-acoes">
+                        <button type="button" class="botao-acao favoritar" data-id-produto="9" aria-label="Adicionar aos favoritos">
+                            <svg class="icon-coracao" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.1C.3 8.9 1.5 5 5 4c2.4-.7 4.8.3 6.2 2.3L12 7.6l.8-1.3C14.2 4.3 16.6 3.3 19 4c3.5 1 4.7 4.9 3 7.9-2.5 4.5-10 9.1-10 9.1Z"/></svg>
+                        </button>
+                        <button type="button" class="botao-acao compartilhar" data-whatsapp-link="https://api.whatsapp.com/send?text=%F0%9F%9B%8D%EF%B8%8F+%2ABateria+60Ah%2A%0AR%24+549%2C90%0A%0Ahttp%3A%2F%2F127.0.0.1%3A8099%2Floja%2Fproduto.php%3Fid%3D9" aria-label="Compartilhar no WhatsApp">
+                            <svg class="icon-whatsapp" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.64-1.03-5.12-2.9-6.98A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.19 0 4.25.85 5.8 2.4a8.2 8.2 0 0 1 2.4 5.83c0 4.54-3.7 8.23-8.24 8.23a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23h.04Zm-4.6 4.2c-.16 0-.42.06-.64.31-.22.25-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.7 4.2 3.68 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.77.96-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.44-1.34-1.68-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.35-.76-1.85-.2-.48-.4-.42-.55-.42Z"/></svg>
+                        </button>
+                    </div>
+                    <div class="card-media">
+                                                    <img src="assets/produto-indisponivel.svg" alt="Produto sem foto">
+                                            </div>
+                    <div class="nome">Bateria 60Ah</div>
+                    <div class="price">R$ 549,90</div>
+                                            <div class="disponibilidade card disponibilidade-baixa">2 disponíveis</div>
+                                    </a>
+                                            </div>
+
+                    </div>
+    </div>
+
+<script>
+(function () {
+    let ultimaChecagem = "2026-11-02 19:42:51";
+    const categoriaAtual = 6;
+    let avisoTimeout = null;
+
+    function escaparHtml(texto) {
+        const div = document.createElement('div');
+        div.textContent = texto;
+        return div.innerHTML;
+    }
+
+    function criarCardProduto(produto) {
+        const precoFormatado = produto.preco_base.toFixed(2).replace('.', ',');
+        let mediaHtml = '';
+        if (produto.fotos.length > 1) {
+            const imgs = produto.fotos.map(function (f) { return '<img src="/' + escaparHtml(f) + '" alt="' + escaparHtml(produto.nome) + '">'; }).join('');
+            const dots = produto.fotos.map(function (f, i) { return '<button type="button" class="dot' + (i === 0 ? ' ativo' : '') + '" data-index="' + i + '"></button>'; }).join('');
+            mediaHtml = '<div class="carousel" data-carousel data-carousel-auto="2000"><div class="carousel-track">' + imgs + '</div><div class="carousel-dots">' + dots + '</div></div>';
+        } else if (produto.fotos.length === 1) {
+            mediaHtml = '<img src="/' + escaparHtml(produto.fotos[0]) + '" alt="' + escaparHtml(produto.nome) + '">';
+        } else {
+            mediaHtml = '<img src="assets/produto-indisponivel.svg" alt="Produto sem foto">';
+        }
+
+        const a = document.createElement('a');
+        a.href = '/loja/produto.php?id=' + produto.id_produto;
+        a.className = 'product-card voltou';
+        a.dataset.idProduto = String(produto.id_produto);
+        const dispClasse = produto.disponivel <= 3 ? ' disponibilidade-baixa' : '';
+        const dispTexto = produto.disponivel + (produto.disponivel === 1 ? ' disponível' : ' disponíveis');
+        const textoWhatsapp = '🛍️ *' + produto.nome + '*\nR$ ' + precoFormatado + '\n\n' + window.location.origin + '/loja/produto.php?id=' + produto.id_produto;
+        const linkWhatsapp = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(textoWhatsapp);
+        a.innerHTML =
+            '<span class="tag-oportunidade"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2Z"/></svg> Nova oportunidade</span>' +
+            '<div class="card-acoes">' +
+                '<button type="button" class="botao-acao favoritar" data-id-produto="' + produto.id_produto + '" aria-label="Adicionar aos favoritos"><svg class="icon-coracao" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.1C.3 8.9 1.5 5 5 4c2.4-.7 4.8.3 6.2 2.3L12 7.6l.8-1.3C14.2 4.3 16.6 3.3 19 4c3.5 1 4.7 4.9 3 7.9-2.5 4.5-10 9.1-10 9.1Z"/></svg></button>' +
+                '<button type="button" class="botao-acao compartilhar" data-whatsapp-link="' + escaparHtml(linkWhatsapp) + '" aria-label="Compartilhar no WhatsApp"><svg class="icon-whatsapp" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.64-1.03-5.12-2.9-6.98A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.19 0 4.25.85 5.8 2.4a8.2 8.2 0 0 1 2.4 5.83c0 4.54-3.7 8.23-8.24 8.23a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23h.04Zm-4.6 4.2c-.16 0-.42.06-.64.31-.22.25-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.7 4.2 3.68 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.77.96-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.44-1.34-1.68-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.35-.76-1.85-.2-.48-.4-.42-.55-.42Z"/></svg></button>' +
+            '</div>' +
+            '<div class="card-media">' + mediaHtml + '</div>' +
+            '<div class="nome">' + escaparHtml(produto.nome) + '</div>' +
+            '<div class="price">R$ ' + precoFormatado + '</div>' +
+            '<div class="disponibilidade card' + dispClasse + '">' + dispTexto + '</div>';
+        return a;
+    }
+
+    // Corrige o estado de UM cartão pra bater com a disponibilidade real, sempre —
+    // nunca fica "meio atualizado". Chamado em toda checagem, pra todo cartão que
+    // já está na tela, então um cartão nunca fica preso mostrando "em um carrinho"
+    // depois de já ter sido liberado (nem o contrário, se alguém acabou de
+    // reservar o que restava). É essa reafirmação total, e não um "avisa só o que
+    // mudou", que garante 100% de acerto mesmo se uma rodada de poll falhar.
+    function sincronizarCard(card, disponivel, estoqueGerenciado) {
+        if (estoqueGerenciado === 0) { return; }
+        const reservado = disponivel <= 0;
+        card.classList.toggle('reservado', reservado);
+
+        let tagReservado = card.querySelector('.tag-reservado');
+        if (reservado) {
+            // Alguém já colocou de novo no carrinho antes da pessoa aproveitar —
+            // "Em um carrinho" manda mais que "Nova oportunidade" agora, então a
+            // festa dourada sai e a tag cinza toma o lugar dela.
+            card.classList.remove('voltou');
+            const tagOportunidade = card.querySelector('.tag-oportunidade');
+            if (tagOportunidade) { tagOportunidade.remove(); }
+            if (!tagReservado) {
+                tagReservado = document.createElement('span');
+                tagReservado.className = 'tag-reservado';
+                tagReservado.textContent = 'Em um carrinho';
+                card.prepend(tagReservado);
+            }
+        } else if (tagReservado) {
+            tagReservado.remove();
+        }
+
+        const dispEl = card.querySelector('.disponibilidade.card');
+        if (dispEl) {
+            if (reservado) {
+                dispEl.className = 'disponibilidade card disponibilidade-baixa';
+                dispEl.textContent = 'Aguardando pagamento de outro cliente';
+            } else {
+                dispEl.className = 'disponibilidade card' + (disponivel <= 3 ? ' disponibilidade-baixa' : '');
+                dispEl.textContent = disponivel + (disponivel === 1 ? ' disponível' : ' disponíveis');
+            }
+        }
+    }
+
+    let popupTimeout = null;
+    function mostrarPopupOportunidade(produto) {
+        let popup = document.getElementById('toast-oportunidade');
+        if (popup) { popup.remove(); }
+
+        popup = document.createElement('div');
+        popup.className = 'toast-oportunidade';
+        popup.id = 'toast-oportunidade';
+        const foto = produto.fotos && produto.fotos.length ? '/' + produto.fotos[0] : '';
+        popup.innerHTML =
+            '<a href="/loja/produto.php?id=' + produto.id_produto + '" class="toast-conteudo">' +
+                (foto ? '<img src="' + escaparHtml(foto) + '" class="toast-foto" alt="">' : '') +
+                '<span class="toast-texto"><strong>' + escaparHtml(produto.nome) + '</strong><span>Voltou pra loja — já disponível!</span></span>' +
+            '</a>' +
+            '<button type="button" class="toast-fechar" aria-label="Fechar aviso">&times;</button>';
+
+        document.body.appendChild(popup);
+        popup.querySelector('.toast-fechar').addEventListener('click', function () {
+            clearTimeout(popupTimeout);
+            popup.remove();
+        });
+
+        clearTimeout(popupTimeout);
+        popupTimeout = setTimeout(function () { popup.remove(); }, 5000);
+    }
+
+    function verificarNovidades() {
+        const grade = document.getElementById('grade-produtos');
+        const idsVisiveis = Array.from(grade.querySelectorAll('[data-id-produto]')).map(function (el) { return el.dataset.idProduto; });
+        const params = new URLSearchParams({ desde: ultimaChecagem, categoria: categoriaAtual, ids: idsVisiveis.join(',') });
+
+        fetch('/loja/ajax/verificar_novidades.php?' + params.toString())
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+                if (!data.success) { return; }
+                ultimaChecagem = data.agora;
+
+                // 1) Resincroniza TODO cartão visível com a disponibilidade real —
+                // independe de ter mudado ou não desde a última rodada.
+                (data.status || []).forEach(function (s) {
+                    const card = grade.querySelector('[data-id-produto="' + s.id_produto + '"]');
+                    if (card) { sincronizarCard(card, s.disponivel, s.estoque_gerenciado); }
+                });
+
+                // 2) Camada extra só pra celebrar quem voltou AGORA: borda dourada,
+                // tag e um popup rápido com um dos itens.
+                if (data.produtos.length > 0) {
+                    data.produtos.forEach(function (produto) {
+                        const existente = grade.querySelector('[data-id-produto="' + produto.id_produto + '"]');
+                        if (existente) {
+                            existente.classList.add('voltou');
+                            if (!existente.querySelector('.tag-oportunidade')) {
+                                const tag = document.createElement('span');
+                                tag.className = 'tag-oportunidade';
+                                tag.innerHTML = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2Z"/></svg> Nova oportunidade';
+                                existente.prepend(tag);
+                            }
+                        } else {
+                            const novoCard = criarCardProduto(produto);
+                            grade.prepend(novoCard);
+                            iniciarCarrosseis(novoCard);
+                        }
+                    });
+
+                    mostrarPopupOportunidade(data.produtos[0]);
+                }
+
+                // 3) Os avisos no topo da página (explicando "Em um carrinho" e
+                // "voltou pra loja") têm que refletir a tela agora, não o que
+                // era verdade quando a página carregou — senão ficam presos
+                // avisando algo que já não é mais real.
+                atualizarAvisosGerais(grade);
+            })
+            .catch(function () {});
+    }
+
+    function atualizarAvisosGerais(grade) {
+        const avisoReservado = document.getElementById('aviso-reservado');
+        if (avisoReservado) {
+            avisoReservado.hidden = grade.querySelector('.product-card.reservado') === null;
+        }
+        const avisoVoltou = document.getElementById('aviso-voltou-geral');
+        if (avisoVoltou) {
+            avisoVoltou.hidden = grade.querySelector('.product-card.voltou') === null;
+        }
+    }
+
+    setInterval(verificarNovidades, 5000);
+
+    // Delegação de evento — funciona tanto pros cartões já renderizados pelo PHP
+    // quanto pros injetados depois pelo poll de novidades.
+    document.getElementById('grade-produtos').addEventListener('click', function (e) {
+        const btnFav = e.target.closest('.favoritar');
+        if (btnFav) {
+            e.preventDefault();
+            e.stopPropagation();
+            fetch('/loja/ajax/favoritar.php', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                body: 'id_produto=' + btnFav.dataset.idProduto
+            }).then(function (r) { return r.json(); }).then(function (data) {
+                if (!data.success) {
+                    if (data.message) { alert(data.message); }
+                    if (!false) { window.location.href = '/loja/cadastro.php'; }
+                    return;
+                }
+                btnFav.classList.toggle('ativo', data.favoritado);
+                btnFav.setAttribute('aria-label', data.favoritado ? 'Remover dos favoritos' : 'Adicionar aos favoritos');
+            }).catch(function () {});
+            return;
+        }
+
+        const btnShare = e.target.closest('.compartilhar');
+        if (btnShare) {
+            e.preventDefault();
+            e.stopPropagation();
+            window.open(btnShare.dataset.whatsappLink, '_blank', 'noopener');
+        }
+    });
+})();
+</script>
+</main>
+<footer class="site-footer">
+        <div class="footer-contato">
+        <div class="container footer-contato-grid">
+                        <div><span class="rotulo">Endereço</span><span>Rua Olindo Periolo, 1472 - Pacaembu, Cascavel/PR - CEP 85816-330</span></div>
+                                    <div><span class="rotulo">WhatsApp</span><span>+55 (45) 99818-5568</span></div>
+                                                <div><span class="rotulo">Horário</span><span>Segunda a sexta, das 8h às 17h30</span></div>
+                    </div>
+    </div>
+        <div class="footer-final">
+        <div class="container footer-final-inner">
+            <span class="footer-logo">Stillo Reparos Automotivos</span>
+            <span>© 2026 Stillo Reparos Automotivos. Todos os direitos reservados.</span>
+            <span>Desenvolvido por <a href="https://gimfreires.tech" target="_blank" rel="noopener">gimfreires.tech</a></span>
+        </div>
+    </div>
+</footer>
+
+<a class="whatsapp-flutuante" href="https://wa.me/5545998185568" target="_blank" rel="noopener" aria-label="Falar no WhatsApp com a loja">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.64-1.03-5.12-2.9-6.98A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.19 0 4.25.85 5.8 2.4a8.2 8.2 0 0 1 2.4 5.83c0 4.54-3.7 8.23-8.24 8.23a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23h.04Zm-4.6 4.2c-.16 0-.42.06-.64.31-.22.25-.85.83-.85 2.02s.87 2.35.99 2.51c.12.16 1.7 2.7 4.2 3.68 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.77.96-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.44-1.34-1.68-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.35-.76-1.85-.2-.48-.4-.42-.55-.42Z"/></svg>
+</a>
+<nav class="previa-nav" aria-label="Navegação da prévia" style="position:fixed;left:12px;bottom:12px;z-index:9999;display:flex;gap:4px;flex-wrap:wrap;align-items:center;background:#0B0B0D;border:1px solid #E10A0A;border-radius:999px;padding:6px 10px;font:600 13px Manrope,system-ui,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.45);max-width:calc(100vw - 24px)"><a href="./" style="color:#FF3B3B;padding:0 4px;text-decoration:none">PRÉVIA</a><a href="painel.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Painel</a><a href="os.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Oficina</a><a href="os-3.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Uma OS</a><a href="orcamento-3.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Link do cliente</a><a href="caixa.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Caixa</a><a href="loja.html" style="color:#F2F2F2;text-decoration:none;padding:4px 8px">Loja</a></nav>
+
+</body>
+</html>
