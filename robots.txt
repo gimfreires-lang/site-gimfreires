@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+# Telas de demonstração da área da equipe (não precisam aparecer no Google)
+Disallow: /explosom/painel
+Disallow: /explosom/login.html
+Disallow: /explosom/entrar.html
+
+Sitemap: https://gimfreires.tech/sitemap.xml
