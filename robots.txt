@@ -4,5 +4,6 @@ Allow: /
 Disallow: /explosom/painel
 Disallow: /explosom/login.html
 Disallow: /explosom/entrar.html
+Disallow: /kelly/painel/
 
 Sitemap: https://gimfreires.tech/sitemap.xml
