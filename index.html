@@ -180,6 +180,8 @@
   .projeto-rodape p { margin: 0; max-width: 60ch; color: #DCE2EE; }
   .projeto .botao-principal { background: var(--etiqueta); color: var(--tinta); border-color: var(--etiqueta); }
   .projeto .botao-principal:hover { background: #ffdc66; }
+  .projeto .botao-secundario { color: var(--papel); border-color: #B9C2D6; }
+  .projeto .botao-secundario:hover { background: rgba(255,255,255,.08); }
   @media (max-width: 860px) {
     .projeto-grade { grid-template-columns: 1fr 1fr; }
     .projeto-grade figure:first-child { grid-column: 1 / -1; }
@@ -381,6 +383,36 @@
       <div class="projeto-rodape">
         <p>Adaptado ao ramo: carro cadastrado pela placa (antiga ou Mercosul), etapas da OS do orçamento à entrega, link de acompanhamento para o cliente, OS impressa e loja de peças com a marca da oficina.</p>
         <a class="botao botao-principal" href="stillo/">Ver a prévia do sistema</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="projeto projeto-explosom" id="kelly" aria-labelledby="titulo-kelly">
+    <div class="container">
+      <h2 id="titulo-kelly">Kelly Terapeuta Sensorial</h2>
+      <p class="intro">Massagem sensorial em Cascavel, com atendimento para homens, mulheres e casais. O cliente escolhe a experiência, vê o valor e reserva o horário pelo site, sem precisar chamar no direct. No painel, a Kelly acompanha a agenda, os clientes fiéis, o caixa e o faturamento do mês.</p>
+
+      <div class="projeto-grade">
+        <figure>
+          <img src="img/kelly-desktop.webp" width="1200" height="833" loading="lazy" alt="Página inicial do site da Kelly Terapeuta Sensorial no computador, em vinho e dourado, com o botão para agendar.">
+          <figcaption>O site no computador</figcaption>
+        </figure>
+        <figure>
+          <img src="img/kelly-celular.webp" width="420" height="862" loading="lazy" alt="Lista de experiências do site da Kelly no celular, com preço e duração de cada sessão.">
+          <figcaption>As experiências no celular</figcaption>
+        </figure>
+        <figure>
+          <img src="img/kelly-agendamento.webp" width="420" height="862" loading="lazy" alt="Janela de agendamento no celular, com a data, a experiência escolhida e o horário.">
+          <figcaption>O agendamento no celular</figcaption>
+        </figure>
+      </div>
+
+      <div class="projeto-rodape">
+        <p>Adaptado ao ramo: a identidade vinho e dourado do Instagram dela, cardápio de experiências com preço e duração, aviso de atendimento só para maiores de 18 anos, bloqueio de horários e clube de clientes fiéis. Junto vai uma apresentação em slides para mostrar o projeto.</p>
+        <div class="acoes">
+          <a class="botao botao-secundario" href="kelly/apresentacao/">Ver a apresentação</a>
+          <a class="botao botao-principal" href="kelly/">Ver a prévia do sistema</a>
+        </div>
       </div>
     </div>
   </section>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kelly | Apresentação do projeto · gimfreires.tech</title>
+<link rel="icon" href="../assets/logo-kelly.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Great+Vibes&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --wine: #6b0f24; --wine-deep: #3a0712; --black: #14070b; --surface: #1f0b11;
+    --gold: #d8b26e; --gold-soft: #f0d9a8; --text: #f3e9e4; --muted: #c4aeb2;
+    --line: rgba(216, 178, 110, .25);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    font-family: 'Poppins', sans-serif; color: var(--text); overflow: hidden;
+    background: radial-gradient(ellipse at 15% 0%, rgba(216,178,110,.10), transparent 50%),
+                radial-gradient(ellipse at 90% 100%, rgba(140,20,48,.45), transparent 55%),
+                linear-gradient(160deg, #3a0712, #14070b 60%);
+  }
+  .deck { position: relative; height: 100%; width: 100%; }
+  .slide {
+    position: absolute; inset: 0; padding: 64px 7vw 120px;
+    display: flex; flex-direction: column; justify-content: center;
+    opacity: 0; visibility: hidden; transform: translateX(40px);
+    transition: opacity .5s ease, transform .5s ease, visibility .5s;
+    overflow-y: auto;
+  }
+  .slide.active { opacity: 1; visibility: visible; transform: none; }
+  .slide.prev { transform: translateX(-40px); }
+
+  .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  h1 { font-family: 'Playfair Display', serif; font-weight: 500; font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.1; }
+  h2 { font-family: 'Playfair Display', serif; font-weight: 500; font-size: clamp(1.7rem, 3.4vw, 2.7rem); line-height: 1.15; margin-bottom: 18px; }
+  h1 em, h2 em { font-family: 'Great Vibes', cursive; font-style: normal; color: var(--gold); font-weight: 400; font-size: 1.25em; }
+  p.lead { color: var(--muted); font-size: clamp(1rem, 1.5vw, 1.2rem); max-width: 720px; line-height: 1.6; }
+
+  .cover { align-items: center; text-align: center; }
+  .cover img { width: min(380px, 70vw); margin-bottom: 28px; }
+  .cover p.lead { margin: 18px auto 0; }
+
+  .split { display: grid; grid-template-columns: 1fr 1.25fr; gap: 4vw; align-items: center; }
+  .shot { border-radius: 16px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 30px 70px rgba(0,0,0,.55); background: var(--surface); }
+  .shot img { display: block; width: 100%; height: auto; }
+  .shot-phone { max-width: 260px; margin: 0 auto; border-radius: 28px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 26px; }
+  .card { background: rgba(58,7,18,.55); border: 1px solid var(--line); border-radius: 18px; padding: 22px; }
+  .card h3 { font-family: 'Playfair Display', serif; font-weight: 500; color: var(--gold-soft); font-size: 1.15rem; margin-bottom: 6px; }
+  .card p { color: var(--muted); font-size: .92rem; line-height: 1.55; }
+  .card .big { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--gold); line-height: 1; margin-bottom: 6px; }
+
+  ul.list { list-style: none; display: grid; gap: 12px; margin-top: 18px; }
+  ul.list li { display: flex; gap: 12px; color: var(--text); line-height: 1.5; }
+  ul.list li::before { content: ""; flex: 0 0 8px; height: 8px; margin-top: 9px; border-radius: 50%; background: var(--gold); }
+  ul.list li span { color: var(--muted); }
+
+  .swatches { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+  .sw { display: flex; align-items: center; gap: 8px; font-size: .85rem; color: var(--muted); }
+  .sw i { width: 28px; height: 28px; border-radius: 8px; border: 1px solid var(--line); display: inline-block; }
+
+  table.prices { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: .98rem; }
+  table.prices td { padding: 12px 6px; border-bottom: 1px solid var(--line); }
+  table.prices td:last-child { text-align: right; font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.15rem; white-space: nowrap; }
+  table.prices small { color: var(--muted); }
+
+  .steps { counter-reset: s; display: grid; gap: 14px; margin-top: 18px; }
+  .steps li { list-style: none; counter-increment: s; display: flex; gap: 14px; align-items: flex-start; }
+  .steps li::before { content: counter(s); flex: 0 0 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(135deg, #e7c78a, #b88a45); color: #2a0a12; font-weight: 600; }
+  .steps li div { padding-top: 5px; }
+  .steps li span { color: var(--muted); display: block; font-size: .92rem; }
+
+  /* Navegação */
+  .nav {
+    position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%);
+    display: flex; align-items: center; gap: 14px; z-index: 10;
+    background: rgba(20,7,11,.82); border: 1px solid var(--line); border-radius: 999px; padding: 8px 10px;
+    backdrop-filter: blur(8px);
+  }
+  .nav button {
+    border: 1px solid var(--line); background: transparent; color: var(--gold-soft);
+    height: 44px; padding: 0 18px; border-radius: 999px; font: 500 .9rem 'Poppins', sans-serif; cursor: pointer;
+    transition: background .2s, color .2s, opacity .2s;
+  }
+  .nav button:hover:not(:disabled) { background: rgba(216,178,110,.12); }
+  .nav button { white-space: nowrap; }
+  .nav button.primary, .nav button.primary:hover:not(:disabled) { background: linear-gradient(135deg, #e7c78a, #b88a45); color: #2a0a12; border: none; }
+  .nav button.primary:hover:not(:disabled) { filter: brightness(1.08); }
+  .nav button:disabled { opacity: .35; cursor: default; }
+  .dots { display: flex; gap: 7px; }
+  .dots button { width: 10px; height: 10px; padding: 0; border-radius: 50%; border: none; background: rgba(216,178,110,.3); }
+  .dots button.on { background: var(--gold); width: 26px; border-radius: 6px; }
+  .counter { position: fixed; top: 22px; right: 28px; color: var(--muted); font-size: .85rem; letter-spacing: .1em; z-index: 10; }
+  .brand { position: fixed; top: 16px; left: 28px; z-index: 10; font-family: 'Great Vibes', cursive; color: var(--gold); font-size: 1.8rem; }
+  .progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--gold); transition: width .4s ease; z-index: 11; }
+  .fs { position: fixed; top: 16px; right: 90px; z-index: 10; background: transparent; border: 1px solid var(--line); color: var(--gold-soft); border-radius: 999px; padding: 6px 14px; font: .8rem 'Poppins'; cursor: pointer; }
+
+  @media (max-width: 860px) {
+    .split { grid-template-columns: 1fr; }
+    .slide { padding: 70px 22px 120px; justify-content: flex-start; }
+    .nav { gap: 8px; bottom: 16px; }
+    .nav button { padding: 0 14px; }
+    .dots { display: none; }
+    .fs { display: none; }
+  }
+  @media (max-width: 600px) { .brand, .counter { display: none; } }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="brand">Kelly</div>
+<button class="fs" id="fsBtn" type="button">Tela cheia</button>
+<div class="counter" id="counter"></div>
+
+<main class="deck" id="deck">
+
+  <!-- 1 -->
+  <section class="slide cover">
+    <img src="img/logo-kelly.png" alt="Logo Kelly Terapeuta Sensorial" />
+    <p class="eyebrow">Projeto digital</p>
+    <h1>Site &amp; agendamento <em>online</em></h1>
+    <p class="lead">Uma presença digital à altura da experiência que você entrega: elegante, discreta e pronta para receber agendamentos 24 horas por dia.</p>
+  </section>
+
+  <!-- 2 -->
+  <section class="slide">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Análise da marca</p>
+        <h2>Quem é a <em>Kelly</em></h2>
+        <ul class="list">
+          <li>Massagem sensorial em Cascavel - PR, atendimento presencial</li>
+          <li>Público masculino, feminino e casais</li>
+          <li>Valores: <span>discrição, conforto e bem-estar</span></li>
+          <li>Posicionamento: <span>"Corpo &amp; Energia em harmonia"</span></li>
+        </ul>
+        <div class="swatches">
+          <span class="sw"><i style="background:#6b0f24"></i> Vinho</span>
+          <span class="sw"><i style="background:#14070b"></i> Preto</span>
+          <span class="sw"><i style="background:#d8b26e"></i> Dourado</span>
+          <span class="sw"><i style="background:#f3e9e4"></i> Pérola</span>
+        </div>
+      </div>
+      <div class="grid" style="margin-top:0">
+        <div class="card"><div class="big">5,2 mil</div><p>seguidores no Instagram, com perfil verificado</p></div>
+        <div class="card"><div class="big">144</div><p>publicações com identidade visual consistente</p></div>
+        <div class="card"><div class="big">6</div><p>experiências no cardápio, de R$ 400 a R$ 700</p></div>
+        <div class="card"><div class="big">3</div><p>canais: Instagram, TikTok e WhatsApp</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="slide">
+    <p class="eyebrow">O desafio</p>
+    <h2>Hoje, todo agendamento passa <em>pelas suas mãos</em></h2>
+    <div class="grid">
+      <div class="card"><h3>Direct e WhatsApp</h3><p>Cada horário exige várias mensagens de ida e volta, inclusive fora do expediente.</p></div>
+      <div class="card"><h3>Horários perdidos</h3><p>Quem chama à noite ou no fim de semana pode desistir antes da resposta.</p></div>
+      <div class="card"><h3>Sem visão do mês</h3><p>Faturamento, clientes recorrentes e despesas ficam espalhados.</p></div>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="slide">
+    <div class="split">
+      <div>
+        <p class="eyebrow">A solução</p>
+        <h2>Um site com a <em>sua</em> identidade</h2>
+        <p class="lead">Vinho, dourado e a sua letra cursiva, as mesmas cores do seu Instagram. Funciona no computador e no celular, e o cliente agenda sem precisar chamar ninguém.</p>
+      </div>
+      <div class="shot"><img src="img/site-hero.jpg" alt="Página inicial do site" /></div>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="slide">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Experiências • 1 hora</p>
+        <h2>Cardápio <em>claro</em></h2>
+        <table class="prices">
+          <tr><td>Nuru</td><td>R$ 500</td></tr>
+          <tr><td>Tântrica</td><td>R$ 500</td></tr>
+          <tr><td>Tântrica com Nuru</td><td>R$ 500</td></tr>
+          <tr><td>Nuru Mútua <small>• compartilhada</small></td><td>R$ 700</td></tr>
+          <tr><td>Relaxante com Lingan/Yoni</td><td>R$ 400</td></tr>
+          <tr><td>Terapêutica com Lingan/Yoni</td><td>R$ 400</td></tr>
+        </table>
+      </div>
+      <div class="shot"><img src="img/site-servicos.jpg" alt="Seção de experiências do site" /></div>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section class="slide">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Agendamento online</p>
+        <h2>Agendar em <em>4 passos</em></h2>
+        <ol class="steps">
+          <li><div>Clica em "Agendar experiência"<span>direto do site ou do link na bio</span></div></li>
+          <li><div>Informa nome e telefone<span>sem cadastro ou senha</span></div></li>
+          <li><div>Escolhe a experiência<span>com valor e duração visíveis</span></div></li>
+          <li><div>Escolhe data e horário livres<span>o horário é reservado na hora</span></div></li>
+        </ol>
+      </div>
+      <div class="shot"><img src="img/site-agendar.jpg" alt="Janela de escolha da experiência" /></div>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section class="slide">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Painel administrativo</p>
+        <h2>Seu negócio <em>em um só lugar</em></h2>
+        <ul class="list">
+          <li>Agenda: <span>ver, bloquear e liberar horários</span></li>
+          <li>Clientes e Clube Kelly: <span>histórico e clientes fiéis</span></li>
+          <li>PDV: <span>vendas de pacotes e extras</span></li>
+          <li>Contas a pagar: <span>despesas do mês</span></li>
+          <li>Relatórios: <span>faturamento e atendimentos por período</span></li>
+        </ul>
+      </div>
+      <div class="shot"><img src="img/admin.jpg" alt="Painel administrativo" /></div>
+    </div>
+  </section>
+
+  <!-- 8 -->
+  <section class="slide">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Benefícios</p>
+        <h2>O que <em>muda</em> para você</h2>
+        <div class="grid">
+          <div class="card"><h3>Agenda 24h</h3><p>Clientes reservam a qualquer hora, inclusive enquanto você atende.</p></div>
+          <div class="card"><h3>Discrição</h3><p>O site não expõe o endereço. Os detalhes você combina só com quem agendou.</p></div>
+          <div class="card"><h3>Menos mensagens</h3><p>O WhatsApp fica para tirar dúvidas, não para encaixar horário.</p></div>
+          <div class="card"><h3>Controle</h3><p>Faturamento e despesas do mês em poucos cliques.</p></div>
+        </div>
+      </div>
+      <div class="shot shot-phone"><img src="img/site-mobile.jpg" alt="Site no celular" /></div>
+    </div>
+  </section>
+
+  <!-- 9 -->
+  <section class="slide">
+    <p class="eyebrow">Próximos passos</p>
+    <h2>Para colocar <em>no ar</em></h2>
+    <ol class="steps">
+      <li><div>Aprovar textos, preços e horário de atendimento<span>tudo editável pelo painel</span></div></li>
+      <li><div>Enviar fotos em alta do ambiente e suas<span>para a seção "Sobre" e o card de agendamento</span></div></li>
+      <li><div>Criar o banco de dados e o login do painel<span>Firebase próprio da Kelly</span></div></li>
+      <li><div>Publicar e trocar o link da bio<span>Instagram, TikTok e Linktree apontando para o site</span></div></li>
+    </ol>
+  </section>
+
+  <!-- 10 -->
+  <section class="slide cover">
+    <img src="img/logo-kelly.png" alt="Logo Kelly Terapeuta Sensorial" style="width:min(300px,60vw)" />
+    <h1>Obrigado</h1>
+    <p class="lead">Pronto para transformar cada visita ao perfil em uma experiência agendada.</p>
+  </section>
+
+</main>
+
+<nav class="nav" aria-label="Navegação dos slides">
+  <button type="button" id="prevBtn" aria-label="Slide anterior">← Anterior</button>
+  <div class="dots" id="dots"></div>
+  <button type="button" id="nextBtn" class="primary" aria-label="Próximo slide">Próximo →</button>
+</nav>
+
+<script>
+  const slides = [...document.querySelectorAll('.slide')];
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const dots = document.getElementById('dots');
+  const counter = document.getElementById('counter');
+  const progress = document.getElementById('progress');
+  let i = 0;
+
+  slides.forEach((_, n) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Ir para o slide ' + (n + 1));
+    b.addEventListener('click', () => go(n));
+    dots.appendChild(b);
+  });
+
+  function go(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((s, k) => {
+      s.classList.toggle('active', k === i);
+      s.classList.toggle('prev', k < i);
+    });
+    [...dots.children].forEach((d, k) => d.classList.toggle('on', k === i));
+    prevBtn.disabled = i === 0;
+    nextBtn.textContent = i === slides.length - 1 ? 'Recomeçar ↺' : 'Próximo →';
+    counter.textContent = String(i + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+    progress.style.width = ((i + 1) / slides.length * 100) + '%';
+    try { history.replaceState(null, '', '#' + (i + 1)); } catch (e) {}
+  }
+
+  prevBtn.addEventListener('click', () => go(i - 1));
+  nextBtn.addEventListener('click', () => go(i === slides.length - 1 ? 0 : i + 1));
+  document.addEventListener('keydown', e => {
+    if (['ArrowRight', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); go(i + 1); }
+    if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); go(i - 1); }
+    if (e.key === 'Home') go(0);
+    if (e.key === 'End') go(slides.length - 1);
+  });
+  let x0 = null;
+  document.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+  document.addEventListener('touchend', e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 50) go(i + (dx < 0 ? 1 : -1));
+    x0 = null;
+  });
+  document.getElementById('fsBtn').addEventListener('click', () => {
+    if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+    else document.exitFullscreen?.();
+  });
+
+  go((parseInt(location.hash.slice(1), 10) || 1) - 1);
+</script>
+<nav class="previa-nav" aria-label="Navegação da prévia" style="position:fixed;left:50%;top:12px;transform:translateX(-50%);z-index:99999;display:flex;gap:4px;flex-wrap:wrap;align-items:center;background:#14070b;border:1px solid #d8b26e;border-radius:999px;padding:6px 10px;font:600 13px Poppins,system-ui,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.45);max-width:calc(100vw - 24px)"><a href="../" style="color:#d8b26e;padding:0 4px;text-decoration:none">PRÉVIA</a><a href="../site/" style="color:#f3e9e4;text-decoration:none;padding:4px 8px">Site</a><a href="../painel/" style="color:#f3e9e4;text-decoration:none;padding:4px 8px">Painel</a><a href="../apresentacao/" style="color:#d8b26e;text-decoration:none;padding:4px 8px" aria-current="page">Apresentação</a></nav>
+</body>
+</html>
