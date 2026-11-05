@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="assets/favicon.png">
+<title>Barbearia Broetto | Prévia do sistema · gimfreires.tech</title>
+<meta name="description" content="Prévia navegável do sistema da Barbearia Broetto: site com agendamento online, painel com agenda, clientes, caixa e relatórios, e apresentação do projeto. Feito por gimfreires.tech, Cascavel - PR.">
+<link rel="canonical" href="https://gimfreires.tech/broetto/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="gimfreires.tech">
+<meta property="og:title" content="Barbearia Broetto | Prévia do sistema">
+<meta property="og:description" content="Site com agendamento online e painel de gestão da Barbearia Broetto, num sistema só.">
+<meta property="og:url" content="https://gimfreires.tech/broetto/">
+<meta property="og:image" content="https://gimfreires.tech/img/broetto-desktop.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@400;500;600&display=swap">
+<style>
+/* Layout: logo e chamada no topo, três portas de entrada (site, painel, apresentação),
+   o caminho de um agendamento com uma tela para cada etapa, atalhos e notas da prévia. Visual preto e prata, igual ao sistema. */
+:root {
+  --bg: #0b0b0b; --surface: #161616; --line: #2c2c2c;
+  --fg: #ededed; --muted: #a3a3a3; --accent: #c9c9c9; --accent-txt: #e6e6e6; --stone: #a88b6a;
+  --metal: linear-gradient(180deg, #f2f2f2 0%, #c6c6c6 45%, #9a9a9a 100%);
+  --display: 'Cinzel', Georgia, serif;
+  --body: 'Poppins', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: radial-gradient(90% 50% at 50% 0%, #2a241c 0%, var(--bg) 70%) var(--bg); color: var(--fg); font-family: var(--body); line-height: 1.5; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 40px 56px; display: flex; flex-direction: column; gap: 36px; }
+header { display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; }
+header img { width: min(240px, 60vw); height: auto; border-radius: 50%; box-shadow: 0 0 0 1px rgba(230,230,230,.2), 0 0 60px rgba(255,236,200,.12); }
+h1 { font-family: var(--display); font-weight: 700; font-size: clamp(2.1rem, 6vw, 3.4rem); line-height: 1.05; margin: 0; letter-spacing: .02em; text-wrap: balance; }
+h1 span { background: var(--metal); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.lead { color: var(--muted); max-width: 62ch; margin: 0; font-size: 1.05rem; }
+.portas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 760px) { .portas { grid-template-columns: 1fr; } }
+.porta { display: flex; flex-direction: column; gap: 10px; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; color: var(--fg); text-decoration: none; transition: border-color .15s, transform .15s; min-width: 0; }
+.porta:hover, .porta:focus-visible { border-color: var(--accent); transform: translateY(-2px); outline: none; }
+.porta .tag { font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--stone); }
+.porta h2 { font-family: var(--display); font-weight: 700; font-size: 1.7rem; line-height: 1.05; margin: 0; }
+.porta p { margin: 0; color: var(--muted); font-size: .95rem; }
+.porta .ir { margin-top: auto; padding-top: 8px; font-weight: 600; color: var(--accent-txt); }
+.etapas { display: flex; flex-direction: column; gap: 14px; }
+.etapas h3, .novidades h3 { margin: 0; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); text-align: center; font-weight: 600; }
+.linha { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; counter-reset: etapa; }
+@media (max-width: 900px) { .linha { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .linha { grid-template-columns: 1fr; } }
+.linha li { counter-increment: etapa; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.linha li::before { content: counter(etapa); width: 26px; height: 26px; border-radius: 50%; background: var(--metal); color: #0b0b0b; font-weight: 600; font-size: .8rem; display: grid; place-items: center; }
+.linha b { font-size: .98rem; font-weight: 600; }
+.linha span { color: var(--muted); font-size: .85rem; }
+.linha a { color: var(--accent-txt); font-size: .85rem; font-weight: 600; text-decoration: none; }
+.linha a:hover, .linha a:focus-visible { text-decoration: underline; outline: none; }
+.atalhos { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.atalhos a { color: var(--muted); text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; font-size: .9rem; }
+.atalhos a:hover, .atalhos a:focus-visible { border-color: var(--accent); color: var(--fg); outline: none; }
+.novidades { display: flex; flex-direction: column; gap: 14px; }
+.novos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 860px) { .novos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 420px) { .novos { grid-template-columns: 1fr; } }
+.novos a { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; text-decoration: none; color: var(--fg); min-width: 0; }
+.novos a:hover, .novos a:focus-visible { border-color: var(--accent); outline: none; }
+.novos b { color: var(--accent-txt); font-size: .95rem; font-weight: 600; }
+.novos span { color: var(--muted); font-size: .85rem; }
+.notas { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 22px 24px; display: flex; flex-direction: column; gap: 10px; }
+.notas h3 { margin: 0; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.notas ul { margin: 0; padding-left: 1.1em; color: var(--muted); display: flex; flex-direction: column; gap: 6px; }
+.notas b { color: var(--fg); font-weight: 600; }
+@media (prefers-reduced-motion: reduce) { .porta { transition: none; } .porta:hover { transform: none; } }
+.voltar { margin: 0; text-align: center; } .voltar a { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="assets/logo-broetto.png" alt="Barbearia Broetto" width="240" height="240">
+    <h1>Prévia do <span>sistema</span></h1>
+    <p class="lead">Telas reais do sistema da Barbearia Broetto rodando com uma semana de agendamentos de exemplo. Navegue como o cliente que agenda pelo site, como o barbeiro no painel ou pela apresentação do projeto.</p>
+  </header>
+
+  <nav class="portas" aria-label="Partes do sistema">
+    <a class="porta" href="site/">
+      <span class="tag">Para o cliente</span>
+      <h2>Site e agendamento</h2>
+      <p>Serviços com preço e duração, horário de funcionamento, mapa e o agendamento online em poucos cliques.</p>
+      <span class="ir">Abrir o site →</span>
+    </a>
+    <a class="porta" href="painel/">
+      <span class="tag">Para a barbearia</span>
+      <h2>Painel</h2>
+      <p>Agenda do dia, bloqueio de horários, clientes do Clube Broetto, caixa de produtos, contas a pagar e relatórios.</p>
+      <span class="ir">Abrir o painel →</span>
+    </a>
+    <a class="porta" href="apresentacao/">
+      <span class="tag">Para a reunião</span>
+      <h2>Apresentação</h2>
+      <p>Slides com a solução, o site, o agendamento, o painel, a identidade visual e os próximos passos.</p>
+      <span class="ir">Ver a apresentação →</span>
+    </a>
+  </nav>
+
+  <section class="etapas" aria-labelledby="tit-etapas">
+    <h3 id="tit-etapas">Um agendamento do começo ao fim</h3>
+    <ol class="linha">
+      <li><b>Escolhe</b><span>O cliente vê os serviços, valores e duração</span><a href="site/#services">Serviços →</a></li>
+      <li><b>Identifica</b><span>Nome e WhatsApp, sem cadastro ou senha</span><a href="site/#contact">Agendar →</a></li>
+      <li><b>Reserva</b><span>Só aparecem horários livres, sem invadir o almoço</span><a href="site/#contact">Escolher horário →</a></li>
+      <li><b>Aparece na agenda</b><span>O horário entra no painel na hora</span><a href="painel/">Agenda de hoje →</a></li>
+      <li><b>Fecha o mês</b><span>Faturamento por período, serviço e forma de pagamento</span><a href="painel/#reports">Relatórios →</a></li>
+    </ol>
+  </section>
+
+  <div class="atalhos" aria-label="Atalhos">
+    <a href="site/">Página inicial</a>
+    <a href="site/#services">Serviços</a>
+    <a href="site/#info">Horários e contato</a>
+    <a href="painel/">Agenda</a>
+    <a href="painel/#clientes">Clube Broetto</a>
+    <a href="painel/#pdv">Produtos</a>
+    <a href="painel/#contasapagar">Contas a pagar</a>
+    <a href="painel/#reports">Relatórios</a>
+    <a href="painel/#config">Configurações</a>
+    <a href="apresentacao/#7">Horários inteligentes</a>
+    <a href="apresentacao/#13">Próximos passos</a>
+  </div>
+
+  <section class="novidades" aria-labelledby="tit-novo">
+    <h3 id="tit-novo">Feito para barbearia</h3>
+    <div class="novos">
+      <a href="site/"><b>Marca da Broetto</b><span>Preto e prata da logo, em todo o site e no painel</span></a>
+      <a href="site/#contact"><b>Agenda 24 horas</b><span>O cliente marca sem precisar ligar ou chamar no WhatsApp</span></a>
+      <a href="apresentacao/#7"><b>Pausa do almoço</b><span>12h às 13h bloqueado, domingo fechado</span></a>
+      <a href="site/#contact"><b>Reagendamento</b><span>O próprio cliente troca o horário pelo site</span></a>
+      <a href="painel/"><b>Bloqueio de horários</b><span>Folga, feriado ou compromisso em um clique</span></a>
+      <a href="painel/#clientes"><b>Clube Broetto</b><span>Assinantes com plano mensal e pagamentos</span></a>
+      <a href="painel/#pdv"><b>Venda de produtos</b><span>Pomada, óleo e balm vendidos no balcão</span></a>
+      <a href="painel/"><b>Confirmação no WhatsApp</b><span>Mensagem pronta com data, horário e endereço</span></a>
+    </div>
+  </section>
+
+  <section class="notas">
+    <h3>Sobre esta prévia</h3>
+    <ul>
+      <li>Os <b>clientes, agendamentos, vendas e preços dos serviços</b> são de demonstração. Nome, logo, endereço, horários e WhatsApp são os da Broetto.</li>
+      <li>Dá para agendar de verdade no site e ver o horário aparecer no painel. Tudo fica <b>só no seu navegador</b> e some ao fechar a aba (ou no botão "Reiniciar dados").</li>
+      <li>O painel já abre logado. Em "Sair", qualquer e-mail e senha entram de novo. O envio de fotos só funciona no sistema instalado.</li>
+    </ul>
+  </section>
+  <p class="voltar"><a href="/">← Voltar para gimfreires.tech</a></p>
+</div>
+</body>
+</html>

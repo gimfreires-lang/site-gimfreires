@@ -1349,6 +1349,11 @@ window.addEventListener('load', function () {
   }
   setTimeout(function () { var b = document.querySelector('.tab-btn[data-tab="' + aba + '"]'); if (b) b.click(); }, 400);
 });
+/* troca de aba quando só o "#" do endereço muda (ex.: atalhos da prévia) */
+window.addEventListener('hashchange', function () {
+  var aba = (location.hash || '').slice(1) || 'agenda';
+  var b = document.querySelector('.tab-btn[data-tab="' + aba + '"]'); if (b) b.click();
+});
 </script>
 </body>
 

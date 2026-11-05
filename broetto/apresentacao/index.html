@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Barbearia Broetto | Apresentação do projeto · gimfreires.tech</title>
+<meta name="description" content="Apresentação do sistema da Barbearia Broetto: site com agendamento online e painel de gestão. Feito por gimfreires.tech, Cascavel - PR.">
+<link rel="canonical" href="https://gimfreires.tech/broetto/apresentacao/">
+<link rel="icon" href="../assets/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Cinzel:wght@600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --black: #0b0b0b; --surface: #161616; --stone: #a88b6a;
+    --gold: #c9c9c9; --gold-soft: #ededed; --text: #ededed; --muted: #a3a3a3;
+    --line: rgba(220, 220, 220, .18);
+    --metal: linear-gradient(180deg, #f2f2f2 0%, #c6c6c6 45%, #9a9a9a 100%);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    font-family: 'Poppins', sans-serif; color: var(--text); overflow: hidden;
+    background: radial-gradient(ellipse at 85% 0%, rgba(168,139,106,.16), transparent 50%),
+                radial-gradient(ellipse at 0% 100%, rgba(255,255,255,.05), transparent 55%),
+                linear-gradient(160deg, #1c1c1c, #0b0b0b 60%);
+  }
+  .deck { position: relative; height: 100%; width: 100%; }
+  .slide {
+    position: absolute; inset: 0; padding: 64px 7vw 120px;
+    display: flex; flex-direction: column; justify-content: center;
+    opacity: 0; visibility: hidden; transform: translateX(40px);
+    transition: opacity .5s ease, transform .5s ease, visibility .5s;
+    overflow-y: auto;
+  }
+  .slide.active { opacity: 1; visibility: visible; transform: none; }
+  .slide.prev { transform: translateX(-40px); }
+
+  .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--stone); margin-bottom: 14px; }
+  h1 { font-family: 'Cinzel', Georgia, serif; font-weight: 700; letter-spacing: .01em; font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.1; }
+  h2 { font-family: 'Cinzel', Georgia, serif; font-weight: 700; font-size: clamp(1.7rem, 3.4vw, 2.7rem); line-height: 1.15; margin-bottom: 18px; }
+  h1 em, h2 em { font-style: normal; background: var(--metal); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  p.lead { color: var(--muted); font-size: clamp(1rem, 1.5vw, 1.2rem); max-width: 720px; line-height: 1.6; }
+
+  .cover { align-items: center; text-align: center; }
+  .cover img { width: min(340px, 62vw); margin-bottom: 28px; border-radius: 50%; box-shadow: 0 0 0 1px rgba(230,230,230,.2), 0 0 80px rgba(255,236,200,.14); }
+  .cover p.lead { margin: 18px auto 0; }
+
+  .split { display: grid; grid-template-columns: 1fr 1.25fr; gap: 4vw; align-items: center; }
+  .shot { border-radius: 16px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 30px 70px rgba(0,0,0,.55); background: var(--surface); }
+  .shot img { display: block; width: 100%; height: auto; }
+  .shot-phone { max-width: 260px; margin: 0 auto; border-radius: 28px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 26px; }
+  .card { background: rgba(28,28,28,.8); border: 1px solid var(--line); border-radius: 18px; padding: 22px; }
+  .card h3 { font-family: 'Cinzel', Georgia, serif; font-weight: 700; color: var(--gold-soft); font-size: 1.15rem; margin-bottom: 6px; }
+  .card p { color: var(--muted); font-size: .92rem; line-height: 1.55; }
+  .card .big { font-family: 'Cinzel', Georgia, serif; font-size: 2.2rem; color: var(--gold); line-height: 1; margin-bottom: 6px; }
+
+  ul.list { list-style: none; display: grid; gap: 12px; margin-top: 18px; }
+  ul.list li { display: flex; gap: 12px; color: var(--text); line-height: 1.5; }
+  ul.list li::before { content: ""; flex: 0 0 8px; height: 8px; margin-top: 9px; border-radius: 50%; background: var(--gold); }
+  ul.list li span { color: var(--muted); }
+
+  .swatches { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+  .sw { display: flex; align-items: center; gap: 8px; font-size: .85rem; color: var(--muted); }
+  .sw i { width: 28px; height: 28px; border-radius: 8px; border: 1px solid var(--line); display: inline-block; }
+
+  table.prices { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: .98rem; }
+  table.prices td { padding: 12px 6px; border-bottom: 1px solid var(--line); }
+  table.prices td:last-child { text-align: right; font-family: 'Cinzel', Georgia, serif; color: var(--gold); font-size: 1.15rem; white-space: nowrap; }
+  table.prices small { color: var(--muted); }
+
+  .steps { counter-reset: s; display: grid; gap: 14px; margin-top: 18px; }
+  .steps li { list-style: none; counter-increment: s; display: flex; gap: 14px; align-items: flex-start; }
+  .steps li::before { content: counter(s); flex: 0 0 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--metal); color: #0b0b0b; font-weight: 600; }
+  .steps li div { padding-top: 5px; }
+  .steps li span { color: var(--muted); display: block; font-size: .92rem; }
+
+  /* Navegação */
+  .nav {
+    position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%);
+    display: flex; align-items: center; gap: 14px; z-index: 10;
+    background: rgba(11,11,11,.85); border: 1px solid var(--line); border-radius: 999px; padding: 8px 10px;
+    backdrop-filter: blur(8px);
+  }
+  .nav button {
+    border: 1px solid var(--line); background: transparent; color: var(--gold-soft);
+    height: 44px; padding: 0 18px; border-radius: 999px; font: 500 .9rem 'Poppins', sans-serif; cursor: pointer;
+    transition: background .2s, color .2s, opacity .2s;
+  }
+  .nav button:hover:not(:disabled) { background: rgba(255,255,255,.08); }
+  .nav button { white-space: nowrap; }
+  .nav button.primary, .nav button.primary:hover:not(:disabled) { background: var(--metal); color: #0b0b0b; border: none; }
+  .nav button.primary:hover:not(:disabled) { filter: brightness(1.08); }
+  .nav button:disabled { opacity: .35; cursor: default; }
+  .dots { display: flex; gap: 7px; }
+  .dots button { width: 10px; height: 10px; padding: 0; border-radius: 50%; border: none; background: rgba(220,220,220,.25); }
+  .dots button.on { background: var(--gold); width: 26px; border-radius: 6px; }
+  .counter { position: fixed; top: 22px; right: 28px; color: var(--muted); font-size: .85rem; letter-spacing: .1em; z-index: 10; }
+  .brand { position: fixed; top: 20px; left: 28px; z-index: 10; font-family: 'Cinzel', Georgia, serif; font-weight: 700; letter-spacing: .14em; color: var(--gold); font-size: 1.05rem; }
+  .progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--metal); transition: width .4s ease; z-index: 11; }
+  .fs { position: fixed; top: 16px; right: 90px; z-index: 10; background: transparent; border: 1px solid var(--line); color: var(--gold-soft); border-radius: 999px; padding: 6px 14px; font: .8rem 'Poppins'; cursor: pointer; }
+
+  @media (max-width: 860px) {
+    .split { grid-template-columns: 1fr; }
+    .slide { padding: 70px 22px 120px; justify-content: flex-start; }
+    .nav { gap: 8px; bottom: 16px; }
+    .nav button { padding: 0 14px; }
+    .dots { display: none; }
+    .fs { display: none; }
+  }
+  @media (max-width: 600px) { .brand, .counter { display: none; } }
+
+  ul.list li { display: block; position: relative; padding-left: 20px; }
+  ul.list li::before { position: absolute; left: 0; top: 0; width: 8px; }
+  .shot img { max-height: 64vh; width: auto; max-width: 100%; margin: 0 auto; }
+  .hours { margin-top: 18px; border: 1px solid var(--line); border-radius: 16px; padding: 4px 18px; background: rgba(28,28,28,.8); }
+  .hours div { display: flex; justify-content: space-between; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--line); }
+  .hours div:last-child { border-bottom: 0; }
+  .hours b { color: var(--gold-soft); font-weight: 600; }
+  .hours .lunch b { color: var(--stone); }
+  .hours .closed b { color: #e07a7a; }
+  .phones { display: flex; gap: 18px; justify-content: center; }
+  .phones .shot-phone { max-width: 220px; margin: 0; }
+  .menu { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 22px; max-width: 900px; }
+  .menu button { display: flex; align-items: center; gap: 14px; text-align: left; background: rgba(28,28,28,.8); border: 1px solid var(--line); border-radius: 14px; padding: 13px 16px; color: var(--text); font: 500 .98rem 'Poppins', sans-serif; cursor: pointer; }
+  .menu button:hover, .menu button:focus-visible { border-color: var(--gold); outline: none; }
+  .menu button b { font-family: 'Cinzel', Georgia, serif; color: var(--stone); width: 28px; }
+  .menu button span { color: var(--muted); font-size: .85rem; display: block; }
+  .cta-row { display: flex; gap: 12px; justify-content: center; margin-top: 28px; flex-wrap: wrap; }
+  .cta-row a, .cta-row button { display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 24px; border-radius: 999px; font: 600 .95rem 'Poppins', sans-serif; text-decoration: none; cursor: pointer; }
+  .cta-row .solid { background: var(--metal); color: #0b0b0b; border: 0; }
+  .cta-row .ghost { background: transparent; color: var(--text); border: 1px solid rgba(220,220,220,.4); }
+  @media (max-width: 860px) { .menu { grid-template-columns: 1fr; } .phones .shot-phone { max-width: 46%; } }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="brand">BROETTO</div>
+<button class="fs" id="fsBtn" type="button">Tela cheia</button>
+<div class="counter" id="counter"></div>
+<main class="deck" id="deck">
+  <section class="slide cover">
+    <img src="img/logo-broetto.png" alt="Logo Barbearia Broetto" />
+    <p class="eyebrow">Apresentação do sistema</p>
+    <h1>Agendamento online <em>e painel de gestão</em></h1>
+    <p class="lead">Um sistema feito sob medida para a Barbearia Broetto: o cliente agenda pelo site, a barbearia organiza tudo pelo painel.</p>
+    <div class="cta-row"><button type="button" class="solid" data-go="2">Ver o conteúdo</button><button type="button" class="ghost" data-go="3">Começar →</button></div>
+  </section>
+  <section class="slide">
+    <p class="eyebrow">Conteúdo</p>
+    <h2>O que você <em>vai ver</em></h2>
+    <div class="menu"><button type="button" data-go="3"><b>01</b><div>A solução<span>Site + painel trabalhando juntos</span></div></button><button type="button" data-go="4"><b>02</b><div>Site da barbearia<span>Página inicial com a cara da Broetto</span></div></button><button type="button" data-go="5"><b>03</b><div>Serviços e contato<span>Preços, horários e endereço</span></div></button><button type="button" data-go="6"><b>04</b><div>Agendamento online<span>O cliente marca em 4 passos</span></div></button><button type="button" data-go="7"><b>05</b><div>Horários inteligentes<span>Almoço e domingo bloqueados</span></div></button><button type="button" data-go="8"><b>06</b><div>No celular<span>Pensado para o smartphone</span></div></button><button type="button" data-go="9"><b>07</b><div>Painel: agenda<span>Todos os horários do dia</span></div></button><button type="button" data-go="10"><b>08</b><div>Painel: configurações<span>Dias, horários, serviços e equipe</span></div></button><button type="button" data-go="11"><b>09</b><div>Gestão completa<span>Clube Broetto, produtos, contas, relatórios</span></div></button><button type="button" data-go="12"><b>10</b><div>Identidade visual<span>Logo e cores da Broetto</span></div></button><button type="button" data-go="13"><b>11</b><div>Próximos passos<span>Do sistema pronto ao primeiro agendamento</span></div></button></div>
+  </section>
+  <section class="slide">
+    <p class="eyebrow">A solução</p>
+    <h2>Duas ferramentas, <em>um só sistema</em></h2>
+    <div class="grid">
+      <div class="card"><h3>Site de agendamento</h3><p>Mostra serviços, preços, endereço e horários. O cliente escolhe serviço, dia e hora, 24 horas por dia, e pode reagendar sozinho.</p></div>
+      <div class="card"><h3>Painel administrativo</h3><p>Agenda do dia, bloqueio de horários, cadastro de serviços e profissionais, Clube Broetto, produtos, contas a pagar e relatórios.</p></div>
+      <div class="card"><h3>Tudo conectado</h3><p>O cliente agenda no site, o horário aparece no painel na hora e some do site para os outros clientes.</p></div>
+    </div>
+  </section>
+  <section class="slide">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Site da barbearia</p>
+        <h2>A página inicial <em>com a cara da Broetto</em></h2>
+        <p class="lead">Preto e prata da logo, foto de barbearia e os dois botões que importam: agendar e falar no WhatsApp.</p>
+      </div>
+      <div class="shot"><img src="img/site-hero.jpg" alt="Página inicial do site da Barbearia Broetto" /></div>
+    </div>
+  </section>
+  <section class="slide">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Serviços e contato</p>
+        <h2>Preços <em>sempre atualizados</em></h2>
+        <p class="lead">Os serviços aparecem sozinhos a partir do que a barbearia cadastra no painel, com preço e duração. Logo abaixo ficam o horário de funcionamento, o endereço com mapa, o WhatsApp, o e-mail e o Instagram.</p>
+      </div>
+      <div class="shot"><img src="img/site-servicos.jpg" alt="Seção de serviços do site" /></div>
+    </div>
+  </section>
+  <section class="slide">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Agendamento online</p>
+        <h2>Agendar em <em>4 passos</em></h2>
+        <ol class="steps">
+          <li><div>Clica em "Agende seu horário"<span>direto do site ou do link na bio</span></div></li>
+          <li><div>Informa nome e telefone<span>sem cadastro ou senha</span></div></li>
+          <li><div>Escolhe o serviço<span>com valor e duração visíveis</span></div></li>
+          <li><div>Escolhe data e horário livres<span>o horário é reservado na hora</span></div></li>
+        </ol>
+      </div>
+      <div class="shot" style="max-width:420px;justify-self:center"><img src="img/site-agendar.jpg" alt="Janela de escolha do horário" /></div>
+    </div>
+  </section>
+  <section class="slide">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Horários inteligentes</p>
+        <h2>Respeita o <em>funcionamento</em></h2>
+        <div class="hours">
+          <div><span>Segunda a sábado</span><b>08:00 – 12:00</b></div>
+          <div class="lunch"><span>Almoço</span><b>12:00 – 13:00 bloqueado</b></div>
+          <div><span></span><b>13:00 – 19:00</b></div>
+          <div class="closed"><span>Domingo</span><b>Fechado</b></div>
+        </div>
+        <ul class="list">
+          <li>Um serviço de 60 min não começa às 11:30, porque invadiria o almoço</li>
+          <li>Horário já reservado não aparece para outro cliente</li>
+          <li>Feriados e folgas são bloqueados pelo painel</li>
+        </ul>
+      </div>
+      <div class="shot" style="max-width:420px;justify-self:center"><img src="img/site-horarios.jpg" alt="Lista de horários pulando de 11:00 para 13:00" /></div>
+    </div>
+  </section>
+  <section class="slide">
+    <div class="split">
+      <div>
+        <p class="eyebrow">No celular</p>
+        <h2>Feito para <em>o smartphone</em></h2>
+        <p class="lead">A maior parte dos clientes vai abrir o link pelo WhatsApp ou pelo Instagram, então tudo se adapta à tela do celular, inclusive o agendamento.</p>
+      </div>
+      <div class="phones">
+        <div class="shot shot-phone"><img src="img/site-mobile.jpg" alt="Site no celular" /></div>
+        <div class="shot shot-phone"><img src="img/site-mobile-agendar.jpg" alt="Agendamento no celular" /></div>
+      </div>
+    </div>
+  </section>
+  <section class="slide">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Painel administrativo</p>
+        <h2>A agenda do dia <em>em uma tela</em></h2>
+        <ul class="list">
+          <li>Cliente, telefone, serviço e valor <span>em cada horário</span></li>
+          <li>Quanto tempo cada serviço ocupa <span>(corte + barba ocupa 1 hora)</span></li>
+          <li>Agendar pelo balcão, bloquear e liberar <span>em um clique</span></li>
+          <li>Confirmação pronta no WhatsApp <span>com data, horário e endereço</span></li>
+        </ul>
+      </div>
+      <div class="shot"><img src="img/admin.jpg" alt="Agenda do dia no painel" /></div>
+    </div>
+  </section>
+  <section class="slide">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Painel administrativo</p>
+        <h2>A barbearia <em>controla tudo</em></h2>
+        <ul class="list">
+          <li>Dias e horários: <span>início, fim e pausa do almoço</span></li>
+          <li>Intervalo da agenda: <span>de quantos em quantos minutos abrem horários</span></li>
+          <li>Exceções: <span>feriados, folgas e horário especial por dia</span></li>
+          <li>Serviços e profissionais: <span>preço, duração, foto e folgas</span></li>
+        </ul>
+        <p class="lead" style="margin-top:16px">Qualquer mudança feita aqui aparece no site na mesma hora.</p>
+      </div>
+      <div class="shot"><img src="img/admin-config.jpg" alt="Configurações do painel" /></div>
+    </div>
+  </section>
+  <section class="slide">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Gestão completa</p>
+        <h2>O negócio <em>em um só lugar</em></h2>
+        <ul class="list">
+          <li>Clube Broetto: <span>assinantes com plano mensal e pagamentos</span></li>
+          <li>PDV / Produtos: <span>pomadas, óleos e balms vendidos no balcão</span></li>
+          <li>Contas a pagar: <span>fornecedores, parcelas e vencimentos</span></li>
+          <li>Relatórios: <span>faturamento por período, serviço e profissional</span></li>
+          <li>Acesso protegido <span>por e-mail e senha</span></li>
+        </ul>
+      </div>
+      <div class="shot"><img src="img/admin-clientes.jpg" alt="Clientes e Clube Broetto no painel" /></div>
+    </div>
+  </section>
+  <section class="slide">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Identidade visual</p>
+        <h2>Tudo segue <em>a logo</em></h2>
+        <p class="lead">A mesma identidade aparece no site, no painel, no ícone da aba do navegador e na mensagem de confirmação enviada pelo WhatsApp.</p>
+        <div class="swatches">
+          <span class="sw"><i style="background:#0b0b0b"></i> Preto</span>
+          <span class="sw"><i style="background:#1c1c1c"></i> Grafite</span>
+          <span class="sw"><i style="background:linear-gradient(180deg,#f2f2f2,#c6c6c6 45%,#9a9a9a)"></i> Prata metal</span>
+          <span class="sw"><i style="background:#a88b6a"></i> Pedra</span>
+        </div>
+      </div>
+      <div style="display:grid;place-items:center"><img src="img/logo-broetto.png" alt="Logo Barbearia Broetto" style="width:min(380px,70vw);border-radius:50%;box-shadow:0 0 80px rgba(255,236,200,.12)" /></div>
+    </div>
+  </section>
+  <section class="slide">
+    <p class="eyebrow">Próximos passos</p>
+    <h2>Do sistema pronto <em>ao primeiro agendamento</em></h2>
+    <ol class="steps">
+      <li><div>Cadastro<span>serviços com preço e duração, profissionais com foto</span></div></li>
+      <li><div>Publicação<span>site e painel no ar, com o banco de dados da barbearia</span></div></li>
+      <li><div>Treinamento<span>agenda, bloqueios, clientes e relatórios</span></div></li>
+      <li><div>Divulgação<span>link na bio do Instagram e no WhatsApp Business</span></div></li>
+    </ol>
+    <div class="cta-row" style="justify-content:flex-start"><a class="solid" href="../">Ver a prévia do sistema</a><a class="ghost" href="https://wa.me/5545999709621?text=Ol%C3%A1!%20Vi%20a%20apresenta%C3%A7%C3%A3o%20da%20Barbearia%20Broetto%20no%20gimfreires.tech%20e%20quero%20um%20sistema%20assim." target="_blank" rel="noopener">Quero um sistema assim</a></div>
+  </section>
+</main>
+<nav class="nav" aria-label="Navegação dos slides">
+  <button type="button" id="prevBtn" aria-label="Slide anterior">← Anterior</button>
+  <div class="dots" id="dots"></div>
+  <button type="button" id="nextBtn" class="primary" aria-label="Próximo slide">Próximo →</button>
+</nav>
+
+<script>
+  const slides = [...document.querySelectorAll('.slide')];
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const dots = document.getElementById('dots');
+  const counter = document.getElementById('counter');
+  const progress = document.getElementById('progress');
+  let i = 0;
+
+  slides.forEach((_, n) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Ir para o slide ' + (n + 1));
+    b.addEventListener('click', () => go(n));
+    dots.appendChild(b);
+  });
+
+  function go(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((s, k) => {
+      s.classList.toggle('active', k === i);
+      s.classList.toggle('prev', k < i);
+    });
+    [...dots.children].forEach((d, k) => d.classList.toggle('on', k === i));
+    prevBtn.disabled = i === 0;
+    nextBtn.textContent = i === slides.length - 1 ? 'Recomeçar ↺' : 'Próximo →';
+    counter.textContent = String(i + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+    progress.style.width = ((i + 1) / slides.length * 100) + '%';
+    try { history.replaceState(null, '', '#' + (i + 1)); } catch (e) {}
+  }
+
+  prevBtn.addEventListener('click', () => go(i - 1));
+  nextBtn.addEventListener('click', () => go(i === slides.length - 1 ? 0 : i + 1));
+  document.addEventListener('keydown', e => {
+    if (['ArrowRight', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); go(i + 1); }
+    if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); go(i - 1); }
+    if (e.key === 'Home') go(0);
+    if (e.key === 'End') go(slides.length - 1);
+  });
+  let x0 = null;
+  document.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+  document.addEventListener('touchend', e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 50) go(i + (dx < 0 ? 1 : -1));
+    x0 = null;
+  });
+  document.getElementById('fsBtn').addEventListener('click', () => {
+    if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+    else document.exitFullscreen?.();
+  });
+
+  document.querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', () => go(parseInt(b.dataset.go, 10) - 1)));
+  window.addEventListener('hashchange', () => { const n = parseInt(location.hash.slice(1), 10); if (n && n - 1 !== i) go(n - 1); });
+  go((parseInt(location.hash.slice(1), 10) || 1) - 1);
+</script>
+<nav class="previa-nav" aria-label="Navegação da prévia" style="position:fixed;left:50%;top:12px;transform:translateX(-50%);z-index:99999;display:flex;gap:4px;flex-wrap:wrap;align-items:center;background:#0b0b0b;border:1px solid #9a9a9a;border-radius:999px;padding:6px 10px;font:600 13px Poppins,system-ui,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.5);max-width:calc(100vw - 24px)"><a href="../" style="color:#c9c9c9;padding:0 4px;text-decoration:none;letter-spacing:.08em">PRÉVIA</a><a href="../site/" style="color:#9a9a9a;text-decoration:none;padding:4px 8px">Site</a><a href="../painel/" style="color:#9a9a9a;text-decoration:none;padding:4px 8px">Painel</a><a href="../apresentacao/" style="color:#e6e6e6;text-decoration:none;padding:4px 8px" aria-current="page">Apresentação</a></nav>
+</body>
+</html>
