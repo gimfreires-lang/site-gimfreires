@@ -5,5 +5,8 @@ Disallow: /explosom/painel
 Disallow: /explosom/login.html
 Disallow: /explosom/entrar.html
 Disallow: /kelly/painel/
+Disallow: /broetto/painel/
+Disallow: /broetto/site/
+Disallow: /clubedacerveja/telas/
 
 Sitemap: https://gimfreires.tech/sitemap.xml

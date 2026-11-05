@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barbearia Broetto | Site (prévia) · gimfreires.tech</title>
+    <meta name="robots" content="noindex">
+    <meta name="description"
+        content="Barbearia Broetto em Santa Felicidade, Cascavel - PR. Agende seu corte e barba online. Seg a sáb, 08h às 12h e 13h às 19h." />
+    <meta name="theme-color" content="#0b0b0b" />
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <!-- Ícones -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <nav class="nav container">
+            <a href="#home" class="brand">
+                <img src="./assets/logo-broetto.png" alt="Barbearia Broetto" class="brand-logo" />
+                <span class="brand-text">
+                    <strong>Broetto</strong>
+                    <small>Barbearia</small>
+                </span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#contact">Agendamento</a></li>
+                <li><a href="#info">Contato</a></li>
+            </ul>
+            <button class="menu-toggle" type="button" aria-label="Abrir menu"><i class='bx bx-menu'></i></button>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-inner container">
+            <img src="./assets/logo-broetto.png" alt="Logo Barbearia Broetto" class="hero-logo" />
+            <div class="hero-text">
+                <span class="hero-kicker">Santa Felicidade • Cascavel - PR</span>
+                <h1>Estilo, tradição <br />e navalha afiada.</h1>
+                <p>Corte, barba e acabamento feitos com cuidado. Escolha o profissional e agende em poucos cliques.</p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-metal"><i class='bx bx-calendar'></i> Agendar horário</a>
+                    <a href="https://wa.me/5545999941483" target="_blank" rel="noopener" class="btn btn-outline"><i
+                            class='bx bxl-whatsapp'></i> WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços (carregados do painel) -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Serviços</h2>
+            <p class="section-sub">Na Barbearia Broetto você encontra serviços completos para cuidar do seu visual.</p>
+
+            <div class="services-layout">
+                <div class="services-photo">
+                    <img src="./assets/barba-sobrancelha.jpg" alt="Acabamento de barba e sobrancelha" loading="lazy" />
+                </div>
+                <ul class="services-list" id="servicosLista">
+                    <li class="services-empty">Carregando serviços...</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agendamento -->
+    <section class="booking" id="contact">
+        <div class="container">
+            <h2 class="section-title">Agende seu horário</h2>
+            <p class="section-sub">Escolha o profissional e o melhor horário para você.</p>
+
+            <div class="pros" id="profissionaisContainer">
+                <div class="pro-card pro-card--empty">Carregando profissionais...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Horários e contato -->
+    <section class="info" id="info">
+        <div class="container info-grid">
+            <div class="info-card">
+                <h3><i class='bx bx-time-five'></i> Horário de funcionamento</h3>
+                <ul class="hours">
+                    <li><span>Segunda a sábado</span><strong id="horarioFuncionamentoTexto">08:00 – 12:00 • 13:00 – 19:00</strong></li>
+                    <li class="closed"><span>Domingo</span><strong>Fechado</strong></li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3><i class='bx bx-map'></i> Endereço</h3>
+                <p>Rua Cabo Manoel Bire de Aguella, 1874<br />Santa Felicidade, Cascavel - PR<br />CEP 85803-460</p>
+                <a class="link" target="_blank" rel="noopener"
+                    href="https://www.google.com/maps/search/?api=1&query=Rua+Cabo+Manoel+Bire+de+Aguella,+1874,+Santa+Felicidade,+Cascavel+-+PR,+85803-460">
+                    Abrir no Google Maps <i class='bx bx-right-arrow-alt'></i></a>
+            </div>
+
+            <div class="info-card">
+                <h3><i class='bx bx-phone'></i> Contato</h3>
+                <p>
+                    <a class="link" href="https://wa.me/5545999941483" target="_blank" rel="noopener"><i
+                            class='bx bxl-whatsapp'></i> (45) 99994-1483</a><br />
+                    <a class="link" href="mailto:barbeariabroetto@gmail.com"><i class='bx bx-envelope'></i>
+                        barbeariabroetto@gmail.com</a><br />
+                    <a class="link" href="https://www.instagram.com/barbaearia_broetto/" target="_blank"
+                        rel="noopener"><i class='bx bxl-instagram'></i> @barbaearia_broetto</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mapa -->
+    <section class="map">
+        <iframe title="Localização da Barbearia Broetto"
+            src="https://www.google.com/maps?q=Rua+Cabo+Manoel+Bire+de+Aguella,+1874,+Santa+Felicidade,+Cascavel+-+PR,+85803-460&output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <img src="./assets/logo-broetto.png" alt="Barbearia Broetto" class="footer-logo" loading="lazy" />
+        <div class="social-links">
+            <a href="https://www.instagram.com/barbaearia_broetto/" target="_blank" rel="noopener" aria-label="Instagram"><i
+                    class='bx bxl-instagram'></i></a>
+            <a href="https://wa.me/5545999941483" target="_blank" rel="noopener" aria-label="WhatsApp"><i
+                    class='bx bxl-whatsapp'></i></a>
+            <a href="mailto:barbeariabroetto@gmail.com" aria-label="E-mail"><i class='bx bx-envelope'></i></a>
+        </div>
+        <p>📍 Rua Cabo Manoel Bire de Aguella, 1874 - Santa Felicidade, Cascavel - PR, 85803-460</p>
+        <p>&copy; <span id="anoAtual">2026</span> Barbearia Broetto. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- WhatsApp flutuante -->
+    <a href="https://wa.me/5545999941483" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+        <i class='bx bxl-whatsapp'></i>
+    </a>
+
+    <!-- ===== MODAIS ===== -->
+
+    <!-- 1) Dados do cliente -->
+    <div id="modalCliente" class="modal" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true">
+            <span class="close" onclick="fecharModal('modalCliente')">&times;</span>
+            <h2>Seus dados</h2>
+
+            <label for="nomeCliente">Nome</label>
+            <input type="text" id="nomeCliente" placeholder="Ex.: João" autocomplete="given-name" required />
+
+            <label for="sobrenomeCliente">Sobrenome</label>
+            <input type="text" id="sobrenomeCliente" placeholder="Ex.: Silva" autocomplete="family-name" required />
+
+            <label for="telefoneCliente">Telefone (com DDD)</label>
+            <input type="tel" id="telefoneCliente" placeholder="(45) 99999-9999" inputmode="tel"
+                autocomplete="tel-national" required />
+
+            <button type="button" id="btnClienteContinuar" class="btn-primary">Continuar</button>
+        </div>
+    </div>
+
+    <!-- 2) Agendamento -->
+    <div id="modal" class="modal" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true">
+            <span class="close" onclick="fecharModal('modal')">&times;</span>
+            <h2>Escolha seu horário</h2>
+
+            <label for="servicoDisplay">Serviço</label>
+            <input id="servicoDisplay" type="text" placeholder="Selecionar..." readonly />
+
+            <label for="data">Data</label>
+            <input type="date" id="data" required />
+
+            <label for="hora">Hora</label>
+            <select id="hora">
+                <option value="">Selecione um horário</option>
+            </select>
+
+            <button id="confirmarBtn" class="btn-primary">Agendar</button>
+        </div>
+    </div>
+
+    <!-- 3) Serviço -->
+    <div id="servicoModal" class="modal" aria-hidden="true">
+        <div class="modal-content svc-sheet" role="dialog" aria-modal="true">
+            <div class="svc-header">
+                <div class="svc-title">Selecionar serviço</div>
+                <span class="svc-close" onclick="fecharModal('servicoModal')">&times;</span>
+            </div>
+
+            <div class="svc-search">
+                <i class='bx bx-search' aria-hidden="true"></i>
+                <input id="svcSearch" type="search" placeholder="Digite para procurar um serviço..." autocomplete="off"
+                    spellcheck="false" />
+            </div>
+
+            <div class="svc-list" id="servicoLista"></div>
+
+            <div class="svc-actions">
+                <button id="servicoCancelar" class="svc-btn svc-btn-ghost">Cancelar</button>
+                <button id="servicoConfirmarWpp" class="svc-btn svc-btn-dark">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4) Confirmação -->
+    <div id="modalConfirmacao" class="modal" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true">
+            <span class="close" onclick="fecharModal('modalConfirmacao')">&times;</span>
+            <h2>Agendamento confirmado 💈</h2>
+            <div id="confResumo" class="conf-resumo"></div>
+            <button type="button" id="btnOkConfirmacao" class="btn-primary">OK</button>
+        </div>
+    </div>
+
+    <!-- 5) Reagendamento -->
+    <div id="modalReagendar" class="modal" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true">
+            <span class="close" onclick="fecharModal('modalReagendar')">&times;</span>
+            <h2>Reagendar seu horário</h2>
+
+            <div id="reaStepBusca">
+                <label for="reaNome">Nome</label>
+                <input type="text" id="reaNome" placeholder="Ex.: João" />
+
+                <label for="reaSobrenome">Sobrenome</label>
+                <input type="text" id="reaSobrenome" placeholder="Ex.: Silva" />
+
+                <button type="button" id="reaBuscarBtn" class="btn-primary">Buscar agendamentos</button>
+
+                <div id="reaResultados" class="rea-lista"></div>
+            </div>
+
+            <div id="reaStepMover" class="hidden">
+                <div id="reaEscolhido" class="muted"></div>
+
+                <label for="reaData">Nova data</label>
+                <input type="date" id="reaData" />
+
+                <label for="reaHora">Nova hora</label>
+                <select id="reaHora"></select>
+
+                <button type="button" id="reaConfirmarBtn" class="btn-primary">Confirmar reagendamento</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./script.js"></script>
+<nav class="previa-nav" aria-label="Navegação da prévia" style="position:fixed;left:12px;bottom:12px;z-index:99999;display:flex;gap:4px;flex-wrap:wrap;align-items:center;background:#0b0b0b;border:1px solid #9a9a9a;border-radius:999px;padding:6px 10px;font:600 13px Poppins,system-ui,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.5);max-width:calc(100vw - 24px)"><a href="../" style="color:#c9c9c9;padding:0 4px;text-decoration:none;letter-spacing:.08em">PRÉVIA</a><a href="../site/" style="color:#e6e6e6;text-decoration:none;padding:4px 8px" aria-current="page">Site</a><a href="../painel/" style="color:#9a9a9a;text-decoration:none;padding:4px 8px">Painel</a><a href="../apresentacao/" style="color:#9a9a9a;text-decoration:none;padding:4px 8px">Apresentação</a><button type="button" onclick="window.broettoPreviaReiniciar ? broettoPreviaReiniciar() : location.reload()" title="Volta os dados de exemplo ao início" style="background:none;border:0;color:#7a7a7a;font:inherit;cursor:pointer;padding:4px 8px">Reiniciar dados</button></nav>
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="assets/favicon.png">
+<title>Clube da Cerveja | Prévia do sistema · gimfreires.tech</title>
+<meta name="description" content="Prévia do sistema do Clube da Cerveja: loja online de conveniência e tabacaria com carnes de domingo, pagamento por Pix, painel do lojista e caixa (PDV). Feito por gimfreires.tech, Cascavel - PR.">
+<link rel="canonical" href="https://gimfreires.tech/clubedacerveja/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="gimfreires.tech">
+<meta property="og:title" content="Clube da Cerveja | Prévia do sistema">
+<meta property="og:description" content="Loja online, painel do lojista e caixa (PDV) do Clube da Cerveja, num sistema só.">
+<meta property="og:url" content="https://gimfreires.tech/clubedacerveja/">
+<meta property="og:image" content="https://gimfreires.tech/img/loja-desktop.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Manrope:wght@400;500;700&display=swap">
+<style>
+/* Layout: logo e chamada no topo, três portas de entrada (loja no ar, telas da loja, painel e caixa),
+   o caminho de um pedido com uma tela para cada etapa, atalhos e notas da prévia. Visual preto e dourado, igual à loja. */
+:root {
+  --bg: #0E0E0E; --surface: #171717; --line: #2B2B2B;
+  --fg: #F4F4F4; --muted: #A8A8A8; --accent: #F2B705; --silver: #B8BCC2;
+  --display: 'Oswald', 'Arial Narrow', Impact, sans-serif;
+  --body: 'Manrope', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: radial-gradient(90% 50% at 50% 0%, #2B2205 0%, var(--bg) 70%) var(--bg); color: var(--fg); font-family: var(--body); line-height: 1.5; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 40px 56px; display: flex; flex-direction: column; gap: 36px; }
+header { display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; }
+header img { width: min(180px, 46vw); height: auto; }
+h1 { font-family: var(--display); font-weight: 700; text-transform: uppercase; font-size: clamp(2.2rem, 6vw, 3.6rem); line-height: 1; margin: 0; letter-spacing: .01em; text-wrap: balance; }
+h1 span { color: var(--accent); }
+.lead { color: var(--muted); max-width: 62ch; margin: 0; font-size: 1.05rem; }
+.portas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 760px) { .portas { grid-template-columns: 1fr; } }
+.porta { display: flex; flex-direction: column; gap: 10px; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; color: var(--fg); text-decoration: none; transition: border-color .15s, transform .15s; min-width: 0; }
+.porta:hover, .porta:focus-visible { border-color: var(--accent); transform: translateY(-2px); outline: none; }
+.porta .tag { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.porta h2 { font-family: var(--display); font-weight: 700; text-transform: uppercase; font-size: 1.9rem; line-height: 1; margin: 0; }
+.porta p { margin: 0; color: var(--muted); font-size: .95rem; }
+.porta .ir { margin-top: auto; padding-top: 8px; font-weight: 700; color: var(--accent); }
+.etapas { display: flex; flex-direction: column; gap: 14px; }
+.etapas h3, .novidades h3 { margin: 0; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--silver); text-align: center; }
+.linha { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; counter-reset: etapa; }
+@media (max-width: 900px) { .linha { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .linha { grid-template-columns: 1fr; } }
+.linha li { counter-increment: etapa; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.linha li::before { content: counter(etapa); width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--accent); color: var(--fg); font-weight: 700; font-size: .8rem; display: grid; place-items: center; }
+.linha b { font-size: .98rem; }
+.linha span { color: var(--muted); font-size: .85rem; }
+.linha a { color: var(--accent); font-size: .85rem; font-weight: 700; text-decoration: none; }
+.linha a:hover, .linha a:focus-visible { text-decoration: underline; outline: none; }
+.atalhos { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.atalhos a { color: var(--silver); text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; font-size: .9rem; }
+.atalhos a:hover, .atalhos a:focus-visible { border-color: var(--accent); color: var(--fg); outline: none; }
+.novidades { display: flex; flex-direction: column; gap: 14px; }
+.novos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 860px) { .novos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 420px) { .novos { grid-template-columns: 1fr; } }
+.novos a { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; text-decoration: none; color: var(--fg); min-width: 0; }
+.novos a:hover, .novos a:focus-visible { border-color: var(--accent); outline: none; }
+.novos b { color: var(--accent); font-size: .95rem; }
+.novos span { color: var(--muted); font-size: .85rem; }
+.notas { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 22px 24px; display: flex; flex-direction: column; gap: 10px; }
+.notas h3 { margin: 0; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--silver); }
+.notas ul { margin: 0; padding-left: 1.1em; color: var(--muted); display: flex; flex-direction: column; gap: 6px; }
+.notas b { color: var(--fg); font-weight: 700; }
+@media (prefers-reduced-motion: reduce) { .porta { transition: none; } .porta:hover { transform: none; } }
+.voltar { margin: 0; text-align: center; } .voltar a { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="assets/logo-clube.webp" alt="Clube da Cerveja, conveniência e tabacaria" width="180" height="204">
+    <h1>Prévia do <span>sistema</span></h1>
+    <p class="lead">Conveniência, tabacaria e carne assada aos domingos, em Cascavel. A loja já está no ar: o cliente escolhe as bebidas, encomenda a carne do domingo e paga por Pix. No balcão, o mesmo sistema vira o caixa.</p>
+  </header>
+
+  <nav class="portas" aria-label="Partes do sistema">
+    <a class="porta" href="https://clubedacerveja.gimfreires.tech" target="_blank" rel="noopener">
+      <span class="tag">No ar</span>
+      <h2>Loja online</h2>
+      <p>A loja de verdade, funcionando: catálogo, carnes do domingo, cadastro do cliente e pagamento pelo Mercado Pago.</p>
+      <span class="ir">Abrir a loja ↗</span>
+    </a>
+    <a class="porta" href="telas/#loja-home">
+      <span class="tag">Para o cliente</span>
+      <h2>Telas da loja</h2>
+      <p>Página inicial, categorias, página de produto e a versão para celular, uma tela de cada vez.</p>
+      <span class="ir">Ver as telas →</span>
+    </a>
+    <a class="porta" href="telas/#admin-dashboard">
+      <span class="tag">Para o lojista</span>
+      <h2>Painel e caixa</h2>
+      <p>Vendas do dia, fiado, produtos esgotados, pedidos para preparar, aparência da loja e o caixa do balcão.</p>
+      <span class="ir">Ver o painel →</span>
+    </a>
+  </nav>
+
+  <section class="etapas" aria-labelledby="tit-etapas">
+    <h3 id="tit-etapas">Um pedido do começo ao fim</h3>
+    <ol class="linha">
+      <li><b>Escolhe</b><span>Bebidas, gelo, carvão e petiscos no catálogo</span><a href="telas/#loja-cervejas">Cervejas →</a></li>
+      <li><b>Encomenda</b><span>A carne do domingo, por quilo ou unidade</span><a href="telas/#loja-carnes-do-domingo">Carnes →</a></li>
+      <li><b>Entra</b><span>Com o e-mail ou o WhatsApp</span><a href="telas/#loja-cadastro-login">Entrar →</a></li>
+      <li><b>Paga</b><span>Pix ou cartão pelo Mercado Pago</span><a href="https://clubedacerveja.gimfreires.tech" target="_blank" rel="noopener">Na loja ↗</a></li>
+      <li><b>Chega no painel</b><span>O lojista vê o pedido e as vendas do dia</span><a href="telas/#admin-dashboard">Dashboard →</a></li>
+    </ol>
+  </section>
+
+  <div class="atalhos" aria-label="Atalhos">
+    <a href="telas/#loja-home">Página inicial</a>
+    <a href="telas/#loja-produto-costela-minga">Página do produto</a>
+    <a href="telas/#celular">No celular</a>
+    <a href="telas/#admin-login">Login do lojista</a>
+    <a href="telas/#admin-produtos">Produtos</a>
+    <a href="telas/#admin-categorias">Categorias</a>
+    <a href="telas/#admin-aparencia">Aparência da loja</a>
+    <a href="telas/#admin-caixa-abertura">Caixa (PDV)</a>
+  </div>
+
+  <section class="novidades" aria-labelledby="tit-novo">
+    <h3 id="tit-novo">Feito para conveniência</h3>
+    <div class="novos">
+      <a href="telas/#loja-carnes-do-domingo"><b>Domingo de churrasco</b><span>Categoria de carnes com destaque automático aos domingos</span></a>
+      <a href="telas/#admin-dashboard"><b>Fiado no painel</b><span>Clientes devedores e quanto falta receber</span></a>
+      <a href="telas/#admin-categorias"><b>Categorias do ramo</b><span>Cervejas, destilados, gelo e carvão, tabacaria e vinhos</span></a>
+      <a href="telas/#loja-produto-costela-minga"><b>Compartilhar no WhatsApp</b><span>Botão em cada produto para mandar nos grupos</span></a>
+      <a href="telas/#loja-produto-cerveja"><b>Foto em breve</b><span>Arte com a marca enquanto o produto não tem foto</span></a>
+      <a href="telas/#admin-aparencia"><b>Aparência</b><span>O lojista troca logo, tema e contatos sozinho</span></a>
+      <a href="telas/#admin-caixa-abertura"><b>Caixa no balcão</b><span>O mesmo sistema da loja vira o PDV</span></a>
+      <a href="telas/#mobile-admin-dashboard"><b>Painel no celular</b><span>Vendas e pedidos acompanhados de qualquer lugar</span></a>
+    </div>
+  </section>
+
+  <section class="notas">
+    <h3>Sobre esta prévia</h3>
+    <ul>
+      <li>A <b>loja online está no ar</b> em clubedacerveja.gimfreires.tech. As telas desta prévia foram feitas com o mesmo código, antes da loja receber as vendas de verdade.</li>
+      <li>O <b>painel e o caixa</b> ficam protegidos por login, por isso aparecem aqui como telas: role cada uma para ver a página inteira e use os botões para passar de uma para outra.</li>
+      <li>O aviso de <b>"Mercado Pago não conectado"</b> é o próprio sistema avisando o lojista; ele some quando a conta é conectada.</li>
+    </ul>
+  </section>
+  <p class="voltar"><a href="/">← Voltar para gimfreires.tech</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="../assets/favicon.png">
+<title>Clube da Cerveja | Telas do sistema · gimfreires.tech</title>
+<meta name="description" content="Telas do sistema do Clube da Cerveja: loja online, versão para celular, painel do lojista e caixa. Feito por gimfreires.tech, Cascavel - PR.">
+<link rel="canonical" href="https://gimfreires.tech/clubedacerveja/telas/">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Manrope:wght@400;500;700&display=swap">
+<style>
+/* Visualizador de telas: barra com os grupos (loja, celular, painel), a tela atual numa moldura que rola,
+   título e explicação ao lado, botões anterior/próximo e miniaturas. Visual preto e dourado, igual à loja. */
+:root {
+  --bg: #0E0E0E; --surface: #171717; --line: #2B2B2B;
+  --fg: #F4F4F4; --muted: #A8A8A8; --accent: #F2B705; --accent-ink: #1A1400;
+  --display: 'Oswald', 'Arial Narrow', Impact, sans-serif;
+  --body: 'Manrope', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; background: radial-gradient(90% 50% at 50% 0%, #2B2205 0%, var(--bg) 70%) var(--bg); color: var(--fg); font-family: var(--body); line-height: 1.5; display: flex; flex-direction: column; }
+a { color: inherit; }
+button { font: inherit; }
+
+.topo { display: flex; align-items: center; gap: 14px; padding: 12px max(16px, env(safe-area-inset-left, 0px)); border-bottom: 1px solid var(--line); background: rgba(14,14,14,.9); flex-wrap: wrap; }
+.topo .marca { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--display); font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.topo .marca img { width: 30px; height: auto; }
+.grupos { display: flex; gap: 6px; margin-left: auto; flex-wrap: wrap; }
+.grupos button { border: 1px solid var(--line); background: transparent; color: var(--muted); border-radius: 999px; padding: 6px 14px; cursor: pointer; font-weight: 700; font-size: .88rem; }
+.grupos button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.grupos button:hover:not([aria-pressed="true"]), .grupos button:focus-visible { border-color: var(--accent); color: var(--fg); outline: none; }
+
+.palco { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) 320px; grid-template-rows: auto 1fr; grid-template-areas: "tela topo" "tela base"; gap: 16px 24px; padding: 20px max(16px, env(safe-area-inset-left, 0px)); max-width: 1400px; width: 100%; margin: 0 auto; }
+.moldura { grid-area: tela; align-self: start; max-height: calc(100vh - 110px); min-height: 0; display: flex; flex-direction: column; border: 1px solid #3A3A3A; border-radius: 14px; overflow: hidden; background: #000; box-shadow: 0 24px 60px rgba(0,0,0,.55); }
+.moldura .barra { height: 30px; flex: none; display: flex; align-items: center; gap: 6px; padding: 0 12px; background: #1D1D1D; border-bottom: 1px solid #2C2C2C; }
+.moldura .barra i { width: 9px; height: 9px; border-radius: 50%; background: #444; }
+.moldura .barra span { margin-left: 10px; font-size: .75rem; color: #8A8A8A; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rolagem { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+.rolagem img { display: block; width: 100%; height: auto; }
+.moldura.celular { width: min(390px, 100%); margin: 0 auto; border-radius: 34px; padding: 10px; background: #1D1D1D; border-color: #444; }
+.moldura.celular .barra { display: none; }
+.moldura.celular .rolagem { border-radius: 24px; background: #000; }
+
+.lado { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.lado-topo { grid-area: topo; }
+.lado-base { grid-area: base; }
+.lado .grupo { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.lado h1 { font-family: var(--display); font-weight: 700; text-transform: uppercase; font-size: 2rem; line-height: 1.05; margin: 4px 0 0; }
+.lado p { margin: 0; color: var(--muted); }
+.lado .dica { font-size: .85rem; color: #7E7E7E; }
+.nav { display: flex; gap: 8px; align-items: center; }
+.nav button { flex: 1; height: 46px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--fg); font-weight: 700; cursor: pointer; }
+.nav button.principal { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.nav button:disabled { opacity: .35; cursor: default; }
+.nav button:hover:not(:disabled):not(.principal), .nav button:focus-visible { border-color: var(--accent); outline: none; }
+.contador { font-family: var(--display); font-size: 1.1rem; color: var(--muted); text-align: center; }
+.contador b { color: var(--fg); }
+.miniaturas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.miniaturas button { padding: 0; border: 2px solid transparent; border-radius: 8px; overflow: hidden; background: #000; cursor: pointer; aspect-ratio: 16 / 11; }
+.miniaturas button img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; opacity: .65; }
+.miniaturas button[aria-current="true"] { border-color: var(--accent); }
+.miniaturas button[aria-current="true"] img, .miniaturas button:hover img { opacity: 1; }
+.links { display: flex; flex-direction: column; gap: 8px; margin-top: auto; padding-top: 8px; border-top: 1px solid var(--line); }
+.links a { color: var(--muted); text-decoration: none; font-size: .9rem; }
+.links a:hover, .links a:focus-visible { color: var(--accent); outline: none; }
+
+@media (max-width: 900px) {
+  body { height: auto; }
+  .palco { grid-template-columns: 1fr; grid-template-rows: auto auto auto; grid-template-areas: "topo" "tela" "base"; }
+  .moldura { max-height: 70vh; }
+  .moldura.celular { height: 76vh; max-height: none; }
+  .lado { gap: 12px; }
+  .dica { display: none; }
+  .lado h1 { font-size: 1.6rem; }
+  .miniaturas { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .links { margin-top: 0; }
+}
+@media (max-width: 520px) { .grupos { margin-left: 0; } .miniaturas { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+</style>
+</head>
+<body>
+<header class="topo">
+  <a class="marca" href="../"><img src="../assets/logo-clube.webp" alt="" width="30" height="34">Clube da Cerveja · Prévia</a>
+  <div class="grupos" role="group" aria-label="Escolher parte do sistema">
+    <button type="button" data-grupo="loja">Loja</button>
+    <button type="button" data-grupo="celular">No celular</button>
+    <button type="button" data-grupo="painel">Painel e caixa</button>
+  </div>
+</header>
+
+<main class="palco">
+  <div class="moldura" id="moldura">
+    <div class="barra"><i></i><i></i><i></i><span id="endereco">clubedacerveja.gimfreires.tech</span></div>
+    <div class="rolagem" id="rolagem" tabindex="0" aria-label="Tela do sistema (role para ver a página inteira)">
+      <img id="tela" src="img/loja-home.webp" alt="">
+    </div>
+  </div>
+
+  <section class="lado lado-topo" aria-live="polite">
+    <div>
+      <span class="grupo" id="grupo">Loja online</span>
+      <h1 id="titulo">Página inicial</h1>
+    </div>
+    <p id="texto"></p>
+    <p class="dica">Role a tela para ver a página inteira. Use as setas do teclado ou deslize para trocar de tela.</p>
+    <div class="nav">
+      <button type="button" id="anterior">← Anterior</button>
+      <button type="button" id="proximo" class="principal">Próxima →</button>
+    </div>
+    <div class="contador" id="contador"></div>
+  </section>
+  <aside class="lado lado-base">
+    <div class="miniaturas" id="miniaturas" aria-label="Todas as telas"></div>
+    <div class="links">
+      <a href="https://clubedacerveja.gimfreires.tech" target="_blank" rel="noopener">Abrir a loja de verdade, no ar ↗</a>
+      <a href="../">← Voltar para a prévia do Clube da Cerveja</a>
+      <a href="/">← Voltar para gimfreires.tech</a>
+    </div>
+  </aside>
+</main>
+
+<script>
+/* Lista das telas: id (vai no endereço, ex.: telas/#loja-home), grupo, título, explicação e endereço mostrado na barra */
+var TELAS = [
+  { id: 'loja-home', g: 'loja', t: 'Página inicial', e: 'clubedacerveja.gimfreires.tech',
+    x: 'Vitrine com as categorias da conveniência, busca e o destaque do domingo de churrasco. O cliente navega sem precisar entrar na conta.' },
+  { id: 'loja-carnes-do-domingo', g: 'loja', t: 'Carnes do domingo', e: 'clubedacerveja.gimfreires.tech/loja/categoria',
+    x: 'Categoria das carnes assadas, com foto e preço por quilo ou unidade. O cliente encomenda durante a semana e retira no domingo.' },
+  { id: 'loja-cervejas', g: 'loja', t: 'Cervejas', e: 'clubedacerveja.gimfreires.tech/loja/categoria',
+    x: 'Cada categoria lista os produtos com preço e estoque. Produtos ainda sem foto aparecem com o selo "Foto em breve".' },
+  { id: 'loja-produto-costela-minga', g: 'loja', t: 'Página do produto', e: 'clubedacerveja.gimfreires.tech/loja/produto',
+    x: 'Foto grande, descrição, preço, botão para compartilhar no WhatsApp e sugestões de outros produtos.' },
+  { id: 'loja-produto-cerveja', g: 'loja', t: 'Produto sem foto', e: 'clubedacerveja.gimfreires.tech/loja/produto',
+    x: 'Enquanto a loja não envia a foto, o sistema mostra uma arte com a marca do Clube em vez de uma imagem quebrada.' },
+  { id: 'loja-cadastro-login', g: 'loja', t: 'Entrar na loja', e: 'clubedacerveja.gimfreires.tech/loja/entrar',
+    x: 'O cliente entra com o e-mail ou o WhatsApp. No rodapé ficam o endereço e o WhatsApp da loja.' },
+  { id: 'mobile-loja-home', g: 'celular', t: 'Loja no celular', e: '',
+    x: 'A mesma loja, ajustada para a tela do celular, com menu, busca e botão do WhatsApp sempre à mão.' },
+  { id: 'mobile-loja-carnes-do-domingo', g: 'celular', t: 'Carnes no celular', e: '',
+    x: 'As carnes do domingo em lista, fáceis de escolher com o polegar.' },
+  { id: 'mobile-loja-produto-costela-minga', g: 'celular', t: 'Produto no celular', e: '',
+    x: 'Página do produto pronta para compartilhar no WhatsApp e nos grupos dos clientes.' },
+  { id: 'admin-login', g: 'painel', t: 'Login do lojista', e: 'clubedacerveja.gimfreires.tech/login',
+    x: 'O painel fica protegido por e-mail e senha. Cada funcionário pode ter o próprio acesso.' },
+  { id: 'admin-dashboard', g: 'painel', t: 'Dashboard', e: 'clubedacerveja.gimfreires.tech/dashboard',
+    x: 'Vendas de hoje, clientes devedores (fiado), produtos esgotados, pedidos aguardando preparo e gráficos das vendas. Enquanto o Mercado Pago não está conectado, o painel avisa no topo.' },
+  { id: 'admin-produtos', g: 'painel', t: 'Produtos', e: 'clubedacerveja.gimfreires.tech/produtos',
+    x: 'Todos os produtos com categoria, preço, estoque e situação. Filtro por categoria e busca.' },
+  { id: 'admin-produto-editar', g: 'painel', t: 'Editar produto', e: 'clubedacerveja.gimfreires.tech/produtos/editar',
+    x: 'Fotos, descrição, preço, controle de estoque e variações (por exemplo, peso ou tamanho).' },
+  { id: 'admin-categorias', g: 'painel', t: 'Categorias', e: 'clubedacerveja.gimfreires.tech/produtos/categorias',
+    x: 'Categorias do ramo: carnes do domingo, cervejas, destilados, gelo e carvão, petiscos, refrigerantes, tabacaria e vinhos.' },
+  { id: 'admin-aparencia', g: 'painel', t: 'Aparência da loja', e: 'clubedacerveja.gimfreires.tech/configuracoes/aparencia',
+    x: 'O próprio lojista troca logo, nome, tema, WhatsApp, endereço e horário de atendimento, sem depender de programador.' },
+  { id: 'admin-caixa-abertura', g: 'painel', t: 'Abrir o caixa', e: 'clubedacerveja.gimfreires.tech/caixa',
+    x: 'No balcão, o mesmo sistema vira o caixa (PDV): abre com o valor inicial e registra as vendas em Pix, cartão ou dinheiro.' },
+  { id: 'mobile-admin-dashboard', g: 'painel', t: 'Painel no celular', e: '',
+    x: 'O lojista acompanha as vendas e os pedidos pelo celular, de qualquer lugar.' }
+];
+var NOMES = { loja: 'Loja online', celular: 'No celular', painel: 'Painel e caixa' };
+
+var i = 0;
+var $ = function (id) { return document.getElementById(id); };
+var mini = $('miniaturas');
+
+function grupoAtual() { return TELAS[i].g; }
+function desenharMiniaturas() {
+  var g = grupoAtual();
+  mini.innerHTML = '';
+  TELAS.forEach(function (t, n) {
+    if (t.g !== g) return;
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', t.t);
+    b.setAttribute('aria-current', n === i ? 'true' : 'false');
+    b.innerHTML = '<img src="img/' + t.id + '.webp" alt="" loading="lazy">';
+    b.addEventListener('click', function () { ir(n); });
+    mini.appendChild(b);
+  });
+}
+function ir(n) {
+  i = (n + TELAS.length) % TELAS.length;
+  var t = TELAS[i];
+  var img = $('tela');
+  img.src = 'img/' + t.id + '.webp';
+  img.alt = t.t + ': ' + t.x;
+  $('rolagem').scrollTop = 0;
+  $('moldura').classList.toggle('celular', t.id.indexOf('mobile-') === 0);
+  $('endereco').textContent = t.e || 'clubedacerveja.gimfreires.tech';
+  $('grupo').textContent = NOMES[t.g];
+  $('titulo').textContent = t.t;
+  $('texto').textContent = t.x;
+  $('contador').innerHTML = '<b>' + String(i + 1).padStart(2, '0') + '</b> / ' + String(TELAS.length).padStart(2, '0');
+  $('anterior').disabled = i === 0;
+  $('proximo').textContent = i === TELAS.length - 1 ? 'Recomeçar ↺' : 'Próxima →';
+  document.querySelectorAll('.grupos button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.grupo === t.g ? 'true' : 'false'); });
+  desenharMiniaturas();
+  try { history.replaceState(null, '', '#' + t.id); } catch (e) {}
+  /* pré-carrega a próxima tela */
+  var prox = TELAS[(i + 1) % TELAS.length]; (new Image()).src = 'img/' + prox.id + '.webp';
+}
+function pelaHash() {
+  var h = (location.hash || '').slice(1);
+  if (NOMES[h]) { for (var n = 0; n < TELAS.length; n++) if (TELAS[n].g === h) return n; }
+  for (var k = 0; k < TELAS.length; k++) if (TELAS[k].id === h) return k;
+  return 0;
+}
+
+$('anterior').addEventListener('click', function () { ir(i - 1); });
+$('proximo').addEventListener('click', function () { ir(i + 1); });
+document.querySelectorAll('.grupos button').forEach(function (b) {
+  b.addEventListener('click', function () { for (var n = 0; n < TELAS.length; n++) if (TELAS[n].g === b.dataset.grupo) return ir(n); });
+});
+document.addEventListener('keydown', function (e) {
+  if (e.target.closest && e.target.closest('input, textarea')) return;
+  if (e.key === 'ArrowRight') { e.preventDefault(); ir(i + 1); }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); if (i > 0) ir(i - 1); }
+});
+var x0 = null, y0 = null;
+$('rolagem').addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+$('rolagem').addEventListener('touchend', function (e) {
+  if (x0 === null) return;
+  var dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+  if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) ir(i + (dx < 0 ? 1 : -1));
+  x0 = null;
+});
+window.addEventListener('hashchange', function () { var n = pelaHash(); if (n !== i) ir(n); });
+ir(pelaHash());
+</script>
+<nav class="previa-nav" aria-label="Navegação da prévia" style="position:fixed;left:12px;bottom:12px;z-index:9999;display:flex;gap:4px;flex-wrap:wrap;align-items:center;background:#0E0E0E;border:1px solid #F2B705;border-radius:999px;padding:6px 10px;font:600 13px Manrope,system-ui,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.45);max-width:calc(100vw - 24px)"><a href="../" style="color:#F2B705;padding:0 4px;text-decoration:none">PRÉVIA</a><a href="#loja" style="color:#F4F4F4;text-decoration:none;padding:4px 8px">Loja</a><a href="#celular" style="color:#F4F4F4;text-decoration:none;padding:4px 8px">Celular</a><a href="#painel" style="color:#F4F4F4;text-decoration:none;padding:4px 8px">Painel</a><a href="https://clubedacerveja.gimfreires.tech" target="_blank" rel="noopener" style="color:#F4F4F4;text-decoration:none;padding:4px 8px">Loja no ar ↗</a></nav>
+</body>
+</html>
