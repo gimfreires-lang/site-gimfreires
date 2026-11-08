@@ -1,0 +1,144 @@
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Vértices — OS-2026-0028</title><script src="previa.js"></script>
+</head><body><div class="faixa-previa">Prévia com dados de demonstração · <a href="./">voltar ao início</a></div><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/topografia.css">
+
+
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo"><span class="site-logo-marca" aria-hidden="true"></span>Agrosat</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Painel</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Serviços</button>
+                <div class="nav-submenu">
+                    <a href="os.html">Ordens de serviço</a>
+                    <a href="os-quadro.html">Quadro (kanban)</a>
+                    <a href="os-editar.html">+ Nova OS</a>
+                    <a href="orcamentos.html">Orçamentos</a>
+                    <a href="orcamento.html">+ Novo orçamento</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Campo</button>
+                <div class="nav-submenu">
+                    <a href="agenda.html">Agenda de campo</a>
+                    <a href="equipamentos.html">Equipamentos</a>
+                </div>
+            </div>
+            <a href="protocolos.html">Protocolos</a>
+            <a href="clientes.html">Clientes</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Financeiro</button>
+                <div class="nav-submenu">
+                    <a href="financeiro.html">Visão geral</a>
+                    <a href="lancamentos-tipo-receita.html">Contas a receber</a>
+                    <a href="lancamentos-tipo-despesa.html">Contas a pagar</a>
+                    <a href="lancamento.html">+ Novo lançamento</a>
+                                        <a href="relatorio.html">Resultado (DRE) e lucro por serviço</a>
+                    <a href="contador.html">Fechamento para o contador</a>
+                                    </div>
+            </div>
+            <a href="ferramentas.html">Ferramentas</a>
+                        <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="config-escritorio.html">Escritório e parâmetros</a>
+                    <a href="config-tipos.html">Tipos de serviço e preços</a>
+                    <a href="usuarios.html">Equipe e usuários</a>
+                    <a href="config-contato.html">Logo e contato</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Carlos Mendes</span>
+            <a href="login.html">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer></script>
+<script src="assets/js/topografia.js" defer></script>
+<main class="container">
+<div class="page-title"><span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2Zm0 0v14m6-12v14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h1>Vértices do perímetro</h1><span class="subtitulo">OS-2026-0028 · Georreferenciamento — Fazenda Serra Azul (gleba 2)</span></div></div>    <p class="acoes-topo">
+        <a href="os-2.html" class="btn-outline btn-sm">‹ Voltar ao serviço</a>
+        <a href="memorial-2.html" class="btn-sm" target="_blank">Gerar memorial descritivo</a>    </p>
+            
+    <div class="grade-2col">
+        <form method="post" class="card">
+            <input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f">            <h2>Coordenadas UTM (SIRGAS 2000, fuso 22S)</h2>
+            <p class="suave">Cole direto da planilha ou do relatório do software (uma linha por vértice, na ordem do caminhamento). Separador <code>;</code>, tabulação, vírgula (CSV) ou espaço. Arquivo PNEZD do Civil 3D (ponto, norte, este...) também é reconhecido. O confrontante é o vizinho do lado que começa naquele vértice.</p>
+            <textarea name="vertices" id="campo-vertices" rows="14" class="mono" placeholder="M-01; 612345,120; 7789012,450; 845,20; Fazenda Santa Rita
+M-02; 612590,880; 7789050,300; 851,10; Estrada Municipal
+P-03; 612610,040; 7788790,770; Córrego das Pedras">M-01; 265201,412; 7256332,385; 742,100; Fazenda Santa Rita — mat. 4.512
+M-02; 267421,880; 7256642,120; 755,600; Fazenda Santa Rita — mat. 4.512
+M-03; 268291,554; 7255602,902; 731,200; Estrada Municipal CVL-040
+P-04; 267961,310; 7254137,447; 712,800; Córrego da Serra
+P-05; 266483,776; 7253824,118; 705,400; Córrego da Serra
+M-06; 265291,090; 7254502,663; 718,900; Agropecuária Serra Azul — Gleba 1
+M-07; 264736,251; 7255512,774; 730,000; Agropecuária Serra Azul — Gleba 1</textarea>
+            <p id="previa-vertices" class="previa-calculo" aria-live="polite"></p>
+            <button type="submit" class="btn-bloco">Salvar vértices e recalcular área</button>
+        </form>
+        <div class="card">
+            <h2>Resultado</h2>
+                        <svg class="croqui" viewBox="0 0 420 300" role="img" aria-label="Croqui do perímetro"><polygon points="94.5,53.3 289.9,26 366.4,117.5 337.4,246.4 207.3,274 102.4,214.3 53.6,125.4" class="croqui-area"/><circle cx="94.5" cy="53.3" r="3" class="croqui-ponto"/><text x="99.5" y="48.3" class="croqui-rotulo">M-01</text><circle cx="289.9" cy="26" r="3" class="croqui-ponto"/><text x="294.9" y="21" class="croqui-rotulo">M-02</text><circle cx="366.4" cy="117.5" r="3" class="croqui-ponto"/><text x="371.4" y="112.5" class="croqui-rotulo">M-03</text><circle cx="337.4" cy="246.4" r="3" class="croqui-ponto"/><text x="342.4" y="241.4" class="croqui-rotulo">P-04</text><circle cx="207.3" cy="274" r="3" class="croqui-ponto"/><text x="212.3" y="269" class="croqui-rotulo">P-05</text><circle cx="102.4" cy="214.3" r="3" class="croqui-ponto"/><text x="107.4" y="209.3" class="croqui-rotulo">M-06</text><circle cx="53.6" cy="125.4" r="3" class="croqui-ponto"/><text x="58.6" y="120.4" class="croqui-rotulo">M-07</text><g class="croqui-norte" transform="translate(404,18)"><path d="M0,-10 L5,6 L0,2 L-5,6 Z"/><text y="18" text-anchor="middle">N</text></g></svg>            <div class="mini-stats">
+                <div><span>Área</span><strong>725,0096 ha</strong><small>7.250.095,73 m²</small></div>
+                <div><span>Perímetro</span><strong>10.076,74 m</strong></div>
+                <div><span>Vértices</span><strong>7</strong><small>sentido horário</small></div>
+            </div>
+            <div class="tabela-wrap"><table class="tabela-compacta">
+                <tr><th>De</th><th>Para</th><th>Azimute</th><th class="num">Distância (m)</th><th>Confrontante</th></tr>
+                                <tr><td>M-01</td><td>M-02</td><td class="mono">82°03'32,41"</td><td class="num">2.241,97</td><td><small>Fazenda Santa Rita — mat. 4.512</small></td></tr>
+                                <tr><td>M-02</td><td>M-03</td><td class="mono">140°04'32,08"</td><td class="num">1.355,10</td><td><small>Fazenda Santa Rita — mat. 4.512</small></td></tr>
+                                <tr><td>M-03</td><td>P-04</td><td class="mono">192°41'58,59"</td><td class="num">1.502,20</td><td><small>Estrada Municipal CVL-040</small></td></tr>
+                                <tr><td>P-04</td><td>P-05</td><td class="mono">258°01'37,59"</td><td class="num">1.510,39</td><td><small>Córrego da Serra</small></td></tr>
+                                <tr><td>P-05</td><td>M-06</td><td class="mono">299°38'11,36"</td><td class="num">1.372,20</td><td><small>Córrego da Serra</small></td></tr>
+                                <tr><td>M-06</td><td>M-07</td><td class="mono">331°13'14,38"</td><td class="num">1.152,46</td><td><small>Agropecuária Serra Azul — Gleba 1</small></td></tr>
+                                <tr><td>M-07</td><td>M-01</td><td class="mono">29°34'35,72"</td><td class="num">942,41</td><td><small>Agropecuária Serra Azul — Gleba 1</small></td></tr>
+                            </table></div>
+                    </div>
+    </div>
+
+    <div class="grade-2col">
+        <div class="card">
+            <h2>Exportar para AutoCAD e outros programas</h2>
+                        <p class="suave">O DXF já vem com perímetro, marcos, nomes, azimutes e distâncias, confrontantes, quadrícula, norte, quadro de coordenadas e carimbo, cada coisa na sua camada (<code>TOPO-...</code>). Escala sugerida: 1:20.000.</p>
+            <div class="botoes-exportar">
+                <a class="btn-sm" href="arquivos/OS-2026-0028_Fazenda_Serra_Azul_Gleba_2.dxf" download>Desenho DXF (AutoCAD)</a>
+                <a class="btn-sm btn-outline" href="arquivos/OS-2026-0028_Fazenda_Serra_Azul_Gleba_2.scr" download title="Arraste o arquivo para dentro da tela do AutoCAD ou use o comando SCRIPT">Script SCR</a>
+                <a class="btn-sm btn-outline" href="arquivos/OS-2026-0028_Fazenda_Serra_Azul_Gleba_2.txt" download title="Ponto, Norte, Este, Cota, Descrição — importe no Civil 3D (Import Points, formato PNEZD comma delimited)">Pontos PNEZD (Civil 3D)</a>
+                <a class="btn-sm btn-outline" href="arquivos/OS-2026-0028_Fazenda_Serra_Azul_Gleba_2.csv" download>Planilha CSV</a>
+                <a class="btn-sm btn-outline" href="arquivos/OS-2026-0028_Fazenda_Serra_Azul_Gleba_2.kml" download>Google Earth (KML)</a>
+            </div>
+                    </div>
+        <form method="post" enctype="multipart/form-data" class="card">
+            <input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f"><input type="hidden" name="acao" value="importar_dxf">
+            <h2>Importar do AutoCAD (DXF)</h2>
+            <p class="suave">Mande o desenho com o perímetro feito em polilinha (PLINE). O sistema pega a maior polilinha fechada — ou a da camada que você informar — e preenche as coordenadas acima para conferir antes de salvar. Pontos (POINT) com cota no mesmo lugar dos vértices trazem a altitude.</p>
+            <label>Arquivo .dxf<input type="file" name="arquivo_dxf" accept=".dxf" required></label>
+            <div class="form-linha">
+                <label>Camada (opcional)<input type="text" name="camada" placeholder="ex.: PERIMETRO"></label>
+                <label>Prefixo dos vértices<input type="text" name="prefixo" value="V-" maxlength="10"></label>
+            </div>
+            <button type="submit" class="btn-outline">Ler DXF</button>
+        </form>
+    </div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const campo = document.getElementById('campo-vertices');
+    const saida = document.getElementById('previa-vertices');
+    const atualizar = function () {
+        const v = Topo.lerVertices(campo.value);
+        if (v.length < 3) { saida.textContent = v.length ? v.length + ' vértice(s) reconhecido(s) — precisa de pelo menos 3.' : ''; return; }
+        const r = Topo.poligono(v);
+        saida.textContent = v.length + ' vértices · área ' + Topo.num(r.area / 10000, 4) + ' ha · perímetro ' + Topo.num(r.perimetro, 2) + ' m';
+    };
+    campo.addEventListener('input', atualizar);
+    atualizar();
+});
+</script>
+</main></body></html>

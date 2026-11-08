@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agrosat | Prévia do sistema · gimfreires.tech</title>
+<meta name="description" content="Prévia navegável do sistema da Agrosat, topografia em Cascavel - PR: orçamentos, ordens de serviço, agenda de campo, vértices com planta DXF para o AutoCAD, memorial descritivo, protocolos e financeiro. Feito por gimfreires.tech.">
+<link rel="canonical" href="https://gimfreires.tech/agrosat/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="gimfreires.tech">
+<meta property="og:title" content="Agrosat | Prévia do sistema">
+<meta property="og:description" content="Orçamento, OS, campo, planta DXF, memorial e financeiro do escritório de topografia num sistema só.">
+<meta property="og:url" content="https://gimfreires.tech/agrosat/">
+<meta property="og:image" content="https://gimfreires.tech/img/agrosat-desktop.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;700&display=swap">
+<style>
+/* Layout: marca e contato no topo, três portas de entrada (escritório, planta DXF, memorial),
+   o caminho de um georreferenciamento do orçamento ao recibo, arquivos para baixar, atalhos e notas. */
+:root {
+  --bg: #F3F7F4; --surface: #FFFFFF; --line: #D6E2DA;
+  --fg: #14261D; --muted: #55685D; --accent: #0F766E; --accent-txt: #0B5E57; --terra: #9A5B1E;
+  --display: 'Fraunces', Georgia, serif;
+  --body: 'Manrope', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root {
+  --bg: #0E1713; --surface: #16221C; --line: #2A3A31;
+  --fg: #E7F0EA; --muted: #9DB0A4; --accent: #3FB8A9; --accent-txt: #6FD3C5; --terra: #E0A15E; color-scheme: dark; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--body); line-height: 1.5; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 40px 56px; display: flex; flex-direction: column; gap: 36px; }
+header { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
+.marca { display: flex; align-items: center; gap: 12px; }
+.marca svg { width: 52px; height: 52px; color: var(--accent); }
+.marca span { font-family: var(--display); font-weight: 700; font-size: clamp(2.4rem, 6vw, 3.4rem); line-height: 1; letter-spacing: -.01em; }
+.selo { font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--terra); }
+h1 { font-family: var(--display); font-weight: 600; font-size: clamp(1.5rem, 4vw, 2.1rem); line-height: 1.15; margin: 0; text-wrap: balance; }
+.lead { color: var(--muted); max-width: 62ch; margin: 0; font-size: 1.05rem; }
+.contato { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; color: var(--muted); font-size: .9rem; margin: 0; padding: 0; list-style: none; }
+.contato b { color: var(--fg); font-weight: 700; }
+.portas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 760px) { .portas { grid-template-columns: 1fr; } }
+.porta { display: flex; flex-direction: column; gap: 10px; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; color: var(--fg); text-decoration: none; transition: border-color .15s, transform .15s; min-width: 0; }
+.porta:hover, .porta:focus-visible { border-color: var(--accent); transform: translateY(-2px); outline: none; }
+.porta .tag { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--terra); }
+.porta h2 { font-family: var(--display); font-weight: 600; font-size: 1.6rem; line-height: 1.1; margin: 0; }
+.porta p { margin: 0; color: var(--muted); font-size: .95rem; }
+.porta .ir { margin-top: auto; padding-top: 8px; font-weight: 700; color: var(--accent-txt); }
+.etapas, .novidades { display: flex; flex-direction: column; gap: 14px; }
+.etapas h3, .novidades h3, .notas h3 { margin: 0; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); text-align: center; }
+.linha { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; counter-reset: etapa; }
+@media (max-width: 860px) { .linha { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 460px) { .linha { grid-template-columns: 1fr; } }
+.linha li { counter-increment: etapa; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.linha li::before { content: counter(etapa); width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--accent); font-weight: 700; font-size: .8rem; display: grid; place-items: center; }
+.linha b { font-size: .98rem; }
+.linha span { color: var(--muted); font-size: .85rem; }
+.linha a { color: var(--accent-txt); font-size: .85rem; font-weight: 700; text-decoration: none; }
+.linha a:hover, .linha a:focus-visible { text-decoration: underline; outline: none; }
+.atalhos { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.atalhos a { color: var(--fg); text-decoration: none; border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 7px 14px; font-size: .9rem; }
+.atalhos a:hover, .atalhos a:focus-visible { border-color: var(--accent); outline: none; }
+.novos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 860px) { .novos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 420px) { .novos { grid-template-columns: 1fr; } }
+.novos a { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; text-decoration: none; color: var(--fg); min-width: 0; }
+.novos a:hover, .novos a:focus-visible { border-color: var(--accent); outline: none; }
+.novos b { color: var(--accent-txt); font-size: .95rem; }
+.novos span { color: var(--muted); font-size: .85rem; }
+.novos code { font-size: .8rem; }
+.notas { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px 24px; display: flex; flex-direction: column; gap: 10px; }
+.notas h3 { text-align: left; }
+.notas ul { margin: 0; padding-left: 1.1em; color: var(--muted); display: flex; flex-direction: column; gap: 6px; }
+.notas b { color: var(--fg); }
+@media (prefers-reduced-motion: reduce) { .porta { transition: none; } .porta:hover { transform: none; } }
+.voltar { margin: 0; text-align: center; } .voltar a { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="marca">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="none" stroke="currentColor" stroke-width="3"/><path d="M24 6v8M24 34v8M6 24h8M34 24h8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M14 31l7-12 5 7 3-4 5 9z" fill="currentColor"/></svg>
+      <span>Agrosat</span>
+    </div>
+    <span class="selo">Há 27 anos prestando serviços em Cascavel e região</span>
+    <h1>Prévia do sistema do escritório</h1>
+    <p class="lead">Telas reais do sistema da Agrosat rodando com levantamentos de exemplo na região de Cascavel. Navegue pelo orçamento, pela ordem de serviço, pelos vértices com a planta para o AutoCAD e pelo memorial descritivo.</p>
+    <ul class="contato">
+      <li>Rua Osvaldo Cruz, 2439 - Centro, Cascavel - PR, 85810-150</li>
+      <li><b>(45) 98423-0856</b></li>
+      <li>Segunda a sexta, das 08:00 às 12:00 e das 13:30 às 18:00</li>
+    </ul>
+  </header>
+
+  <nav class="portas" aria-label="Partes do sistema">
+    <a class="porta" href="painel.html">
+      <span class="tag">Para o escritório</span>
+      <h2>Painel</h2>
+      <p>Serviços por etapa, prazos vencendo, campo da semana, contas e protocolos com exigência.</p>
+      <span class="ir">Abrir o painel →</span>
+    </a>
+    <a class="porta" href="vertices-2.html">
+      <span class="tag">Para o AutoCAD</span>
+      <h2>Vértices e planta DXF</h2>
+      <p>Fazenda Serra Azul, 725 ha em Corbélia: área, azimutes, croqui e a planta pronta para abrir no AutoCAD.</p>
+      <span class="ir">Ver os vértices →</span>
+    </a>
+    <a class="porta" href="memorial-2.html">
+      <span class="tag">Para o cartório</span>
+      <h2>Memorial descritivo</h2>
+      <p>Gerado das coordenadas, com latitude e longitude de cada marco, pronto para imprimir.</p>
+      <span class="ir">Ver o memorial →</span>
+    </a>
+  </nav>
+
+  <section class="etapas" aria-labelledby="tit-etapas">
+    <h3 id="tit-etapas">Um georreferenciamento do começo ao fim</h3>
+    <ol class="linha">
+      <li><b>Orçamento</b><span>Diárias, km, equipamentos, honorários e lucro estimado</span><a href="orcamento-1.html">Gleba 3 →</a></li>
+      <li><b>Proposta</b><span>Pronta para enviar no WhatsApp ou imprimir</span><a href="proposta-1.html">Ver a proposta →</a></li>
+      <li><b>Ordem de serviço</b><span>Imóvel, matrícula, CCIR, CAR, histórico e financeiro</span><a href="os-2.html">Serra Azul →</a></li>
+      <li><b>Campo</b><span>Equipe e equipamentos na agenda da semana</span><a href="agenda.html">Agenda →</a></li>
+      <li><b>Vértices</b><span>Coordenadas UTM, croqui e planta DXF</span><a href="vertices-2.html">Coordenadas →</a></li>
+      <li><b>Memorial</b><span>Descrição perimétrica com azimutes e distâncias</span><a href="memorial-2.html">Memorial →</a></li>
+      <li><b>Protocolo</b><span>SIGEF, cartório, prefeitura e CAR, com prazos e exigências</span><a href="protocolos.html">Protocolos →</a></li>
+      <li><b>Recebimento</b><span>Parcelas, baixa e recibo com valor por extenso</span><a href="recibo-3.html">Recibo →</a></li>
+    </ol>
+  </section>
+
+  <section class="novidades" aria-labelledby="tit-novo">
+    <h3 id="tit-novo">Feito para topografia</h3>
+    <div class="novos">
+      <a href="arquivos/OS-2026-0028_Fazenda_Serra_Azul_Gleba_2.dxf" download><b>Planta DXF</b><span>Baixe a planta da Serra Azul e abra no AutoCAD</span></a>
+      <a href="arquivos/OS-2026-0028_Fazenda_Serra_Azul_Gleba_2.kml" download><b>Google Earth</b><span>Perímetro e marcos em KML</span></a>
+      <a href="arquivos/OS-2026-0028_Fazenda_Serra_Azul_Gleba_2.txt" download><b>Pontos PNEZD</b><span>Para importar no Civil 3D</span></a>
+      <a href="ferramentas.html"><b>Ferramentas de campo</b><span>UTM ⇄ geográficas, irradiação, rumo e alqueires</span></a>
+      <a href="os-quadro.html"><b>Quadro das OS</b><span>Do aguardando campo ao concluído</span></a>
+      <a href="equipamentos.html"><b>Equipamentos</b><span>GNSS, estação total e calibração vencendo</span></a>
+      <a href="relatorio.html"><b>DRE e lucro por serviço</b><span>Quanto cada tipo de serviço dá de resultado</span></a>
+      <a href="contador.html"><b>Fechamento do mês</b><span>Planilha pronta para o contador</span></a>
+    </div>
+  </section>
+
+  <div class="atalhos" aria-label="Atalhos">
+    <a href="os.html">Ordens de serviço</a>
+    <a href="orcamentos.html">Orçamentos</a>
+    <a href="clientes.html">Clientes</a>
+    <a href="financeiro.html">Financeiro</a>
+    <a href="lancamentos.html">Lançamentos</a>
+    <a href="usuarios.html">Equipe</a>
+    <a href="config-contato.html">Dados do escritório</a>
+    <a href="login.html">Login da equipe</a>
+  </div>
+
+  <section class="notas" aria-labelledby="tit-notas">
+    <h3 id="tit-notas">Sobre esta prévia</h3>
+    <ul>
+      <li>Clientes, imóveis, valores e equipe são <b>dados de demonstração</b>; o nome, o endereço, o telefone e o horário são os da Agrosat.</li>
+      <li>As telas são cópias do sistema funcionando. Os botões de salvar mostram um aviso, porque aqui nada é gravado.</li>
+      <li>Os arquivos DXF, KML e PNEZD foram gerados pelo próprio sistema e abrem no AutoCAD, Civil 3D, QGIS e Google Earth.</li>
+    </ul>
+  </section>
+
+  <p class="voltar"><a href="/">← Voltar para gimfreires.tech</a></p>
+</div>
+</body>
+</html>

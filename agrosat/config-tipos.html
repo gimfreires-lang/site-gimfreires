@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Tipos de serviço</title><script src="previa.js"></script>
+</head><body><div class="faixa-previa">Prévia com dados de demonstração · <a href="./">voltar ao início</a></div><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/topografia.css">
+
+
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo"><span class="site-logo-marca" aria-hidden="true"></span>Agrosat</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Painel</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Serviços</button>
+                <div class="nav-submenu">
+                    <a href="os.html">Ordens de serviço</a>
+                    <a href="os-quadro.html">Quadro (kanban)</a>
+                    <a href="os-editar.html">+ Nova OS</a>
+                    <a href="orcamentos.html">Orçamentos</a>
+                    <a href="orcamento.html">+ Novo orçamento</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Campo</button>
+                <div class="nav-submenu">
+                    <a href="agenda.html">Agenda de campo</a>
+                    <a href="equipamentos.html">Equipamentos</a>
+                </div>
+            </div>
+            <a href="protocolos.html">Protocolos</a>
+            <a href="clientes.html">Clientes</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Financeiro</button>
+                <div class="nav-submenu">
+                    <a href="financeiro.html">Visão geral</a>
+                    <a href="lancamentos-tipo-receita.html">Contas a receber</a>
+                    <a href="lancamentos-tipo-despesa.html">Contas a pagar</a>
+                    <a href="lancamento.html">+ Novo lançamento</a>
+                                        <a href="relatorio.html">Resultado (DRE) e lucro por serviço</a>
+                    <a href="contador.html">Fechamento para o contador</a>
+                                    </div>
+            </div>
+            <a href="ferramentas.html">Ferramentas</a>
+                        <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="config-escritorio.html">Escritório e parâmetros</a>
+                    <a href="config-tipos.html">Tipos de serviço e preços</a>
+                    <a href="usuarios.html">Equipe e usuários</a>
+                    <a href="config-contato.html">Logo e contato</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Carlos Mendes</span>
+            <a href="login.html">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer></script>
+<script src="assets/js/topografia.js" defer></script>
+<main class="container">
+<div class="page-title"><span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm7-3 2-1-2-4-2 1-2-1-1-2H10L9 7 7 8 5 7l-2 4 2 1v0l-2 1 2 4 2-1 2 1 1 2h4l1-2 2-1 2 1 2-4-2-1Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h1>Tipos de serviço e tabela de preços</h1><span class="subtitulo">Base dos honorários técnicos na calculadora de orçamento</span></div></div>        <p class="suave">Honorários = preço base + área × preço por hectare. Os custos de campo (diárias, km, equipamentos) são somados à parte em cada orçamento.</p>
+        <details class="card card-sanfona" >
+        <summary><span>Aerolevantamento com drone</span>
+            <small class="suave">R$ 2.500,00 + R$ 35,00/ha · 0 serviço(s)</small>        </summary>
+        <form method="post" class="sanfona-corpo">
+            <input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f"><input type="hidden" name="id_tipo" value="9">
+            <div class="form-linha">
+                <label style="flex:2">Nome<input type="text" name="nome" required value="Aerolevantamento com drone"></label>
+                <label style="flex:3">Descrição (vai na proposta)<input type="text" name="descricao" value="Ortofoto, MDT e curvas a partir de VANT"></label>
+            </div>
+            <div class="form-linha">
+                <label>Preço base (R$)<input type="text" name="preco_base" value="2.500,00"></label>
+                <label>Preço por ha (R$)<input type="text" name="preco_por_ha" value="35,00"></label>
+                <label>Dias de campo padrão<input type="text" name="dias_campo_padrao" value="1,0"></label>
+                <label>Prazo padrão (dias)<input type="number" name="prazo_dias_padrao" value="15"></label>
+            </div>
+            <label class="check"><input type="checkbox" name="exige_protocolo" > Envolve protocolo em órgão (SIGEF, cartório, prefeitura)</label>
+            <label class="check"><input type="checkbox" name="ativo" checked> Ativo</label>
+            <button type="submit" class="btn-sm">Salvar</button>
+        </form>
+    </details>
+        <details class="card card-sanfona" >
+        <summary><span>Cálculo de volume (cubagem)</span>
+            <small class="suave">R$ 1.500,00 · 1 serviço(s) · ticket médio R$ 6.200,00</small>        </summary>
+        <form method="post" class="sanfona-corpo">
+            <input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f"><input type="hidden" name="id_tipo" value="10">
+            <div class="form-linha">
+                <label style="flex:2">Nome<input type="text" name="nome" required value="Cálculo de volume (cubagem)"></label>
+                <label style="flex:3">Descrição (vai na proposta)<input type="text" name="descricao" value="Volumes de corte/aterro ou pilhas"></label>
+            </div>
+            <div class="form-linha">
+                <label>Preço base (R$)<input type="text" name="preco_base" value="1.500,00"></label>
+                <label>Preço por ha (R$)<input type="text" name="preco_por_ha" value="0,00"></label>
+                <label>Dias de campo padrão<input type="text" name="dias_campo_padrao" value="1,0"></label>
+                <label>Prazo padrão (dias)<input type="number" name="prazo_dias_padrao" value="7"></label>
+            </div>
+            <label class="check"><input type="checkbox" name="exige_protocolo" > Envolve protocolo em órgão (SIGEF, cartório, prefeitura)</label>
+            <label class="check"><input type="checkbox" name="ativo" checked> Ativo</label>
+            <button type="submit" class="btn-sm">Salvar</button>
+        </form>
+    </details>
+        <details class="card card-sanfona" >
+        <summary><span>CAR / Ambiental</span>
+            <small class="suave">R$ 900,00 + R$ 8,00/ha · 1 serviço(s) · ticket médio R$ 2.400,00</small>        </summary>
+        <form method="post" class="sanfona-corpo">
+            <input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f"><input type="hidden" name="id_tipo" value="8">
+            <div class="form-linha">
+                <label style="flex:2">Nome<input type="text" name="nome" required value="CAR / Ambiental"></label>
+                <label style="flex:3">Descrição (vai na proposta)<input type="text" name="descricao" value="Cadastro Ambiental Rural, APP e reserva legal"></label>
+            </div>
+            <div class="form-linha">
+                <label>Preço base (R$)<input type="text" name="preco_base" value="900,00"></label>
+                <label>Preço por ha (R$)<input type="text" name="preco_por_ha" value="8,00"></label>
+                <label>Dias de campo padrão<input type="text" name="dias_campo_padrao" value="1,0"></label>
+                <label>Prazo padrão (dias)<input type="number" name="prazo_dias_padrao" value="20"></label>
+            </div>
+            <label class="check"><input type="checkbox" name="exige_protocolo" checked> Envolve protocolo em órgão (SIGEF, cartório, prefeitura)</label>
+            <label class="check"><input type="checkbox" name="ativo" checked> Ativo</label>
+            <button type="submit" class="btn-sm">Salvar</button>
+        </form>
+    </details>
+        <details class="card card-sanfona" >
+        <summary><span>Desmembramento / Unificação</span>
+            <small class="suave">R$ 2.200,00 + R$ 60,00/ha · 1 serviço(s) · ticket médio R$ 5.109,55</small>        </summary>
+        <form method="post" class="sanfona-corpo">
+            <input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f"><input type="hidden" name="id_tipo" value="5">
+            <div class="form-linha">
+                <label style="flex:2">Nome<input type="text" name="nome" required value="Desmembramento / Unificação"></label>
+                <label style="flex:3">Descrição (vai na proposta)<input type="text" name="descricao" value="Projeto, memoriais e aprovação na prefeitura"></label>
+            </div>
+            <div class="form-linha">
+                <label>Preço base (R$)<input type="text" name="preco_base" value="2.200,00"></label>
+                <label>Preço por ha (R$)<input type="text" name="preco_por_ha" value="60,00"></label>
+                <label>Dias de campo padrão<input type="text" name="dias_campo_padrao" value="1,0"></label>
+                <label>Prazo padrão (dias)<input type="number" name="prazo_dias_padrao" value="45"></label>
+            </div>
+            <label class="check"><input type="checkbox" name="exige_protocolo" checked> Envolve protocolo em órgão (SIGEF, cartório, prefeitura)</label>
+            <label class="check"><input type="checkbox" name="ativo" checked> Ativo</label>
+            <button type="submit" class="btn-sm">Salvar</button>
+        </form>
+    </details>
+        <details class="card card-sanfona" >
+        <summary><span>Georreferenciamento (SIGEF/INCRA)</span>
+            <small class="suave">R$ 3.500,00 + R$ 45,00/ha · 2 serviço(s) · ticket médio R$ 14.150,00</small>        </summary>
+        <form method="post" class="sanfona-corpo">
+            <input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f"><input type="hidden" name="id_tipo" value="1">
+            <div class="form-linha">
+                <label style="flex:2">Nome<input type="text" name="nome" required value="Georreferenciamento (SIGEF/INCRA)"></label>
+                <label style="flex:3">Descrição (vai na proposta)<input type="text" name="descricao" value="Levantamento GNSS dos limites, memorial e certificação no SIGEF"></label>
+            </div>
+            <div class="form-linha">
+                <label>Preço base (R$)<input type="text" name="preco_base" value="3.500,00"></label>
+                <label>Preço por ha (R$)<input type="text" name="preco_por_ha" value="45,00"></label>
+                <label>Dias de campo padrão<input type="text" name="dias_campo_padrao" value="3,0"></label>
+                <label>Prazo padrão (dias)<input type="number" name="prazo_dias_padrao" value="60"></label>
+            </div>
+            <label class="check"><input type="checkbox" name="exige_protocolo" checked> Envolve protocolo em órgão (SIGEF, cartório, prefeitura)</label>
+            <label class="check"><input type="checkbox" name="ativo" checked> Ativo</label>
+            <button type="submit" class="btn-sm">Salvar</button>
+        </form>
+    </details>
+        <details class="card card-sanfona" >
+        <summary><span>Levantamento planialtimétrico</span>
+            <small class="suave">R$ 1.800,00 + R$ 120,00/ha · 2 serviço(s) · ticket médio R$ 8.550,00</small>        </summary>
+        <form method="post" class="sanfona-corpo">
+            <input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f"><input type="hidden" name="id_tipo" value="2">
+            <div class="form-linha">
+                <label style="flex:2">Nome<input type="text" name="nome" required value="Levantamento planialtimétrico"></label>
+                <label style="flex:3">Descrição (vai na proposta)<input type="text" name="descricao" value="Planta com curvas de nível, cotas e detalhes"></label>
+            </div>
+            <div class="form-linha">
+                <label>Preço base (R$)<input type="text" name="preco_base" value="1.800,00"></label>
+                <label>Preço por ha (R$)<input type="text" name="preco_por_ha" value="120,00"></label>
+                <label>Dias de campo padrão<input type="text" name="dias_campo_padrao" value="1,0"></label>
+                <label>Prazo padrão (dias)<input type="number" name="prazo_dias_padrao" value="15"></label>
+            </div>
+            <label class="check"><input type="checkbox" name="exige_protocolo" > Envolve protocolo em órgão (SIGEF, cartório, prefeitura)</label>
+            <label class="check"><input type="checkbox" name="ativo" checked> Ativo</label>
+            <button type="submit" class="btn-sm">Salvar</button>
+        </form>
+    </details>
+        <details class="card card-sanfona" >
+        <summary><span>Levantamento planimétrico</span>
+            <small class="suave">R$ 1.200,00 + R$ 80,00/ha · 0 serviço(s)</small>        </summary>
+        <form method="post" class="sanfona-corpo">
+            <input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f"><input type="hidden" name="id_tipo" value="3">
+            <div class="form-linha">
+                <label style="flex:2">Nome<input type="text" name="nome" required value="Levantamento planimétrico"></label>
+                <label style="flex:3">Descrição (vai na proposta)<input type="text" name="descricao" value="Planta com limites, áreas e benfeitorias"></label>
+            </div>
+            <div class="form-linha">
+                <label>Preço base (R$)<input type="text" name="preco_base" value="1.200,00"></label>
+                <label>Preço por ha (R$)<input type="text" name="preco_por_ha" value="80,00"></label>
+                <label>Dias de campo padrão<input type="text" name="dias_campo_padrao" value="1,0"></label>
+                <label>Prazo padrão (dias)<input type="number" name="prazo_dias_padrao" value="10"></label>
+            </div>
+            <label class="check"><input type="checkbox" name="exige_protocolo" > Envolve protocolo em órgão (SIGEF, cartório, prefeitura)</label>
+            <label class="check"><input type="checkbox" name="ativo" checked> Ativo</label>
+            <button type="submit" class="btn-sm">Salvar</button>
+        </form>
+    </details>
+        <details class="card card-sanfona" >
+        <summary><span>Locação de obra</span>
+            <small class="suave">R$ 900,00 · 1 serviço(s) · ticket médio R$ 2.148,30</small>        </summary>
+        <form method="post" class="sanfona-corpo">
+            <input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f"><input type="hidden" name="id_tipo" value="4">
+            <div class="form-linha">
+                <label style="flex:2">Nome<input type="text" name="nome" required value="Locação de obra"></label>
+                <label style="flex:3">Descrição (vai na proposta)<input type="text" name="descricao" value="Marcação de gabarito, eixos e estacas"></label>
+            </div>
+            <div class="form-linha">
+                <label>Preço base (R$)<input type="text" name="preco_base" value="900,00"></label>
+                <label>Preço por ha (R$)<input type="text" name="preco_por_ha" value="0,00"></label>
+                <label>Dias de campo padrão<input type="text" name="dias_campo_padrao" value="1,0"></label>
+                <label>Prazo padrão (dias)<input type="number" name="prazo_dias_padrao" value="5"></label>
+            </div>
+            <label class="check"><input type="checkbox" name="exige_protocolo" > Envolve protocolo em órgão (SIGEF, cartório, prefeitura)</label>
+            <label class="check"><input type="checkbox" name="ativo" checked> Ativo</label>
+            <button type="submit" class="btn-sm">Salvar</button>
+        </form>
+    </details>
+        <details class="card card-sanfona" >
+        <summary><span>Retificação de área</span>
+            <small class="suave">R$ 2.500,00 + R$ 40,00/ha · 0 serviço(s)</small>        </summary>
+        <form method="post" class="sanfona-corpo">
+            <input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f"><input type="hidden" name="id_tipo" value="7">
+            <div class="form-linha">
+                <label style="flex:2">Nome<input type="text" name="nome" required value="Retificação de área"></label>
+                <label style="flex:3">Descrição (vai na proposta)<input type="text" name="descricao" value="Retificação administrativa em cartório"></label>
+            </div>
+            <div class="form-linha">
+                <label>Preço base (R$)<input type="text" name="preco_base" value="2.500,00"></label>
+                <label>Preço por ha (R$)<input type="text" name="preco_por_ha" value="40,00"></label>
+                <label>Dias de campo padrão<input type="text" name="dias_campo_padrao" value="2,0"></label>
+                <label>Prazo padrão (dias)<input type="number" name="prazo_dias_padrao" value="60"></label>
+            </div>
+            <label class="check"><input type="checkbox" name="exige_protocolo" checked> Envolve protocolo em órgão (SIGEF, cartório, prefeitura)</label>
+            <label class="check"><input type="checkbox" name="ativo" checked> Ativo</label>
+            <button type="submit" class="btn-sm">Salvar</button>
+        </form>
+    </details>
+        <details class="card card-sanfona" >
+        <summary><span>Usucapião</span>
+            <small class="suave">R$ 2.800,00 + R$ 50,00/ha · 1 serviço(s) · ticket médio R$ 3.600,00</small>        </summary>
+        <form method="post" class="sanfona-corpo">
+            <input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f"><input type="hidden" name="id_tipo" value="6">
+            <div class="form-linha">
+                <label style="flex:2">Nome<input type="text" name="nome" required value="Usucapião"></label>
+                <label style="flex:3">Descrição (vai na proposta)<input type="text" name="descricao" value="Planta, memorial e anuência de confrontantes"></label>
+            </div>
+            <div class="form-linha">
+                <label>Preço base (R$)<input type="text" name="preco_base" value="2.800,00"></label>
+                <label>Preço por ha (R$)<input type="text" name="preco_por_ha" value="50,00"></label>
+                <label>Dias de campo padrão<input type="text" name="dias_campo_padrao" value="2,0"></label>
+                <label>Prazo padrão (dias)<input type="number" name="prazo_dias_padrao" value="60"></label>
+            </div>
+            <label class="check"><input type="checkbox" name="exige_protocolo" checked> Envolve protocolo em órgão (SIGEF, cartório, prefeitura)</label>
+            <label class="check"><input type="checkbox" name="ativo" checked> Ativo</label>
+            <button type="submit" class="btn-sm">Salvar</button>
+        </form>
+    </details>
+        <details class="card card-sanfona" >
+        <summary><span>+ Novo tipo de serviço</span>
+                    </summary>
+        <form method="post" class="sanfona-corpo">
+            <input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f"><input type="hidden" name="id_tipo" value="0">
+            <div class="form-linha">
+                <label style="flex:2">Nome<input type="text" name="nome" required value=""></label>
+                <label style="flex:3">Descrição (vai na proposta)<input type="text" name="descricao" value=""></label>
+            </div>
+            <div class="form-linha">
+                <label>Preço base (R$)<input type="text" name="preco_base" value="0,00"></label>
+                <label>Preço por ha (R$)<input type="text" name="preco_por_ha" value="0,00"></label>
+                <label>Dias de campo padrão<input type="text" name="dias_campo_padrao" value="1,0"></label>
+                <label>Prazo padrão (dias)<input type="number" name="prazo_dias_padrao" value="30"></label>
+            </div>
+            <label class="check"><input type="checkbox" name="exige_protocolo" > Envolve protocolo em órgão (SIGEF, cartório, prefeitura)</label>
+            <label class="check"><input type="checkbox" name="ativo" checked> Ativo</label>
+            <button type="submit" class="btn-sm">Salvar</button>
+        </form>
+    </details>
+    </main></body></html>

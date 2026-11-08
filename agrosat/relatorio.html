@@ -1,0 +1,201 @@
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Resultado e lucro por serviço</title><script src="previa.js"></script>
+</head><body><div class="faixa-previa">Prévia com dados de demonstração · <a href="./">voltar ao início</a></div><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/topografia.css">
+
+
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo"><span class="site-logo-marca" aria-hidden="true"></span>Agrosat</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Painel</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Serviços</button>
+                <div class="nav-submenu">
+                    <a href="os.html">Ordens de serviço</a>
+                    <a href="os-quadro.html">Quadro (kanban)</a>
+                    <a href="os-editar.html">+ Nova OS</a>
+                    <a href="orcamentos.html">Orçamentos</a>
+                    <a href="orcamento.html">+ Novo orçamento</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Campo</button>
+                <div class="nav-submenu">
+                    <a href="agenda.html">Agenda de campo</a>
+                    <a href="equipamentos.html">Equipamentos</a>
+                </div>
+            </div>
+            <a href="protocolos.html">Protocolos</a>
+            <a href="clientes.html">Clientes</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Financeiro</button>
+                <div class="nav-submenu">
+                    <a href="financeiro.html">Visão geral</a>
+                    <a href="lancamentos-tipo-receita.html">Contas a receber</a>
+                    <a href="lancamentos-tipo-despesa.html">Contas a pagar</a>
+                    <a href="lancamento.html">+ Novo lançamento</a>
+                                        <a href="relatorio.html">Resultado (DRE) e lucro por serviço</a>
+                    <a href="contador.html">Fechamento para o contador</a>
+                                    </div>
+            </div>
+            <a href="ferramentas.html">Ferramentas</a>
+                        <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="config-escritorio.html">Escritório e parâmetros</a>
+                    <a href="config-tipos.html">Tipos de serviço e preços</a>
+                    <a href="usuarios.html">Equipe e usuários</a>
+                    <a href="config-contato.html">Logo e contato</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Carlos Mendes</span>
+            <a href="login.html">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer></script>
+<script src="assets/js/topografia.js" defer></script>
+<main class="container">
+<div class="page-title"><span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v12H4zM4 11h16M8 15h3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h1>Resultado do escritório</h1><span class="subtitulo">De 01/01/2026 a 30/11/2026 · regime de caixa</span></div></div>    <form method="get" class="filtros-linha">
+        <label>De<input type="date" name="ini" value="2026-01-01"></label>
+        <label>Até<input type="date" name="fim" value="2026-11-30"></label>
+        <label>Regime<select name="regime"><option value="caixa" selected>Caixa (o que foi pago/recebido)</option><option value="competencia" >Competência (pelo vencimento)</option></select></label>
+        <button type="submit">Atualizar</button>
+        <a href="contador.html" class="btn-texto">Fechamento para o contador ›</a>
+    </form>
+
+    <div class="grade-2col">
+        <div class="card">
+            <h2>Demonstrativo de resultado (DRE gerencial)</h2>
+            <table class="dre">
+                <tr class="dre-total"><td>Receita bruta</td><td class="num">R$ 171.253,08</td><td class="num">100%</td></tr>
+                <tr class="dre-item"><td>Serviços técnicos</td><td class="num">R$ 171.253,08</td><td class="num">100,0%</td></tr>                <tr class="dre-grupo"><td>(−) Impostos sobre faturamento</td><td class="num">R$ -16.400,00</td><td class="num">9,6%</td></tr>
+                <tr class="dre-total"><td>= Receita líquida</td><td class="num">R$ 154.853,08</td><td class="num">90,4%</td></tr>
+                <tr class="dre-grupo"><td>(−) Custos diretos dos serviços</td><td class="num">R$ -6.015,28</td><td class="num">3,5%</td></tr>
+                <tr class="dre-item"><td>Diárias, alimentação e hospedagem</td><td class="num">R$ -3.100,00</td><td class="num">1,8%</td></tr><tr class="dre-item"><td>Combustível e pedágio</td><td class="num">R$ -1.580,00</td><td class="num">0,9%</td></tr><tr class="dre-item"><td>Taxas (ART, cartório, INCRA, prefeitura)</td><td class="num">R$ -565,28</td><td class="num">0,3%</td></tr><tr class="dre-item"><td>Serviços terceirizados</td><td class="num">R$ -450,00</td><td class="num">0,3%</td></tr><tr class="dre-item"><td>Marcos e material de campo</td><td class="num">R$ -320,00</td><td class="num">0,2%</td></tr>                <tr class="dre-total"><td>= Margem de contribuição</td><td class="num">R$ 148.837,80</td><td class="num">86,9%</td></tr>
+                <tr class="dre-grupo"><td>(−) Despesas operacionais</td><td class="num">R$ -3.190,00</td><td class="num">1,9%</td></tr>
+                <tr class="dre-item"><td>Software e licenças</td><td class="num">R$ -1.950,00</td><td class="num">1,1%</td></tr><tr class="dre-item"><td>Manutenção de veículos</td><td class="num">R$ -1.240,00</td><td class="num">0,7%</td></tr>                <tr class="dre-grupo"><td>(−) Despesas administrativas</td><td class="num">R$ -68.500,00</td><td class="num">40,0%</td></tr>
+                <tr class="dre-item"><td>Salários e pró-labore</td><td class="num">R$ -48.000,00</td><td class="num">28,0%</td></tr><tr class="dre-item"><td>Aluguel, água, luz e internet</td><td class="num">R$ -9.000,00</td><td class="num">5,3%</td></tr><tr class="dre-item"><td>Encargos trabalhistas</td><td class="num">R$ -8.250,00</td><td class="num">4,8%</td></tr><tr class="dre-item"><td>Contador e despesas bancárias</td><td class="num">R$ -3.250,00</td><td class="num">1,9%</td></tr>                <tr class="dre-resultado "><td>= Resultado operacional</td><td class="num">R$ 77.147,80</td><td class="num">45,0%</td></tr>
+                <tr class="dre-grupo"><td>Investimentos (equipamentos) — fora do resultado</td><td class="num">R$ -980,00</td><td></td></tr>            </table>
+            <p class="suave">Relatório gerencial para decisão. A escrituração e a apuração oficial de impostos continuam com o contador.</p>
+        </div>
+        <div class="card">
+            <h2>Lucro por tipo de serviço</h2>
+                        <div class="tabela-wrap"><table class="tabela-compacta">
+                <tr><th>Tipo</th><th class="num">Serviços</th><th class="num">Receita</th><th class="num">Custos</th><th class="num">Lucro</th><th class="num">Margem</th></tr>
+                                <tr><td>Georreferenciamento (SIGEF/INCRA)</td><td class="num">2</td><td class="num">R$ 28.300,00</td><td class="num">R$ 3.669,28</td><td class="num "><strong>R$ 24.630,72</strong></td><td class="num">87%</td></tr>
+                                <tr><td>Levantamento planialtimétrico</td><td class="num">2</td><td class="num">R$ 17.100,00</td><td class="num">R$ 1.950,00</td><td class="num "><strong>R$ 15.150,00</strong></td><td class="num">89%</td></tr>
+                                <tr><td>Cálculo de volume (cubagem)</td><td class="num">1</td><td class="num">R$ 6.200,00</td><td class="num">R$ 650,00</td><td class="num "><strong>R$ 5.550,00</strong></td><td class="num">90%</td></tr>
+                                <tr><td>Desmembramento / Unificação</td><td class="num">1</td><td class="num">R$ 5.109,55</td><td class="num">R$ 0,00</td><td class="num "><strong>R$ 5.109,55</strong></td><td class="num">100%</td></tr>
+                                <tr><td>Usucapião</td><td class="num">1</td><td class="num">R$ 3.600,00</td><td class="num">R$ 186,00</td><td class="num "><strong>R$ 3.414,00</strong></td><td class="num">95%</td></tr>
+                                <tr><td>CAR / Ambiental</td><td class="num">1</td><td class="num">R$ 2.400,00</td><td class="num">R$ 180,00</td><td class="num "><strong>R$ 2.220,00</strong></td><td class="num">93%</td></tr>
+                                <tr><td>Locação de obra</td><td class="num">1</td><td class="num">R$ 2.148,30</td><td class="num">R$ 0,00</td><td class="num "><strong>R$ 2.148,30</strong></td><td class="num">100%</td></tr>
+                            </table></div>
+                    </div>
+    </div>
+
+    <div class="card">
+        <h2>Lucro por serviço</h2>
+        <p class="suave">Receitas e custos lançados em cada OS (todas as parcelas, inclusive em aberto). Custos gerais do escritório não entram aqui — lance combustível, diárias e taxas na OS para ver o lucro real.</p>
+                <div class="tabela-wrap"><table>
+            <tr><th>OS</th><th>Serviço</th><th>Status</th><th class="num">Dias campo</th><th class="num">Receita</th><th class="num">Custos</th><th class="num">Lucro</th><th class="num">Margem</th></tr>
+                        <tr>
+                <td><a href="os-2.html"><strong>OS-2026-0028</strong></a></td>
+                <td>Georreferenciamento — Fazenda Serra Azul (gleba 2)<br><small class="suave">Agropecuária Serra Azul Ltda</small></td>
+                <td><span class="status-pill erro">Com exigência</span></td>
+                <td class="num">—</td>
+                <td class="num">R$ 18.500,00</td>
+                <td class="num">R$ 2.409,64</td>
+                <td class="num "><strong>R$ 16.090,36</strong></td>
+                <td class="num"><span class="barra-margem" style="--m:86.974918918919%"></span>87%</td>
+            </tr>
+                        <tr>
+                <td><a href="os-9.html"><strong>OS-2026-0032</strong></a></td>
+                <td>Planialtimétrico — Loteamento Vale Verde<br><small class="suave">Construtora Horizonte Engenharia</small></td>
+                <td><span class="status-pill preparando">Processamento</span></td>
+                <td class="num">1</td>
+                <td class="num">R$ 12.800,00</td>
+                <td class="num">R$ 1.250,00</td>
+                <td class="num "><strong>R$ 11.550,00</strong></td>
+                <td class="num"><span class="barra-margem" style="--m:90.234375%"></span>90%</td>
+            </tr>
+                        <tr>
+                <td><a href="os-1.html"><strong>OS-2026-0031</strong></a></td>
+                <td>Georreferenciamento — Fazenda Boa Vista<br><small class="suave">José Antônio Ribeiro</small></td>
+                <td><span class="status-pill pronto">Em campo</span></td>
+                <td class="num">1</td>
+                <td class="num">R$ 9.800,00</td>
+                <td class="num">R$ 1.259,64</td>
+                <td class="num "><strong>R$ 8.540,36</strong></td>
+                <td class="num"><span class="barra-margem" style="--m:87.146530612245%"></span>87%</td>
+            </tr>
+                        <tr>
+                <td><a href="os-5.html"><strong>OS-2026-0029</strong></a></td>
+                <td>Cubagem de pilhas — Pátio de estéril<br><small class="suave">Pedreira Pedra Branca S.A.</small></td>
+                <td><span class="status-pill sucesso">Concluído</span></td>
+                <td class="num">—</td>
+                <td class="num">R$ 6.200,00</td>
+                <td class="num">R$ 650,00</td>
+                <td class="num "><strong>R$ 5.550,00</strong></td>
+                <td class="num"><span class="barra-margem" style="--m:89.516129032258%"></span>90%</td>
+            </tr>
+                        <tr>
+                <td><a href="os-7.html"><strong>OS-2026-0035</strong></a></td>
+                <td>Desmembramento de lote — Toledo<br><small class="suave">Helena e Roberto Campos</small></td>
+                <td><span class="status-pill alerta">Aguardando campo</span></td>
+                <td class="num">—</td>
+                <td class="num">R$ 5.109,55</td>
+                <td class="num">R$ 0,00</td>
+                <td class="num "><strong>R$ 5.109,55</strong></td>
+                <td class="num"><span class="barra-margem" style="--m:100%"></span>100%</td>
+            </tr>
+                        <tr>
+                <td><a href="os-8.html"><strong>OS-2026-0026</strong></a></td>
+                <td>Planialtimétrico — Chácara Gomes<br><small class="suave">Luiz Fernando Gomes</small></td>
+                <td><span class="status-pill sucesso">Concluído</span></td>
+                <td class="num">—</td>
+                <td class="num">R$ 4.300,00</td>
+                <td class="num">R$ 700,00</td>
+                <td class="num "><strong>R$ 3.600,00</strong></td>
+                <td class="num"><span class="barra-margem" style="--m:83.720930232558%"></span>84%</td>
+            </tr>
+                        <tr>
+                <td><a href="os-4.html"><strong>OS-2026-0033</strong></a></td>
+                <td>Usucapião — Rua Paraná, 455<br><small class="suave">Maria das Graças Oliveira</small></td>
+                <td><span class="status-pill preparando">Processamento</span></td>
+                <td class="num">—</td>
+                <td class="num">R$ 3.600,00</td>
+                <td class="num">R$ 186,00</td>
+                <td class="num "><strong>R$ 3.414,00</strong></td>
+                <td class="num"><span class="barra-margem" style="--m:94.833333333333%"></span>95%</td>
+            </tr>
+                        <tr>
+                <td><a href="os-6.html"><strong>OS-2026-0030</strong></a></td>
+                <td>CAR e reserva legal — Sítio Recanto<br><small class="suave">Antônio Carlos Ferreira</small></td>
+                <td><span class="status-pill enviado">Protocolado</span></td>
+                <td class="num">—</td>
+                <td class="num">R$ 2.400,00</td>
+                <td class="num">R$ 180,00</td>
+                <td class="num "><strong>R$ 2.220,00</strong></td>
+                <td class="num"><span class="barra-margem" style="--m:92.5%"></span>93%</td>
+            </tr>
+                        <tr>
+                <td><a href="os-3.html"><strong>OS-2026-0034</strong></a></td>
+                <td>Locação de obra — Residencial Jardim Europa<br><small class="suave">Construtora Horizonte Engenharia</small></td>
+                <td><span class="status-pill alerta">Aguardando campo</span></td>
+                <td class="num">—</td>
+                <td class="num">R$ 2.148,30</td>
+                <td class="num">R$ 0,00</td>
+                <td class="num "><strong>R$ 2.148,30</strong></td>
+                <td class="num"><span class="barra-margem" style="--m:100%"></span>100%</td>
+            </tr>
+                    </table></div>
+            </div>
+</main></body></html>

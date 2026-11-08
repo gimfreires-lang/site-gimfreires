@@ -1,0 +1,99 @@
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Protocolos</title><script src="previa.js"></script>
+</head><body><div class="faixa-previa">Prévia com dados de demonstração · <a href="./">voltar ao início</a></div><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/topografia.css">
+
+
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo"><span class="site-logo-marca" aria-hidden="true"></span>Agrosat</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Painel</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Serviços</button>
+                <div class="nav-submenu">
+                    <a href="os.html">Ordens de serviço</a>
+                    <a href="os-quadro.html">Quadro (kanban)</a>
+                    <a href="os-editar.html">+ Nova OS</a>
+                    <a href="orcamentos.html">Orçamentos</a>
+                    <a href="orcamento.html">+ Novo orçamento</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Campo</button>
+                <div class="nav-submenu">
+                    <a href="agenda.html">Agenda de campo</a>
+                    <a href="equipamentos.html">Equipamentos</a>
+                </div>
+            </div>
+            <a href="protocolos.html" class="ativo">Protocolos</a>
+            <a href="clientes.html">Clientes</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Financeiro</button>
+                <div class="nav-submenu">
+                    <a href="financeiro.html">Visão geral</a>
+                    <a href="lancamentos-tipo-receita.html">Contas a receber</a>
+                    <a href="lancamentos-tipo-despesa.html">Contas a pagar</a>
+                    <a href="lancamento.html">+ Novo lançamento</a>
+                                        <a href="relatorio.html">Resultado (DRE) e lucro por serviço</a>
+                    <a href="contador.html">Fechamento para o contador</a>
+                                    </div>
+            </div>
+            <a href="ferramentas.html">Ferramentas</a>
+                        <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="config-escritorio.html">Escritório e parâmetros</a>
+                    <a href="config-tipos.html">Tipos de serviço e preços</a>
+                    <a href="usuarios.html">Equipe e usuários</a>
+                    <a href="config-contato.html">Logo e contato</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Carlos Mendes</span>
+            <a href="login.html">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer></script>
+<script src="assets/js/topografia.js" defer></script>
+<main class="container">
+<div class="page-title"><span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l3 3v15H6zM9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h1>Protocolos</h1><span class="subtitulo">SIGEF/INCRA, cartórios, prefeituras e órgãos ambientais</span></div></div>    <div class="stats-credito">
+        <a class="stat-credito" href="protocolos-status-exigencia.html"><span class="stat-label">Com exigência</span><span class="stat-valor erro">1</span><span class="stat-obs">precisam de resposta</span></a>
+        <a class="stat-credito" href="protocolos-status-em-analise.html"><span class="stat-label">Em análise</span><span class="stat-valor">2</span><span class="stat-obs">aguardando o órgão</span></a>
+        <a class="stat-credito" href="protocolos-status-preparando.html"><span class="stat-label">Preparando</span><span class="stat-valor">1</span><span class="stat-obs">ainda não protocolados</span></a>
+        <a class="stat-credito" href="protocolos-todos-1.html"><span class="stat-label">Concluídos</span><span class="stat-valor">1</span><span class="stat-obs">deferidos/registrados</span></a>
+    </div>
+    <form method="get" class="filtros-linha">
+        <select name="status"><option value="">Em aberto</option><option value="preparando" >Preparando</option><option value="em_analise" selected>Em análise</option><option value="exigencia" >Exigência</option><option value="deferido" >Deferido / certificado</option><option value="indeferido" >Indeferido</option><option value="registrado" >Registrado</option></select>
+        <select name="orgao"><option value="">Todos os órgãos</option><option >SIGEF/INCRA</option><option >Cartório de Registro</option><option >Prefeitura</option><option >CAR/Órgão ambiental</option><option >SPU</option><option >Receita Federal</option><option >Outro</option></select>
+        <button type="submit">Filtrar</button>
+        <a href="protocolos-todos-1.html" class="btn-texto">ver todos</a>
+    </form>
+        <div class="card card-tabela"><div class="tabela-wrap"><table>
+        <tr><th>Serviço</th><th>Órgão</th><th>Número</th><th>Protocolado</th><th>Retorno previsto</th><th>Situação</th><th>Exigência / obs.</th></tr>
+                <tr>
+            <td><a href="os-6.html"><strong>OS-2026-0030</strong></a><br><small class="suave">Antônio Carlos Ferreira</small></td>
+            <td>CAR/Órgão ambiental</td>
+            <td class="mono">PR-4113734-8F21</td>
+            <td>18/10/2026<br><small class="suave">há 21 dias</small></td>
+            <td class="">17/11/2026</td>
+            <td><span class="status-pill pronto">Em análise</span></td>
+            <td><small></small></td>
+        </tr>
+                <tr>
+            <td><a href="os-9.html"><strong>OS-2026-0032</strong></a><br><small class="suave">Construtora Horizonte Engenharia</small></td>
+            <td>Prefeitura</td>
+            <td class="mono">PMC 2026/018877</td>
+            <td>02/11/2026<br><small class="suave">há 6 dias</small></td>
+            <td class="">02/12/2026</td>
+            <td><span class="status-pill pronto">Em análise</span></td>
+            <td><small></small></td>
+        </tr>
+            </table></div></div>
+    </main></body></html>

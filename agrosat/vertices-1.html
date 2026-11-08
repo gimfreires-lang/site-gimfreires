@@ -1,0 +1,140 @@
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Vértices — OS-2026-0031</title><script src="previa.js"></script>
+</head><body><div class="faixa-previa">Prévia com dados de demonstração · <a href="./">voltar ao início</a></div><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/topografia.css">
+
+
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo"><span class="site-logo-marca" aria-hidden="true"></span>Agrosat</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Painel</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Serviços</button>
+                <div class="nav-submenu">
+                    <a href="os.html">Ordens de serviço</a>
+                    <a href="os-quadro.html">Quadro (kanban)</a>
+                    <a href="os-editar.html">+ Nova OS</a>
+                    <a href="orcamentos.html">Orçamentos</a>
+                    <a href="orcamento.html">+ Novo orçamento</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Campo</button>
+                <div class="nav-submenu">
+                    <a href="agenda.html">Agenda de campo</a>
+                    <a href="equipamentos.html">Equipamentos</a>
+                </div>
+            </div>
+            <a href="protocolos.html">Protocolos</a>
+            <a href="clientes.html">Clientes</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Financeiro</button>
+                <div class="nav-submenu">
+                    <a href="financeiro.html">Visão geral</a>
+                    <a href="lancamentos-tipo-receita.html">Contas a receber</a>
+                    <a href="lancamentos-tipo-despesa.html">Contas a pagar</a>
+                    <a href="lancamento.html">+ Novo lançamento</a>
+                                        <a href="relatorio.html">Resultado (DRE) e lucro por serviço</a>
+                    <a href="contador.html">Fechamento para o contador</a>
+                                    </div>
+            </div>
+            <a href="ferramentas.html">Ferramentas</a>
+                        <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="config-escritorio.html">Escritório e parâmetros</a>
+                    <a href="config-tipos.html">Tipos de serviço e preços</a>
+                    <a href="usuarios.html">Equipe e usuários</a>
+                    <a href="config-contato.html">Logo e contato</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Carlos Mendes</span>
+            <a href="login.html">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer></script>
+<script src="assets/js/topografia.js" defer></script>
+<main class="container">
+<div class="page-title"><span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2Zm0 0v14m6-12v14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h1>Vértices do perímetro</h1><span class="subtitulo">OS-2026-0031 · Georreferenciamento — Fazenda Boa Vista</span></div></div>    <p class="acoes-topo">
+        <a href="os-1.html" class="btn-outline btn-sm">‹ Voltar ao serviço</a>
+        <a href="memorial-1.html" class="btn-sm" target="_blank">Gerar memorial descritivo</a>    </p>
+            
+    <div class="grade-2col">
+        <form method="post" class="card">
+            <input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f">            <h2>Coordenadas UTM (SIRGAS 2000, fuso 22S)</h2>
+            <p class="suave">Cole direto da planilha ou do relatório do software (uma linha por vértice, na ordem do caminhamento). Separador <code>;</code>, tabulação, vírgula (CSV) ou espaço. Arquivo PNEZD do Civil 3D (ponto, norte, este...) também é reconhecido. O confrontante é o vizinho do lado que começa naquele vértice.</p>
+            <textarea name="vertices" id="campo-vertices" rows="14" class="mono" placeholder="M-01; 612345,120; 7789012,450; 845,20; Fazenda Santa Rita
+M-02; 612590,880; 7789050,300; 851,10; Estrada Municipal
+P-03; 612610,040; 7788790,770; Córrego das Pedras">M-01; 245223,120; 7235324,770; 780,400; João Batista Moreira
+M-02; 245993,660; 7235413,025; 792,100; Estrada vicinal
+M-03; 246215,115; 7234623,880; 770,300; Rio São José
+M-04; 245503,330; 7234408,212; 765,800; Rio São José
+M-05; 245193,904; 7234893,457; 772,000; Sucessão Pereira</textarea>
+            <p id="previa-vertices" class="previa-calculo" aria-live="polite"></p>
+            <button type="submit" class="btn-bloco">Salvar vértices e recalcular área</button>
+        </form>
+        <div class="card">
+            <h2>Resultado</h2>
+                        <svg class="croqui" viewBox="0 0 420 300" role="img" aria-label="Croqui do perímetro"><polygon points="91.2,47.8 281.4,26 336,220.8 160.3,274 84,154.2" class="croqui-area"/><circle cx="91.2" cy="47.8" r="3" class="croqui-ponto"/><text x="96.2" y="42.8" class="croqui-rotulo">M-01</text><circle cx="281.4" cy="26" r="3" class="croqui-ponto"/><text x="286.4" y="21" class="croqui-rotulo">M-02</text><circle cx="336" cy="220.8" r="3" class="croqui-ponto"/><text x="341" y="215.8" class="croqui-rotulo">M-03</text><circle cx="160.3" cy="274" r="3" class="croqui-ponto"/><text x="165.3" y="269" class="croqui-rotulo">M-04</text><circle cx="84" cy="154.2" r="3" class="croqui-ponto"/><text x="89" y="149.2" class="croqui-rotulo">M-05</text><g class="croqui-norte" transform="translate(404,18)"><path d="M0,-10 L5,6 L0,2 L-5,6 Z"/><text y="18" text-anchor="middle">N</text></g></svg>            <div class="mini-stats">
+                <div><span>Área</span><strong>74,4037 ha</strong><small>744.036,62 m²</small></div>
+                <div><span>Perímetro</span><strong>3.346,76 m</strong></div>
+                <div><span>Vértices</span><strong>5</strong><small>sentido horário</small></div>
+            </div>
+            <div class="tabela-wrap"><table class="tabela-compacta">
+                <tr><th>De</th><th>Para</th><th>Azimute</th><th class="num">Distância (m)</th><th>Confrontante</th></tr>
+                                <tr><td>M-01</td><td>M-02</td><td class="mono">83°27'57,64"</td><td class="num">775,58</td><td><small>João Batista Moreira</small></td></tr>
+                                <tr><td>M-02</td><td>M-03</td><td class="mono">164°19'28,10"</td><td class="num">819,63</td><td><small>Estrada vicinal</small></td></tr>
+                                <tr><td>M-03</td><td>M-04</td><td class="mono">253°08'36,25"</td><td class="num">743,74</td><td><small>Rio São José</small></td></tr>
+                                <tr><td>M-04</td><td>M-05</td><td class="mono">327°28'32,09"</td><td class="num">575,51</td><td><small>Rio São José</small></td></tr>
+                                <tr><td>M-05</td><td>M-01</td><td class="mono">3°52'30,52"</td><td class="num">432,30</td><td><small>Sucessão Pereira</small></td></tr>
+                            </table></div>
+                    </div>
+    </div>
+
+    <div class="grade-2col">
+        <div class="card">
+            <h2>Exportar para AutoCAD e outros programas</h2>
+                        <p class="suave">O DXF já vem com perímetro, marcos, nomes, azimutes e distâncias, confrontantes, quadrícula, norte, quadro de coordenadas e carimbo, cada coisa na sua camada (<code>TOPO-...</code>). Escala sugerida: 1:5.000.</p>
+            <div class="botoes-exportar">
+                <a class="btn-sm" href="arquivos/OS-2026-0031_Fazenda_Boa_Vista.dxf" download>Desenho DXF (AutoCAD)</a>
+                <a class="btn-sm btn-outline" href="arquivos/OS-2026-0031_Fazenda_Boa_Vista.scr" download title="Arraste o arquivo para dentro da tela do AutoCAD ou use o comando SCRIPT">Script SCR</a>
+                <a class="btn-sm btn-outline" href="arquivos/OS-2026-0031_Fazenda_Boa_Vista.txt" download title="Ponto, Norte, Este, Cota, Descrição — importe no Civil 3D (Import Points, formato PNEZD comma delimited)">Pontos PNEZD (Civil 3D)</a>
+                <a class="btn-sm btn-outline" href="arquivos/OS-2026-0031_Fazenda_Boa_Vista.csv" download>Planilha CSV</a>
+                <a class="btn-sm btn-outline" href="arquivos/OS-2026-0031_Fazenda_Boa_Vista.kml" download>Google Earth (KML)</a>
+            </div>
+                    </div>
+        <form method="post" enctype="multipart/form-data" class="card">
+            <input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f"><input type="hidden" name="acao" value="importar_dxf">
+            <h2>Importar do AutoCAD (DXF)</h2>
+            <p class="suave">Mande o desenho com o perímetro feito em polilinha (PLINE). O sistema pega a maior polilinha fechada — ou a da camada que você informar — e preenche as coordenadas acima para conferir antes de salvar. Pontos (POINT) com cota no mesmo lugar dos vértices trazem a altitude.</p>
+            <label>Arquivo .dxf<input type="file" name="arquivo_dxf" accept=".dxf" required></label>
+            <div class="form-linha">
+                <label>Camada (opcional)<input type="text" name="camada" placeholder="ex.: PERIMETRO"></label>
+                <label>Prefixo dos vértices<input type="text" name="prefixo" value="V-" maxlength="10"></label>
+            </div>
+            <button type="submit" class="btn-outline">Ler DXF</button>
+        </form>
+    </div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const campo = document.getElementById('campo-vertices');
+    const saida = document.getElementById('previa-vertices');
+    const atualizar = function () {
+        const v = Topo.lerVertices(campo.value);
+        if (v.length < 3) { saida.textContent = v.length ? v.length + ' vértice(s) reconhecido(s) — precisa de pelo menos 3.' : ''; return; }
+        const r = Topo.poligono(v);
+        saida.textContent = v.length + ' vértices · área ' + Topo.num(r.area / 10000, 4) + ' ha · perímetro ' + Topo.num(r.perimetro, 2) + ' m';
+    };
+    campo.addEventListener('input', atualizar);
+    atualizar();
+});
+</script>
+</main></body></html>

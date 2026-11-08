@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Orçamentos</title><script src="previa.js"></script>
+</head><body><div class="faixa-previa">Prévia com dados de demonstração · <a href="./">voltar ao início</a></div><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/topografia.css">
+
+
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo"><span class="site-logo-marca" aria-hidden="true"></span>Agrosat</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Painel</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Serviços</button>
+                <div class="nav-submenu">
+                    <a href="os.html">Ordens de serviço</a>
+                    <a href="os-quadro.html">Quadro (kanban)</a>
+                    <a href="os-editar.html">+ Nova OS</a>
+                    <a href="orcamentos.html">Orçamentos</a>
+                    <a href="orcamento.html">+ Novo orçamento</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Campo</button>
+                <div class="nav-submenu">
+                    <a href="agenda.html">Agenda de campo</a>
+                    <a href="equipamentos.html">Equipamentos</a>
+                </div>
+            </div>
+            <a href="protocolos.html">Protocolos</a>
+            <a href="clientes.html">Clientes</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Financeiro</button>
+                <div class="nav-submenu">
+                    <a href="financeiro.html">Visão geral</a>
+                    <a href="lancamentos-tipo-receita.html">Contas a receber</a>
+                    <a href="lancamentos-tipo-despesa.html">Contas a pagar</a>
+                    <a href="lancamento.html">+ Novo lançamento</a>
+                                        <a href="relatorio.html">Resultado (DRE) e lucro por serviço</a>
+                    <a href="contador.html">Fechamento para o contador</a>
+                                    </div>
+            </div>
+            <a href="ferramentas.html">Ferramentas</a>
+                        <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="config-escritorio.html">Escritório e parâmetros</a>
+                    <a href="config-tipos.html">Tipos de serviço e preços</a>
+                    <a href="usuarios.html">Equipe e usuários</a>
+                    <a href="config-contato.html">Logo e contato</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Carlos Mendes</span>
+            <a href="login.html">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer></script>
+<script src="assets/js/topografia.js" defer></script>
+<main class="container">
+<div class="page-title"><span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10v18l-2-1.5L13 21l-2-1.5L9 21l-2-1.5V3Zm3 5h4m-4 4h4m-4 4h2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h1>Orçamentos</h1><span class="subtitulo">2 orçamento(s)</span></div></div>    <p class="acoes-topo"><a href="orcamento.html" class="btn">+ Novo orçamento</a></p>
+    <div class="filtros-mobile filtros-sempre">
+        <a href="orcamentos.html" class="filtro-pill">Todos</a>
+                <a href="orcamentos-status-rascunho.html" class="filtro-pill">Rascunho <small>(1)</small></a>
+                <a href="orcamentos-status-enviado.html" class="filtro-pill ativa">Enviado <small>(2)</small></a>
+                <a href="orcamentos-status-aprovado.html" class="filtro-pill">Aprovado <small>(2)</small></a>
+                <a href="orcamentos-status-recusado.html" class="filtro-pill">Recusado <small>(1)</small></a>
+                <a href="orcamentos-status-expirado.html" class="filtro-pill">Expirado <small>(0)</small></a>
+            </div>
+    <form method="get" class="busca-lista">
+        <input type="hidden" name="status" value="enviado">        <input type="text" name="busca" placeholder="Número, cliente, imóvel ou município..." value="">
+        <button type="submit">Buscar</button>
+    </form>
+        <div class="card card-tabela"><div class="tabela-wrap"><table>
+        <tr><th>Número</th><th>Data</th><th>Cliente</th><th>Serviço / imóvel</th><th class="num">Área</th><th>Status</th><th class="num">Valor</th><th class="num">Lucro est.</th></tr>
+                <tr>
+            <td><a href="orcamento-1.html"><strong>ORC-2026-0041</strong></a></td>
+            <td>04/11/2026</td>
+            <td>Agropecuária Serra Azul Ltda</td>
+            <td>Georreferenciamento (SIGEF/INCRA)<br><small class="suave">Fazenda Serra Azul — Gleba 3 · Corbélia</small></td>
+            <td class="num">286,50 ha</td>
+            <td><span class="status-pill pronto">Enviado</span></td>
+            <td class="num"><strong>R$ 25.378,91</strong></td>
+            <td class="num suave">R$ 19.504,18</td>
+        </tr>
+                <tr>
+            <td><a href="orcamento-2.html"><strong>ORC-2026-0042</strong></a></td>
+            <td>30/10/2026</td>
+            <td>Antônio Carlos Ferreira</td>
+            <td>Levantamento planialtimétrico<br><small class="suave">Sítio Recanto · Lindoeste</small></td>
+            <td class="num">4,20 ha</td>
+            <td><span class="status-pill pronto">Enviado</span></td>
+            <td class="num"><strong>R$ 4.752,93</strong></td>
+            <td class="num suave">R$ 2.886,75</td>
+        </tr>
+            </table></div></div>
+    </main></body></html>

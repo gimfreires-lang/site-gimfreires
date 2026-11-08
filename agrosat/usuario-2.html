@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Editar usuário</title><script src="previa.js"></script>
+</head>
+<body><div class="faixa-previa">Prévia com dados de demonstração · <a href="./">voltar ao início</a></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/topografia.css">
+
+
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo"><span class="site-logo-marca" aria-hidden="true"></span>Agrosat</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Painel</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Serviços</button>
+                <div class="nav-submenu">
+                    <a href="os.html">Ordens de serviço</a>
+                    <a href="os-quadro.html">Quadro (kanban)</a>
+                    <a href="os-editar.html">+ Nova OS</a>
+                    <a href="orcamentos.html">Orçamentos</a>
+                    <a href="orcamento.html">+ Novo orçamento</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Campo</button>
+                <div class="nav-submenu">
+                    <a href="agenda.html">Agenda de campo</a>
+                    <a href="equipamentos.html">Equipamentos</a>
+                </div>
+            </div>
+            <a href="protocolos.html">Protocolos</a>
+            <a href="clientes.html">Clientes</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Financeiro</button>
+                <div class="nav-submenu">
+                    <a href="financeiro.html">Visão geral</a>
+                    <a href="lancamentos-tipo-receita.html">Contas a receber</a>
+                    <a href="lancamentos-tipo-despesa.html">Contas a pagar</a>
+                    <a href="lancamento.html">+ Novo lançamento</a>
+                                        <a href="relatorio.html">Resultado (DRE) e lucro por serviço</a>
+                    <a href="contador.html">Fechamento para o contador</a>
+                                    </div>
+            </div>
+            <a href="ferramentas.html">Ferramentas</a>
+                        <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="config-escritorio.html">Escritório e parâmetros</a>
+                    <a href="config-tipos.html">Tipos de serviço e preços</a>
+                    <a href="usuarios.html">Equipe e usuários</a>
+                    <a href="config-contato.html">Logo e contato</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Carlos Mendes</span>
+            <a href="login.html">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer></script>
+<script src="assets/js/topografia.js" defer></script>
+<main class="container">
+    <div class="page-title">
+        <span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 20v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm7 4a3 3 0 1 0 0-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div>
+            <h1>Editar usuário</h1>
+            <span class="subtitulo">Rafael Souza</span>
+        </div>
+    </div>
+        
+    <div class="card">
+    <form method="post" id="form-editar-usuario">
+        <input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f">        <label>Nome<input type="text" name="nome" value="Rafael Souza" required></label>
+        <label>E-mail<input type="email" name="email" value="rafael@escritorio.com" required></label>
+        <div class="form-linha">
+            <label>Função<input type="text" name="funcao" list="lista-funcoes" value="Técnico em agrimensura"></label>
+            <label>Registro profissional<input type="text" name="registro_profissional" value="CFT 0321458-7" placeholder="CREA-MG 123456/D"></label>
+        </div>
+        <datalist id="lista-funcoes"><option>Engenheiro agrimensor</option><option>Técnico em agrimensura</option><option>Topógrafo</option><option>Auxiliar de topografia</option><option>Desenhista / cadista</option><option>Administrativo / financeiro</option></datalist>
+        <label style="display:flex; align-items:center; gap:8px; flex-direction:row;">
+            <input type="checkbox" name="trocar_senha" id="trocar-senha" style="width:auto; min-height:0;" >
+            Trocar senha
+        </label>
+        <div id="campos-senha" hidden>
+            <label>Nova senha<input type="password" name="senha" id="campo-senha" minlength="6" ></label>
+            <label>Confirmar nova senha<input type="password" name="confirmar_senha" id="campo-confirmar-senha" minlength="6" ></label>
+            <p id="erro-senha" class="alert alert-erro" hidden></p>
+        </div>
+        <label>Perfil
+            <select name="perfil" >
+                <option value="Funcionario" selected>Funcionário</option>
+                <option value="Admin" >Admin</option>
+            </select>
+        </label>
+                <label style="display:flex; align-items:center; gap:8px; flex-direction:row;">
+            <input type="checkbox" name="ativo" value="1" style="width:auto; min-height:0;" checked >
+            Ativo
+        </label>
+                <button type="submit">Salvar</button>
+    </form>
+    </div>
+    <p><a href="usuarios.html" class="btn-texto">← Ver usuários</a></p>
+<script>
+document.getElementById('trocar-senha').addEventListener('change', function () {
+    const campoSenha = document.getElementById('campo-senha');
+    const campoConfirmar = document.getElementById('campo-confirmar-senha');
+    document.getElementById('campos-senha').hidden = !this.checked;
+    campoSenha.required = this.checked;
+    campoConfirmar.required = this.checked;
+    if (!this.checked) {
+        campoSenha.value = '';
+        campoConfirmar.value = '';
+        document.getElementById('erro-senha').hidden = true;
+    }
+});
+
+document.getElementById('form-editar-usuario').addEventListener('submit', function (e) {
+    if (!document.getElementById('trocar-senha').checked) {
+        return;
+    }
+    const erroSenha = document.getElementById('erro-senha');
+    const senha = document.getElementById('campo-senha').value;
+    const confirmar = document.getElementById('campo-confirmar-senha').value;
+    if (senha.length < 6) {
+        e.preventDefault();
+        erroSenha.textContent = 'A nova senha precisa ter pelo menos 6 caracteres.';
+        erroSenha.hidden = false;
+        return;
+    }
+    if (senha !== confirmar) {
+        e.preventDefault();
+        erroSenha.textContent = 'As senhas não coincidem.';
+        erroSenha.hidden = false;
+        return;
+    }
+    erroSenha.hidden = true;
+});
+</script>
+</main>
+</body>
+</html>

@@ -7,4 +7,5 @@ COPY stillo /usr/share/nginx/html/stillo
 COPY kelly /usr/share/nginx/html/kelly
 COPY broetto /usr/share/nginx/html/broetto
 COPY clubedacerveja /usr/share/nginx/html/clubedacerveja
+COPY agrosat /usr/share/nginx/html/agrosat
 EXPOSE 80

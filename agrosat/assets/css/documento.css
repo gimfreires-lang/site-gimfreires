@@ -1,0 +1,53 @@
+/* Documentos imprimíveis (memorial, proposta, recibo) — folha A4, sem o menu do sistema. */
+@page { size: A4; margin: 18mm 16mm; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #E7ECEB; color: #1F2937; font: 11pt/1.55 Georgia, 'Times New Roman', serif; }
+.barra-doc { position: sticky; top: 0; display: flex; gap: 10px; align-items: center; padding: 10px 16px; background: #0F766E; font-family: system-ui, sans-serif; font-size: 14px; z-index: 5; }
+.barra-doc a, .barra-doc button, .barra-doc .botao { color: #fff; text-decoration: none; background: rgba(255,255,255,.14); border: 0; border-radius: 6px; padding: 7px 12px; font: inherit; cursor: pointer; }
+.barra-doc a:first-child { background: none; padding-left: 0; margin-right: auto; }
+.folha { background: #fff; max-width: 210mm; min-height: 297mm; margin: 20px auto; padding: 18mm 16mm; box-shadow: 0 6px 24px rgba(0,0,0,.12); }
+.folha-recibo { min-height: auto; }
+.cabecalho-doc { display: flex; align-items: center; gap: 14px; border-bottom: 2px solid #0F766E; padding-bottom: 10px; margin-bottom: 18px; font-family: system-ui, sans-serif; font-size: 10pt; }
+.cabecalho-doc > div:nth-child(2), .cabecalho-doc > div:first-child { flex: 1; }
+.logo-doc { max-height: 52px; max-width: 140px; }
+.numero-doc { text-align: right; font-size: 9pt; color: #555; }
+.numero-doc strong { font-size: 13pt; color: #0F766E; }
+h1 { font-size: 16pt; text-transform: uppercase; letter-spacing: .06em; text-align: center; margin: 0 0 16px; }
+h2 { font-size: 11.5pt; text-transform: uppercase; letter-spacing: .04em; margin: 20px 0 8px; color: #0F766E; }
+.quadro-doc { width: 100%; border-collapse: collapse; font-size: 10pt; margin-bottom: 8px; }
+.quadro-doc th, .quadro-doc td { border: 1px solid #CBD5D3; padding: 5px 8px; text-align: left; vertical-align: top; }
+.quadro-doc th { background: #F1F6F5; width: 18%; font-weight: 600; font-family: system-ui, sans-serif; font-size: 9pt; }
+.texto-memorial { text-align: justify; }
+.tabela-doc { width: 100%; border-collapse: collapse; font: 8.5pt/1.35 system-ui, sans-serif; }
+.tabela-doc th, .tabela-doc td { border: 1px solid #CBD5D3; padding: 3px 5px; }
+.tabela-doc th { background: #F1F6F5; }
+.tabela-doc td:nth-child(2), .tabela-doc td:nth-child(3), .tabela-doc td:nth-child(4), .tabela-doc td:nth-child(6) { text-align: right; font-variant-numeric: tabular-nums; }
+.local-data { margin-top: 28px; text-align: right; }
+.assinatura { display: flex; flex-direction: column; align-items: center; margin: 46px auto 0; max-width: 320px; text-align: center; font-size: 10pt; }
+.assinatura .linha { width: 100%; border-top: 1px solid #111; margin-bottom: 6px; }
+.assinaturas-duplas { display: flex; gap: 40px; }
+.assinaturas-duplas .assinatura { flex: 1; }
+.total-doc { display: flex; justify-content: space-between; align-items: center; background: #F1F6F5; border-left: 5px solid #0F766E; padding: 10px 16px; margin: 10px 0 14px; }
+.total-doc strong { font-size: 18pt; color: #0F766E; }
+.suave-doc { color: #666; font-size: 9.5pt; }
+.aviso-doc { background: #FEF3C7; padding: 10px; border-radius: 6px; }
+.texto-recibo { font-size: 12pt; text-align: justify; }
+@media print {
+    body { background: #fff; }
+    .barra-doc { display: none; }
+    .folha { box-shadow: none; margin: 0; padding: 0; max-width: none; min-height: 0; }
+    h2 { break-after: avoid; }
+    tr { break-inside: avoid; }
+}
+
+.nowrap { white-space: nowrap; }
+
+.slogan-doc { font-style: italic; color: #475569; }
+
+/* Celular: a folha ocupa a tela toda e as tabelas rolam de lado em vez de estourar a página. */
+@media screen and (max-width: 640px) {
+    .folha { margin: 0; padding: 20px 16px; min-height: 0; box-shadow: none; }
+    .quadro-doc, .folha table { display: block; overflow-x: auto; max-width: 100%; }
+    .barra-doc { flex-wrap: wrap; }
+    .barra-doc a, .barra-doc button, .barra-doc .botao { padding: 6px 10px; font-size: 13px; }
+}

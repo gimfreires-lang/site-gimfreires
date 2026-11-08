@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Usuários</title><script src="previa.js"></script>
+</head>
+<body><div class="faixa-previa">Prévia com dados de demonstração · <a href="./">voltar ao início</a></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/topografia.css">
+
+
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo"><span class="site-logo-marca" aria-hidden="true"></span>Agrosat</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Painel</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Serviços</button>
+                <div class="nav-submenu">
+                    <a href="os.html">Ordens de serviço</a>
+                    <a href="os-quadro.html">Quadro (kanban)</a>
+                    <a href="os-editar.html">+ Nova OS</a>
+                    <a href="orcamentos.html">Orçamentos</a>
+                    <a href="orcamento.html">+ Novo orçamento</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Campo</button>
+                <div class="nav-submenu">
+                    <a href="agenda.html">Agenda de campo</a>
+                    <a href="equipamentos.html">Equipamentos</a>
+                </div>
+            </div>
+            <a href="protocolos.html">Protocolos</a>
+            <a href="clientes.html">Clientes</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Financeiro</button>
+                <div class="nav-submenu">
+                    <a href="financeiro.html">Visão geral</a>
+                    <a href="lancamentos-tipo-receita.html">Contas a receber</a>
+                    <a href="lancamentos-tipo-despesa.html">Contas a pagar</a>
+                    <a href="lancamento.html">+ Novo lançamento</a>
+                                        <a href="relatorio.html">Resultado (DRE) e lucro por serviço</a>
+                    <a href="contador.html">Fechamento para o contador</a>
+                                    </div>
+            </div>
+            <a href="ferramentas.html">Ferramentas</a>
+                        <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="config-escritorio.html">Escritório e parâmetros</a>
+                    <a href="config-tipos.html">Tipos de serviço e preços</a>
+                    <a href="usuarios.html">Equipe e usuários</a>
+                    <a href="config-contato.html">Logo e contato</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Carlos Mendes</span>
+            <a href="login.html">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer></script>
+<script src="assets/js/topografia.js" defer></script>
+<main class="container">
+    <div class="page-title">
+        <span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 20v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm7 4a3 3 0 1 0 0-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div>
+            <h1>Equipe e usuários</h1>
+            <span class="subtitulo">5 usuários cadastrados</span>
+        </div>
+    </div>
+            <p class="acoes-topo"><a href="usuario-novo.html" class="btn">+ Novo usuário</a></p>
+
+    <div class="card">
+                <div class="alternador-visualizacao" data-chave="usuarios" data-alvo-lista="visualizacao-lista" data-alvo-cards="visualizacao-cards">
+            <button type="button" class="btn-sm btn-outline" data-modo="lista" title="Ver em lista">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </button>
+            <button type="button" class="btn-sm btn-outline" data-modo="cards" title="Ver em cards">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </button>
+        </div>
+
+        <div id="visualizacao-lista">
+        <div class="tabela-wrap">
+        <table>
+            <tr><th>Nome</th><th>Função</th><th>E-mail</th><th>Perfil</th><th>Ativo</th><th></th></tr>
+                        <tr>
+                <td>Carlos Mendes</td>
+                <td>Engenheiro agrimensor<br><small>CREA-PR 145872/D</small></td>
+                <td>admin@escritorio.com</td>
+                <td><span class="status-pill sucesso">Admin</span></td>
+                <td><span class="status-pill sucesso">Ativo</span></td>
+                <td><a href="usuario-1.html" class="btn-sm btn-outline"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14"><path d="M4 20h4l10.5-10.5a2 2 0 0 0 0-2.83l-1.17-1.17a2 2 0 0 0-2.83 0L4 16v4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Editar</a></td>
+            </tr>
+                        <tr>
+                <td>Júlia Pires</td>
+                <td>Desenhista / cadista</td>
+                <td>julia@escritorio.com</td>
+                <td><span class="status-pill">Funcionario</span></td>
+                <td><span class="status-pill sucesso">Ativo</span></td>
+                <td><a href="usuario-3.html" class="btn-sm btn-outline"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14"><path d="M4 20h4l10.5-10.5a2 2 0 0 0 0-2.83l-1.17-1.17a2 2 0 0 0-2.83 0L4 16v4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Editar</a></td>
+            </tr>
+                        <tr>
+                <td>Marcos Lima</td>
+                <td>Auxiliar de topografia</td>
+                <td>marcos@escritorio.com</td>
+                <td><span class="status-pill">Funcionario</span></td>
+                <td><span class="status-pill sucesso">Ativo</span></td>
+                <td><a href="usuario-4.html" class="btn-sm btn-outline"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14"><path d="M4 20h4l10.5-10.5a2 2 0 0 0 0-2.83l-1.17-1.17a2 2 0 0 0-2.83 0L4 16v4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Editar</a></td>
+            </tr>
+                        <tr>
+                <td>Patrícia Rocha</td>
+                <td>Administrativo / financeiro</td>
+                <td>financeiro@escritorio.com</td>
+                <td><span class="status-pill sucesso">Admin</span></td>
+                <td><span class="status-pill sucesso">Ativo</span></td>
+                <td><a href="usuario-5.html" class="btn-sm btn-outline"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14"><path d="M4 20h4l10.5-10.5a2 2 0 0 0 0-2.83l-1.17-1.17a2 2 0 0 0-2.83 0L4 16v4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Editar</a></td>
+            </tr>
+                        <tr>
+                <td>Rafael Souza</td>
+                <td>Técnico em agrimensura<br><small>CFT 0321458-7</small></td>
+                <td>rafael@escritorio.com</td>
+                <td><span class="status-pill">Funcionario</span></td>
+                <td><span class="status-pill sucesso">Ativo</span></td>
+                <td><a href="usuario-2.html" class="btn-sm btn-outline"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14"><path d="M4 20h4l10.5-10.5a2 2 0 0 0 0-2.83l-1.17-1.17a2 2 0 0 0-2.83 0L4 16v4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Editar</a></td>
+            </tr>
+                    </table>
+        </div>
+        </div>
+
+        <div id="visualizacao-cards" hidden>
+        <div class="grade-cards">
+                        <div class="item-card">
+                <div class="item-card-topo">
+                    <strong>Carlos Mendes</strong>
+                    <span class="status-pill sucesso">Admin</span>
+                </div>
+                <p>admin@escritorio.com</p>
+                <p><span class="status-pill sucesso">Ativo</span></p>
+                <div class="celula-acoes">
+                    <a href="usuario-1.html" class="btn-sm btn-outline">Editar</a>
+                </div>
+            </div>
+                        <div class="item-card">
+                <div class="item-card-topo">
+                    <strong>Júlia Pires</strong>
+                    <span class="status-pill">Funcionario</span>
+                </div>
+                <p>julia@escritorio.com</p>
+                <p><span class="status-pill sucesso">Ativo</span></p>
+                <div class="celula-acoes">
+                    <a href="usuario-3.html" class="btn-sm btn-outline">Editar</a>
+                </div>
+            </div>
+                        <div class="item-card">
+                <div class="item-card-topo">
+                    <strong>Marcos Lima</strong>
+                    <span class="status-pill">Funcionario</span>
+                </div>
+                <p>marcos@escritorio.com</p>
+                <p><span class="status-pill sucesso">Ativo</span></p>
+                <div class="celula-acoes">
+                    <a href="usuario-4.html" class="btn-sm btn-outline">Editar</a>
+                </div>
+            </div>
+                        <div class="item-card">
+                <div class="item-card-topo">
+                    <strong>Patrícia Rocha</strong>
+                    <span class="status-pill sucesso">Admin</span>
+                </div>
+                <p>financeiro@escritorio.com</p>
+                <p><span class="status-pill sucesso">Ativo</span></p>
+                <div class="celula-acoes">
+                    <a href="usuario-5.html" class="btn-sm btn-outline">Editar</a>
+                </div>
+            </div>
+                        <div class="item-card">
+                <div class="item-card-topo">
+                    <strong>Rafael Souza</strong>
+                    <span class="status-pill">Funcionario</span>
+                </div>
+                <p>rafael@escritorio.com</p>
+                <p><span class="status-pill sucesso">Ativo</span></p>
+                <div class="celula-acoes">
+                    <a href="usuario-2.html" class="btn-sm btn-outline">Editar</a>
+                </div>
+            </div>
+                    </div>
+        </div>
+            </div>
+</main>
+</body>
+</html>

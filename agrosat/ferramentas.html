@@ -1,0 +1,193 @@
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ferramentas de cálculo</title><script src="previa.js"></script>
+</head><body><div class="faixa-previa">Prévia com dados de demonstração · <a href="./">voltar ao início</a></div><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/topografia.css">
+
+
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo"><span class="site-logo-marca" aria-hidden="true"></span>Agrosat</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Painel</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Serviços</button>
+                <div class="nav-submenu">
+                    <a href="os.html">Ordens de serviço</a>
+                    <a href="os-quadro.html">Quadro (kanban)</a>
+                    <a href="os-editar.html">+ Nova OS</a>
+                    <a href="orcamentos.html">Orçamentos</a>
+                    <a href="orcamento.html">+ Novo orçamento</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Campo</button>
+                <div class="nav-submenu">
+                    <a href="agenda.html">Agenda de campo</a>
+                    <a href="equipamentos.html">Equipamentos</a>
+                </div>
+            </div>
+            <a href="protocolos.html">Protocolos</a>
+            <a href="clientes.html">Clientes</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Financeiro</button>
+                <div class="nav-submenu">
+                    <a href="financeiro.html">Visão geral</a>
+                    <a href="lancamentos-tipo-receita.html">Contas a receber</a>
+                    <a href="lancamentos-tipo-despesa.html">Contas a pagar</a>
+                    <a href="lancamento.html">+ Novo lançamento</a>
+                                        <a href="relatorio.html">Resultado (DRE) e lucro por serviço</a>
+                    <a href="contador.html">Fechamento para o contador</a>
+                                    </div>
+            </div>
+            <a href="ferramentas.html" class="ativo">Ferramentas</a>
+                        <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="config-escritorio.html">Escritório e parâmetros</a>
+                    <a href="config-tipos.html">Tipos de serviço e preços</a>
+                    <a href="usuarios.html">Equipe e usuários</a>
+                    <a href="config-contato.html">Logo e contato</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Carlos Mendes</span>
+            <a href="login.html">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer></script>
+<script src="assets/js/topografia.js" defer></script>
+<main class="container">
+<div class="page-title"><span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20 14 10m2-6 4 4-3 3-4-4 3-3ZM4 4l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h1>Ferramentas de cálculo</h1><span class="subtitulo">Contas rápidas do dia a dia — tudo calculado na hora, nada é salvo</span></div></div>    <nav class="abas" data-abas>
+        <button type="button" class="ativa" data-aba="area">Área e perímetro</button>
+        <button type="button" data-aba="irradiacao">Irradiação</button>
+        <button type="button" data-aba="angulos">Ângulos (GMS)</button>
+        <button type="button" data-aba="unidades">Unidades de área</button>
+        <button type="button" data-aba="declividade">Declividade</button>
+        <button type="button" data-aba="nivelamento">Nivelamento</button>
+        <button type="button" data-aba="utm">UTM ⇄ Geográficas</button>
+    </nav>
+
+    <section class="card aba-painel" id="aba-area">
+        <h2>Área, perímetro e azimutes por coordenadas</h2>
+        <p class="suave">Cole os vértices na ordem do caminhamento: <code>nome; este; norte</code> (uma linha por vértice). Serve para conferir planilhas e croquis antes de lançar no serviço.</p>
+        <div class="grade-2col">
+            <textarea id="ferr-vertices" rows="10" class="mono">V-01; 612345,120; 7789012,450
+V-02; 612590,880; 7789050,300
+V-03; 612610,040; 7788790,770
+V-04; 612380,500; 7788760,100</textarea>
+            <div>
+                <svg id="ferr-croqui" class="croqui" viewBox="0 0 320 220"></svg>
+                <div class="mini-stats" id="ferr-resumo"></div>
+            </div>
+        </div>
+        <div class="tabela-wrap"><table class="tabela-compacta" id="ferr-lados"></table></div>
+    </section>
+
+    <section class="card aba-painel" id="aba-irradiacao" hidden>
+        <h2>Coordenadas por irradiação</h2>
+        <p class="suave">A partir de uma estação com coordenadas conhecidas, calcula o ponto visado com azimute e distância horizontal.</p>
+        <div class="form-linha">
+            <label>Este da estação (m)<input type="text" id="irr-e" value="612345,120" inputmode="decimal"></label>
+            <label>Norte da estação (m)<input type="text" id="irr-n" value="7789012,450" inputmode="decimal"></label>
+        </div>
+        <div class="form-linha">
+            <label>Azimute (ex.: 81°10'25" ou 81.1736)<input type="text" id="irr-az" value="81°10'25&quot;"></label>
+            <label>Distância horizontal (m)<input type="text" id="irr-d" value="248,650" inputmode="decimal"></label>
+        </div>
+        <p class="resultado-grande" id="irr-res"></p>
+    </section>
+
+    <section class="card aba-painel" id="aba-angulos" hidden>
+        <h2>Conversão de ângulos e rumo ↔ azimute</h2>
+        <div class="form-linha">
+            <label>Graus decimais<input type="text" id="ang-dec" value="-19,920833" inputmode="decimal"></label>
+            <label>Graus, minutos e segundos<input type="text" id="ang-gms" placeholder="-19°55'15&quot;"></label>
+        </div>
+        <div class="form-linha">
+            <label>Azimute<input type="text" id="az-entrada" value="135°30'00&quot;"></label>
+            <label>Rumo correspondente<input type="text" id="az-rumo" readonly></label>
+            <label>Contra-azimute<input type="text" id="az-contra" readonly></label>
+        </div>
+    </section>
+
+    <section class="card aba-painel" id="aba-unidades" hidden>
+        <h2>Conversão de unidades de área</h2>
+        <p class="suave">Medidas agrárias variam por região — confira o padrão local antes de usar em documento.</p>
+        <div class="form-linha">
+            <label>Valor<input type="text" id="un-valor" value="10" inputmode="decimal"></label>
+            <label>Unidade
+                <select id="un-de">
+                    <option value="1">hectare (ha)</option>
+                    <option value="0.0001">metro quadrado (m²)</option>
+                    <option value="100">quilômetro quadrado (km²)</option>
+                    <option value="4.84">alqueire mineiro / goiano (4,84 ha)</option>
+                    <option value="2.42">alqueire paulista (2,42 ha)</option>
+                    <option value="9.68">alqueire baiano (9,68 ha)</option>
+                    <option value="2.7225">alqueire do norte (2,7225 ha)</option>
+                    <option value="0.4356">tarefa baiana (4.356 m²)</option>
+                    <option value="0.3025">tarefa nordestina — AL/SE (3.025 m²)</option>
+                    <option value="0.404686">acre (4.046,86 m²)</option>
+                </select>
+            </label>
+        </div>
+        <table class="tabela-compacta" id="un-tabela"></table>
+    </section>
+
+    <section class="card aba-painel" id="aba-declividade" hidden>
+        <h2>Declividade e distância</h2>
+        <div class="form-linha">
+            <label>Cota inicial (m)<input type="text" id="dec-c1" value="845,20" inputmode="decimal"></label>
+            <label>Cota final (m)<input type="text" id="dec-c2" value="851,10" inputmode="decimal"></label>
+            <label>Distância horizontal (m)<input type="text" id="dec-dh" value="120" inputmode="decimal"></label>
+        </div>
+        <p class="resultado-grande" id="dec-res"></p>
+        <p class="suave">Referências: até 3% plano · 3–8% suave ondulado · 8–20% ondulado · 20–45% forte ondulado · 45–75% montanhoso · &gt;75% escarpado (Embrapa). APP em encostas acima de 45° (100%).</p>
+    </section>
+
+    <section class="card aba-painel" id="aba-nivelamento" hidden>
+        <h2>Nivelamento geométrico (ré e vante)</h2>
+        <p class="suave">Uma linha por lance: <code>ponto; leitura de ré; leitura de vante</code>. Deixe a ré ou a vante em branco quando não houver.</p>
+        <div class="form-linha">
+            <label>Cota da RN de partida (m)<input type="text" id="niv-rn" value="100,000" inputmode="decimal"></label>
+            <label>Tolerância (mm × √km)<input type="text" id="niv-tol" value="12" inputmode="decimal"></label>
+            <label>Extensão do circuito (km)<input type="text" id="niv-km" value="0,8" inputmode="decimal"></label>
+        </div>
+        <textarea id="niv-leituras" rows="7" class="mono">RN-1; 1,525;
+E1; 1,830; 0,945
+E2; 0,712; 2,104
+RN-1; ; 1,021</textarea>
+        <div class="tabela-wrap"><table class="tabela-compacta" id="niv-tabela"></table></div>
+        <p class="resultado-grande" id="niv-res"></p>
+    </section>
+
+    <section class="card aba-painel" id="aba-utm" hidden>
+        <h2>Conversão UTM ⇄ coordenadas geográficas (SIRGAS 2000)</h2>
+        <p class="suave">Mesmo elipsoide do SIGEF (GRS80). Para Google Earth/GPS (WGS 84) a diferença é de poucos centímetros.</p>
+        <div class="grade-2col">
+            <div>
+                <h3>UTM → Latitude/Longitude</h3>
+                <div class="form-linha">
+                    <label>Este (m)<input type="text" id="utm-e" value="588120,412" inputmode="decimal"></label>
+                    <label>Norte (m)<input type="text" id="utm-n" value="7846210,385" inputmode="decimal"></label>
+                    <label>Fuso<input type="text" id="utm-fuso" value="23S" size="4"></label>
+                </div>
+                <p id="utm-res" class="previa-calculo" aria-live="polite"></p>
+            </div>
+            <div>
+                <h3>Latitude/Longitude → UTM</h3>
+                <div class="form-linha">
+                    <label>Latitude<input type="text" id="geo-lat" value="-19°28'36,1&quot;" ></label>
+                    <label>Longitude<input type="text" id="geo-lon" value="-44°09'37,3&quot;"></label>
+                </div>
+                <p class="suave"><small>Aceita decimal (-19,4767) ou GMS (19°28'36" S).</small></p>
+                <p id="geo-res" class="previa-calculo" aria-live="polite"></p>
+            </div>
+        </div>
+    </section>
+</main></body></html>

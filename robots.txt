@@ -8,5 +8,7 @@ Disallow: /kelly/painel/
 Disallow: /broetto/painel/
 Disallow: /broetto/site/
 Disallow: /clubedacerveja/telas/
+Disallow: /agrosat/*.html
+Disallow: /agrosat/arquivos/
 
 Sitemap: https://gimfreires.tech/sitemap.xml
