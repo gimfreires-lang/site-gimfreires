@@ -1,0 +1,145 @@
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Nova ordem de serviço</title><script src="previa.js"></script>
+</head><body><div class="faixa-previa">Prévia com dados de demonstração · <a href="./">voltar ao início</a></div><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/topografia.css">
+
+
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo"><span class="site-logo-marca" aria-hidden="true"></span>Agrosat</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Painel</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Serviços</button>
+                <div class="nav-submenu">
+                    <a href="os.html">Ordens de serviço</a>
+                    <a href="os-quadro.html">Quadro (kanban)</a>
+                    <a href="os-editar.html">+ Nova OS</a>
+                    <a href="orcamentos.html">Orçamentos</a>
+                    <a href="orcamento.html">+ Novo orçamento</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Campo</button>
+                <div class="nav-submenu">
+                    <a href="agenda.html">Agenda de campo</a>
+                    <a href="equipamentos.html">Equipamentos</a>
+                </div>
+            </div>
+            <a href="protocolos.html">Protocolos</a>
+            <a href="clientes.html">Clientes</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Financeiro</button>
+                <div class="nav-submenu">
+                    <a href="financeiro.html">Visão geral</a>
+                    <a href="lancamentos-tipo-receita.html">Contas a receber</a>
+                    <a href="lancamentos-tipo-despesa.html">Contas a pagar</a>
+                    <a href="lancamento.html">+ Novo lançamento</a>
+                                        <a href="relatorio.html">Resultado (DRE) e lucro por serviço</a>
+                    <a href="contador.html">Fechamento para o contador</a>
+                                    </div>
+            </div>
+            <a href="ferramentas.html">Ferramentas</a>
+                        <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="config-escritorio.html">Escritório e parâmetros</a>
+                    <a href="config-tipos.html">Tipos de serviço e preços</a>
+                    <a href="usuarios.html">Equipe e usuários</a>
+                    <a href="config-contato.html">Logo e contato</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Carlos Mendes</span>
+            <a href="login.html">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer></script>
+<script src="assets/js/topografia.js" defer></script>
+<main class="container">
+<div class="page-title"><span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4h6l1 2h3v14H5V6h3l1-2Zm-1 8h8m-8 4h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h1>Nova ordem de serviço</h1><span class="subtitulo">Abra a OS assim que o cliente fechar o serviço</span></div></div>    <p class="acoes-topo"><a href="os.html" class="btn-outline btn-sm">‹ Voltar</a></p>
+    
+    <form method="post">
+        <input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f">        <div class="card">
+            <h2>Serviço</h2>
+            <div class="form-linha">
+                <label style="flex:2">Cliente
+                    <select name="id_cliente" required>
+                        <option value="">Escolha...</option>
+                        <option value="2" selected>Agropecuária Serra Azul Ltda</option><option value="5" >Antônio Carlos Ferreira</option><option value="4" >Construtora Horizonte Engenharia</option><option value="6" >Helena e Roberto Campos</option><option value="1" >José Antônio Ribeiro</option><option value="8" >Luiz Fernando Gomes</option><option value="3" >Maria das Graças Oliveira</option><option value="7" >Pedreira Pedra Branca S.A.</option>                    </select>
+                    <small><a href="cliente-editar-voltar-servico.html">+ cadastrar cliente novo</a></small>
+                </label>
+                <label style="flex:2">Tipo de serviço
+                    <select name="id_tipo" id="campo-tipo">
+                        <option value="">—</option>
+                        <option value="9" data-prazo="15" >Aerolevantamento com drone</option><option value="10" data-prazo="7" >Cálculo de volume (cubagem)</option><option value="8" data-prazo="20" >CAR / Ambiental</option><option value="5" data-prazo="45" >Desmembramento / Unificação</option><option value="1" data-prazo="60" >Georreferenciamento (SIGEF/INCRA)</option><option value="2" data-prazo="15" >Levantamento planialtimétrico</option><option value="3" data-prazo="10" >Levantamento planimétrico</option><option value="4" data-prazo="5" >Locação de obra</option><option value="7" data-prazo="60" >Retificação de área</option><option value="6" data-prazo="60" >Usucapião</option>                    </select>
+                </label>
+            </div>
+            <label>Título<input type="text" name="titulo" required value="" placeholder="Ex.: Georreferenciamento — Fazenda Boa Vista"></label>
+            <div class="form-linha">
+                <label>Responsável técnico
+                    <select name="id_responsavel"><option value="">—</option><option value="1" selected>Carlos Mendes — Engenheiro agrimensor</option><option value="3" >Júlia Pires — Desenhista / cadista</option><option value="4" >Marcos Lima — Auxiliar de topografia</option><option value="5" >Patrícia Rocha — Administrativo / financeiro</option><option value="2" >Rafael Souza — Técnico em agrimensura</option></select>
+                </label>
+                <label>Prioridade
+                    <select name="prioridade"><option value="baixa" >Baixa</option><option value="normal" selected>Normal</option><option value="alta" >Alta</option><option value="urgente" >Urgente</option></select>
+                </label>
+                <label>Início<input type="date" name="data_inicio" id="campo-inicio" value="2026-11-08"></label>
+                <label>Prazo de entrega<input type="date" name="prazo_entrega" id="campo-prazo" value=""></label>
+            </div>
+            <div class="form-linha">
+                <label>Valor contratado (R$)<input type="text" name="valor_contratado" inputmode="decimal" value=""></label>
+                <label>Nº da ART/TRT<input type="text" name="art_numero" value=""></label>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Imóvel</h2>
+            <div class="form-linha">
+                <label style="flex:2">Denominação do imóvel<input type="text" name="imovel" value="" placeholder="Fazenda, sítio, lote, quadra..."></label>
+                <label style="flex:2">Município<input type="text" name="municipio" value=""></label>
+                <label>UF<select name="uf"><option value="">—</option><option >AC</option><option >AL</option><option >AP</option><option >AM</option><option >BA</option><option >CE</option><option >DF</option><option >ES</option><option >GO</option><option >MA</option><option >MT</option><option >MS</option><option >MG</option><option >PA</option><option >PB</option><option selected>PR</option><option >PE</option><option >PI</option><option >RJ</option><option >RN</option><option >RS</option><option >RO</option><option >RR</option><option >SC</option><option >SP</option><option >SE</option><option >TO</option></select></label>
+            </div>
+            <div class="form-linha">
+                <label>Matrícula<input type="text" name="matricula" value=""></label>
+                <label style="flex:2">Cartório (CRI)<input type="text" name="cartorio" value=""></label>
+            </div>
+            <div class="form-linha">
+                <label>CCIR / Cód. INCRA<input type="text" name="ccir" value=""></label>
+                <label style="flex:2">Nº do CAR<input type="text" name="car" value=""></label>
+            </div>
+            <div class="form-linha">
+                <label>Área (ha)<input type="text" name="area_ha" inputmode="decimal" value=""><small>Preenchida sozinha ao cadastrar os vértices</small></label>
+                <label>Perímetro (m)<input type="text" name="perimetro_m" inputmode="decimal" value=""></label>
+                <label>Datum<input type="text" name="datum" value="SIRGAS 2000"></label>
+                <label>Fuso UTM<input type="text" name="fuso_utm" value="22S" placeholder="23S"></label>
+            </div>
+            <div class="form-linha">
+                <label>Latitude (decimal)<input type="text" name="latitude" value="" placeholder="-19.9208"></label>
+                <label>Longitude (decimal)<input type="text" name="longitude" value="" placeholder="-43.9378"></label>
+                <label style="flex:2">Pasta dos arquivos<input type="text" name="pasta_arquivos" value="" placeholder="\\servidor\projetos\2026\OS-0001 ou link do Drive"></label>
+            </div>
+            <label>Observações<textarea name="observacoes"></textarea></label>
+        </div>
+        <button type="submit" class="btn-bloco btn-lg">Salvar ordem de serviço</button>
+    </form>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const tipo = document.getElementById('campo-tipo');
+    const prazo = document.getElementById('campo-prazo');
+    const inicio = document.getElementById('campo-inicio');
+    tipo.addEventListener('change', function () {
+        const dias = parseInt(tipo.selectedOptions[0].dataset.prazo || '0', 10);
+        if (!dias || prazo.value) return;
+        const base = inicio.value ? new Date(inicio.value + 'T12:00:00') : new Date();
+        base.setDate(base.getDate() + dias);
+        prazo.value = base.toISOString().slice(0, 10);
+    });
+});
+</script>
+</main></body></html>

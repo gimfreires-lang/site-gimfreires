@@ -1,0 +1,183 @@
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Novo orçamento</title><script src="previa.js"></script>
+</head><body><div class="faixa-previa">Prévia com dados de demonstração · <a href="./">voltar ao início</a></div><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/topografia.css">
+
+
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo"><span class="site-logo-marca" aria-hidden="true"></span>Agrosat</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Painel</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Serviços</button>
+                <div class="nav-submenu">
+                    <a href="os.html">Ordens de serviço</a>
+                    <a href="os-quadro.html">Quadro (kanban)</a>
+                    <a href="os-editar.html">+ Nova OS</a>
+                    <a href="orcamentos.html">Orçamentos</a>
+                    <a href="orcamento.html">+ Novo orçamento</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Campo</button>
+                <div class="nav-submenu">
+                    <a href="agenda.html">Agenda de campo</a>
+                    <a href="equipamentos.html">Equipamentos</a>
+                </div>
+            </div>
+            <a href="protocolos.html">Protocolos</a>
+            <a href="clientes.html">Clientes</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Financeiro</button>
+                <div class="nav-submenu">
+                    <a href="financeiro.html">Visão geral</a>
+                    <a href="lancamentos-tipo-receita.html">Contas a receber</a>
+                    <a href="lancamentos-tipo-despesa.html">Contas a pagar</a>
+                    <a href="lancamento.html">+ Novo lançamento</a>
+                                        <a href="relatorio.html">Resultado (DRE) e lucro por serviço</a>
+                    <a href="contador.html">Fechamento para o contador</a>
+                                    </div>
+            </div>
+            <a href="ferramentas.html">Ferramentas</a>
+                        <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="config-escritorio.html">Escritório e parâmetros</a>
+                    <a href="config-tipos.html">Tipos de serviço e preços</a>
+                    <a href="usuarios.html">Equipe e usuários</a>
+                    <a href="config-contato.html">Logo e contato</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Carlos Mendes</span>
+            <a href="login.html">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer></script>
+<script src="assets/js/topografia.js" defer></script>
+<main class="container">
+<div class="page-title"><span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10v18l-2-1.5L13 21l-2-1.5L9 21l-2-1.5V3Zm3 5h4m-4 4h4m-4 4h2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h1>Novo orçamento</h1><span class="subtitulo">A calculadora considera custos de campo, escritório, taxas, margem e impostos</span></div></div>    <p class="acoes-topo">
+        <a href="orcamentos.html" class="btn-outline btn-sm">‹ Orçamentos</a>
+            </p>
+            
+    <form method="post" id="form-orcamento" class="layout-orcamento">
+        <input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f"><input type="hidden" name="acao" value="salvar">
+        <fieldset >
+        <div class="card">
+            <h2>Cliente e serviço</h2>
+            <div class="form-linha">
+                <label style="flex:2">Cliente
+                    <select name="id_cliente" required><option value="">Escolha...</option>
+                        <option value="2" >Agropecuária Serra Azul Ltda</option><option value="5" >Antônio Carlos Ferreira</option><option value="4" >Construtora Horizonte Engenharia</option><option value="6" selected>Helena e Roberto Campos</option><option value="1" >José Antônio Ribeiro</option><option value="8" >Luiz Fernando Gomes</option><option value="3" >Maria das Graças Oliveira</option><option value="7" >Pedreira Pedra Branca S.A.</option>                    </select>
+                    <small><a href="cliente-editar-voltar-orcamento.html">+ cadastrar cliente novo</a></small>
+                </label>
+                <label style="flex:2">Tipo de serviço
+                    <select name="id_tipo" id="o-tipo">
+                        <option value="9" data-base="2500.00" data-ha="35.00" data-dias="1.0" selected>Aerolevantamento com drone</option><option value="10" data-base="1500.00" data-ha="0.00" data-dias="1.0" >Cálculo de volume (cubagem)</option><option value="8" data-base="900.00" data-ha="8.00" data-dias="1.0" >CAR / Ambiental</option><option value="5" data-base="2200.00" data-ha="60.00" data-dias="1.0" >Desmembramento / Unificação</option><option value="1" data-base="3500.00" data-ha="45.00" data-dias="3.0" >Georreferenciamento (SIGEF/INCRA)</option><option value="2" data-base="1800.00" data-ha="120.00" data-dias="1.0" >Levantamento planialtimétrico</option><option value="3" data-base="1200.00" data-ha="80.00" data-dias="1.0" >Levantamento planimétrico</option><option value="4" data-base="900.00" data-ha="0.00" data-dias="1.0" >Locação de obra</option><option value="7" data-base="2500.00" data-ha="40.00" data-dias="2.0" >Retificação de área</option><option value="6" data-base="2800.00" data-ha="50.00" data-dias="2.0" >Usucapião</option>                    </select>
+                    <small id="o-tabela"></small>
+                </label>
+            </div>
+            <div class="form-linha">
+                <label style="flex:2">Imóvel<input type="text" name="imovel" value=""></label>
+                <label style="flex:2">Município<input type="text" name="municipio" value=""></label>
+                <label>UF<select name="uf"><option value="">—</option><option >AC</option><option >AL</option><option >AP</option><option >AM</option><option >BA</option><option >CE</option><option >DF</option><option >ES</option><option >GO</option><option >MA</option><option >MT</option><option >MS</option><option >MG</option><option >PA</option><option >PB</option><option selected>PR</option><option >PE</option><option >PI</option><option >RJ</option><option >RN</option><option >RS</option><option >RO</option><option >RR</option><option >SC</option><option >SP</option><option >SE</option><option >TO</option></select></label>
+                <label>Área (ha)<input type="text" name="area_ha" class="js-calc" inputmode="decimal" value="0,0000"></label>
+            </div>
+            <label>Escopo / descrição para a proposta<textarea name="descricao" rows="3" placeholder="Ex.: Levantamento GNSS RTK dos limites, elaboração de planta e memorial, certificação no SIGEF e acompanhamento do registro."></textarea></label>
+        </div>
+
+        <div class="card">
+            <h2>Custos de campo</h2>
+            <div class="form-linha">
+                <label>Dias de campo<input type="text" name="dias_campo" class="js-calc" inputmode="decimal" value="1,0"></label>
+                <label>Pessoas na equipe<input type="number" name="qtd_equipe" class="js-calc" min="0" value="2"></label>
+                <label>Diária por pessoa (R$)<input type="text" name="diaria_por_pessoa" class="js-calc" inputmode="decimal" value="220,00"></label>
+            </div>
+            <div class="form-linha">
+                <label>Deslocamento total (km ida+volta)<input type="text" name="km_deslocamento" class="js-calc" inputmode="decimal" value="0,0"></label>
+                <label>Custo por km (R$)<input type="text" name="valor_km" class="js-calc" inputmode="decimal" value="1,90"></label>
+                <label>Equipamentos por dia (R$)<input type="text" name="custo_equipamento_dia" id="o-equip" class="js-calc" inputmode="decimal" value="0,00">
+                    <small>Atalhos: <button type="button" class="btn-texto js-add-equip" data-valor="150.00">+Drone Mavic 3E</button> <button type="button" class="btn-texto js-add-equip" data-valor="90.00">+Estação Total Leica</button> <button type="button" class="btn-texto js-add-equip" data-valor="120.00">+GNSS Base 1</button> <button type="button" class="btn-texto js-add-equip" data-valor="120.00">+GNSS Rover 1</button> <button type="button" class="btn-texto js-add-equip" data-valor="40.00">+Nível digital</button> </small>                </label>
+            </div>
+            <h2>Escritório e taxas</h2>
+            <div class="form-linha">
+                <label>Horas de escritório<input type="text" name="horas_escritorio" class="js-calc" inputmode="decimal" value="8,0"></label>
+                <label>Valor da hora (R$)<input type="text" name="valor_hora_escritorio" class="js-calc" inputmode="decimal" value="95,00"></label>
+                <label>Taxas (ART, cartório, INCRA...)<input type="text" name="taxas" class="js-calc" inputmode="decimal" value="0,00"></label>
+            </div>
+            <h2>Preço</h2>
+            <div class="form-linha">
+                <label>Margem / reserva (%)<input type="text" name="margem_percentual" class="js-calc" inputmode="decimal" value="15,00"></label>
+                <label>Impostos sobre a nota (%)<input type="text" name="impostos_percentual" class="js-calc" inputmode="decimal" value="6,00"></label>
+                <label>Desconto (R$)<input type="text" name="desconto" class="js-calc" inputmode="decimal" value="0,00"></label>
+            </div>
+            <div class="form-linha">
+                <label style="flex:3">Condições de pagamento<input type="text" name="condicoes_pagamento" value="50% na aprovação e 50% na entrega"></label>
+                <label>Validade (dias)<input type="number" name="validade_dias" min="1" value="15"></label>
+            </div>
+        </div>
+        </fieldset>
+
+        <aside class="resumo-orcamento card">
+            <h2>Composição</h2>
+            <dl class="composicao">
+                <dt>Diárias da equipe</dt><dd id="r-diarias">R$ 440,00</dd>
+                <dt>Deslocamento</dt><dd id="r-deslocamento">R$ 0,00</dd>
+                <dt>Equipamentos</dt><dd id="r-equipamentos">R$ 0,00</dd>
+                <dt>Escritório</dt><dd id="r-escritorio">R$ 760,00</dd>
+                <dt>Taxas</dt><dd id="r-taxas">R$ 0,00</dd>
+                <dt class="sub">Custos diretos</dt><dd class="sub" id="r-custos">R$ 1.200,00</dd>
+                <dt>Honorários técnicos (tabela)</dt><dd id="r-honorarios">R$ 2.500,00</dd>
+                <dt>Impostos</dt><dd id="r-impostos">R$ 271,60</dd>
+            </dl>
+            <div class="valor-final"><span>Valor da proposta</span><strong id="r-valor">R$ 4.526,60</strong></div>
+            <p class="lucro-estimado">Lucro estimado: <strong id="r-lucro">R$ 3.055,00</strong> (<span id="r-margem">67,5</span>% do valor)</p>
+            <button type="submit" class="btn-bloco">Salvar orçamento</button>        </aside>
+    </form>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('form-orcamento');
+    const tipo = document.getElementById('o-tipo');
+    const tabela = document.getElementById('o-tabela');
+    const f = function (n) { return Topo.lerNumero(form.elements[n] ? form.elements[n].value : 0); };
+    const set = function (id, v) { document.getElementById(id).textContent = Topo.moeda(v); };
+    const recalcular = function () {
+        const op = tipo.selectedOptions[0];
+        const base = parseFloat(op ? op.dataset.base : 0) || 0;
+        const porHa = parseFloat(op ? op.dataset.ha : 0) || 0;
+        tabela.textContent = 'Tabela: ' + Topo.moeda(base) + (porHa ? ' + ' + Topo.moeda(porHa) + '/ha' : '');
+        const r = Topo.calcularOrcamento({
+            dias: f('dias_campo'), equipe: f('qtd_equipe'), diaria: f('diaria_por_pessoa'), km: f('km_deslocamento'), valorKm: f('valor_km'),
+            equipDia: f('custo_equipamento_dia'), horas: f('horas_escritorio'), valorHora: f('valor_hora_escritorio'), taxas: f('taxas'),
+            area: f('area_ha'), base: base, porHa: porHa, margem: f('margem_percentual'), impostos: f('impostos_percentual'), desconto: f('desconto')
+        });
+        ['diarias', 'deslocamento', 'equipamentos', 'escritorio', 'taxas', 'custos', 'honorarios', 'impostos', 'valor', 'lucro'].forEach(function (k) { set('r-' + k, r[k]); });
+        document.getElementById('r-margem').textContent = Topo.num(r.margemReal, 1);
+        document.getElementById('r-lucro').classList.toggle('texto-erro', r.lucro < 0);
+    };
+    form.addEventListener('input', recalcular);
+    tipo.addEventListener('change', function () {
+        const dias = tipo.selectedOptions[0].dataset.dias;
+        if (dias && form.elements['dias_campo'] && !form.elements['dias_campo'].dataset.mexido) form.elements['dias_campo'].value = Topo.num(parseFloat(dias), 1);
+        recalcular();
+    });
+    if (form.elements['dias_campo']) form.elements['dias_campo'].addEventListener('input', function () { this.dataset.mexido = '1'; });
+    document.querySelectorAll('.js-add-equip').forEach(function (b) {
+        b.addEventListener('click', function () {
+            const campo = document.getElementById('o-equip');
+            campo.value = Topo.num(Topo.lerNumero(campo.value) + parseFloat(b.dataset.valor), 2);
+            recalcular();
+        });
+    });
+    recalcular();
+});
+</script>
+</main></body></html>

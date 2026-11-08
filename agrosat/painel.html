@@ -1,0 +1,233 @@
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Painel</title><script src="previa.js"></script>
+</head><body><div class="faixa-previa">Prévia com dados de demonstração · <a href="./">voltar ao início</a></div><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/topografia.css">
+
+
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo"><span class="site-logo-marca" aria-hidden="true"></span>Agrosat</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html" class="ativo">Painel</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Serviços</button>
+                <div class="nav-submenu">
+                    <a href="os.html">Ordens de serviço</a>
+                    <a href="os-quadro.html">Quadro (kanban)</a>
+                    <a href="os-editar.html">+ Nova OS</a>
+                    <a href="orcamentos.html">Orçamentos</a>
+                    <a href="orcamento.html">+ Novo orçamento</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Campo</button>
+                <div class="nav-submenu">
+                    <a href="agenda.html">Agenda de campo</a>
+                    <a href="equipamentos.html">Equipamentos</a>
+                </div>
+            </div>
+            <a href="protocolos.html">Protocolos</a>
+            <a href="clientes.html">Clientes</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Financeiro</button>
+                <div class="nav-submenu">
+                    <a href="financeiro.html">Visão geral</a>
+                    <a href="lancamentos-tipo-receita.html">Contas a receber</a>
+                    <a href="lancamentos-tipo-despesa.html">Contas a pagar</a>
+                    <a href="lancamento.html">+ Novo lançamento</a>
+                                        <a href="relatorio.html">Resultado (DRE) e lucro por serviço</a>
+                    <a href="contador.html">Fechamento para o contador</a>
+                                    </div>
+            </div>
+            <a href="ferramentas.html">Ferramentas</a>
+                        <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="config-escritorio.html">Escritório e parâmetros</a>
+                    <a href="config-tipos.html">Tipos de serviço e preços</a>
+                    <a href="usuarios.html">Equipe e usuários</a>
+                    <a href="config-contato.html">Logo e contato</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Carlos Mendes</span>
+            <a href="login.html">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer></script>
+<script src="assets/js/topografia.js" defer></script>
+<main class="container">
+    <div class="page-title"><span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19h16M6 19V9l5-4 5 4v10M10 19v-5h4v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h1>Painel do escritório</h1><span class="subtitulo">Olá, Carlos Mendes — 08/11/2026</span></div></div>
+    <p class="acoes-topo">
+        <a href="orcamento.html" class="btn">+ Orçamento</a>
+        <a href="os-editar.html" class="btn-outline">+ Ordem de serviço</a>
+        <a href="agenda.html" class="btn-outline">Agendar campo</a>
+        <a href="lancamento.html" class="btn-outline">Lançar despesa/receita</a>
+    </p>
+
+    <div class="stats-credito">
+        <a href="os.html" class="stat-credito">
+            <span class="stat-label">Serviços em andamento</span>
+            <span class="stat-valor">7</span>
+            <span class="stat-obs"><span class="texto-erro">1 com prazo vencido</span></span>
+        </a>
+        <a href="financeiro.html" class="stat-credito">
+            <span class="stat-label">Resultado do mês (caixa)</span>
+            <span class="stat-valor">R$ 3.543,08</span>
+            <span class="stat-obs">entrou R$ 4.703,08 · saiu R$ 1.160,00</span>
+        </a>
+        <a href="#" data-previa class="stat-credito">
+            <span class="stat-label">A receber vencido</span>
+            <span class="stat-valor erro">R$ 10.450,00</span>
+            <span class="stat-obs">total em aberto R$ 26.704,77</span>
+        </a>
+        <a href="orcamentos-status-enviado.html" class="stat-credito">
+            <span class="stat-label">Orçamentos aguardando</span>
+            <span class="stat-valor alerta">2</span>
+            <span class="stat-obs">R$ 30.131,84 · conversão 67%</span>
+        </a>
+    </div>
+
+    <div class="funil-status">
+                <a href="os-status-aguardando-campo.html" class="funil-etapa funil-aguardando_campo">
+            <span class="funil-qtd">2</span>
+            <span class="funil-rotulo">Aguardando campo</span>
+        </a>
+                <a href="os-status-em-campo.html" class="funil-etapa funil-em_campo">
+            <span class="funil-qtd">1</span>
+            <span class="funil-rotulo">Em campo</span>
+        </a>
+                <a href="os-status-processamento.html" class="funil-etapa funil-processamento">
+            <span class="funil-qtd">2</span>
+            <span class="funil-rotulo">Processamento</span>
+        </a>
+                <a href="os-status-protocolado.html" class="funil-etapa funil-protocolado">
+            <span class="funil-qtd">1</span>
+            <span class="funil-rotulo">Protocolado</span>
+        </a>
+                <a href="os-status-exigencia.html" class="funil-etapa funil-exigencia">
+            <span class="funil-qtd">1</span>
+            <span class="funil-rotulo">Com exigência</span>
+        </a>
+                <a href="os-status-concluido.html" class="funil-etapa funil-concluido">
+            <span class="funil-qtd">2</span>
+            <span class="funil-rotulo">Concluído</span>
+        </a>
+            </div>
+
+    <div class="grade-2col">
+        <div class="card">
+            <div class="card-cabecalho"><h2>Prazos de entrega</h2><a href="os.html" class="btn-sm btn-outline">ver todos</a></div>
+                        <ul class="lista-simples">
+                                <li>
+                    <a href="os-2.html"><strong>OS-2026-0028</strong> · Georreferenciamento — Fazenda Serra Azul (gleba 2)</a>
+                    <span class="meta">Agropecuária Serra Azul Ltda · <span class="status-pill erro">Com exigência</span></span>
+                    <span class="prazo vencido">3 dia(s) atrasado</span>
+                </li>
+                                <li>
+                    <a href="os-3.html"><strong>OS-2026-0034</strong> · Locação de obra — Residencial Jardim Europa</a>
+                    <span class="meta">Construtora Horizonte Engenharia · <span class="status-pill alerta">Aguardando campo</span></span>
+                    <span class="prazo ">em 5 dia(s)</span>
+                </li>
+                                <li>
+                    <a href="os-9.html"><strong>OS-2026-0032</strong> · Planialtimétrico — Loteamento Vale Verde</a>
+                    <span class="meta">Construtora Horizonte Engenharia · <span class="status-pill preparando">Processamento</span></span>
+                    <span class="prazo ">em 6 dia(s)</span>
+                </li>
+                            </ul>
+                    </div>
+
+        <div class="card">
+            <div class="card-cabecalho"><h2>Campo nos próximos 7 dias</h2><a href="agenda.html" class="btn-sm btn-outline">agenda</a></div>
+                        <ul class="lista-simples">
+                                <li>
+                    <span class="data-chip">08/11<small>Dia inteiro</small></span>
+                    <div>
+                        <strong>OS-2026-0031 · Georreferenciamento — Fazenda Boa Vista</strong>
+                        <span class="meta">Cascavel · Rafael Souza · GNSS Base 1, GNSS Rover 1, Hilux prata</span>
+                    </div>
+                </li>
+                                <li>
+                    <span class="data-chip">09/11<small>Manhã</small></span>
+                    <div>
+                        <strong>OS-2026-0034 · Locação de obra — Residencial Jardim Europa</strong>
+                        <span class="meta">Cascavel · Rafael Souza · Estação Total Leica</span>
+                    </div>
+                </li>
+                                <li>
+                    <span class="data-chip">10/11<small>Tarde</small></span>
+                    <div>
+                        <strong>OS-2026-0035 · Desmembramento de lote — Toledo</strong>
+                        <span class="meta">Toledo · Carlos Mendes · Estação Total Leica</span>
+                    </div>
+                </li>
+                                <li>
+                    <span class="data-chip">11/11<small>Manhã</small></span>
+                    <div>
+                        <strong>Visita técnica — orçamento Fazenda Três Barras</strong>
+                        <span class="meta">Carlos Mendes · Hilux prata</span>
+                    </div>
+                </li>
+                                <li>
+                    <span class="data-chip">12/11<small>Dia inteiro</small></span>
+                    <div>
+                        <strong>OS-2026-0028 · Georreferenciamento — Fazenda Serra Azul (gleba 2)</strong>
+                        <span class="meta">Corbélia · Carlos Mendes · GNSS Base 1, GNSS Rover 1</span>
+                    </div>
+                </li>
+                            </ul>
+                    </div>
+    </div>
+
+    <div class="grade-2col">
+        <div class="card">
+            <h2>Entradas e saídas — últimos 6 meses</h2>
+            <canvas id="grafico-fluxo" height="230"></canvas>
+        </div>
+        <div class="card">
+            <h2>Precisa de ação</h2>
+                        <ul class="lista-simples">
+                                <li><span class="marcador alerta"></span><a href="#" data-previa>R$ 12.020,00 em contas a pagar até 15/11/2026</a></li>
+                                                <li><span class="marcador erro"></span>
+                    <a href="os-2.html"><strong>OS-2026-0028</strong> · SIGEF/INCRA (SIGEF 7a1c-22f9-0b33)</a>
+                    <span class="meta">Exigência: Sobreposição de 0,82 ha com parcela certificada do confrontante (Fazenda Santa Rita) entr…</span>
+                </li>
+                                                <li><span class="marcador erro"></span>
+                    <a href="equipamento-4.html">Calibração: Nível digital</a>
+                    <span class="meta">venceu em 04/10/2026</span>
+                </li>
+                                <li><span class="marcador alerta"></span>
+                    <a href="equipamento-3.html">Calibração: Estação Total Leica</a>
+                    <span class="meta">vence em 23/11/2026</span>
+                </li>
+                            </ul>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    if (!window.Chart) return;
+    new Chart(document.getElementById('grafico-fluxo'), {
+        type: 'bar',
+        data: {
+            labels: ["jun\/26","jul\/26","ago\/26","set\/26","out\/26","nov\/26"],
+            datasets: [
+                { label: 'Entradas', data: [33600,29400,40250,20200,28500,4703.08], backgroundColor: '#0F766E', borderRadius: 4 },
+                { label: 'Saídas', data: [17290,16990,18370,20799.64,20475.64,1160], backgroundColor: '#D97706', borderRadius: 4 }
+            ]
+        },
+        options: {
+            plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: function (c) { return c.dataset.label + ': R$ ' + c.parsed.y.toLocaleString('pt-BR', { minimumFractionDigits: 2 }); } } } },
+            scales: { y: { beginAtZero: true, ticks: { callback: function (v) { return 'R$ ' + v.toLocaleString('pt-BR'); } } } }
+        }
+    });
+});
+</script>
+</main></body></html>

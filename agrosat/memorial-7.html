@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Memorial descritivo — OS-2026-0035</title>
+<link rel="stylesheet" href="assets/css/documento.css">
+<script src="previa.js"></script>
+</head>
+<body><div class="faixa-previa">Prévia com dados de demonstração · <a href="./">voltar ao início</a></div>
+<div class="barra-doc">
+    <a href="os-7.html">‹ Voltar ao serviço</a>
+    <button type="button" onclick="window.print()">Imprimir / salvar PDF</button>
+    <button type="button" id="copiar">Copiar texto</button>
+</div>
+<article class="folha" id="documento">
+    <header class="cabecalho-doc">
+                <div><strong>Agrosat</strong><br><small>Rua Osvaldo Cruz, 2439 - Centro, Cascavel - PR, 85810-150 · (45) 98423-0856</small><br><small class="slogan-doc">Há 27 anos prestando serviços em Cascavel e região</small></div>
+    </header>
+    <h1>Memorial descritivo</h1>
+    <table class="quadro-doc">
+        <tr><th>Imóvel</th><td colspan="3">Lote 7, Quadra 11</td></tr>
+        <tr><th>Proprietário</th><td>Helena e Roberto Campos</td><th>CPF/CNPJ</th><td>746.824.890-70</td></tr>
+        <tr><th>Município/UF</th><td>Toledo/PR</td><th>Matrícula</th><td>22.310 — CRI de Toledo</td></tr>
+        <tr><th>Cód. INCRA/CCIR</th><td>—</td><th>CAR</th><td>—</td></tr>
+        <tr><th>Área</th><td><strong>0,0000 ha</strong> (0,00 m²)</td><th>Perímetro</th><td><strong>0,00 m</strong></td></tr>
+        <tr><th>Sistema</th><td colspan="3">UTM — fuso 22S — Meridiano Central 51° WGr — Datum SIRGAS 2000</td></tr>
+    </table>
+
+        <p class="aviso-doc">Cadastre pelo menos 3 vértices no serviço para gerar a descrição do perímetro.</p>
+    
+    <p class="local-data">Cascavel/PR, 8 de novembro de 2026.</p>
+    <div class="assinatura">
+        <span class="linha"></span>
+        <strong>Rafael Souza</strong>
+        <span>CFT 0321458-7</span>
+            </div>
+</article>
+<script>
+document.getElementById('copiar').addEventListener('click', function () {
+    const t = Array.from(document.querySelectorAll('.texto-memorial')).map(function (p) { return p.innerText; }).join('\n\n');
+    navigator.clipboard.writeText(t).then(function () { document.getElementById('copiar').textContent = 'Copiado!'; });
+});
+</script>
+</body>
+</html>

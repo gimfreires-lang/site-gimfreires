@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Escritório e parâmetros</title><script src="previa.js"></script>
+</head><body><div class="faixa-previa">Prévia com dados de demonstração · <a href="./">voltar ao início</a></div><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/topografia.css">
+
+
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo"><span class="site-logo-marca" aria-hidden="true"></span>Agrosat</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Painel</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Serviços</button>
+                <div class="nav-submenu">
+                    <a href="os.html">Ordens de serviço</a>
+                    <a href="os-quadro.html">Quadro (kanban)</a>
+                    <a href="os-editar.html">+ Nova OS</a>
+                    <a href="orcamentos.html">Orçamentos</a>
+                    <a href="orcamento.html">+ Novo orçamento</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Campo</button>
+                <div class="nav-submenu">
+                    <a href="agenda.html">Agenda de campo</a>
+                    <a href="equipamentos.html">Equipamentos</a>
+                </div>
+            </div>
+            <a href="protocolos.html">Protocolos</a>
+            <a href="clientes.html">Clientes</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Financeiro</button>
+                <div class="nav-submenu">
+                    <a href="financeiro.html">Visão geral</a>
+                    <a href="lancamentos-tipo-receita.html">Contas a receber</a>
+                    <a href="lancamentos-tipo-despesa.html">Contas a pagar</a>
+                    <a href="lancamento.html">+ Novo lançamento</a>
+                                        <a href="relatorio.html">Resultado (DRE) e lucro por serviço</a>
+                    <a href="contador.html">Fechamento para o contador</a>
+                                    </div>
+            </div>
+            <a href="ferramentas.html">Ferramentas</a>
+                        <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="config-escritorio.html">Escritório e parâmetros</a>
+                    <a href="config-tipos.html">Tipos de serviço e preços</a>
+                    <a href="usuarios.html">Equipe e usuários</a>
+                    <a href="config-contato.html">Logo e contato</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Carlos Mendes</span>
+            <a href="login.html">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer></script>
+<script src="assets/js/topografia.js" defer></script>
+<main class="container">
+<div class="page-title"><span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm7-3 2-1-2-4-2 1-2-1-1-2H10L9 7 7 8 5 7l-2 4 2 1v0l-2 1 2 4 2-1 2 1 1 2h4l1-2 2-1 2 1 2-4-2-1Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h1>Escritório e parâmetros</h1><span class="subtitulo">Dados que aparecem nos documentos e valores padrão dos orçamentos</span></div></div>        <p class="suave">Nome, logo, telefone e endereço ficam em <a href="config-contato.html">Logo e contato</a>.</p>
+    <form method="post">
+        <input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f">        <div class="card">
+            <h2>Escritório</h2>
+            <div class="form-linha">
+                <label>CNPJ<input type="text" name="cnpj" value=""></label>
+                <label style="flex:2">Cidade sede<input type="text" name="cidade_sede" value="Cascavel"></label>
+                <label>UF<select name="uf_sede"><option value="">—</option><option >AC</option><option >AL</option><option >AP</option><option >AM</option><option >BA</option><option >CE</option><option >DF</option><option >ES</option><option >GO</option><option >MA</option><option >MT</option><option >MS</option><option >MG</option><option >PA</option><option >PB</option><option selected>PR</option><option >PE</option><option >PI</option><option >RJ</option><option >RN</option><option >RS</option><option >RO</option><option >RR</option><option >SC</option><option >SP</option><option >SE</option><option >TO</option></select></label>
+            </div>
+            <div class="form-linha">
+                <label style="flex:2">Responsável técnico padrão<input type="text" name="responsavel_tecnico" value="Carlos Mendes"></label>
+                <label>Registro (CREA/CFT)<input type="text" name="registro_rt" value="CREA-PR 145872/D" placeholder="CREA-MG 123456/D"></label>
+                <label>Fuso UTM padrão<input type="text" name="fuso_utm_padrao" value="22S"></label>
+            </div>
+        </div>
+        <div class="card">
+            <h2>Padrões da calculadora de orçamento</h2>
+            <div class="form-linha">
+                <label>Diária por pessoa (R$)<input type="text" name="diaria_por_pessoa" value="220,00"><small>Alimentação + hospedagem + salário do dia</small></label>
+                <label>Custo por km (R$)<input type="text" name="valor_km" value="1,90"><small>Combustível + desgaste do veículo</small></label>
+                <label>Hora de escritório (R$)<input type="text" name="valor_hora_escritorio" value="95,00"><small>Processamento, desenho, memorial</small></label>
+            </div>
+            <div class="form-linha">
+                <label>Margem / reserva (%)<input type="text" name="margem_percentual" value="15,00"></label>
+                <label>Impostos sobre a nota (%)<input type="text" name="impostos_percentual" value="6,00"><small>Alíquota efetiva do Simples/ISS — confirme com o contador</small></label>
+                <label>Validade da proposta (dias)<input type="number" name="validade_orcamento_dias" value="15"></label>
+            </div>
+            <label>Condições de pagamento padrão<input type="text" name="condicoes_pagamento" value="50% na aprovação e 50% na entrega"></label>
+        </div>
+        <button type="submit" class="btn-bloco">Salvar</button>
+    </form>
+</main></body></html>

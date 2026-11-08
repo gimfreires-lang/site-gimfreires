@@ -1,0 +1,99 @@
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ordens de serviço</title><script src="previa.js"></script>
+</head><body><div class="faixa-previa">Prévia com dados de demonstração · <a href="./">voltar ao início</a></div><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/topografia.css">
+
+
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo"><span class="site-logo-marca" aria-hidden="true"></span>Agrosat</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Painel</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Serviços</button>
+                <div class="nav-submenu">
+                    <a href="os.html">Ordens de serviço</a>
+                    <a href="os-quadro.html">Quadro (kanban)</a>
+                    <a href="os-editar.html">+ Nova OS</a>
+                    <a href="orcamentos.html">Orçamentos</a>
+                    <a href="orcamento.html">+ Novo orçamento</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Campo</button>
+                <div class="nav-submenu">
+                    <a href="agenda.html">Agenda de campo</a>
+                    <a href="equipamentos.html">Equipamentos</a>
+                </div>
+            </div>
+            <a href="protocolos.html">Protocolos</a>
+            <a href="clientes.html">Clientes</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Financeiro</button>
+                <div class="nav-submenu">
+                    <a href="financeiro.html">Visão geral</a>
+                    <a href="lancamentos-tipo-receita.html">Contas a receber</a>
+                    <a href="lancamentos-tipo-despesa.html">Contas a pagar</a>
+                    <a href="lancamento.html">+ Novo lançamento</a>
+                                        <a href="relatorio.html">Resultado (DRE) e lucro por serviço</a>
+                    <a href="contador.html">Fechamento para o contador</a>
+                                    </div>
+            </div>
+            <a href="ferramentas.html">Ferramentas</a>
+                        <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="config-escritorio.html">Escritório e parâmetros</a>
+                    <a href="config-tipos.html">Tipos de serviço e preços</a>
+                    <a href="usuarios.html">Equipe e usuários</a>
+                    <a href="config-contato.html">Logo e contato</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Carlos Mendes</span>
+            <a href="login.html">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer></script>
+<script src="assets/js/topografia.js" defer></script>
+<main class="container">
+<div class="page-title"><span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4h6l1 2h3v14H5V6h3l1-2Zm-1 8h8m-8 4h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h1>Ordens de serviço</h1><span class="subtitulo">1 serviço(s) · Com exigência</span></div></div>        <p class="acoes-topo">
+        <a href="os-editar.html" class="btn">+ Nova OS</a>
+        <span class="alternar-visao">
+            <a href="os-status-exigencia.html" class="ativa">Lista</a>
+            <a href="os-quadro.html" class="">Quadro</a>
+        </span>
+    </p>
+
+    <form method="get" class="filtros-linha">
+                <input type="text" name="busca" placeholder="Código, cliente, imóvel, município, matrícula..." value="">
+                <select name="status">
+            <option value="">Em andamento</option>
+            <option value="aguardando_campo" >Aguardando campo</option><option value="em_campo" >Em campo</option><option value="processamento" >Processamento</option><option value="protocolado" >Protocolado</option><option value="exigencia" selected>Com exigência</option><option value="concluido" >Concluído</option><option value="cancelado" >Cancelado</option>        </select>
+                <select name="tipo"><option value="">Todos os tipos</option><option value="9" >Aerolevantamento com drone</option><option value="10" >Cálculo de volume (cubagem)</option><option value="8" >CAR / Ambiental</option><option value="5" >Desmembramento / Unificação</option><option value="1" >Georreferenciamento (SIGEF/INCRA)</option><option value="2" >Levantamento planialtimétrico</option><option value="3" >Levantamento planimétrico</option><option value="4" >Locação de obra</option><option value="7" >Retificação de área</option><option value="6" >Usucapião</option></select>
+        <select name="resp"><option value="">Todos os responsáveis</option><option value="1" >Carlos Mendes</option><option value="3" >Júlia Pires</option><option value="4" >Marcos Lima</option><option value="5" >Patrícia Rocha</option><option value="2" >Rafael Souza</option></select>
+        <button type="submit">Filtrar</button>
+        <a href="os-todos-1.html" class="btn-texto">ver todos (inclui concluídos)</a>    </form>
+
+        <div class="card card-tabela">
+        <div class="tabela-wrap"><table>
+            <tr><th>OS</th><th>Serviço / cliente</th><th>Imóvel</th><th class="num">Área</th><th>Status</th><th>Responsável</th><th>Prazo</th><th class="num">Valor</th></tr>
+                        <tr>
+                <td><a href="os-2.html"><strong>OS-2026-0028</strong></a><br><span class="status-pill erro">Urgente</span></td>
+                <td><a href="os-2.html">Georreferenciamento — Fazenda Serra Azul (gleba 2)</a><br><small class="suave">Agropecuária Serra Azul Ltda</small></td>
+                <td>Fazenda Serra Azul — Gleba 2<br><small class="suave">Corbélia/PR</small></td>
+                <td class="num">725,0096 ha</td>
+                <td><span class="status-pill erro">Com exigência</span></td>
+                <td>Carlos Mendes</td>
+                <td><span class="prazo vencido">05/11/2026 · 3d atraso</span></td>
+                <td class="num">R$ 18.500,00</td>
+            </tr>
+                    </table></div>
+    </div>
+    </main></body></html>

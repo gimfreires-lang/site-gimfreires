@@ -1,0 +1,99 @@
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>GNSS Base 1</title><script src="previa.js"></script>
+</head><body><div class="faixa-previa">Prévia com dados de demonstração · <a href="./">voltar ao início</a></div><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/topografia.css">
+
+
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo"><span class="site-logo-marca" aria-hidden="true"></span>Agrosat</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Painel</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Serviços</button>
+                <div class="nav-submenu">
+                    <a href="os.html">Ordens de serviço</a>
+                    <a href="os-quadro.html">Quadro (kanban)</a>
+                    <a href="os-editar.html">+ Nova OS</a>
+                    <a href="orcamentos.html">Orçamentos</a>
+                    <a href="orcamento.html">+ Novo orçamento</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Campo</button>
+                <div class="nav-submenu">
+                    <a href="agenda.html">Agenda de campo</a>
+                    <a href="equipamentos.html">Equipamentos</a>
+                </div>
+            </div>
+            <a href="protocolos.html">Protocolos</a>
+            <a href="clientes.html">Clientes</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Financeiro</button>
+                <div class="nav-submenu">
+                    <a href="financeiro.html">Visão geral</a>
+                    <a href="lancamentos-tipo-receita.html">Contas a receber</a>
+                    <a href="lancamentos-tipo-despesa.html">Contas a pagar</a>
+                    <a href="lancamento.html">+ Novo lançamento</a>
+                                        <a href="relatorio.html">Resultado (DRE) e lucro por serviço</a>
+                    <a href="contador.html">Fechamento para o contador</a>
+                                    </div>
+            </div>
+            <a href="ferramentas.html">Ferramentas</a>
+                        <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="config-escritorio.html">Escritório e parâmetros</a>
+                    <a href="config-tipos.html">Tipos de serviço e preços</a>
+                    <a href="usuarios.html">Equipe e usuários</a>
+                    <a href="config-contato.html">Logo e contato</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Carlos Mendes</span>
+            <a href="login.html">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer></script>
+<script src="assets/js/topografia.js" defer></script>
+<main class="container">
+<div class="page-title"><span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v6m-5 12 5-12 5 12M8.5 17h7M10 5h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h1>GNSS Base 1</h1><span class="subtitulo">Receptor GNSS</span></div></div>    <p class="acoes-topo"><a href="equipamentos.html" class="btn-outline btn-sm">‹ Equipamentos</a></p>
+        <div class="grade-2col">
+        <form method="post" class="card">
+            <input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f">            <label>Nome / apelido<input type="text" name="nome" required value="GNSS Base 1" placeholder="Ex.: Estação Leica TS07 (nº 1)"></label>
+            <div class="form-linha">
+                <label>Tipo<select name="tipo"><option >Estação total</option><option selected>Receptor GNSS</option><option >Nível</option><option >Teodolito</option><option >Drone</option><option >Laser scanner</option><option >Veículo</option><option >Outro</option></select></label>
+                <label>Situação<select name="status"><option value="disponivel" selected>Disponível</option><option value="manutencao" >Em manutenção</option><option value="inativo" >Inativo</option></select></label>
+            </div>
+            <div class="form-linha">
+                <label>Marca / modelo<input type="text" name="marca_modelo" value="CHC i73"></label>
+                <label>Nº de série<input type="text" name="numero_serie" value="CHC-7731"></label>
+            </div>
+            <div class="form-linha">
+                <label>Aquisição<input type="date" name="data_aquisicao" value="2023-03-10"></label>
+                <label>Última calibração<input type="date" name="ultima_calibracao" value="2026-01-12"></label>
+                <label>Próxima calibração<input type="date" name="proxima_calibracao" value="2027-01-12"><small>Em branco = 1 ano após a última</small></label>
+            </div>
+            <label>Custo por dia de uso (R$)<input type="text" name="custo_dia" inputmode="decimal" value="120,00"><small>Depreciação + manutenção; aparece como atalho na calculadora de orçamento</small></label>
+            <label>Observações<textarea name="observacoes"></textarea></label>
+            <button type="submit" class="btn-bloco">Salvar</button>
+        </form>
+        <div class="card">
+            <h2>Uso recente</h2>
+                        <ul class="lista-simples">
+                                <li><span class="data-chip">12/11<small>2026</small></span>
+                    <div><a href="os-2.html"><strong>OS-2026-0028</strong></a> Georreferenciamento — Fazenda Serra Azul (gleba 2)                    <span class="meta">Carlos Mendes · Agendado</span></div></li>
+                                <li><span class="data-chip">08/11<small>2026</small></span>
+                    <div><a href="os-1.html"><strong>OS-2026-0031</strong></a> Georreferenciamento — Fazenda Boa Vista                    <span class="meta">Rafael Souza · Agendado</span></div></li>
+                                <li><span class="data-chip">06/11<small>2026</small></span>
+                    <div><a href="os-1.html"><strong>OS-2026-0031</strong></a> Georreferenciamento — Fazenda Boa Vista                    <span class="meta">Rafael Souza · Realizado</span></div></li>
+                            </ul>
+                    </div>
+    </div>
+</main></body></html>

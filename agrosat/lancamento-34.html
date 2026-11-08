@@ -1,0 +1,117 @@
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Editar lançamento</title><script src="previa.js"></script>
+</head><body><div class="faixa-previa">Prévia com dados de demonstração · <a href="./">voltar ao início</a></div><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/topografia.css">
+
+
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo"><span class="site-logo-marca" aria-hidden="true"></span>Agrosat</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Painel</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Serviços</button>
+                <div class="nav-submenu">
+                    <a href="os.html">Ordens de serviço</a>
+                    <a href="os-quadro.html">Quadro (kanban)</a>
+                    <a href="os-editar.html">+ Nova OS</a>
+                    <a href="orcamentos.html">Orçamentos</a>
+                    <a href="orcamento.html">+ Novo orçamento</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Campo</button>
+                <div class="nav-submenu">
+                    <a href="agenda.html">Agenda de campo</a>
+                    <a href="equipamentos.html">Equipamentos</a>
+                </div>
+            </div>
+            <a href="protocolos.html">Protocolos</a>
+            <a href="clientes.html">Clientes</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Financeiro</button>
+                <div class="nav-submenu">
+                    <a href="financeiro.html">Visão geral</a>
+                    <a href="lancamentos-tipo-receita.html">Contas a receber</a>
+                    <a href="lancamentos-tipo-despesa.html">Contas a pagar</a>
+                    <a href="lancamento.html">+ Novo lançamento</a>
+                                        <a href="relatorio.html">Resultado (DRE) e lucro por serviço</a>
+                    <a href="contador.html">Fechamento para o contador</a>
+                                    </div>
+            </div>
+            <a href="ferramentas.html">Ferramentas</a>
+                        <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="config-escritorio.html">Escritório e parâmetros</a>
+                    <a href="config-tipos.html">Tipos de serviço e preços</a>
+                    <a href="usuarios.html">Equipe e usuários</a>
+                    <a href="config-contato.html">Logo e contato</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Carlos Mendes</span>
+            <a href="login.html">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer></script>
+<script src="assets/js/topografia.js" defer></script>
+<main class="container">
+<div class="page-title"><span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v12H4zM4 11h16M8 15h3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h1>Editar lançamento</h1></div></div>    <p class="acoes-topo"><a href="lancamentos-tipo-receita.html" class="btn-outline btn-sm">‹ Voltar</a>
+        <a href="recibo-34.html" class="btn-sm btn-outline" target="_blank">Emitir recibo</a></p>
+        <form method="post" class="card" id="form-lanc">
+        <input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f">        <div class="seletor-tipo">
+            <label class="opcao-tipo receita"><input type="radio" name="tipo" value="receita" checked> ▲ Receita</label>
+            <label class="opcao-tipo despesa"><input type="radio" name="tipo" value="despesa" > ▼ Despesa</label>
+        </div>
+        <div class="form-linha">
+            <label style="flex:3">Descrição<input type="text" name="descricao" required value="Honorários — OS-2026-0017" placeholder="Ex.: Combustível — campo Fazenda Boa Vista"></label>
+            <label>Categoria<select name="id_categoria_fin" id="sel-cat"><option value="">—</option><option value="3" data-tipo="receita" >Outras receitas</option><option value="2" data-tipo="receita" >Reembolso de taxas</option><option value="1" data-tipo="receita" selected>Serviços técnicos</option><option value="14" data-tipo="despesa" >Aluguel, água, luz e internet</option><option value="4" data-tipo="despesa" >Combustível e pedágio</option><option value="17" data-tipo="despesa" >Compra de equipamentos</option><option value="15" data-tipo="despesa" >Contador e despesas bancárias</option><option value="5" data-tipo="despesa" >Diárias, alimentação e hospedagem</option><option value="13" data-tipo="despesa" >Encargos trabalhistas</option><option value="16" data-tipo="despesa" >Impostos sobre faturamento (Simples/ISS)</option><option value="10" data-tipo="despesa" >Manutenção de veículos</option><option value="9" data-tipo="despesa" >Manutenção e calibração de equipamentos</option><option value="7" data-tipo="despesa" >Marcos e material de campo</option><option value="12" data-tipo="despesa" >Salários e pró-labore</option><option value="8" data-tipo="despesa" >Serviços terceirizados</option><option value="11" data-tipo="despesa" >Software e licenças</option><option value="6" data-tipo="despesa" >Taxas (ART, cartório, INCRA, prefeitura)</option></select></label>
+        </div>
+        <div class="form-linha">
+            <label>Valor (R$)<input type="text" name="valor" required inputmode="decimal" value="6.800,00"></label>
+            <label>Vencimento<input type="date" name="vencimento" required value="2026-10-04"></label>
+            <label>Forma<select name="forma_pagamento"><option value="">—</option><option selected>Pix</option><option >Transferência</option><option >Boleto</option><option >Dinheiro</option><option >Cartão de crédito</option><option >Cartão de débito</option><option >Cheque</option></select></label>
+        </div>
+        <div class="form-linha">
+            <label class="check" style="flex:0 0 auto; align-self:center"><input type="checkbox" name="pago" id="chk-pago" checked> Já foi pago/recebido</label>
+            <label id="campo-pago-em">Data do pagamento<input type="date" name="pago_em" value="2026-10-04"></label>
+        </div>
+                <div class="form-linha">
+            <label style="flex:2">Serviço (OS)<select name="id_servico"><option value="">— despesa geral do escritório —</option><option value="7" >OS-2026-0035 · Desmembramento de lote — Toledo — Helena e Roberto Campos</option><option value="3" >OS-2026-0034 · Locação de obra — Residencial Jardim Europa — Construtora Horizonte Engenharia</option><option value="4" >OS-2026-0033 · Usucapião — Rua Paraná, 455 — Maria das Graças Oliveira</option><option value="9" >OS-2026-0032 · Planialtimétrico — Loteamento Vale Verde — Construtora Horizonte Engenharia</option><option value="1" >OS-2026-0031 · Georreferenciamento — Fazenda Boa Vista — José Antônio Ribeiro</option><option value="6" >OS-2026-0030 · CAR e reserva legal — Sítio Recanto — Antônio Carlos Ferreira</option><option value="5" >OS-2026-0029 · Cubagem de pilhas — Pátio de estéril — Pedreira Pedra Branca S.A.</option><option value="2" >OS-2026-0028 · Georreferenciamento — Fazenda Serra Azul (gleba 2) — Agropecuária Serra Azul Ltda</option><option value="8" >OS-2026-0026 · Planialtimétrico — Chácara Gomes — Luiz Fernando Gomes</option></select>
+                <small>Ligar custos à OS mostra o lucro real de cada serviço</small></label>
+            <label class="so-receita">Cliente<select name="id_cliente"><option value="">—</option><option value="2" >Agropecuária Serra Azul Ltda</option><option value="5" >Antônio Carlos Ferreira</option><option value="4" >Construtora Horizonte Engenharia</option><option value="6" >Helena e Roberto Campos</option><option value="1" selected>José Antônio Ribeiro</option><option value="8" >Luiz Fernando Gomes</option><option value="3" >Maria das Graças Oliveira</option><option value="7" >Pedreira Pedra Branca S.A.</option></select></label>
+            <label class="so-despesa">Fornecedor<input type="text" name="fornecedor" value="" placeholder="Posto, cartório, loja..."></label>
+        </div>
+        <div class="form-linha">
+            <label>Nº do documento (NF, boleto, recibo)<input type="text" name="documento" value="NFS-e 1116"></label>
+            <label style="flex:2">Observações<input type="text" name="observacoes" value=""></label>
+        </div>
+        <button type="submit" class="btn-bloco">Salvar lançamento</button>
+    </form>
+        <form method="post" data-confirm="Excluir este lançamento? Isso altera os relatórios do período."><input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f"><input type="hidden" name="acao" value="excluir"><button class="btn-sm btn-outline btn-perigo">Excluir lançamento</button></form>
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('form-lanc');
+    const cat = document.getElementById('sel-cat');
+    const pago = document.getElementById('chk-pago');
+    const atualizar = function () {
+        const tipo = form.querySelector('input[name=tipo]:checked').value;
+        Array.from(cat.options).forEach(function (o) { if (o.value) o.hidden = o.dataset.tipo !== tipo; });
+        if (cat.selectedOptions[0] && cat.selectedOptions[0].hidden) cat.value = '';
+        form.querySelectorAll('.so-receita').forEach(function (el) { el.hidden = tipo !== 'receita'; });
+        form.querySelectorAll('.so-despesa').forEach(function (el) { el.hidden = tipo !== 'despesa'; });
+        form.classList.toggle('modo-receita', tipo === 'receita');
+        document.getElementById('campo-pago-em').hidden = !pago.checked;
+    };
+    form.addEventListener('change', atualizar);
+    atualizar();
+});
+</script>
+</main></body></html>

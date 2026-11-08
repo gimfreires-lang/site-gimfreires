@@ -1,0 +1,124 @@
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Fechamento para o contador</title><script src="previa.js"></script>
+</head><body><div class="faixa-previa">Prévia com dados de demonstração · <a href="./">voltar ao início</a></div><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/topografia.css">
+
+
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo"><span class="site-logo-marca" aria-hidden="true"></span>Agrosat</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Painel</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Serviços</button>
+                <div class="nav-submenu">
+                    <a href="os.html">Ordens de serviço</a>
+                    <a href="os-quadro.html">Quadro (kanban)</a>
+                    <a href="os-editar.html">+ Nova OS</a>
+                    <a href="orcamentos.html">Orçamentos</a>
+                    <a href="orcamento.html">+ Novo orçamento</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Campo</button>
+                <div class="nav-submenu">
+                    <a href="agenda.html">Agenda de campo</a>
+                    <a href="equipamentos.html">Equipamentos</a>
+                </div>
+            </div>
+            <a href="protocolos.html">Protocolos</a>
+            <a href="clientes.html">Clientes</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Financeiro</button>
+                <div class="nav-submenu">
+                    <a href="financeiro.html">Visão geral</a>
+                    <a href="lancamentos-tipo-receita.html">Contas a receber</a>
+                    <a href="lancamentos-tipo-despesa.html">Contas a pagar</a>
+                    <a href="lancamento.html">+ Novo lançamento</a>
+                                        <a href="relatorio.html">Resultado (DRE) e lucro por serviço</a>
+                    <a href="contador.html">Fechamento para o contador</a>
+                                    </div>
+            </div>
+            <a href="ferramentas.html">Ferramentas</a>
+                        <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="config-escritorio.html">Escritório e parâmetros</a>
+                    <a href="config-tipos.html">Tipos de serviço e preços</a>
+                    <a href="usuarios.html">Equipe e usuários</a>
+                    <a href="config-contato.html">Logo e contato</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Carlos Mendes</span>
+            <a href="login.html">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer></script>
+<script src="assets/js/topografia.js" defer></script>
+<main class="container">
+<div class="page-title"><span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v12H4zM4 11h16M8 15h3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h1>Fechamento para o contador</h1><span class="subtitulo">Movimento pago/recebido no mês</span></div></div>    <form method="get" class="filtros-linha">
+        <label>Mês<input type="month" name="mes" value="2026-10"></label>
+        <button type="submit">Ver</button>
+        <a href="#" data-previa class="btn">Baixar planilha (CSV)</a>
+    </form>
+
+    <div class="stats-credito">
+        <div class="stat-credito"><span class="stat-label">Entradas</span><span class="stat-valor texto-sucesso">R$ 28.500,00</span><span class="stat-obs">7 recebimento(s)</span></div>
+        <div class="stat-credito"><span class="stat-label">Saídas</span><span class="stat-valor">R$ 20.475,64</span></div>
+        <div class="stat-credito"><span class="stat-label">Saldo do mês</span><span class="stat-valor">R$ 8.024,36</span></div>
+    </div>
+
+    <div class="card">
+        <h2>Antes de enviar, confira</h2>
+        <ul class="checklist">
+            <li class="ok">Todos os lançamentos têm categoria</li>
+            <li class="pendente">1 despesa(s) sem nº de nota/recibo — o contador vai pedir o comprovante</li>
+            <li class="aviso">Confirme que cada recebimento de serviço tem a NFS-e emitida na prefeitura (o número pode ir no campo "documento").</li>
+            <li class="aviso">Junte os extratos bancários do mês para a conciliação.</li>
+        </ul>
+    </div>
+
+    <div class="grade-2col">
+        <div class="card">
+            <h2>Resumo por categoria</h2>
+            <table class="tabela-compacta">
+                <tr><td>▲ Serviços técnicos</td><td class="num">R$ 28.500,00</td></tr><tr><td>▼ Aluguel, água, luz e internet</td><td class="num">R$ 1.800,00</td></tr><tr><td>▼ Combustível e pedágio</td><td class="num">R$ 400,00</td></tr><tr><td>▼ Contador e despesas bancárias</td><td class="num">R$ 650,00</td></tr><tr><td>▼ Diárias, alimentação e hospedagem</td><td class="num">R$ 880,00</td></tr><tr><td>▼ Encargos trabalhistas</td><td class="num">R$ 1.650,00</td></tr><tr><td>▼ Impostos sobre faturamento (Simples/ISS)</td><td class="num">R$ 3.400,00</td></tr><tr><td>▼ Manutenção de veículos</td><td class="num">R$ 1.240,00</td></tr><tr><td>▼ Salários e pró-labore</td><td class="num">R$ 9.600,00</td></tr><tr><td>▼ Software e licenças</td><td class="num">R$ 390,00</td></tr><tr><td>▼ Taxas (ART, cartório, INCRA, prefeitura)</td><td class="num">R$ 465,64</td></tr>            </table>
+        </div>
+        <div class="card">
+            <h2>Pendências de documento</h2>
+                        <ul class="lista-simples"><li><a href="lancamento-86.html">Diárias da equipe</a><span class="meta">30/10/2026 · R$ 440,00</span></li></ul>
+                    </div>
+    </div>
+
+    <div class="card card-tabela"><div class="tabela-wrap"><table>
+        <tr><th>Data</th><th></th><th>Categoria</th><th>Descrição</th><th>Cliente / fornecedor</th><th>Documento</th><th class="num">Valor</th></tr>
+                <tr><td>01/10/2026</td><td><span class="tipo-lanc receita">▲</span></td><td><small>Serviços técnicos</small></td><td>Entrada 50% — OS-2026-0030</td><td>Antônio Carlos Ferreira</td><td>NFS-e 1206</td><td class="num">R$ 1.200,00</td></tr>
+                <tr><td>04/10/2026</td><td><span class="tipo-lanc receita">▲</span></td><td><small>Serviços técnicos</small></td><td>Honorários — OS-2026-0017</td><td>José Antônio Ribeiro</td><td>NFS-e 1116</td><td class="num">R$ 6.800,00</td></tr>
+                <tr><td>09/10/2026</td><td><span class="tipo-lanc despesa">▼</span></td><td><small>Combustível e pedágio</small></td><td>Combustível — Cafelândia</td><td>Posto Estrela</td><td>NF 54788</td><td class="num">R$ 210,00</td></tr>
+                <tr><td>09/10/2026</td><td><span class="tipo-lanc despesa">▼</span></td><td><small>Diárias, alimentação e hospedagem</small></td><td>Diárias da equipe</td><td>Equipe</td><td>Recibo 309</td><td class="num">R$ 440,00</td></tr>
+                <tr><td>12/10/2026</td><td><span class="tipo-lanc receita">▲</span></td><td><small>Serviços técnicos</small></td><td>Honorários — OS-2026-0018</td><td>Agropecuária Serra Azul Ltda</td><td>NFS-e 1117</td><td class="num">R$ 4.900,00</td></tr>
+                <tr><td>13/10/2026</td><td><span class="tipo-lanc despesa">▼</span></td><td><small>Aluguel, água, luz e internet</small></td><td>Aluguel da sala — 10/2026</td><td>Imobiliária Centro</td><td>Boleto</td><td class="num">R$ 1.800,00</td></tr>
+                <tr><td>13/10/2026</td><td><span class="tipo-lanc despesa">▼</span></td><td><small>Salários e pró-labore</small></td><td>Salários e pró-labore — 10/2026</td><td>Folha</td><td>Folha</td><td class="num">R$ 9.600,00</td></tr>
+                <tr><td>13/10/2026</td><td><span class="tipo-lanc despesa">▼</span></td><td><small>Manutenção de veículos</small></td><td>Revisão da Hilux</td><td>Toyota Cascavel</td><td>NF 33201</td><td class="num">R$ 1.240,00</td></tr>
+                <tr><td>18/10/2026</td><td><span class="tipo-lanc despesa">▼</span></td><td><small>Software e licenças</small></td><td>Licença software de topografia — 10/2026</td><td>Software Topo</td><td>NF 881</td><td class="num">R$ 390,00</td></tr>
+                <tr><td>18/10/2026</td><td><span class="tipo-lanc despesa">▼</span></td><td><small>Contador e despesas bancárias</small></td><td>Honorários do contador — 10/2026</td><td>Contabilidade Exata</td><td>NF 411</td><td class="num">R$ 650,00</td></tr>
+                <tr><td>18/10/2026</td><td><span class="tipo-lanc despesa">▼</span></td><td><small>Taxas (ART, cartório, INCRA, prefeitura)</small></td><td>Taxa de análise ambiental</td><td>IAT</td><td>GRU 7781</td><td class="num">R$ 180,00</td></tr>
+                <tr><td>19/10/2026</td><td><span class="tipo-lanc receita">▲</span></td><td><small>Serviços técnicos</small></td><td>Entrada 50% — OS-2026-0033</td><td>Maria das Graças Oliveira</td><td>NFS-e 1204</td><td class="num">R$ 1.200,00</td></tr>
+                <tr><td>19/10/2026</td><td><span class="tipo-lanc receita">▲</span></td><td><small>Serviços técnicos</small></td><td>Saldo na entrega — OS-2026-0029</td><td>Pedreira Pedra Branca S.A.</td><td>NFS-e 1305</td><td class="num">R$ 3.100,00</td></tr>
+                <tr><td>23/10/2026</td><td><span class="tipo-lanc receita">▲</span></td><td><small>Serviços técnicos</small></td><td>Entrada 50% — OS-2026-0032</td><td>Construtora Horizonte Engenharia</td><td>NFS-e 1209</td><td class="num">R$ 6.400,00</td></tr>
+                <tr><td>24/10/2026</td><td><span class="tipo-lanc despesa">▼</span></td><td><small>Taxas (ART, cartório, INCRA, prefeitura)</small></td><td>Certidões de inteiro teor (cartório)</td><td>CRI Cascavel</td><td>Recibo 9912</td><td class="num">R$ 186,00</td></tr>
+                <tr><td>27/10/2026</td><td><span class="tipo-lanc receita">▲</span></td><td><small>Serviços técnicos</small></td><td>Entrada 50% — OS-2026-0031</td><td>José Antônio Ribeiro</td><td>NFS-e 1201</td><td class="num">R$ 4.900,00</td></tr>
+                <tr><td>28/10/2026</td><td><span class="tipo-lanc despesa">▼</span></td><td><small>Encargos trabalhistas</small></td><td>Encargos (FGTS/INSS) — 10/2026</td><td>Receita Federal</td><td>DARF</td><td class="num">R$ 1.650,00</td></tr>
+                <tr><td>28/10/2026</td><td><span class="tipo-lanc despesa">▼</span></td><td><small>Impostos sobre faturamento (Simples/ISS)</small></td><td>Simples Nacional — 10/2026</td><td>Receita Federal</td><td>DAS</td><td class="num">R$ 3.400,00</td></tr>
+                <tr><td>28/10/2026</td><td><span class="tipo-lanc despesa">▼</span></td><td><small>Taxas (ART, cartório, INCRA, prefeitura)</small></td><td>ART — OS-2026-0031</td><td>CREA-PR</td><td>ART PR20260874123</td><td class="num">R$ 99,64</td></tr>
+                <tr><td>30/10/2026</td><td><span class="tipo-lanc despesa">▼</span></td><td><small>Combustível e pedágio</small></td><td>Combustível — Vale Verde</td><td>Posto Estrela</td><td>NF 55011</td><td class="num">R$ 190,00</td></tr>
+                <tr><td>30/10/2026</td><td><span class="tipo-lanc despesa">▼</span></td><td><small>Diárias, alimentação e hospedagem</small></td><td>Diárias da equipe</td><td>Equipe</td><td><span class="texto-alerta">—</span></td><td class="num">R$ 440,00</td></tr>
+            </table></div></div>
+</main></body></html>

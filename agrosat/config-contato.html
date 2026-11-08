@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Logo e contato</title><script src="previa.js"></script>
+</head>
+<body><div class="faixa-previa">Prévia com dados de demonstração · <a href="./">voltar ao início</a></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/topografia.css">
+
+
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo"><span class="site-logo-marca" aria-hidden="true"></span>Agrosat</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Painel</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Serviços</button>
+                <div class="nav-submenu">
+                    <a href="os.html">Ordens de serviço</a>
+                    <a href="os-quadro.html">Quadro (kanban)</a>
+                    <a href="os-editar.html">+ Nova OS</a>
+                    <a href="orcamentos.html">Orçamentos</a>
+                    <a href="orcamento.html">+ Novo orçamento</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Campo</button>
+                <div class="nav-submenu">
+                    <a href="agenda.html">Agenda de campo</a>
+                    <a href="equipamentos.html">Equipamentos</a>
+                </div>
+            </div>
+            <a href="protocolos.html">Protocolos</a>
+            <a href="clientes.html">Clientes</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Financeiro</button>
+                <div class="nav-submenu">
+                    <a href="financeiro.html">Visão geral</a>
+                    <a href="lancamentos-tipo-receita.html">Contas a receber</a>
+                    <a href="lancamentos-tipo-despesa.html">Contas a pagar</a>
+                    <a href="lancamento.html">+ Novo lançamento</a>
+                                        <a href="relatorio.html">Resultado (DRE) e lucro por serviço</a>
+                    <a href="contador.html">Fechamento para o contador</a>
+                                    </div>
+            </div>
+            <a href="ferramentas.html">Ferramentas</a>
+                        <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="config-escritorio.html">Escritório e parâmetros</a>
+                    <a href="config-tipos.html">Tipos de serviço e preços</a>
+                    <a href="usuarios.html">Equipe e usuários</a>
+                    <a href="config-contato.html">Logo e contato</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Carlos Mendes</span>
+            <a href="login.html">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer></script>
+<script src="assets/js/topografia.js" defer></script>
+<main class="container">
+    <div class="page-title">
+        <span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18c1.1 0 1.5-.7 1.5-1.5 0-.4-.15-.75-.4-1.05-.25-.3-.4-.65-.4-1.05 0-.83.67-1.5 1.5-1.5H16a4 4 0 0 0 4-4c0-4.42-3.58-8-8-8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.5" cy="10.5" r="1.1" fill="currentColor"/><circle cx="11" cy="7" r="1.1" fill="currentColor"/><circle cx="15.5" cy="8" r="1.1" fill="currentColor"/></svg></span>
+        <div>
+            <h1>Logo e contato do escritório</h1>
+            <span class="subtitulo">Aparecem no cabeçalho de propostas, memoriais e recibos</span>
+        </div>
+    </div>
+            <form method="post">
+    <input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f">    <div class="grade-2col">
+        <div class="card">
+            <h2>Identidade visual</h2>
+                        <label>Nome do escritório<input type="text" name="nome_loja" value="Agrosat" required></label>
+            <label>Frase de apresentação<input type="text" name="slogan" maxlength="255" placeholder="Ex: Há 27 anos prestando serviços em Cascavel e região" value="Há 27 anos prestando serviços em Cascavel e região"></label>
+            <div style="margin-bottom:16px;">
+                <span style="display:block; margin-bottom:6px;">Logo (JPEG ou PNG)</span>
+                <button type="button" class="btn-outline btn-sm" id="btn-trocar-logo">Escolher logo</button>
+                <input type="file" id="input-logo" accept="image/png,image/jpeg,image/webp" style="display:none;">
+                <p id="msg-logo" class="alert" style="display:none; margin-top:10px;"></p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Contato do escritório</h2>
+            <p style="color:var(--cor-texto-suave); font-size:0.9rem; margin-top:-8px;">Vai no cabeçalho dos documentos enviados aos clientes. Deixe em branco o que não se aplica.</p>
+            <label>WhatsApp (com DDD)<input type="text" name="whatsapp_loja" id="campo-whatsapp-loja" placeholder="(45) 90000-0000" value="(45) 98423-0856"></label>
+            <label>E-mail<input type="email" name="email_loja" value=""></label>
+            <label>Endereço<input type="text" name="endereco_loja" placeholder="Rua, número, bairro, cidade/UF" value="Rua Osvaldo Cruz, 2439 - Centro, Cascavel - PR, 85810-150"></label>
+            <label>Horário de atendimento<input type="text" name="horario_atendimento" placeholder="Ex: Segunda a sexta, 9h às 18h" value="Segunda a sexta, das 08:00 às 12:00 e das 13:30 às 18:00"></label>
+        </div>
+    </div>
+
+    <button type="submit" class="btn-bloco" style="max-width:300px; margin-top:20px;">Salvar</button>
+    </form>
+
+    <div class="modal-overlay" id="modal-recorte-logo" hidden>
+        <div class="modal-card">
+            <h3>Ajustar logo</h3>
+            <div style="display:flex; gap:8px; margin-bottom:10px;">
+                <button type="button" class="btn-sm btn-outline" id="btn-corte-quadrado">Quadrado</button>
+                <button type="button" class="btn-sm btn-outline" id="btn-corte-livre">Livre</button>
+            </div>
+            <div class="area-corte"><img id="imagem-recorte-logo" alt=""></div>
+            <div class="modal-acoes">
+                <button type="button" class="btn-outline" id="btn-cancelar-recorte-logo">Cancelar</button>
+                <button type="button" class="btn" id="btn-confirmar-recorte-logo">Cortar e enviar</button>
+            </div>
+        </div>
+    </div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    ativarMascaraTelefoneComNoveAutomatico(document.getElementById('campo-whatsapp-loja'));
+});
+</script>
+<script>
+// Logo: escolhe o arquivo, recorta (quadrado ou livre) e envia já cortada.
+(function () {
+    const input = document.getElementById('input-logo');
+    const modal = document.getElementById('modal-recorte-logo');
+    const imagem = document.getElementById('imagem-recorte-logo');
+    const msg = document.getElementById('msg-logo');
+    let cropper = null;
+
+    function aviso(texto, ok) {
+        msg.textContent = texto;
+        msg.className = 'alert ' + (ok ? 'alert-sucesso' : 'alert-erro');
+        msg.style.display = '';
+    }
+    function fechar() {
+        modal.hidden = true;
+        if (cropper) { cropper.destroy(); cropper = null; }
+        input.value = '';
+    }
+
+    document.getElementById('btn-trocar-logo').addEventListener('click', function () { input.click(); });
+
+    input.addEventListener('change', function () {
+        const arquivo = input.files && input.files[0];
+        if (!arquivo) { return; }
+        const leitor = new FileReader();
+        leitor.onload = function (e) {
+            imagem.src = e.target.result;
+            modal.hidden = false;
+            if (cropper) { cropper.destroy(); }
+            cropper = new Cropper(imagem, { aspectRatio: 1, viewMode: 1, autoCropArea: 1, background: false });
+        };
+        leitor.readAsDataURL(arquivo);
+    });
+
+    document.getElementById('btn-corte-quadrado').addEventListener('click', function () { if (cropper) { cropper.setAspectRatio(1); } });
+    document.getElementById('btn-corte-livre').addEventListener('click', function () { if (cropper) { cropper.setAspectRatio(NaN); } });
+    document.getElementById('btn-cancelar-recorte-logo').addEventListener('click', fechar);
+    modal.addEventListener('click', function (e) { if (e.target === modal) { fechar(); } });
+
+    document.getElementById('btn-confirmar-recorte-logo').addEventListener('click', function () {
+        if (!cropper) { return; }
+        const botao = this;
+        botao.disabled = true;
+        cropper.getCroppedCanvas({ maxWidth: 600, maxHeight: 600 }).toBlob(function (blob) {
+            const dados = new FormData();
+            dados.append('logo', blob, 'logo.png');
+            dados.append('_csrf', "a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f");
+            fetch('/config_sistema/ajax/upload_logo.php', { method: 'POST', body: dados })
+                .then(function (r) { return r.json(); })
+                .then(function (d) {
+                    if (d.success) {
+                        let previa = document.getElementById('logo-previa');
+                        if (!previa) {
+                            previa = document.createElement('img');
+                            previa.id = 'logo-previa';
+                            previa.width = 150;
+                            previa.alt = 'Logo atual';
+                            previa.style.cssText = 'border-radius:var(--raio-sm); margin-bottom:16px; display:block;';
+                            const card = input.closest('.card');
+                            card.insertBefore(previa, card.querySelector('label'));
+                        }
+                        previa.style.display = 'block';
+                        previa.src = d.url;
+                        aviso('Logo atualizada.', true);
+                    } else {
+                        aviso(d.message || 'Não foi possível enviar a logo.', false);
+                    }
+                })
+                .catch(function () { aviso('Erro de conexão. Tente novamente.', false); })
+                .finally(function () { botao.disabled = false; fechar(); });
+        }, 'image/png');
+    });
+})();
+</script>
+</main>
+</body>
+</html>

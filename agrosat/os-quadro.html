@@ -1,0 +1,157 @@
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ordens de serviço</title><script src="previa.js"></script>
+</head><body><div class="faixa-previa">Prévia com dados de demonstração · <a href="./">voltar ao início</a></div><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/topografia.css">
+
+
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo"><span class="site-logo-marca" aria-hidden="true"></span>Agrosat</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Painel</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Serviços</button>
+                <div class="nav-submenu">
+                    <a href="os.html">Ordens de serviço</a>
+                    <a href="os-quadro.html">Quadro (kanban)</a>
+                    <a href="os-editar.html">+ Nova OS</a>
+                    <a href="orcamentos.html">Orçamentos</a>
+                    <a href="orcamento.html">+ Novo orçamento</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Campo</button>
+                <div class="nav-submenu">
+                    <a href="agenda.html">Agenda de campo</a>
+                    <a href="equipamentos.html">Equipamentos</a>
+                </div>
+            </div>
+            <a href="protocolos.html">Protocolos</a>
+            <a href="clientes.html">Clientes</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Financeiro</button>
+                <div class="nav-submenu">
+                    <a href="financeiro.html">Visão geral</a>
+                    <a href="lancamentos-tipo-receita.html">Contas a receber</a>
+                    <a href="lancamentos-tipo-despesa.html">Contas a pagar</a>
+                    <a href="lancamento.html">+ Novo lançamento</a>
+                                        <a href="relatorio.html">Resultado (DRE) e lucro por serviço</a>
+                    <a href="contador.html">Fechamento para o contador</a>
+                                    </div>
+            </div>
+            <a href="ferramentas.html">Ferramentas</a>
+                        <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="config-escritorio.html">Escritório e parâmetros</a>
+                    <a href="config-tipos.html">Tipos de serviço e preços</a>
+                    <a href="usuarios.html">Equipe e usuários</a>
+                    <a href="config-contato.html">Logo e contato</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Carlos Mendes</span>
+            <a href="login.html">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer></script>
+<script src="assets/js/topografia.js" defer></script>
+<main class="container">
+<div class="page-title"><span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4h6l1 2h3v14H5V6h3l1-2Zm-1 8h8m-8 4h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h1>Ordens de serviço</h1><span class="subtitulo">8 serviço(s) </span></div></div>        <p class="acoes-topo">
+        <a href="os-editar.html" class="btn">+ Nova OS</a>
+        <span class="alternar-visao">
+            <a href="os.html" class="">Lista</a>
+            <a href="os-quadro.html" class="ativa">Quadro</a>
+        </span>
+    </p>
+
+    <form method="get" class="filtros-linha">
+        <input type="hidden" name="visao" value="quadro">        <input type="text" name="busca" placeholder="Código, cliente, imóvel, município, matrícula..." value="">
+                <select name="tipo"><option value="">Todos os tipos</option><option value="9" >Aerolevantamento com drone</option><option value="10" >Cálculo de volume (cubagem)</option><option value="8" >CAR / Ambiental</option><option value="5" >Desmembramento / Unificação</option><option value="1" >Georreferenciamento (SIGEF/INCRA)</option><option value="2" >Levantamento planialtimétrico</option><option value="3" >Levantamento planimétrico</option><option value="4" >Locação de obra</option><option value="7" >Retificação de área</option><option value="6" >Usucapião</option></select>
+        <select name="resp"><option value="">Todos os responsáveis</option><option value="1" >Carlos Mendes</option><option value="3" >Júlia Pires</option><option value="4" >Marcos Lima</option><option value="5" >Patrícia Rocha</option><option value="2" >Rafael Souza</option></select>
+        <button type="submit">Filtrar</button>
+            </form>
+
+        <div class="kanban">
+                <section class="kanban-coluna kanban-aguardando_campo">
+            <header><span>Aguardando campo</span><span class="kanban-qtd">2</span></header>
+                        <a class="kanban-card prioridade-normal" href="os-3.html">
+                <span class="kanban-codigo">OS-2026-0034</span>
+                <strong>Locação de obra — Residencial Jardim Europa</strong>
+                <span class="meta">Construtora Horizonte Engenharia</span>
+                <span class="meta">Cascavel · 0,45 ha</span>
+                <span class="kanban-rodape"><span class="prazo ">13/11/2026</span><span class="avatar" title="Rafael Souza">R</span></span>
+            </a>
+                        <a class="kanban-card prioridade-normal" href="os-7.html">
+                <span class="kanban-codigo">OS-2026-0035</span>
+                <strong>Desmembramento de lote — Toledo</strong>
+                <span class="meta">Helena e Roberto Campos</span>
+                <span class="meta">Toledo · 0,13 ha</span>
+                <span class="kanban-rodape"><span class="prazo ">22/12/2026</span><span class="avatar" title="Rafael Souza">R</span></span>
+            </a>
+                                </section>
+                <section class="kanban-coluna kanban-em_campo">
+            <header><span>Em campo</span><span class="kanban-qtd">1</span></header>
+                        <a class="kanban-card prioridade-alta" href="os-1.html">
+                <span class="kanban-codigo">OS-2026-0031 · <span class="status-pill alerta">Alta</span></span>
+                <strong>Georreferenciamento — Fazenda Boa Vista</strong>
+                <span class="meta">José Antônio Ribeiro</span>
+                <span class="meta">Cascavel · 74,40 ha</span>
+                <span class="kanban-rodape"><span class="prazo ">18/12/2026</span><span class="avatar" title="Rafael Souza">R</span></span>
+            </a>
+                                </section>
+                <section class="kanban-coluna kanban-processamento">
+            <header><span>Processamento</span><span class="kanban-qtd">2</span></header>
+                        <a class="kanban-card prioridade-alta" href="os-9.html">
+                <span class="kanban-codigo">OS-2026-0032 · <span class="status-pill alerta">Alta</span></span>
+                <strong>Planialtimétrico — Loteamento Vale Verde</strong>
+                <span class="meta">Construtora Horizonte Engenharia</span>
+                <span class="meta">Cascavel · 18,44 ha</span>
+                <span class="kanban-rodape"><span class="prazo ">14/11/2026</span><span class="avatar" title="Carlos Mendes">C</span></span>
+            </a>
+                        <a class="kanban-card prioridade-normal" href="os-4.html">
+                <span class="kanban-codigo">OS-2026-0033</span>
+                <strong>Usucapião — Rua Paraná, 455</strong>
+                <span class="meta">Maria das Graças Oliveira</span>
+                <span class="meta">Cascavel</span>
+                <span class="kanban-rodape"><span class="prazo ">03/12/2026</span><span class="avatar" title="Carlos Mendes">C</span></span>
+            </a>
+                                </section>
+                <section class="kanban-coluna kanban-protocolado">
+            <header><span>Protocolado</span><span class="kanban-qtd">1</span></header>
+                        <a class="kanban-card prioridade-normal" href="os-6.html">
+                <span class="kanban-codigo">OS-2026-0030</span>
+                <strong>CAR e reserva legal — Sítio Recanto</strong>
+                <span class="meta">Antônio Carlos Ferreira</span>
+                <span class="meta">Lindoeste · 38,74 ha</span>
+                <span class="kanban-rodape"><span class="prazo ">18/11/2026</span><span class="avatar" title="Carlos Mendes">C</span></span>
+            </a>
+                                </section>
+                <section class="kanban-coluna kanban-exigencia">
+            <header><span>Com exigência</span><span class="kanban-qtd">1</span></header>
+                        <a class="kanban-card prioridade-urgente" href="os-2.html">
+                <span class="kanban-codigo">OS-2026-0028 · <span class="status-pill erro">Urgente</span></span>
+                <strong>Georreferenciamento — Fazenda Serra Azul (gleba 2)</strong>
+                <span class="meta">Agropecuária Serra Azul Ltda</span>
+                <span class="meta">Corbélia · 725,01 ha</span>
+                <span class="kanban-rodape"><span class="prazo vencido">05/11/2026 · 3d atraso</span><span class="avatar" title="Carlos Mendes">C</span></span>
+            </a>
+                                </section>
+                <section class="kanban-coluna kanban-concluido">
+            <header><span>Concluído</span><span class="kanban-qtd">1</span></header>
+                        <a class="kanban-card prioridade-normal" href="os-5.html">
+                <span class="kanban-codigo">OS-2026-0029</span>
+                <strong>Cubagem de pilhas — Pátio de estéril</strong>
+                <span class="meta">Pedreira Pedra Branca S.A.</span>
+                <span class="meta">Cafelândia</span>
+                <span class="kanban-rodape">19/10/2026<span class="avatar" title="Rafael Souza">R</span></span>
+            </a>
+                                </section>
+            </div>
+    </main></body></html>

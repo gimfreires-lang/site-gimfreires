@@ -1,0 +1,156 @@
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Clientes</title><script src="previa.js"></script>
+</head><body><div class="faixa-previa">Prévia com dados de demonstração · <a href="./">voltar ao início</a></div><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/topografia.css">
+
+
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo"><span class="site-logo-marca" aria-hidden="true"></span>Agrosat</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Painel</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Serviços</button>
+                <div class="nav-submenu">
+                    <a href="os.html">Ordens de serviço</a>
+                    <a href="os-quadro.html">Quadro (kanban)</a>
+                    <a href="os-editar.html">+ Nova OS</a>
+                    <a href="orcamentos.html">Orçamentos</a>
+                    <a href="orcamento.html">+ Novo orçamento</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Campo</button>
+                <div class="nav-submenu">
+                    <a href="agenda.html">Agenda de campo</a>
+                    <a href="equipamentos.html">Equipamentos</a>
+                </div>
+            </div>
+            <a href="protocolos.html">Protocolos</a>
+            <a href="clientes.html" class="ativo">Clientes</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Financeiro</button>
+                <div class="nav-submenu">
+                    <a href="financeiro.html">Visão geral</a>
+                    <a href="lancamentos-tipo-receita.html">Contas a receber</a>
+                    <a href="lancamentos-tipo-despesa.html">Contas a pagar</a>
+                    <a href="lancamento.html">+ Novo lançamento</a>
+                                        <a href="relatorio.html">Resultado (DRE) e lucro por serviço</a>
+                    <a href="contador.html">Fechamento para o contador</a>
+                                    </div>
+            </div>
+            <a href="ferramentas.html">Ferramentas</a>
+                        <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="config-escritorio.html">Escritório e parâmetros</a>
+                    <a href="config-tipos.html">Tipos de serviço e preços</a>
+                    <a href="usuarios.html">Equipe e usuários</a>
+                    <a href="config-contato.html">Logo e contato</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Carlos Mendes</span>
+            <a href="login.html">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer></script>
+<script src="assets/js/topografia.js" defer></script>
+<main class="container">
+<div class="page-title"><span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-7 8c0-3.31 3.13-6 7-6s7 2.69 7 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h1>Clientes</h1><span class="subtitulo">8 cliente(s) cadastrados</span></div></div>        
+    <p class="acoes-topo">
+        <a href="cliente-editar.html" class="btn">+ Novo cliente</a>
+                <a href="clientes-lixeira.html" class="btn-outline">Lixeira</a>
+            </p>
+
+    <form method="get" class="busca-lista">
+        <input type="text" name="busca" placeholder="Nome, CPF/CNPJ, telefone, e-mail ou cidade..." value="">
+        <button type="submit">Buscar</button>
+    </form>
+
+        <div class="card card-tabela">
+        <div class="tabela-wrap">
+        <table>
+            <tr><th>Cliente</th><th>CPF/CNPJ</th><th>Contato</th><th>Cidade</th><th class="num">Serviços</th><th class="num">Em aberto</th><th></th></tr>
+                        <tr>
+                <td><a href="cliente-2.html"><strong>Agropecuária Serra Azul Ltda</strong></a><br><small class="suave">Pessoa jurídica</small></td>
+                <td>11.222.333/0001-81</td>
+                <td>(45) 93222-1100<br><small class="suave">contato@serraazul.exemplo</small></td>
+                <td>Corbélia/PR</td>
+                <td class="num">1 <span class="status-pill pronto">1 ativo(s)</span></td>
+                <td class="num texto-alerta">R$ 9.250,00</td>
+                <td><a href="cliente-2.html" class="btn-sm btn-outline">abrir</a></td>
+            </tr>
+                        <tr>
+                <td><a href="cliente-5.html"><strong>Antônio Carlos Ferreira</strong></a><br><small class="suave">Pessoa física</small></td>
+                <td>390.533.447-05</td>
+                <td>(45) 99900-1122<br><small class="suave"></small></td>
+                <td>Lindoeste/PR</td>
+                <td class="num">1 <span class="status-pill pronto">1 ativo(s)</span></td>
+                <td class="num texto-alerta">R$ 1.200,00</td>
+                <td><a href="cliente-5.html" class="btn-sm btn-outline">abrir</a></td>
+            </tr>
+                        <tr>
+                <td><a href="cliente-4.html"><strong>Construtora Horizonte Engenharia</strong></a><br><small class="suave">Pessoa jurídica</small></td>
+                <td>04.252.011/0001-10</td>
+                <td>(45) 93456-7890<br><small class="suave">obras@horizonte.exemplo</small></td>
+                <td>Cascavel/PR</td>
+                <td class="num">2 <span class="status-pill pronto">2 ativo(s)</span></td>
+                <td class="num texto-alerta">R$ 6.400,00</td>
+                <td><a href="cliente-4.html" class="btn-sm btn-outline">abrir</a></td>
+            </tr>
+                        <tr>
+                <td><a href="cliente-6.html"><strong>Helena e Roberto Campos</strong></a><br><small class="suave">Pessoa física</small></td>
+                <td>746.824.890-70</td>
+                <td>(45) 98877-6655<br><small class="suave">helena.campos@exemplo.com</small></td>
+                <td>Toledo/PR</td>
+                <td class="num">1 <span class="status-pill pronto">1 ativo(s)</span></td>
+                <td class="num texto-alerta">R$ 2.554,77</td>
+                <td><a href="cliente-6.html" class="btn-sm btn-outline">abrir</a></td>
+            </tr>
+                        <tr>
+                <td><a href="cliente-1.html"><strong>José Antônio Ribeiro</strong></a><br><small class="suave">Pessoa física</small></td>
+                <td>529.982.247-25</td>
+                <td>(45) 99111-2233<br><small class="suave">jose.ribeiro@exemplo.com</small></td>
+                <td>Cascavel/PR</td>
+                <td class="num">1 <span class="status-pill pronto">1 ativo(s)</span></td>
+                <td class="num texto-alerta">R$ 4.900,00</td>
+                <td><a href="cliente-1.html" class="btn-sm btn-outline">abrir</a></td>
+            </tr>
+                        <tr>
+                <td><a href="cliente-8.html"><strong>Luiz Fernando Gomes</strong></a><br><small class="suave">Pessoa física</small></td>
+                <td>153.509.460-56</td>
+                <td>(45) 97766-5544<br><small class="suave"></small></td>
+                <td>Santa Tereza do Oeste/PR</td>
+                <td class="num">1</td>
+                <td class="num">—</td>
+                <td><a href="cliente-8.html" class="btn-sm btn-outline">abrir</a></td>
+            </tr>
+                        <tr>
+                <td><a href="cliente-3.html"><strong>Maria das Graças Oliveira</strong></a><br><small class="suave">Pessoa física</small></td>
+                <td>111.444.777-35</td>
+                <td>(45) 98765-4321<br><small class="suave"></small></td>
+                <td>Cascavel/PR</td>
+                <td class="num">1 <span class="status-pill pronto">1 ativo(s)</span></td>
+                <td class="num texto-alerta">R$ 2.400,00</td>
+                <td><a href="cliente-3.html" class="btn-sm btn-outline">abrir</a></td>
+            </tr>
+                        <tr>
+                <td><a href="cliente-7.html"><strong>Pedreira Pedra Branca S.A.</strong></a><br><small class="suave">Pessoa jurídica</small></td>
+                <td>33.000.167/0001-01</td>
+                <td>(45) 93344-5566<br><small class="suave">engenharia@pedrabranca.exemplo</small></td>
+                <td>Cafelândia/PR</td>
+                <td class="num">1</td>
+                <td class="num">—</td>
+                <td><a href="cliente-7.html" class="btn-sm btn-outline">abrir</a></td>
+            </tr>
+                    </table>
+        </div>
+    </div>
+    </main></body></html>

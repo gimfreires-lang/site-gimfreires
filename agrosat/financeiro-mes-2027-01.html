@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Financeiro</title><script src="previa.js"></script>
+</head><body><div class="faixa-previa">Prévia com dados de demonstração · <a href="./">voltar ao início</a></div><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/topografia.css">
+
+
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="painel.html" class="site-logo"><span class="site-logo-marca" aria-hidden="true"></span>Agrosat</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav">
+            <a href="painel.html">Painel</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Serviços</button>
+                <div class="nav-submenu">
+                    <a href="os.html">Ordens de serviço</a>
+                    <a href="os-quadro.html">Quadro (kanban)</a>
+                    <a href="os-editar.html">+ Nova OS</a>
+                    <a href="orcamentos.html">Orçamentos</a>
+                    <a href="orcamento.html">+ Novo orçamento</a>
+                </div>
+            </div>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Campo</button>
+                <div class="nav-submenu">
+                    <a href="agenda.html">Agenda de campo</a>
+                    <a href="equipamentos.html">Equipamentos</a>
+                </div>
+            </div>
+            <a href="protocolos.html">Protocolos</a>
+            <a href="clientes.html">Clientes</a>
+            <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Financeiro</button>
+                <div class="nav-submenu">
+                    <a href="financeiro.html">Visão geral</a>
+                    <a href="lancamentos-tipo-receita.html">Contas a receber</a>
+                    <a href="lancamentos-tipo-despesa.html">Contas a pagar</a>
+                    <a href="lancamento.html">+ Novo lançamento</a>
+                                        <a href="relatorio.html">Resultado (DRE) e lucro por serviço</a>
+                    <a href="contador.html">Fechamento para o contador</a>
+                                    </div>
+            </div>
+            <a href="ferramentas.html">Ferramentas</a>
+                        <div class="nav-grupo">
+                <button type="button" class="nav-grupo-trigger">Configurações</button>
+                <div class="nav-submenu">
+                    <a href="config-escritorio.html">Escritório e parâmetros</a>
+                    <a href="config-tipos.html">Tipos de serviço e preços</a>
+                    <a href="usuarios.html">Equipe e usuários</a>
+                    <a href="config-contato.html">Logo e contato</a>
+                </div>
+            </div>
+                        <span class="site-nav-user">Olá, Carlos Mendes</span>
+            <a href="login.html">Sair</a>
+        </nav>
+    </div>
+</header>
+<script src="assets/js/admin.js" defer></script>
+<script src="assets/js/topografia.js" defer></script>
+<main class="container">
+<div class="page-title"><span class="icone-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v12H4zM4 11h16M8 15h3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h1>Financeiro</h1><span class="subtitulo">Janeiro de 2027</span></div></div>    <p class="acoes-topo">
+        <a href="financeiro-mes-2026-12.html" class="btn-outline btn-sm">‹</a>
+        <a href="financeiro-mes-2026-11.html" class="btn-outline btn-sm">Mês atual</a>
+        <a href="#" data-previa class="btn-outline btn-sm">›</a>
+        <a href="lancamento-tipo-receita.html" class="btn-sm">+ Receita</a>
+        <a href="lancamento-tipo-despesa.html" class="btn-sm btn-outline">+ Despesa</a>
+    </p>
+    <div class="stats-credito">
+        <div class="stat-credito"><span class="stat-label">Entrou no mês</span><span class="stat-valor texto-sucesso">R$ 0,00</span><span class="stat-obs">+ R$ 0,00 previsto</span></div>
+        <div class="stat-credito"><span class="stat-label">Saiu no mês</span><span class="stat-valor">R$ 0,00</span><span class="stat-obs">+ R$ 0,00 previsto</span></div>
+        <div class="stat-credito"><span class="stat-label">Resultado do mês</span><span class="stat-valor">R$ 0,00</span><span class="stat-obs">projetado R$ 0,00</span></div>
+        <div class="stat-credito"><span class="stat-label">Saldo em caixa (lançado)</span><span class="stat-valor">R$ 76.167,80</span><span class="stat-obs">soma de tudo já pago e recebido</span></div>
+    </div>
+        <p class="alert alert-erro">
+        <a href="#" data-previa><strong>R$ 10.450,00</strong> a receber em atraso</a>                    </p>
+    
+    <div class="grade-2col">
+        <div class="card">
+            <h2>Saldo projetado — próximas 8 semanas</h2>
+            <canvas id="grafico-projecao" height="220"></canvas>        </div>
+        <div class="card">
+            <h2>Para onde foi o dinheiro</h2>
+            <p class="lista-vazia">Nenhuma despesa paga no mês.</p>        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-cabecalho"><h2>Vencimentos — atrasados e próximos 15 dias</h2><a href="#" data-previa class="btn-sm btn-outline">todos em aberto</a></div>
+                <div class="tabela-wrap"><table>
+            <tr><th></th><th>Vencimento</th><th>Descrição</th><th>Cliente / fornecedor</th><th class="num">Valor</th><th></th></tr>
+                        <tr class="linha-vencida">
+                <td><span class="tipo-lanc receita">▲</span></td>
+                <td>31/10/2026</td>
+                <td><a href="lancamento-11.html">Saldo na entrega — OS-2026-0030</a> <small class="suave">OS-2026-0030</small></td>
+                <td>Antônio Carlos Ferreira</td>
+                <td class="num">R$ 1.200,00</td>
+                <td><form method="post" action="lancamentos.html" class="form-inline"><input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f"><input type="hidden" name="acao" value="baixar"><input type="hidden" name="id_lancamento" value="11"><input type="hidden" name="voltar" value="/financeiro/index.php?mes=2027-01"><button class="btn-sm btn-outline">Recebido</button></form></td>
+            </tr>
+                        <tr class="linha-vencida">
+                <td><span class="tipo-lanc receita">▲</span></td>
+                <td>03/11/2026</td>
+                <td><a href="lancamento-4.html">Saldo na entrega — OS-2026-0028</a> <small class="suave">OS-2026-0028</small></td>
+                <td>Agropecuária Serra Azul Ltda</td>
+                <td class="num">R$ 9.250,00</td>
+                <td><form method="post" action="lancamentos.html" class="form-inline"><input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f"><input type="hidden" name="acao" value="baixar"><input type="hidden" name="id_lancamento" value="4"><input type="hidden" name="voltar" value="/financeiro/index.php?mes=2027-01"><button class="btn-sm btn-outline">Recebido</button></form></td>
+            </tr>
+                        <tr class="">
+                <td><span class="tipo-lanc despesa">▼</span></td>
+                <td>12/11/2026</td>
+                <td><a href="lancamento-66.html">Aluguel da sala — 11/2026</a></td>
+                <td>Imobiliária Centro</td>
+                <td class="num">R$ 1.800,00</td>
+                <td><form method="post" action="lancamentos.html" class="form-inline"><input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f"><input type="hidden" name="acao" value="baixar"><input type="hidden" name="id_lancamento" value="66"><input type="hidden" name="voltar" value="/financeiro/index.php?mes=2027-01"><button class="btn-sm btn-outline">Pago</button></form></td>
+            </tr>
+                        <tr class="">
+                <td><span class="tipo-lanc despesa">▼</span></td>
+                <td>12/11/2026</td>
+                <td><a href="lancamento-67.html">Salários e pró-labore — 11/2026</a></td>
+                <td>Folha</td>
+                <td class="num">R$ 9.600,00</td>
+                <td><form method="post" action="lancamentos.html" class="form-inline"><input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f"><input type="hidden" name="acao" value="baixar"><input type="hidden" name="id_lancamento" value="67"><input type="hidden" name="voltar" value="/financeiro/index.php?mes=2027-01"><button class="btn-sm btn-outline">Pago</button></form></td>
+            </tr>
+                        <tr class="">
+                <td><span class="tipo-lanc receita">▲</span></td>
+                <td>14/11/2026</td>
+                <td><a href="lancamento-17.html">Saldo na entrega — OS-2026-0032</a> <small class="suave">OS-2026-0032</small></td>
+                <td>Construtora Horizonte Engenharia</td>
+                <td class="num">R$ 6.400,00</td>
+                <td><form method="post" action="lancamentos.html" class="form-inline"><input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f"><input type="hidden" name="acao" value="baixar"><input type="hidden" name="id_lancamento" value="17"><input type="hidden" name="voltar" value="/financeiro/index.php?mes=2027-01"><button class="btn-sm btn-outline">Recebido</button></form></td>
+            </tr>
+                        <tr class="">
+                <td><span class="tipo-lanc despesa">▼</span></td>
+                <td>15/11/2026</td>
+                <td><a href="lancamento-87.html">Taxa de aprovação municipal</a> <small class="suave">OS-2026-0032</small></td>
+                <td>Prefeitura de Cascavel</td>
+                <td class="num">R$ 620,00</td>
+                <td><form method="post" action="lancamentos.html" class="form-inline"><input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f"><input type="hidden" name="acao" value="baixar"><input type="hidden" name="id_lancamento" value="87"><input type="hidden" name="voltar" value="/financeiro/index.php?mes=2027-01"><button class="btn-sm btn-outline">Pago</button></form></td>
+            </tr>
+                        <tr class="">
+                <td><span class="tipo-lanc despesa">▼</span></td>
+                <td>17/11/2026</td>
+                <td><a href="lancamento-69.html">Licença software de topografia — 11/2026</a></td>
+                <td>Software Topo</td>
+                <td class="num">R$ 390,00</td>
+                <td><form method="post" action="lancamentos.html" class="form-inline"><input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f"><input type="hidden" name="acao" value="baixar"><input type="hidden" name="id_lancamento" value="69"><input type="hidden" name="voltar" value="/financeiro/index.php?mes=2027-01"><button class="btn-sm btn-outline">Pago</button></form></td>
+            </tr>
+                        <tr class="">
+                <td><span class="tipo-lanc despesa">▼</span></td>
+                <td>17/11/2026</td>
+                <td><a href="lancamento-70.html">Honorários do contador — 11/2026</a></td>
+                <td>Contabilidade Exata</td>
+                <td class="num">R$ 650,00</td>
+                <td><form method="post" action="lancamentos.html" class="form-inline"><input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f"><input type="hidden" name="acao" value="baixar"><input type="hidden" name="id_lancamento" value="70"><input type="hidden" name="voltar" value="/financeiro/index.php?mes=2027-01"><button class="btn-sm btn-outline">Pago</button></form></td>
+            </tr>
+                        <tr class="">
+                <td><span class="tipo-lanc receita">▲</span></td>
+                <td>18/11/2026</td>
+                <td><a href="lancamento-7.html">Saldo na entrega — OS-2026-0033</a> <small class="suave">OS-2026-0033</small></td>
+                <td>Maria das Graças Oliveira</td>
+                <td class="num">R$ 2.400,00</td>
+                <td><form method="post" action="lancamentos.html" class="form-inline"><input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f"><input type="hidden" name="acao" value="baixar"><input type="hidden" name="id_lancamento" value="7"><input type="hidden" name="voltar" value="/financeiro/index.php?mes=2027-01"><button class="btn-sm btn-outline">Recebido</button></form></td>
+            </tr>
+                        <tr class="">
+                <td><span class="tipo-lanc despesa">▼</span></td>
+                <td>20/11/2026</td>
+                <td><a href="lancamento-89.html">Calibração da estação total</a></td>
+                <td>LabTopo Calibrações</td>
+                <td class="num">R$ 850,00</td>
+                <td><form method="post" action="lancamentos.html" class="form-inline"><input type="hidden" name="_csrf" value="a07b9f1a8774bd299bc959cf30f685011a84beca7e04e6526338e21b0d1a188f"><input type="hidden" name="acao" value="baixar"><input type="hidden" name="id_lancamento" value="89"><input type="hidden" name="voltar" value="/financeiro/index.php?mes=2027-01"><button class="btn-sm btn-outline">Pago</button></form></td>
+            </tr>
+                    </table></div>
+            </div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const el = document.getElementById('grafico-projecao');
+    if (!el || !window.Chart) return;
+    new Chart(el, {
+        type: 'line',
+        data: { labels: ["02\/11","09\/11","16\/11","23\/11","14\/12","21\/12"], datasets: [{ label: 'Saldo', data: [86617.8,80997.8,81507.8,76757.8,81657.8,84212.57], borderColor: '#0F766E', backgroundColor: 'rgba(15,118,110,.12)', fill: true, tension: .25, pointRadius: 3 }] },
+        options: { plugins: { legend: { display: false }, tooltip: { callbacks: { label: function (c) { return 'R$ ' + c.parsed.y.toLocaleString('pt-BR', { minimumFractionDigits: 2 }); } } } }, scales: { y: { ticks: { callback: function (v) { return 'R$ ' + v.toLocaleString('pt-BR'); } } } } }
+    });
+});
+</script>
+</main></body></html>
