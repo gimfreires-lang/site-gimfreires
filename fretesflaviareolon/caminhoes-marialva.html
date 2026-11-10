@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Caminhões e motoristas · Fretes Flávia Reolon</title>
+    <meta name="theme-color" content="#04345C">
+    <link rel="icon" href="assets/img/simbolo.svg" type="image/svg+xml">
+    <link rel="manifest" href="#" data-previa-off>
+    <link rel="apple-touch-icon" href="assets/img/icone-192.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="assets/css/app.css?v=1794313370">
+    <script src="assets/js/app.js?v=1794273302" defer></script>
+</head>
+<body>
+<div class="app">
+    <aside class="lateral" id="lateral">
+        <a href="painel.html" class="lateral-logo"><img src="assets/img/logo-horizontal-branco.svg" alt="Fretes Flávia Reolon — Transportes &amp; Logística"></a>
+        <nav class="lateral-menu" aria-label="Menu principal">
+            <a href="painel.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h8V3H3zm0 8h8v-6H3zm10 0h8V11h-8zm0-18v6h8V3z"/></svg><span>Painel</span></a><a href="assistente.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.9 4.6L18.5 9l-4.6 1.9L12 15.5l-1.9-4.6L5.5 9l4.6-1.4zM19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg><span>Assistente IA</span></a><a href="fretes.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h11v9H3zM14 9h4l3 3v3h-7zM6.5 18.5a1.5 1.5 0 1 0 0-.01M17.5 18.5a1.5 1.5 0 1 0 0-.01"/></svg><span>Fretes</span></a><a href="caminhoes.html" class="ativo" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm-7 9a7 7 0 0 1 14 0"/></svg><span>Caminhões e motoristas</span></a><a href="frotistas.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V8l8-5 8 5v13M9 21v-6h6v6"/></svg><span>Frotistas</span></a><a href="clientes.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v13H4zM9 7V4h6v3"/></svg><span>Clientes</span></a><a href="financeiro.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M17 7.5c0-1.9-2.2-3-5-3s-5 1.1-5 3 2 2.7 5 3.4 5 1.6 5 3.6-2.2 3-5 3-5-1.1-5-3"/></svg><span>Financeiro</span></a>                            <p class="lateral-grupo">Administração</p>
+                <a href="importar.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v3h16v-3"/></svg><span>Importar planilha</span></a><a href="usuarios.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11a4 4 0 1 0-8 0 4 4 0 0 0 8 0zM4 21a8 8 0 0 1 16 0"/></svg><span>Usuários</span></a><a href="empresa.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span>Dados da empresa</span></a>                    </nav>
+        <div class="lateral-rodape">
+            <span class="lateral-usuario">Flávia Reolon</span>
+            <a href="login.html" class="lateral-sair">Sair</a>
+        </div>
+    </aside>
+    <div class="conteudo">
+        <header class="barra-topo">
+            <button type="button" class="botao-menu" id="botao-menu" aria-controls="lateral" aria-expanded="false" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+            <img src="assets/img/logo-horizontal.svg" alt="Fretes Flávia Reolon" class="barra-topo-logo">
+        </header>
+        <main class="principal">
+<div class="cabecalho-pagina">
+    <div>
+        <h1>Caminhões e motoristas</h1>
+        <p class="subtitulo">147 caminhão(ões) em MARIALVA · fale direto pelo WhatsApp ou ligue</p>
+    </div>
+    <a href="caminhao-novo.html" class="botao">+ Novo caminhão</a>
+</div>
+
+<form class="filtros" method="get" role="search">
+    <input type="search" name="q" value="" placeholder="Placa, motorista, frotista, cidade ou telefone" aria-label="Buscar" autofocus>
+    <select name="cidade" aria-label="Cidade do caminhão">
+        <option value="">Todas as cidades</option>
+                    <option value="ALVORADA DO SUL" >ALVORADA DO SUL (19)</option>
+                    <option value="ANGULO" >ANGULO (9)</option>
+                    <option value="APUCARANA" >APUCARANA (109)</option>
+                    <option value="ARAPONGAS" >ARAPONGAS (157)</option>
+                    <option value="ASTORGA" >ASTORGA (98)</option>
+                    <option value="BELA VISTA DO PARAISO" >BELA VISTA DO PARAISO (72)</option>
+                    <option value="CAFEARA" >CAFEARA (2)</option>
+                    <option value="CAMBE" >CAMBE (99)</option>
+                    <option value="CENTENARIO DO SUL" >CENTENARIO DO SUL (21)</option>
+                    <option value="COLORADO" >COLORADO (65)</option>
+                    <option value="FLORESTOPOLIS" >FLORESTOPOLIS (14)</option>
+                    <option value="GUARACI" >GUARACI (3)</option>
+                    <option value="ICARA" >ICARA (16)</option>
+                    <option value="IGUARACU" >IGUARACU (4)</option>
+                    <option value="JAGUAPITA" >JAGUAPITA (25)</option>
+                    <option value="LOBATO" >LOBATO (2)</option>
+                    <option value="LONDRINA" >LONDRINA (209)</option>
+                    <option value="LUPIONOPOLIS" >LUPIONOPOLIS (6)</option>
+                    <option value="MARIALVA" selected>MARIALVA (147)</option>
+                    <option value="MIRASELVA" >MIRASELVA (8)</option>
+                    <option value="MUNHOZ DE MELO" >MUNHOZ DE MELO (12)</option>
+                    <option value="NOSSA SENHORA DAS GRACAS" >NOSSA SENHORA DAS GRACAS (3)</option>
+                    <option value="PITANGUEIRAS" >PITANGUEIRAS (4)</option>
+                    <option value="PORECATU" >PORECATU (8)</option>
+                    <option value="PRADO FERREIRA" >PRADO FERREIRA (10)</option>
+                    <option value="ROLANDIA" >ROLANDIA (49)</option>
+                    <option value="SABAUDIA" >SABAUDIA (9)</option>
+                    <option value="SANTA FE" >SANTA FE (40)</option>
+                    <option value="SAO MARTINHO" >SAO MARTINHO (5)</option>
+            </select>
+    <select name="tipo" aria-label="Tipo de caminhão">
+        <option value="">Todos os tipos</option>
+        <option >VUC</option><option >3/4</option><option >Toco</option><option >Truck</option><option >Carreta</option><option >Carreta LS</option><option >Bitrem</option><option >Rodotrem</option><option >Vanderléia</option><option >Outro</option>    </select>
+    <button type="submit" class="botao botao-secundario">Filtrar</button>
+    <a href="caminhoes.html" class="link">Limpar</a></form>
+
+<div class="cartao cartao-tabela">
+<table class="tabela">
+    <thead><tr><th>Placa</th><th>Motorista</th><th>Cidade</th><th>Frotista</th><th>Contato</th><th></th></tr></thead>
+    <tbody>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">DMN-1272</a></td>
+            <td data-rotulo="Motorista"><strong>ADEMIR APARECIDO GOMES SOUZA</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>PAULO FERNANDO RODRIGUES MONTEIRO</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005488">(44) 90000-5488</a>                            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005488?text=Ol%C3%A1%20ADEMIR%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar ADEMIR APARECIDO GOMES SOUZA no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">ADX-0T28</a></td>
+            <td data-rotulo="Motorista"><strong>ADEMIR LUIS SANTOS</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>CLAUDIO HENRIQUE SILVA MARTINS</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005076">(44) 90000-5076</a>                <small>(44) 3100-0076</small>            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005076?text=Ol%C3%A1%20ADEMIR%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar ADEMIR LUIS SANTOS no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">ZTY-4J12</a></td>
+            <td data-rotulo="Motorista"><strong>ADEMIR ROBERTO CORREIA</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>TRANSPORTES ANDRADE E COSTA &amp; FILHOS</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005772">(44) 90000-5772</a>                <small>(44) 3100-0772</small>            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005772?text=Ol%C3%A1%20ADEMIR%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar ADEMIR ROBERTO CORREIA no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">NZU-9G92</a></td>
+            <td data-rotulo="Motorista"><strong>ALEXANDRE BARBOSA</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>GERSON EDUARDO CORREIA ALMEIDA</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005573">(44) 90000-5573</a>                            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005573?text=Ol%C3%A1%20ALEXANDRE%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar ALEXANDRE BARBOSA no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">BES-9405</a></td>
+            <td data-rotulo="Motorista"><strong>ALEXANDRE EDUARDO RIBEIRO ROCHA</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>RAFAEL CARDOSO</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005913">(44) 90000-5913</a>                <small>(44) 3100-0913</small>            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005913?text=Ol%C3%A1%20ALEXANDRE%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar ALEXANDRE EDUARDO RIBEIRO ROCHA no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">KWW-3A81</a></td>
+            <td data-rotulo="Motorista"><strong>ALEXANDRE MOREIRA MONTEIRO</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>TRANSPORTES MOREIRA &amp; FILHOS</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005081">(44) 90000-5081</a>                <small>(44) 3100-0081</small>            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005081?text=Ol%C3%A1%20ALEXANDRE%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar ALEXANDRE MOREIRA MONTEIRO no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">FKI-8D20</a></td>
+            <td data-rotulo="Motorista"><strong>ALEXANDRE SILVA LIMA</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>VAGNER ROBERTO MORAES</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5518900005010">(18) 90000-5010</a>                <small>(18) 3100-0010</small>            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5518900005010?text=Ol%C3%A1%20ALEXANDRE%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar ALEXANDRE SILVA LIMA no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">XXH-0W59</a></td>
+            <td data-rotulo="Motorista"><strong>ALEXANDRE VIEIRA PEREIRA</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>EDSON ROBERTO REIS</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5594900006178">(94) 90000-6178</a>                            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5594900006178?text=Ol%C3%A1%20ALEXANDRE%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar ALEXANDRE VIEIRA PEREIRA no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">HUQ-5668</a></td>
+            <td data-rotulo="Motorista"><strong>ALTAIR AUGUSTO ARAUJO PINTO</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>TRANSPORTES RIBEIRO ME</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5542900005874">(42) 90000-5874</a>                            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5542900005874?text=Ol%C3%A1%20ALTAIR%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar ALTAIR AUGUSTO ARAUJO PINTO no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">BOU-3Z63</a></td>
+            <td data-rotulo="Motorista"><strong>ALTAIR ROBERTO PEREIRA NASCIMENTO</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>TRANSPORTES ARAUJO E OLIVEIRA EIRELI</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005566">(44) 90000-5566</a>                <small>(44) 3100-0566</small>            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005566?text=Ol%C3%A1%20ALTAIR%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar ALTAIR ROBERTO PEREIRA NASCIMENTO no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">KBT-1V03</a></td>
+            <td data-rotulo="Motorista"><strong>ANDERSON COSTA PINTO</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>DIRCEU AUGUSTO PINTO LOPES</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005321">(44) 90000-5321</a>                <small>(44) 3100-0321</small>            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005321?text=Ol%C3%A1%20ANDERSON%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar ANDERSON COSTA PINTO no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">LAN-5862</a></td>
+            <td data-rotulo="Motorista"><strong>ANDERSON FERNANDO MENDES</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>TRANSPORTES ANDRADE E CARVALHO LTDA</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005920">(44) 90000-5920</a>                            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005920?text=Ol%C3%A1%20ANDERSON%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar ANDERSON FERNANDO MENDES no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">IOX-9654</a></td>
+            <td data-rotulo="Motorista"><strong>ANDERSON LUIS CARDOSO CAMPOS</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>RENATO LUIS CARDOSO FONSECA</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005769">(44) 90000-5769</a>                <small>(44) 3100-0769</small>            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005769?text=Ol%C3%A1%20ANDERSON%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar ANDERSON LUIS CARDOSO CAMPOS no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">DTA-3H24</a></td>
+            <td data-rotulo="Motorista"><strong>ANDERSON RODRIGUES PINTO</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>DIRCEU FERNANDO ALMEIDA</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005549">(44) 90000-5549</a>                <small>(44) 3100-0549</small>            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005549?text=Ol%C3%A1%20ANDERSON%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar ANDERSON RODRIGUES PINTO no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">CSL-4H40</a></td>
+            <td data-rotulo="Motorista"><strong>ANTONIO APARECIDO LOPES ROCHA</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>TRANSPORTES SANTOS EIRELI</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005315">(44) 90000-5315</a>                <small>(44) 3100-0315</small>            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005315?text=Ol%C3%A1%20ANTONIO%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar ANTONIO APARECIDO LOPES ROCHA no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">AEM-3U72</a></td>
+            <td data-rotulo="Motorista"><strong>ANTONIO FERNANDO CARDOSO SOUZA</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>DANIEL LUIS MOREIRA</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005619">(44) 90000-5619</a>                <small>(44) 3100-0619</small>            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005619?text=Ol%C3%A1%20ANTONIO%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar ANTONIO FERNANDO CARDOSO SOUZA no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">DIY-5Z08</a></td>
+            <td data-rotulo="Motorista"><strong>ANTONIO NASCIMENTO ARAUJO</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>ANDERSON ROBERTO MONTEIRO TEIXEIRA</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005713">(44) 90000-5713</a>                <small>(44) 3100-0713</small>            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005713?text=Ol%C3%A1%20ANTONIO%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar ANTONIO NASCIMENTO ARAUJO no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">JCE-1V97</a></td>
+            <td data-rotulo="Motorista"><strong>CARLOS FREITAS</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>ANDERSON FREITAS</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005059">(44) 90000-5059</a>                            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005059?text=Ol%C3%A1%20CARLOS%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar CARLOS FREITAS no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">JXS-2D56</a></td>
+            <td data-rotulo="Motorista"><strong>CARLOS HENRIQUE TAVARES</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>JOAO APARECIDO SILVA FREITAS</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005408">(44) 90000-5408</a>                            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005408?text=Ol%C3%A1%20CARLOS%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar CARLOS HENRIQUE TAVARES no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">EBI-2W20</a></td>
+            <td data-rotulo="Motorista"><strong>CARLOS HENRIQUE TEIXEIRA MORAES</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>ALEXANDRE APARECIDO MORAES GOMES</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005245">(44) 90000-5245</a>                            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005245?text=Ol%C3%A1%20CARLOS%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar CARLOS HENRIQUE TEIXEIRA MORAES no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">NRA-6198</a></td>
+            <td data-rotulo="Motorista"><strong>CARLOS HENRIQUE VIEIRA BARBOSA</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>NELSON FERNANDO MOREIRA</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005853">(44) 90000-5853</a>                            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005853?text=Ol%C3%A1%20CARLOS%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar CARLOS HENRIQUE VIEIRA BARBOSA no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">QAV-6F99</a></td>
+            <td data-rotulo="Motorista"><strong>CARLOS LUIS FREITAS VIEIRA</strong><br><small>1 frete(s) com a gente</small></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>TRANSPORTES NUNES E FONSECA ME</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005080">(44) 90000-5080</a>                            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005080?text=Ol%C3%A1%20CARLOS%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar CARLOS LUIS FREITAS VIEIRA no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">BOD-8O19</a></td>
+            <td data-rotulo="Motorista"><strong>CARLOS PINTO MACHADO</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>ANDERSON LUIS ANDRADE FONSECA</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005082">(44) 90000-5082</a>                <small>(44) 3100-0082</small>            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005082?text=Ol%C3%A1%20CARLOS%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar CARLOS PINTO MACHADO no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">CDT-7K39</a></td>
+            <td data-rotulo="Motorista"><strong>CLAUDIO EDUARDO ALMEIDA RIBEIRO</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>EDSON ROBERTO REIS</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005580">(44) 90000-5580</a>                            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005580?text=Ol%C3%A1%20CLAUDIO%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar CLAUDIO EDUARDO ALMEIDA RIBEIRO no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">LSL-2411</a></td>
+            <td data-rotulo="Motorista"><strong>CLEBER APARECIDO BATISTA CARVALHO</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>GERSON EDUARDO CORREIA ALMEIDA</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005575">(44) 90000-5575</a>                            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005575?text=Ol%C3%A1%20CLEBER%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar CLEBER APARECIDO BATISTA CARVALHO no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">MXR-6989</a></td>
+            <td data-rotulo="Motorista"><strong>CLEBER AUGUSTO REIS LIMA</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>RENATO FONSECA COSTA</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005394">(44) 90000-5394</a>                            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005394?text=Ol%C3%A1%20CLEBER%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar CLEBER AUGUSTO REIS LIMA no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">MFF-4S95</a></td>
+            <td data-rotulo="Motorista"><strong>CLEBER AUGUSTO RODRIGUES VIEIRA</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>OSMAR ROBERTO TEIXEIRA RIBEIRO</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5567900005308">(67) 90000-5308</a>                            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5567900005308?text=Ol%C3%A1%20CLEBER%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar CLEBER AUGUSTO RODRIGUES VIEIRA no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">CDV-3F71</a></td>
+            <td data-rotulo="Motorista"><strong>CLEBER CARLOS RODRIGUES MONTEIRO</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>DANIEL FERNANDO PINTO PEREIRA</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900006015">(44) 90000-6015</a>                <small>(44) 3100-1015</small>            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900006015?text=Ol%C3%A1%20CLEBER%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar CLEBER CARLOS RODRIGUES MONTEIRO no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">KXT-5422</a></td>
+            <td data-rotulo="Motorista"><strong>CLEBER FERNANDO FERREIRA PRADO</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>OSMAR CORREIA</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005079">(44) 90000-5079</a>                <small>(44) 3100-0079</small>            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005079?text=Ol%C3%A1%20CLEBER%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar CLEBER FERNANDO FERREIRA PRADO no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">ZOP-4K64</a></td>
+            <td data-rotulo="Motorista"><strong>CLEBER LUIS BATISTA RODRIGUES</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>GUSTAVO DIAS GOMES</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005314">(44) 90000-5314</a>                            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005314?text=Ol%C3%A1%20CLEBER%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar CLEBER LUIS BATISTA RODRIGUES no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">EME-7114</a></td>
+            <td data-rotulo="Motorista"><strong>CLEBER MACHADO FREITAS</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>TRANSPORTES RODRIGUES ME</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005318">(44) 90000-5318</a>                            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005318?text=Ol%C3%A1%20CLEBER%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar CLEBER MACHADO FREITAS no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">TOC-6S50</a></td>
+            <td data-rotulo="Motorista"><strong>DANIEL APARECIDO MENDES LIMA</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>GERSON LUIS MORAES</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005083">(44) 90000-5083</a>                            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005083?text=Ol%C3%A1%20DANIEL%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar DANIEL APARECIDO MENDES LIMA no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">JJT-5J20</a></td>
+            <td data-rotulo="Motorista"><strong>DANIEL APARECIDO SOUZA MORAES</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>ROBERTO APARECIDO CAMPOS TAVARES</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005115">(44) 90000-5115</a>                <small>(44) 3100-0115</small>            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005115?text=Ol%C3%A1%20DANIEL%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar DANIEL APARECIDO SOUZA MORAES no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">IOY-1L40</a></td>
+            <td data-rotulo="Motorista"><strong>DANIEL CAMPOS MORAES</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>MARCOS APARECIDO RIBEIRO CARVALHO</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005101">(44) 90000-5101</a>                            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005101?text=Ol%C3%A1%20DANIEL%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar DANIEL CAMPOS MORAES no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">MOI-5W56</a></td>
+            <td data-rotulo="Motorista"><strong>DANIEL EDUARDO LOPES MARTINS</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>TRANSPORTES ARAUJO E OLIVEIRA EIRELI</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005868">(44) 90000-5868</a>                <small>(44) 3100-0868</small>            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005868?text=Ol%C3%A1%20DANIEL%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar DANIEL EDUARDO LOPES MARTINS no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">BPK-8F90</a></td>
+            <td data-rotulo="Motorista"><strong>DANIEL OLIVEIRA TEIXEIRA</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>ROGERIO BORGES</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900006138">(44) 90000-6138</a>                            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900006138?text=Ol%C3%A1%20DANIEL%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar DANIEL OLIVEIRA TEIXEIRA no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">VSE-0N61</a></td>
+            <td data-rotulo="Motorista"><strong>DANIEL RIBEIRO VIEIRA</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>GERSON CARLOS SANTOS MONTEIRO</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005338">(44) 90000-5338</a>                <small>(44) 3100-0338</small>            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005338?text=Ol%C3%A1%20DANIEL%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar DANIEL RIBEIRO VIEIRA no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">YIO-8E09</a></td>
+            <td data-rotulo="Motorista"><strong>DANIEL SILVA RIBEIRO</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>LEANDRO APARECIDO MARTINS MENDES</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900006221">(44) 90000-6221</a>                            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900006221?text=Ol%C3%A1%20DANIEL%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar DANIEL SILVA RIBEIRO no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">NVD-3B29</a></td>
+            <td data-rotulo="Motorista"><strong>DIEGO AUGUSTO ALMEIDA FREITAS</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>TRANSPORTES ARAUJO E OLIVEIRA EIRELI</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005582">(44) 90000-5582</a>                            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005582?text=Ol%C3%A1%20DIEGO%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar DIEGO AUGUSTO ALMEIDA FREITAS no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+            <tr>
+            <td data-rotulo="Placa"><a href="#" data-previa-off class="placa">DIS-3Y90</a></td>
+            <td data-rotulo="Motorista"><strong>DIEGO FERNANDO BARBOSA PEREIRA</strong></td>
+            <td data-rotulo="Cidade">MARIALVA</td>
+            <td data-rotulo="Frotista"><a href="#" data-previa-off>CARLOS EDUARDO ROCHA TEIXEIRA</a></td>
+            <td data-rotulo="Contato" class="contatos">
+                <a href="tel:+5544900005311">(44) 90000-5311</a>                <small>(44) 3100-0311</small>            </td>
+            <td class="acoes-linha">
+                <a href="https://wa.me/5544900005311?text=Ol%C3%A1%20DIEGO%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Fretes%20Fl%C3%A1via%20Reolon.%20Tenho%20uma%20carga%2C%20voc%C3%AA%20est%C3%A1%20dispon%C3%ADvel%3F" target="_blank" rel="noopener" class="icone-whats" title="Chamar no WhatsApp" aria-label="Chamar DIEGO FERNANDO BARBOSA PEREIRA no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>                <a href="frete-novo.html" class="botao botao-pequeno">Lançar frete</a>
+            </td>
+        </tr>
+        </tbody>
+</table>
+</div>
+<nav class="paginacao" aria-label="Páginas"><span>Página 1 de 4</span><a href="#" data-previa-off>Próxima ›</a></nav>        </main>
+        <footer class="rodape">
+            <span>Fretes Flávia Reolon · Transportes &amp; Logística</span>
+            <span><a href="mailto:flaviareolonfreires@gmail.com">flaviareolonfreires@gmail.com</a> · (45) 99960-1406</span>
+        </footer>
+    </div>
+</div>
+<div class="sombra-menu" id="sombra-menu" hidden></div>
+<div id="previa-aviso" style="position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:99;background:#04345C;color:#fff;padding:.55rem 1rem;border-radius:999px;font:600 13px Inter,sans-serif;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:calc(100% - 32px);text-align:center">Prévia com dados de demonstração · <a href="./" style="color:#9FE3EE">voltar ao início</a></div>
+<script>document.addEventListener('submit',function(e){var f=e.target;if(f.id==='chat-form'){e.preventDefault();return;}e.preventDefault();e.stopPropagation();var a=document.getElementById('previa-aviso');a.textContent='Na prévia não dá para salvar. No sistema instalado essa ação funciona.';a.style.background='#0B6170';},true);document.querySelectorAll('a[data-previa-off]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var b=document.getElementById('previa-aviso');b.textContent='Essa página não faz parte da prévia.';})})</script></body>
+</html>

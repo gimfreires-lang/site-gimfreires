@@ -8,4 +8,5 @@ COPY kelly /usr/share/nginx/html/kelly
 COPY broetto /usr/share/nginx/html/broetto
 COPY clubedacerveja /usr/share/nginx/html/clubedacerveja
 COPY agrosat /usr/share/nginx/html/agrosat
+COPY fretesflaviareolon /usr/share/nginx/html/fretesflaviareolon
 EXPOSE 80
