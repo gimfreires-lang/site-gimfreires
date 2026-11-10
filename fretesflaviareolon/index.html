@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fretes Flávia Reolon | Prévia do sistema · gimfreires.tech</title>
+<meta name="description" content="Prévia navegável do sistema da Fretes Flávia Reolon Transportes &amp; Logística: fretes, ordem de carregamento pelo WhatsApp, caminhões e motoristas, frotistas, clientes, financeiro, importação da planilha e assistente de IA. Feito por gimfreires.tech.">
+<link rel="canonical" href="https://gimfreires.tech/fretesflaviareolon/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="gimfreires.tech">
+<meta property="og:title" content="Fretes Flávia Reolon | Prévia do sistema">
+<meta property="og:description" content="Fretes, frota, frotistas e financeiro num sistema só, com assistente de IA que acha o caminhão certo.">
+<meta property="og:url" content="https://gimfreires.tech/fretesflaviareolon/">
+<meta property="og:image" content="https://gimfreires.tech/img/fretes-desktop.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/img/simbolo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;700&display=swap">
+<style>
+/* Layout: marca e contato no topo, três portas de entrada (painel, caminhões, assistente de IA),
+   o caminho de um frete da cotação ao pagamento, destaques, atalhos e notas. */
+:root {
+  --bg: #F2F6F8; --surface: #FFFFFF; --line: #D4E0E6;
+  --fg: #0E2234; --muted: #52646F; --accent: #0B6170; --accent-txt: #0B6170; --terra: #04345C;
+  --display: 'Montserrat', system-ui, sans-serif;
+  --body: 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root {
+  --bg: #021B30; --surface: #06284A; --line: #1B3E5E;
+  --fg: #EAF2F6; --muted: #A6B9C6; --accent: #4CC0CE; --accent-txt: #7FD3DD; --terra: #8FD9E3; color-scheme: dark; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--body); line-height: 1.5; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 40px 56px; display: flex; flex-direction: column; gap: 36px; }
+header { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
+.marca { display: flex; align-items: center; gap: 12px; }
+.marca img { width: min(420px, 86vw); height: auto; }
+.marca .escuro { display: none; }
+@media (prefers-color-scheme: dark) { .marca .claro { display: none; } .marca .escuro { display: block; } }
+.marca span { font-family: var(--display); font-weight: 700; font-size: clamp(2.4rem, 6vw, 3.4rem); line-height: 1; letter-spacing: -.01em; }
+.selo { font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--terra); }
+h1 { font-family: var(--display); font-weight: 600; font-size: clamp(1.5rem, 4vw, 2.1rem); line-height: 1.15; margin: 0; text-wrap: balance; }
+.lead { color: var(--muted); max-width: 62ch; margin: 0; font-size: 1.05rem; }
+.contato { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; color: var(--muted); font-size: .9rem; margin: 0; padding: 0; list-style: none; }
+.contato b { color: var(--fg); font-weight: 700; }
+.portas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 760px) { .portas { grid-template-columns: 1fr; } }
+.porta { display: flex; flex-direction: column; gap: 10px; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; color: var(--fg); text-decoration: none; transition: border-color .15s, transform .15s; min-width: 0; }
+.porta:hover, .porta:focus-visible { border-color: var(--accent); transform: translateY(-2px); outline: none; }
+.porta .tag { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--terra); }
+.porta h2 { font-family: var(--display); font-weight: 600; font-size: 1.6rem; line-height: 1.1; margin: 0; }
+.porta p { margin: 0; color: var(--muted); font-size: .95rem; }
+.porta .ir { margin-top: auto; padding-top: 8px; font-weight: 700; color: var(--accent-txt); }
+.etapas, .novidades { display: flex; flex-direction: column; gap: 14px; }
+.etapas h3, .novidades h3, .notas h3 { margin: 0; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); text-align: center; }
+.linha { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; counter-reset: etapa; }
+@media (max-width: 860px) { .linha { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 460px) { .linha { grid-template-columns: 1fr; } }
+.linha li { counter-increment: etapa; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.linha li::before { content: counter(etapa); width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--accent); font-weight: 700; font-size: .8rem; display: grid; place-items: center; }
+.linha b { font-size: .98rem; }
+.linha span { color: var(--muted); font-size: .85rem; }
+.linha a { color: var(--accent-txt); font-size: .85rem; font-weight: 700; text-decoration: none; }
+.linha a:hover, .linha a:focus-visible { text-decoration: underline; outline: none; }
+.atalhos { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.atalhos a { color: var(--fg); text-decoration: none; border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 7px 14px; font-size: .9rem; }
+.atalhos a:hover, .atalhos a:focus-visible { border-color: var(--accent); outline: none; }
+.novos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 860px) { .novos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 420px) { .novos { grid-template-columns: 1fr; } }
+.novos a { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; text-decoration: none; color: var(--fg); min-width: 0; }
+.novos a:hover, .novos a:focus-visible { border-color: var(--accent); outline: none; }
+.novos b { color: var(--accent-txt); font-size: .95rem; }
+.novos span { color: var(--muted); font-size: .85rem; }
+.novos code { font-size: .8rem; }
+.notas { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px 24px; display: flex; flex-direction: column; gap: 10px; }
+.notas h3 { text-align: left; }
+.notas ul { margin: 0; padding-left: 1.1em; color: var(--muted); display: flex; flex-direction: column; gap: 6px; }
+.notas b { color: var(--fg); }
+@media (prefers-reduced-motion: reduce) { .porta { transition: none; } .porta:hover { transform: none; } }
+.voltar { margin: 0; text-align: center; } .voltar a { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="marca">
+      <img class="claro" src="assets/img/logo-horizontal.svg" alt="Fretes Flávia Reolon Transportes &amp; Logística">
+      <img class="escuro" src="assets/img/logo-horizontal-branco.svg" alt="Fretes Flávia Reolon Transportes &amp; Logística">
+    </div>
+    <span class="selo">Transportes &amp; Logística</span>
+    <h1>Prévia do sistema de fretes</h1>
+    <p class="lead">Telas do sistema da Fretes Flávia Reolon funcionando com a frota da região de Jaguapitã. Navegue pelos fretes, pela ordem de carregamento, pelos caminhões e frotistas, pelo financeiro e pelo assistente de IA.</p>
+    <ul class="contato">
+      <li>flaviareolonfreires@gmail.com</li>
+      <li><b>(45) 99960-1406</b></li>
+    </ul>
+  </header>
+
+  <p class="voltar" style="margin-top:-12px"><a href="apresentacao/" style="color:var(--accent-txt);font-weight:700">Ver a apresentação do sistema →</a></p>
+
+  <nav class="portas" aria-label="Partes do sistema">
+    <a class="porta" href="painel.html">
+      <span class="tag">Para o escritório</span>
+      <h2>Painel</h2>
+      <p>Faturamento e margem do mês, fretes em trânsito, o que falta receber e pagar, e caminhões por cidade.</p>
+      <span class="ir">Abrir o painel →</span>
+    </a>
+    <a class="porta" href="caminhoes.html">
+      <span class="tag">Para achar o caminhão</span>
+      <h2>Caminhões e motoristas</h2>
+      <p>1.225 caminhões da planilha da região, com busca por placa, motorista, frotista ou cidade e WhatsApp com um toque.</p>
+      <span class="ir">Ver os caminhões →</span>
+    </a>
+    <a class="porta" href="assistente.html">
+      <span class="tag">Inteligência artificial</span>
+      <h2>Assistente de IA</h2>
+      <p>Pergunte do seu jeito: quais caminhões tem em Jaguapitã, quanto falta receber, ou peça para lançar um frete.</p>
+      <span class="ir">Ver a conversa →</span>
+    </a>
+  </nav>
+
+  <section class="etapas" aria-labelledby="tit-etapas">
+    <h3 id="tit-etapas">Um frete do começo ao fim</h3>
+    <ol class="linha">
+      <li><b>Cotação</b><span>Rota, cliente, mercadoria, peso e valor</span><a href="fretes-cotacao.html">Cotações →</a></li>
+      <li><b>Caminhão</b><span>Ache pela cidade e chame o motorista no WhatsApp</span><a href="caminhoes-jaguapita.html">Jaguapitã →</a></li>
+      <li><b>Lançamento</b><span>Margem e saldo do motorista calculados na hora</span><a href="frete-novo.html">Novo frete →</a></li>
+      <li><b>Ordem de carregamento</b><span>Impressa ou enviada no WhatsApp do motorista</span><a href="frete-1.html">Frete #1 →</a></li>
+      <li><b>Em trânsito</b><span>Acompanhe o que está na estrada</span><a href="fretes-emtransito.html">Em trânsito →</a></li>
+      <li><b>Entrega</b><span>Mude a situação com um clique</span><a href="fretes-entregue.html">Entregues →</a></li>
+      <li><b>Recebimento</b><span>O que cada cliente ainda deve</span><a href="financeiro.html">A receber →</a></li>
+      <li><b>Pagamento</b><span>Saldo do motorista depois do adiantamento</span><a href="financeiro-pagar.html">A pagar →</a></li>
+    </ol>
+  </section>
+
+  <section class="novidades" aria-labelledby="tit-novo">
+    <h3 id="tit-novo">Feito para transporte</h3>
+    <div class="novos">
+      <a href="frotistas.html"><b>Frotistas</b><span>923 donos de frota, do maior para o menor</span></a>
+      <a href="frotista-destaque.html"><b>Ficha do frotista</b><span>Todos os caminhões e o que já foi pago</span></a>
+      <a href="importar.html"><b>Importar planilha</b><span>Atualiza a frota com a planilha da região</span></a>
+      <a href="clientes.html"><b>Clientes</b><span>Total em fretes e o que está em aberto</span></a>
+      <a href="caminhoes-londrina.html"><b>Por cidade</b><span>Londrina, Arapongas, Marialva e região</span></a>
+      <a href="fretes.html"><b>Todos os fretes</b><span>Filtro por situação, mês, placa e cliente</span></a>
+      <a href="empresa.html"><b>Dados da empresa</b><span>Aparecem na ordem impressa e no WhatsApp</span></a>
+      <a href="usuarios.html"><b>Usuários</b><span>Administrador e funcionário</span></a>
+    </div>
+  </section>
+
+  <div class="atalhos" aria-label="Atalhos">
+    <a href="fretes.html">Fretes</a>
+    <a href="caminhoes.html">Caminhões</a>
+    <a href="frotistas.html">Frotistas</a>
+    <a href="clientes.html">Clientes</a>
+    <a href="financeiro.html">Financeiro</a>
+    <a href="assistente.html">Assistente IA</a>
+    <a href="apresentacao/">Apresentação</a>
+    <a href="login.html">Login da equipe</a>
+  </div>
+
+  <section class="notas" aria-labelledby="tit-notas">
+    <h3 id="tit-notas">Sobre esta prévia</h3>
+    <ul>
+      <li>As quantidades de caminhões, frotistas e cidades são as da planilha da região, mas <b>placas, nomes e telefones foram trocados por dados fictícios</b> para proteger os motoristas e frotistas.</li>
+      <li>Clientes, fretes e valores são <b>dados de demonstração</b>; o nome, o e-mail e o telefone são os da Fretes Flávia Reolon.</li>
+      <li>As telas são cópias do sistema funcionando. Os botões de salvar mostram um aviso, porque aqui nada é gravado, e o assistente mostra uma conversa de exemplo.</li>
+    </ul>
+  </section>
+
+  <p class="voltar"><a href="/">← Voltar para gimfreires.tech</a></p>
+</div>
+</body>
+</html>

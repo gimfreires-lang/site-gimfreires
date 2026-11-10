@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 200" role="img" aria-label="Fretes Flávia Reolon">
+  <defs><clipPath id="fr-c"><rect x="0" y="0" width="240" height="196"/></clipPath></defs>
+  <g clip-path="url(#fr-c)">
+    <path d="M150 126 L174 126 L226 196 L178 196 Z" fill="#35393C"/>
+    <path d="M162.5 134 L165 144 M168 156 L171.5 168 M175 180 L178.5 194" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+    <path d="M92 22 H160 A50 50 0 0 1 160 122 H146" fill="none" stroke="#0B6170" stroke-width="17"/>
+    <path d="M118 35.5 H160 A36.5 36.5 0 0 1 160 108.5 H150" fill="none" stroke="#04345C" stroke-width="8"/>
+    <path d="M22 210 C 40 158, 82 122, 150 122" fill="none" stroke="#0B6170" stroke-width="17"/>
+    <path d="M58 210 C 72 168, 102 137, 152 135" fill="none" stroke="#04345C" stroke-width="8"/>
+    <path d="M30 168 C 54 120, 98 84, 162 74" fill="none" stroke="#0B6170" stroke-width="6" stroke-linecap="round"/>
+    <path d="M154 61 L181 72.5 L157 88 Z" fill="#04345C" stroke="#04345C" stroke-width="3" stroke-linejoin="round"/>
+  </g>
+</svg>
