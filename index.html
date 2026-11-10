@@ -3,22 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>gimfreires.tech | Sistemas para o seu comércio</title>
-<meta name="description" content="Loja online, caixa, fiado, pagamento por Pix e agendamento online num sistema só, adaptado para o seu tipo de comércio. Desenvolvido em Cascavel, PR.">
+<title>gimfreires.tech | Sistemas para comércios e serviços em Cascavel, PR</title>
+<meta name="description" content="Loja online, caixa, fiado, Pix, agendamento e ordens de serviço num sistema só, adaptado para o seu negócio. Desenvolvido em Cascavel, PR.">
 <link rel="canonical" href="https://gimfreires.tech/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="gimfreires.tech">
-<meta property="og:title" content="gimfreires.tech | Sistemas para o seu comércio">
-<meta property="og:description" content="Loja online, caixa, fiado e Pix num sistema só, adaptado para o seu ramo.">
+<meta property="og:title" content="gimfreires.tech | Sistemas para comércios e serviços em Cascavel, PR">
+<meta property="og:description" content="Loja online, caixa, fiado, Pix e agendamento num sistema só, adaptado para o seu ramo.">
 <meta property="og:image" content="https://gimfreires.tech/img/compartilhar.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="512">
 <meta property="og:url" content="https://gimfreires.tech/">
 <meta property="og:image:alt" content="gimfreires.tech: loja online, caixa, fiado e Pix num sistema só.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="gimfreires.tech | Sistemas para o seu comércio">
-<meta name="twitter:description" content="Loja online, caixa, fiado e Pix num sistema só, adaptado para o seu ramo.">
+<meta name="twitter:title" content="gimfreires.tech | Sistemas para comércios e serviços em Cascavel, PR">
+<meta name="twitter:description" content="Loja online, caixa, fiado, Pix e agendamento num sistema só, adaptado para o seu ramo.">
 <meta name="twitter:image" content="https://gimfreires.tech/img/compartilhar.jpg">
 <meta name="theme-color" content="#05120C">
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
@@ -32,7 +32,7 @@
   "url": "https://gimfreires.tech/",
   "logo": "https://gimfreires.tech/img/logo.png",
   "image": "https://gimfreires.tech/img/compartilhar.jpg",
-  "description": "Sistemas completos para comércios locais: loja online, caixa (PDV), fiado, pagamento por Pix e agendamento online num sistema só.",
+  "description": "Sistemas completos para comércios e prestadores de serviço: loja online, caixa (PDV), fiado, pagamento por Pix, agendamento online e ordens de serviço num sistema só.",
   "telephone": "+55 45 99970-9621",
   "areaServed": "BR",
   "address": { "@type": "PostalAddress", "addressLocality": "Cascavel", "addressRegion": "PR", "addressCountry": "BR" },
@@ -49,6 +49,7 @@
     --tinta-suave: #4A5571;
     --papel: #FFFFFF;       /* bobina do cupom */
     --pago: #0B8A5F;        /* verde "pago" / Pix */
+    --pago-texto: #086B49;  /* o mesmo verde, mais escuro, para texto pequeno (contraste) */
     --etiqueta: #FFD23F;    /* etiqueta de preço */
     --linha: #C9D0D8;
     --raio: 6px;
@@ -67,6 +68,16 @@
   img { max-width: 100%; display: block; }
   a { color: inherit; }
   :focus-visible { outline: 3px solid var(--pago); outline-offset: 3px; border-radius: 2px; }
+  /* as seções param um pouco abaixo do topo quando se chega por um link do menu */
+  section[id] { scroll-margin-top: 12px; }
+
+  /* Atalho para quem navega pelo teclado */
+  .pular {
+    position: absolute; left: 16px; top: -64px; z-index: 20;
+    background: var(--tinta); color: var(--papel);
+    padding: 10px 16px; border-radius: var(--raio); font-weight: 600; text-decoration: none;
+  }
+  .pular:focus { top: 12px; }
 
   .container { width: min(var(--largura), 100% - 32px); margin-inline: auto; }
 
@@ -78,7 +89,7 @@
     font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; text-decoration: none;
   }
   .marca img { width: 40px; height: 40px; }
-  .marca-nome span { color: var(--pago); }
+  .marca-nome span { color: var(--pago-texto); }
   .topo nav { display: flex; gap: 24px; font-size: 0.95rem; }
   .topo nav a { text-decoration: none; color: var(--tinta-suave); }
   .topo nav a:hover { color: var(--tinta); }
@@ -143,7 +154,7 @@
   .cupom .total { display: flex; justify-content: space-between; font-weight: 600; font-size: 1rem; }
   .cupom .carimbo {
     margin: 18px auto 0; width: max-content;
-    border: 2px solid var(--pago); color: var(--pago);
+    border: 2px solid var(--pago); color: var(--pago-texto);
     padding: 4px 12px; border-radius: 4px; font-weight: 600;
     transform: rotate(-6deg);
   }
@@ -160,6 +171,7 @@
     letter-spacing: -0.03em; font-weight: 800; margin: 0 0 16px; max-width: 20ch;
   }
   .intro { color: var(--tinta-suave); max-width: 58ch; margin: 0 0 48px; font-size: 1.125rem; }
+  @media (max-width: 640px) { section { padding: 64px 0; } .abertura { padding: 24px 0 64px; } }
 
   /* Projeto */
   .projeto { background: var(--tinta); color: var(--papel); }
@@ -182,6 +194,7 @@
   .projeto .botao-principal:hover { background: #ffdc66; }
   .projeto .botao-secundario { color: var(--papel); border-color: #B9C2D6; }
   .projeto .botao-secundario:hover { background: rgba(255,255,255,.08); }
+  .projeto :focus-visible { outline-color: var(--etiqueta); }
   @media (max-width: 860px) {
     .projeto-grade { grid-template-columns: 1fr 1fr; }
     .projeto-grade figure:first-child { grid-column: 1 / -1; }
@@ -200,7 +213,7 @@
   .cartao-foto { display: block; aspect-ratio: 16 / 10; overflow: hidden; background: var(--tinta); border-bottom: 1px solid var(--linha); }
   .cartao-foto img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
   .cartao-corpo { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
-  .cartao-ramo { font: 600 .78rem "IBM Plex Mono", monospace; color: var(--pago); text-transform: uppercase; letter-spacing: .06em; }
+  .cartao-ramo { font: 600 .78rem "IBM Plex Mono", monospace; color: var(--pago-texto); text-transform: uppercase; letter-spacing: .06em; }
   .cartao h3 { margin: 0; font-size: 1.3rem; letter-spacing: -0.02em; line-height: 1.15; }
   .cartao p { margin: 0; color: var(--tinta-suave); font-size: .98rem; }
   .cartao-acoes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 10px; }
@@ -220,6 +233,7 @@
   .cartao-convite p { color: #B9C2D6; }
   .cartao-convite .cartao-acoes .principal { background: var(--etiqueta); color: var(--tinta); border-color: var(--etiqueta); }
   .cartao-convite .cartao-acoes .principal:hover { background: #ffdc66; }
+  .cartao-convite :focus-visible { outline-color: var(--etiqueta); }
   .selo-novo { display: inline-block; margin-left: 6px; padding: 2px 8px; border-radius: 999px; background: var(--etiqueta); color: var(--tinta); font: 600 .7rem "IBM Plex Mono", monospace; vertical-align: middle; letter-spacing: .04em; }
 
   /* O que vem no sistema */
@@ -256,12 +270,38 @@
   .passos li { counter-increment: passo; border-top: 2px solid var(--tinta); padding-top: 18px; }
   .passos li::before {
     content: counter(passo); display: block;
-    font: 600 0.9rem "IBM Plex Mono", monospace; color: var(--pago); margin-bottom: 8px;
+    font: 600 0.9rem "IBM Plex Mono", monospace; color: var(--pago-texto); margin-bottom: 8px;
   }
   .passos h3 { margin: 0 0 6px; font-size: 1.15rem; }
   .passos p { margin: 0; color: var(--tinta-suave); font-size: 1rem; }
   @media (max-width: 860px) { .passos { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 520px) { .passos { grid-template-columns: 1fr; } }
+
+  /* Dúvidas frequentes: cada pergunta abre e fecha */
+  .duvidas { background: var(--papel); }
+  .duvidas-lista { max-width: 820px; border-top: 2px solid var(--tinta); }
+  .duvidas details { border-bottom: 1px solid var(--linha); }
+  .duvidas summary {
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    padding: 20px 0; cursor: pointer; list-style: none;
+    font-weight: 600; font-size: 1.15rem; letter-spacing: -0.01em;
+  }
+  .duvidas summary::-webkit-details-marker { display: none; }
+  .duvidas summary::after {
+    content: "+"; flex: none; font: 600 1.4rem/1 "IBM Plex Mono", monospace; color: var(--pago-texto);
+  }
+  .duvidas details[open] summary::after { content: "\2212"; }
+  .duvidas details p { margin: 0; padding: 0 0 22px; color: var(--tinta-suave); max-width: 64ch; }
+
+  /* Sobre e depoimentos (só aparecem depois que você preencher; veja o PASSO-A-PASSO.txt) */
+  .sobre-caixa { display: flex; flex-wrap: wrap; gap: 32px; align-items: center; }
+  .sobre-caixa img { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; flex: none; }
+  .sobre-caixa div { flex: 1; min-width: 260px; }
+  .sobre-caixa p { margin: 0 0 12px; color: var(--tinta-suave); max-width: 58ch; }
+  .depoimentos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 0; padding: 0; list-style: none; }
+  .depoimentos blockquote { margin: 0; background: var(--papel); border-left: 4px solid var(--pago); border-radius: var(--raio); padding: 22px 24px; }
+  .depoimentos blockquote p { margin: 0 0 12px; }
+  .depoimentos cite { font-style: normal; font-weight: 600; font-size: .95rem; color: var(--tinta-suave); }
 
   /* Contato */
   .contato { padding-bottom: 72px; }
@@ -273,7 +313,7 @@
   .contato-caixa h2 { margin-bottom: 8px; }
   .contato-caixa p { margin: 0; color: var(--tinta-suave); max-width: 48ch; }
   .contato-caixa .contato-numero { margin-top: 12px; color: var(--tinta); font-weight: 600; }
-  .contato-numero a { color: var(--pago); }
+  .contato-numero a { color: var(--pago-texto); }
   footer a { white-space: nowrap; }
 
   /* Botão fixo de WhatsApp no celular */
@@ -289,33 +329,37 @@
 
   footer { padding: 28px 0 40px; font-size: 0.9rem; color: var(--tinta-suave); }
   footer .container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+  .rodape-links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 </style>
 </head>
 <body>
+
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
 <header class="topo">
   <div class="container">
     <a class="marca" href="/" aria-label="gimfreires.tech, página inicial"><img src="img/logo-96.png" width="40" height="40" alt=""> <span class="marca-nome">gimfreires<span>.tech</span></span></a>
     <nav aria-label="Seções">
-      <a href="#projeto">Projetos no ar</a>
+      <a href="#projeto">Projetos</a>
       <a href="#sistema">O que vem no sistema</a>
+      <a href="#duvidas">Dúvidas</a>
       <a class="nav-contato" href="#contato">Contato</a>
     </nav>
   </div>
 </header>
 
-<main>
+<main id="conteudo">
   <section class="abertura" aria-labelledby="titulo">
     <div class="container">
       <div>
         <h1 id="titulo">Sua loja vendendo no balcão e pela internet.</h1>
-        <p class="lead">Faço sistemas completos para comércios locais: loja online, caixa, fiado e pagamento por Pix, tudo no mesmo lugar e com a cara do seu negócio. Para quem atende com hora marcada, tem agendamento online com painel.</p>
+        <p class="lead">Faço sistemas completos para comércios locais: loja online, caixa, fiado e pagamento por Pix, tudo no mesmo lugar e com a cara do seu negócio. Para quem presta serviço, tem agendamento online, ordens de serviço e financeiro no mesmo painel.</p>
         <div class="acoes">
-          <a class="botao botao-principal js-whatsapp" href="https://wa.me/5545999709621?text=Ol%C3%A1!%20Vi%20o%20site%20gimfreires.tech%20e%20quero%20saber%20mais%20sobre%20o%20sistema%20para%20a%20minha%20loja." target="_blank" rel="noopener">
+          <a class="botao botao-principal js-whatsapp" href="https://wa.me/5545999709621?text=Ol%C3%A1!%20Vi%20o%20site%20gimfreires.tech%20e%20quero%20saber%20mais%20sobre%20o%20sistema%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
             Conversar no WhatsApp
           </a>
-          <a class="botao botao-secundario" href="#projeto">Ver os projetos no ar</a>
+          <a class="botao botao-secundario" href="#projeto">Ver os projetos</a>
         </div>
       </div>
 
@@ -344,11 +388,12 @@
 
   <section class="vitrine" id="projeto" aria-labelledby="titulo-vitrine">
     <div class="container">
-      <h2 id="titulo-vitrine">Projetos no ar</h2>
-      <p class="intro">Sete negócios do Paraná usando o sistema. Cada um tem uma prévia navegável com as telas reais: abra, clique nos botões e veja como o cliente e a equipe usam no dia a dia.</p>
+      <h2 id="titulo-vitrine">Projetos</h2>
+      <!-- TEXTO A CONFERIR: se os sete já usam o sistema no dia a dia, você pode voltar para "Sete negócios do Paraná usando o sistema." -->
+      <p class="intro">Sete projetos feitos para negócios do Paraná. Cada um tem uma prévia navegável com as telas reais: abra, clique nos botões e veja como o cliente e a equipe usam no dia a dia.</p>
       <ul class="vitrine-grade">
         <li class="cartao">
-          <a class="cartao-foto" href="#clube" tabindex="-1" aria-hidden="true"><img src="img/loja-desktop.webp" width="1200" height="833" loading="lazy" alt=""></a>
+          <a class="cartao-foto" href="#clube" tabindex="-1" aria-hidden="true"><img src="img/loja-desktop.webp" width="1200" height="833" loading="lazy" decoding="async" alt=""></a>
           <div class="cartao-corpo">
             <span class="cartao-ramo">Conveniência e tabacaria</span>
             <h3>Clube da Cerveja</h3>
@@ -357,7 +402,7 @@
           </div>
         </li>
         <li class="cartao">
-          <a class="cartao-foto" href="#explosom" tabindex="-1" aria-hidden="true"><img src="img/explosom-desktop.webp" width="1200" height="833" loading="lazy" alt=""></a>
+          <a class="cartao-foto" href="#explosom" tabindex="-1" aria-hidden="true"><img src="img/explosom-desktop.webp" width="1200" height="833" loading="lazy" decoding="async" alt=""></a>
           <div class="cartao-corpo">
             <span class="cartao-ramo">Eletrônicos e som automotivo</span>
             <h3>Explosom Eletrônicos</h3>
@@ -366,7 +411,7 @@
           </div>
         </li>
         <li class="cartao">
-          <a class="cartao-foto" href="#stillo" tabindex="-1" aria-hidden="true"><img src="img/stillo-desktop.webp" width="1200" height="833" loading="lazy" alt=""></a>
+          <a class="cartao-foto" href="#stillo" tabindex="-1" aria-hidden="true"><img src="img/stillo-desktop.webp" width="1200" height="833" loading="lazy" decoding="async" alt=""></a>
           <div class="cartao-corpo">
             <span class="cartao-ramo">Oficina mecânica</span>
             <h3>Stillo Reparos Automotivos</h3>
@@ -375,7 +420,7 @@
           </div>
         </li>
         <li class="cartao">
-          <a class="cartao-foto" href="#kelly" tabindex="-1" aria-hidden="true"><img src="img/kelly-desktop.webp" width="1200" height="833" loading="lazy" alt=""></a>
+          <a class="cartao-foto" href="#kelly" tabindex="-1" aria-hidden="true"><img src="img/kelly-desktop.webp" width="1200" height="833" loading="lazy" decoding="async" alt=""></a>
           <div class="cartao-corpo">
             <span class="cartao-ramo">Massagem e bem-estar</span>
             <h3>Kelly Terapeuta Sensorial</h3>
@@ -384,7 +429,7 @@
           </div>
         </li>
         <li class="cartao">
-          <a class="cartao-foto" href="#broetto" tabindex="-1" aria-hidden="true"><img src="img/broetto-desktop.webp" width="1200" height="833" loading="lazy" alt=""></a>
+          <a class="cartao-foto" href="#broetto" tabindex="-1" aria-hidden="true"><img src="img/broetto-desktop.webp" width="1200" height="833" loading="lazy" decoding="async" alt=""></a>
           <div class="cartao-corpo">
             <span class="cartao-ramo">Barbearia</span>
             <h3>Barbearia Broetto</h3>
@@ -393,7 +438,7 @@
           </div>
         </li>
         <li class="cartao">
-          <a class="cartao-foto" href="#agrosat" tabindex="-1" aria-hidden="true"><img src="img/agrosat-desktop.webp" width="1200" height="833" loading="lazy" alt=""></a>
+          <a class="cartao-foto" href="#agrosat" tabindex="-1" aria-hidden="true"><img src="img/agrosat-desktop.webp" width="1200" height="833" loading="lazy" decoding="async" alt=""></a>
           <div class="cartao-corpo">
             <span class="cartao-ramo">Topografia e agrimensura</span>
             <h3>Agrosat</h3>
@@ -402,7 +447,7 @@
           </div>
         </li>
         <li class="cartao">
-          <a class="cartao-foto" href="#fretesflaviareolon" tabindex="-1" aria-hidden="true"><img src="img/fretes-desktop.webp" width="1200" height="833" loading="lazy" alt=""></a>
+          <a class="cartao-foto" href="#fretesflaviareolon" tabindex="-1" aria-hidden="true"><img src="img/fretes-desktop.webp" width="1200" height="833" loading="lazy" decoding="async" alt=""></a>
           <div class="cartao-corpo">
             <span class="cartao-ramo">Transportes e logística</span>
             <h3>Fretes Flávia Reolon <span class="selo-novo">NOVO</span></h3>
@@ -415,7 +460,7 @@
             <span class="cartao-ramo">Seu negócio</span>
             <h3>O próximo projeto pode ser o seu</h3>
             <p>Me conta como funciona a sua loja ou o seu atendimento hoje. Eu adapto o sistema com a sua marca e mostro uma prévia antes de colocar no ar.</p>
-            <div class="cartao-acoes"><a class="principal js-whatsapp" href="https://wa.me/5545999709621?text=Ol%C3%A1!%20Vi%20o%20site%20gimfreires.tech%20e%20quero%20saber%20mais%20sobre%20o%20sistema%20para%20a%20minha%20loja." target="_blank" rel="noopener">Conversar no WhatsApp</a></div>
+            <div class="cartao-acoes"><a class="principal js-whatsapp" href="https://wa.me/5545999709621?text=Ol%C3%A1!%20Vi%20o%20site%20gimfreires.tech%20e%20quero%20saber%20mais%20sobre%20o%20sistema%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Conversar no WhatsApp</a></div>
           </div>
         </li>
       </ul>
@@ -429,15 +474,15 @@
 
       <div class="projeto-grade">
         <figure>
-          <img src="img/loja-desktop.webp" width="1200" height="833" loading="lazy" alt="Página inicial da loja Clube da Cerveja no computador, com bebidas e carnes do domingo.">
+          <img src="img/loja-desktop.webp" width="1200" height="833" loading="lazy" decoding="async" alt="Página inicial da loja Clube da Cerveja no computador, com bebidas e carnes do domingo.">
           <figcaption>A loja no computador</figcaption>
         </figure>
         <figure>
-          <img src="img/loja-celular.webp" width="420" height="862" loading="lazy" alt="Loja do Clube da Cerveja aberta no celular.">
+          <img src="img/loja-celular.webp" width="420" height="862" loading="lazy" decoding="async" alt="Loja do Clube da Cerveja aberta no celular.">
           <figcaption>No celular</figcaption>
         </figure>
         <figure>
-          <img src="img/produto-celular.webp" width="420" height="862" loading="lazy" alt="Página da costela minga no celular, com preço e botão de compartilhar no WhatsApp.">
+          <img src="img/produto-celular.webp" width="420" height="862" loading="lazy" decoding="async" alt="Página da costela minga no celular, com preço e botão de compartilhar no WhatsApp.">
           <figcaption>Página de produto</figcaption>
         </figure>
       </div>
@@ -459,15 +504,15 @@
 
       <div class="projeto-grade">
         <figure>
-          <img src="img/explosom-desktop.webp" width="1200" height="833" loading="lazy" alt="Página inicial da loja Explosom no computador, com os produtos mais vendidos.">
+          <img src="img/explosom-desktop.webp" width="1200" height="833" loading="lazy" decoding="async" alt="Página inicial da loja Explosom no computador, com os produtos mais vendidos.">
           <figcaption>A loja no computador</figcaption>
         </figure>
         <figure>
-          <img src="img/explosom-celular.webp" width="420" height="862" loading="lazy" alt="Loja Explosom aberta no celular.">
+          <img src="img/explosom-celular.webp" width="420" height="862" loading="lazy" decoding="async" alt="Loja Explosom aberta no celular.">
           <figcaption>No celular</figcaption>
         </figure>
         <figure>
-          <img src="img/explosom-produto.webp" width="420" height="862" loading="lazy" alt="Página de uma geladeira Philco no celular, com preço no Pix, parcelamento e prazo de encomenda.">
+          <img src="img/explosom-produto.webp" width="420" height="862" loading="lazy" decoding="async" alt="Página de uma geladeira Philco no celular, com preço no Pix, parcelamento e prazo de encomenda.">
           <figcaption>Página de produto</figcaption>
         </figure>
       </div>
@@ -486,15 +531,15 @@
 
       <div class="projeto-grade">
         <figure>
-          <img src="img/stillo-desktop.webp" width="1200" height="833" loading="lazy" alt="Lista de ordens de serviço da Stillo no computador, com placa, cliente, total e situação de cada carro.">
+          <img src="img/stillo-desktop.webp" width="1200" height="833" loading="lazy" decoding="async" alt="Lista de ordens de serviço da Stillo no computador, com placa, cliente, total e situação de cada carro.">
           <figcaption>As ordens de serviço no computador</figcaption>
         </figure>
         <figure>
-          <img src="img/stillo-celular.webp" width="420" height="862" loading="lazy" alt="Orçamento de um Chevrolet Onix aberto no celular do cliente, com os serviços, as peças, o total e o botão para aprovar.">
+          <img src="img/stillo-celular.webp" width="420" height="862" loading="lazy" decoding="async" alt="Orçamento de um Chevrolet Onix aberto no celular do cliente, com os serviços, as peças, o total e o botão para aprovar.">
           <figcaption>O orçamento no celular do cliente</figcaption>
         </figure>
         <figure>
-          <img src="img/stillo-os.webp" width="420" height="862" loading="lazy" alt="Ordem de serviço de um Fiat Argo em execução, aberta no celular da equipe.">
+          <img src="img/stillo-os.webp" width="420" height="862" loading="lazy" decoding="async" alt="Ordem de serviço de um Fiat Argo em execução, aberta no celular da equipe.">
           <figcaption>A OS no celular da equipe</figcaption>
         </figure>
       </div>
@@ -513,15 +558,15 @@
 
       <div class="projeto-grade">
         <figure>
-          <img src="img/kelly-desktop.webp" width="1200" height="833" loading="lazy" alt="Página inicial do site da Kelly Terapeuta Sensorial no computador, em vinho e dourado, com o botão para agendar.">
+          <img src="img/kelly-desktop.webp" width="1200" height="833" loading="lazy" decoding="async" alt="Página inicial do site da Kelly Terapeuta Sensorial no computador, em vinho e dourado, com o botão para agendar.">
           <figcaption>O site no computador</figcaption>
         </figure>
         <figure>
-          <img src="img/kelly-celular.webp" width="420" height="862" loading="lazy" alt="Lista de experiências do site da Kelly no celular, com preço e duração de cada sessão.">
+          <img src="img/kelly-celular.webp" width="420" height="862" loading="lazy" decoding="async" alt="Lista de experiências do site da Kelly no celular, com preço e duração de cada sessão.">
           <figcaption>As experiências no celular</figcaption>
         </figure>
         <figure>
-          <img src="img/kelly-agendamento.webp" width="420" height="862" loading="lazy" alt="Janela de agendamento no celular, com a data, a experiência escolhida e o horário.">
+          <img src="img/kelly-agendamento.webp" width="420" height="862" loading="lazy" decoding="async" alt="Janela de agendamento no celular, com a data, a experiência escolhida e o horário.">
           <figcaption>O agendamento no celular</figcaption>
         </figure>
       </div>
@@ -543,15 +588,15 @@
 
       <div class="projeto-grade">
         <figure>
-          <img src="img/broetto-desktop.webp" width="1200" height="833" loading="lazy" alt="Página inicial do site da Barbearia Broetto no computador, em preto e prata, com a logo e o botão para agendar.">
+          <img src="img/broetto-desktop.webp" width="1200" height="833" loading="lazy" decoding="async" alt="Página inicial do site da Barbearia Broetto no computador, em preto e prata, com a logo e o botão para agendar.">
           <figcaption>O site no computador</figcaption>
         </figure>
         <figure>
-          <img src="img/broetto-celular.webp" width="420" height="862" loading="lazy" alt="Lista de serviços da Barbearia Broetto no celular, com preço e duração de cada um.">
+          <img src="img/broetto-celular.webp" width="420" height="862" loading="lazy" decoding="async" alt="Lista de serviços da Barbearia Broetto no celular, com preço e duração de cada um.">
           <figcaption>Os serviços no celular</figcaption>
         </figure>
         <figure>
-          <img src="img/broetto-agendamento.webp" width="420" height="862" loading="lazy" alt="Janela de agendamento no celular, com os horários do dia pulando direto das 11:30 para as 13:00 por causa do almoço.">
+          <img src="img/broetto-agendamento.webp" width="420" height="862" loading="lazy" decoding="async" alt="Janela de agendamento no celular, com os horários do dia pulando direto das 11:30 para as 13:00 por causa do almoço.">
           <figcaption>O agendamento no celular</figcaption>
         </figure>
       </div>
@@ -573,15 +618,15 @@
 
       <div class="projeto-grade">
         <figure>
-          <img src="img/agrosat-desktop.webp" width="1200" height="833" loading="lazy" alt="Painel do escritório da Agrosat no computador, com serviços por etapa, prazos de entrega e o campo dos próximos dias.">
+          <img src="img/agrosat-desktop.webp" width="1200" height="833" loading="lazy" decoding="async" alt="Painel do escritório da Agrosat no computador, com serviços por etapa, prazos de entrega e o campo dos próximos dias.">
           <figcaption>O painel do escritório</figcaption>
         </figure>
         <figure>
-          <img src="img/agrosat-celular.webp" width="420" height="862" loading="lazy" alt="Ordem de serviço de georreferenciamento da Fazenda Serra Azul no celular, com o prazo vencido em destaque e o botão da planta DXF.">
+          <img src="img/agrosat-celular.webp" width="420" height="862" loading="lazy" decoding="async" alt="Ordem de serviço de georreferenciamento da Fazenda Serra Azul no celular, com o prazo vencido em destaque e o botão da planta DXF.">
           <figcaption>A OS no celular</figcaption>
         </figure>
         <figure>
-          <img src="img/agrosat-memorial.webp" width="420" height="862" loading="lazy" alt="Memorial descritivo da Fazenda Serra Azul, com área de 725 hectares e a descrição do perímetro com azimutes e distâncias.">
+          <img src="img/agrosat-memorial.webp" width="420" height="862" loading="lazy" decoding="async" alt="Memorial descritivo da Fazenda Serra Azul, com área de 725 hectares e a descrição do perímetro com azimutes e distâncias.">
           <figcaption>O memorial descritivo</figcaption>
         </figure>
       </div>
@@ -603,15 +648,15 @@
 
       <div class="projeto-grade">
         <figure>
-          <img src="img/fretes-desktop.webp" width="1200" height="833" loading="lazy" alt="Painel da Fretes Flávia Reolon no computador, com faturamento do mês, fretes em andamento, contas a receber e a pagar e caminhões por cidade.">
+          <img src="img/fretes-desktop.webp" width="1200" height="833" loading="lazy" decoding="async" alt="Painel da Fretes Flávia Reolon no computador, com faturamento do mês, fretes em andamento, contas a receber e a pagar e caminhões por cidade.">
           <figcaption>O painel da operação</figcaption>
         </figure>
         <figure>
-          <img src="img/fretes-celular.webp" width="420" height="862" loading="lazy" alt="Frete de Jaguapitã para Paranaguá no celular, com os botões de enviar a ordem ao motorista e imprimir.">
+          <img src="img/fretes-celular.webp" width="420" height="862" loading="lazy" decoding="async" alt="Frete de Jaguapitã para Paranaguá no celular, com os botões de enviar a ordem ao motorista e imprimir.">
           <figcaption>A ordem de carregamento no celular</figcaption>
         </figure>
         <figure>
-          <img src="img/fretes-assistente.webp" width="420" height="862" loading="lazy" alt="Assistente de IA no celular listando os fretes que faltam receber dos clientes.">
+          <img src="img/fretes-assistente.webp" width="420" height="862" loading="lazy" decoding="async" alt="Assistente de IA no celular listando os fretes que faltam receber dos clientes.">
           <figcaption>O assistente de IA</figcaption>
         </figure>
       </div>
@@ -629,7 +674,7 @@
   <section id="sistema" aria-labelledby="titulo-sistema">
     <div class="container">
       <h2 id="titulo-sistema">O que vem no sistema</h2>
-      <p class="intro">Um painel só para cuidar da loja online e do balcão. Você cadastra o produto uma vez e o estoque vale para os dois.</p>
+      <p class="intro">Um painel só para cuidar da loja online e do balcão. Você cadastra o produto uma vez e o estoque vale para os dois. Para quem presta serviço, entram a agenda e as ordens de serviço.</p>
       <ul class="recursos">
         <li><h3>Loja online</h3><p>Catálogo com fotos, carrinho, favoritos e área do cliente com o histórico de pedidos.</p></li>
         <li><h3>Caixa para o balcão</h3><p>Abertura e fechamento de caixa, busca de produtos e comprovante para o cliente.</p></li>
@@ -640,6 +685,7 @@
         <li><h3>Nota fiscal</h3><p>Emissão e cancelamento de nota pelo painel, sem precisar de outro programa.</p></li>
         <li><h3>App no celular</h3><p>O cliente instala a loja na tela inicial do celular, como um aplicativo.</p></li>
         <li><h3>Agendamento online</h3><p>Para barbearia, estética e terapias: o cliente marca o horário pelo site e ele aparece na agenda do painel.</p></li>
+        <li><h3>Ordens de serviço</h3><p>Para oficinas e prestadores de serviço: orçamento que o cliente aprova pelo celular, etapas do serviço e cobrança direto no caixa.</p></li>
         <li><h3>Relatórios e contas</h3><p>Faturamento por período, por serviço e por forma de pagamento, com as contas a pagar no mesmo lugar.</p></li>
       </ul>
     </div>
@@ -648,9 +694,10 @@
   <section class="ramos" aria-labelledby="titulo-ramos">
     <div class="container">
       <h2 id="titulo-ramos">Adapto para o seu ramo</h2>
-      <p class="intro">O sistema já rodou como brechó e hoje roda como conveniência, loja de eletrônicos, oficina mecânica, barbearia e massagem terapêutica. Nome, cores, logo, categorias e textos mudam para combinar com o seu negócio.</p>
+      <p class="intro">O sistema já rodou como brechó e já foi adaptado para conveniência, loja de eletrônicos, oficina mecânica, barbearia, massagem terapêutica, topografia e transportadora. Nome, cores, logo, categorias e textos mudam para combinar com o seu negócio.</p>
       <ul class="etiquetas">
         <li>Conveniência e bebidas</li>
+        <li>Eletrônicos e som</li>
         <li>Oficina mecânica</li>
         <li>Empório e mercearia</li>
         <li>Açougue e churrasco</li>
@@ -659,6 +706,8 @@
         <li>Pet shop</li>
         <li>Barbearia e salão</li>
         <li>Estética e terapias</li>
+        <li>Topografia</li>
+        <li>Transportes e fretes</li>
       </ul>
       <p class="obs">Seu ramo não está na lista? Me chama e a gente vê o que precisa mudar.</p>
     </div>
@@ -667,13 +716,93 @@
   <section aria-labelledby="titulo-passos">
     <div class="container">
       <h2 id="titulo-passos">Como funciona</h2>
-      <p class="intro">Do primeiro contato até a primeira venda.</p>
+      <p class="intro">Do primeiro contato até o sistema funcionando no seu negócio.</p>
       <ol class="passos">
-        <li><h3>Conversa</h3><p>Você me conta como funciona a sua loja hoje e o que quer vender pela internet.</p></li>
-        <li><h3>Adaptação</h3><p>Ajusto o sistema com a sua marca, categorias e formas de pagamento.</p></li>
+        <li><h3>Conversa</h3><p>Você me conta como funciona o seu negócio hoje e o que quer resolver ou vender pela internet.</p></li>
+        <li><h3>Adaptação</h3><p>Ajusto o sistema com a sua marca, categorias e formas de pagamento, e mostro uma prévia.</p></li>
         <li><h3>No ar</h3><p>Publico no seu endereço, conecto o Mercado Pago e faço uma compra de teste.</p></li>
         <li><h3>Treinamento</h3><p>Mostro como cadastrar produtos, abrir o caixa e acompanhar os pedidos.</p></li>
       </ol>
+    </div>
+  </section>
+
+  <!-- DESLIGADO: DEPOIMENTOS. Para ligar, troque os textos entre colchetes por falas reais de clientes
+       (peça autorização a eles) e apague as duas linhas marcadas com APAGUE-ESTA-LINHA. -->
+  <!-- APAGUE-ESTA-LINHA (início dos depoimentos)
+  <section aria-labelledby="titulo-depoimentos">
+    <div class="container">
+      <h2 id="titulo-depoimentos">Quem usa conta como é</h2>
+      <ul class="depoimentos">
+        <li><blockquote><p>[Fala do cliente, com as palavras dele.]</p><cite>[Nome], [nome do negócio]</cite></blockquote></li>
+        <li><blockquote><p>[Fala do cliente, com as palavras dele.]</p><cite>[Nome], [nome do negócio]</cite></blockquote></li>
+      </ul>
+    </div>
+  </section>
+  APAGUE-ESTA-LINHA (fim dos depoimentos) -->
+
+  <!-- DESLIGADO: QUEM FAZ. Para ligar, salve uma foto sua quadrada como img/gim.jpg (400x400 já basta),
+       troque os textos entre colchetes e apague as duas linhas marcadas com APAGUE-ESTA-LINHA. -->
+  <!-- APAGUE-ESTA-LINHA (início do quem faz)
+  <section aria-labelledby="titulo-sobre">
+    <div class="container">
+      <h2 id="titulo-sobre">Quem faz</h2>
+      <div class="sobre-caixa">
+        <img src="img/gim.jpg" width="160" height="160" loading="lazy" decoding="async" alt="[Seu nome], desenvolvedor da gimfreires.tech">
+        <div>
+          <p>[Seu nome]. [Uma ou duas frases: há quanto tempo programa, de onde é, por que faz sistemas para o comércio local.]</p>
+          <p>Você fala direto comigo, do primeiro contato ao suporte.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  APAGUE-ESTA-LINHA (fim do quem faz) -->
+
+  <section class="duvidas" id="duvidas" aria-labelledby="titulo-duvidas">
+    <div class="container">
+      <h2 id="titulo-duvidas">Dúvidas frequentes</h2>
+      <p class="intro">O que mais me perguntam antes de começar.</p>
+      <div class="duvidas-lista">
+        <details>
+          <summary>Posso ver o sistema antes de fechar?</summary>
+          <p>Pode. As prévias desta página são navegáveis: é só abrir e clicar. E, antes de colocar no ar, eu mostro uma prévia já com a sua marca.</p>
+        </details>
+        <details>
+          <summary>Meu ramo não está na lista. Dá para adaptar?</summary>
+          <p>Na maioria das vezes, sim. Nome, cores, logo, categorias e textos mudam de um negócio para o outro. Me conta como você trabalha hoje e eu digo o que precisa mudar.</p>
+        </details>
+        <details>
+          <summary>Funciona no celular?</summary>
+          <p>Funciona. O seu cliente compra ou agenda pelo celular, e você acompanha o painel pelo celular ou pelo computador. A loja também pode ser instalada na tela inicial, como um aplicativo.</p>
+        </details>
+        <details>
+          <summary>Como eu recebo os pagamentos?</summary>
+          <p>Por Pix e cartão, pelo Mercado Pago, inclusive na maquininha Point. A confirmação do pagamento é automática.</p>
+        </details>
+        <details>
+          <summary>Preciso entender de computador para usar?</summary>
+          <p>Não. Depois de colocar no ar, eu mostro como cadastrar produtos, abrir o caixa e acompanhar os pedidos.</p>
+        </details>
+        <!-- DESLIGADAS: três perguntas que só você sabe responder, e que mais pesam na decisão do cliente.
+             Para ligar cada uma, escreva a resposta no lugar dos colchetes e apague as duas linhas APAGUE-ESTA-LINHA dela. -->
+        <!-- APAGUE-ESTA-LINHA (início: preço)
+        <details>
+          <summary>Quanto custa?</summary>
+          <p>[Sua resposta. Ex.: como é cobrado (instalação e mensalidade?) e um valor "a partir de".]</p>
+        </details>
+        APAGUE-ESTA-LINHA (fim: preço) -->
+        <!-- APAGUE-ESTA-LINHA (início: prazo)
+        <details>
+          <summary>Em quanto tempo fica pronto?</summary>
+          <p>[Sua resposta. Ex.: o prazo normal entre a primeira conversa e o sistema no ar.]</p>
+        </details>
+        APAGUE-ESTA-LINHA (fim: prazo) -->
+        <!-- APAGUE-ESTA-LINHA (início: suporte)
+        <details>
+          <summary>E se eu precisar de ajuda depois?</summary>
+          <p>[Sua resposta. Ex.: como funciona o suporte e em que horário você atende.]</p>
+        </details>
+        APAGUE-ESTA-LINHA (fim: suporte) -->
+      </div>
     </div>
   </section>
 
@@ -681,11 +810,11 @@
     <div class="container">
       <div class="contato-caixa">
         <div>
-          <h2 id="titulo-contato">Vamos colocar sua loja no ar?</h2>
-          <p>Me manda uma mensagem contando qual é o seu comércio. Respondo com uma proposta.</p>
-          <p class="contato-numero">WhatsApp <a class="js-whatsapp" href="https://wa.me/5545999709621?text=Ol%C3%A1!%20Vi%20o%20site%20gimfreires.tech%20e%20quero%20saber%20mais%20sobre%20o%20sistema%20para%20a%20minha%20loja." target="_blank" rel="noopener">(45) 99970-9621</a></p>
+          <h2 id="titulo-contato">Vamos colocar seu negócio no ar?</h2>
+          <p>Me manda uma mensagem contando qual é o seu negócio. Respondo com uma proposta.</p>
+          <p class="contato-numero">WhatsApp <a class="js-whatsapp" href="https://wa.me/5545999709621?text=Ol%C3%A1!%20Vi%20o%20site%20gimfreires.tech%20e%20quero%20saber%20mais%20sobre%20o%20sistema%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">(45) 99970-9621</a></p>
         </div>
-        <a class="botao botao-principal js-whatsapp" href="https://wa.me/5545999709621?text=Ol%C3%A1!%20Vi%20o%20site%20gimfreires.tech%20e%20quero%20saber%20mais%20sobre%20o%20sistema%20para%20a%20minha%20loja." target="_blank" rel="noopener">
+        <a class="botao botao-principal js-whatsapp" href="https://wa.me/5545999709621?text=Ol%C3%A1!%20Vi%20o%20site%20gimfreires.tech%20e%20quero%20saber%20mais%20sobre%20o%20sistema%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
           Conversar no WhatsApp
         </a>
@@ -696,19 +825,20 @@
 
 <footer>
   <div class="container">
-    <span>gimfreires.tech, Cascavel - PR · WhatsApp <a class="js-whatsapp" href="https://wa.me/5545999709621?text=Ol%C3%A1!%20Vi%20o%20site%20gimfreires.tech%20e%20quero%20saber%20mais%20sobre%20o%20sistema%20para%20a%20minha%20loja." target="_blank" rel="noopener">(45) 99970-9621</a></span>
+    <span>gimfreires.tech, Cascavel - PR · WhatsApp <a class="js-whatsapp" href="https://wa.me/5545999709621?text=Ol%C3%A1!%20Vi%20o%20site%20gimfreires.tech%20e%20quero%20saber%20mais%20sobre%20o%20sistema%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">(45) 99970-9621</a></span>
+    <span class="rodape-links"><a href="#projeto">Projetos</a><a href="#sistema">O que vem no sistema</a><a href="#duvidas">Dúvidas</a><a href="#contato">Contato</a></span>
     <span>&copy; <span id="ano">2026</span></span>
   </div>
 </footer>
 
-<a class="whats-fixo js-whatsapp" href="https://wa.me/5545999709621?text=Ol%C3%A1!%20Vi%20o%20site%20gimfreires.tech%20e%20quero%20saber%20mais%20sobre%20o%20sistema%20para%20a%20minha%20loja." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
+<a class="whats-fixo js-whatsapp" href="https://wa.me/5545999709621?text=Ol%C3%A1!%20Vi%20o%20site%20gimfreires.tech%20e%20quero%20saber%20mais%20sobre%20o%20sistema%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
 </a>
 
 <script>
   // >>> TROQUE AQUI: seu WhatsApp com 55 + DDD + número, só números. Ex.: '5545999709621'
   const WHATSAPP = '5545999709621';
-  const MENSAGEM = 'Olá! Vi o site gimfreires.tech e quero saber mais sobre o sistema para a minha loja.';
+  const MENSAGEM = 'Olá! Vi o site gimfreires.tech e quero saber mais sobre o sistema para o meu negócio.';
 
   if (WHATSAPP) {
     const link = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(MENSAGEM);
