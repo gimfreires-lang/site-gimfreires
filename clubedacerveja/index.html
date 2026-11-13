@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Manrope:wght@400;500;700&display=swap">
 <style>
-/* Layout: logo e chamada no topo, três portas de entrada (loja no ar, telas da loja, painel e caixa),
+/* Layout: logo e chamada no topo, duas portas de entrada (telas da loja, painel e caixa),
    o caminho de um pedido com uma tela para cada etapa, atalhos e notas da prévia. Visual preto e dourado, igual à loja. */
 :root {
   --bg: #0E0E0E; --surface: #171717; --line: #2B2B2B;
@@ -36,7 +36,7 @@ header img { width: min(180px, 46vw); height: auto; }
 h1 { font-family: var(--display); font-weight: 700; text-transform: uppercase; font-size: clamp(2.2rem, 6vw, 3.6rem); line-height: 1; margin: 0; letter-spacing: .01em; text-wrap: balance; }
 h1 span { color: var(--accent); }
 .lead { color: var(--muted); max-width: 62ch; margin: 0; font-size: 1.05rem; }
-.portas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.portas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 @media (max-width: 760px) { .portas { grid-template-columns: 1fr; } }
 .porta { display: flex; flex-direction: column; gap: 10px; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; color: var(--fg); text-decoration: none; transition: border-color .15s, transform .15s; min-width: 0; }
 .porta:hover, .porta:focus-visible { border-color: var(--accent); transform: translateY(-2px); outline: none; }
@@ -79,16 +79,10 @@ h1 span { color: var(--accent); }
   <header>
     <img src="assets/logo-clube.webp" alt="Clube da Cerveja, conveniência e tabacaria" width="180" height="204">
     <h1>Prévia do <span>sistema</span></h1>
-    <p class="lead">Conveniência, tabacaria e carne assada aos domingos, em Cascavel. A loja já está no ar: o cliente escolhe as bebidas, encomenda a carne do domingo e paga por Pix. No balcão, o mesmo sistema vira o caixa.</p>
+    <p class="lead">Conveniência, tabacaria e carne assada aos domingos, em Cascavel. O cliente escolhe as bebidas, encomenda a carne do domingo e paga por Pix. No balcão, o mesmo sistema vira o caixa.</p>
   </header>
 
   <nav class="portas" aria-label="Partes do sistema">
-    <a class="porta" href="https://clubedacerveja.gimfreires.tech" target="_blank" rel="noopener">
-      <span class="tag">No ar</span>
-      <h2>Loja online</h2>
-      <p>A loja de verdade, funcionando: catálogo, carnes do domingo, cadastro do cliente e pagamento pelo Mercado Pago.</p>
-      <span class="ir">Abrir a loja ↗</span>
-    </a>
     <a class="porta" href="telas/#loja-home">
       <span class="tag">Para o cliente</span>
       <h2>Telas da loja</h2>
@@ -109,7 +103,7 @@ h1 span { color: var(--accent); }
       <li><b>Escolhe</b><span>Bebidas, gelo, carvão e petiscos no catálogo</span><a href="telas/#loja-cervejas">Cervejas →</a></li>
       <li><b>Encomenda</b><span>A carne do domingo, por quilo ou unidade</span><a href="telas/#loja-carnes-do-domingo">Carnes →</a></li>
       <li><b>Entra</b><span>Com o e-mail ou o WhatsApp</span><a href="telas/#loja-cadastro-login">Entrar →</a></li>
-      <li><b>Paga</b><span>Pix ou cartão pelo Mercado Pago</span><a href="https://clubedacerveja.gimfreires.tech" target="_blank" rel="noopener">Na loja ↗</a></li>
+      <li><b>Paga</b><span>Pix ou cartão pelo Mercado Pago</span></li>
       <li><b>Chega no painel</b><span>O lojista vê o pedido e as vendas do dia</span><a href="telas/#admin-dashboard">Dashboard →</a></li>
     </ol>
   </section>
@@ -142,7 +136,7 @@ h1 span { color: var(--accent); }
   <section class="notas">
     <h3>Sobre esta prévia</h3>
     <ul>
-      <li>A <b>loja online está no ar</b> em clubedacerveja.gimfreires.tech. As telas desta prévia foram feitas com o mesmo código, antes da loja receber as vendas de verdade.</li>
+      <li>As <b>telas da loja</b> desta prévia foram feitas com o mesmo código do sistema.</li>
       <li>O <b>painel e o caixa</b> ficam protegidos por login, por isso aparecem aqui como telas: role cada uma para ver a página inteira e use os botões para passar de uma para outra.</li>
       <li>O aviso de <b>"Mercado Pago não conectado"</b> é o próprio sistema avisando o lojista; ele some quando a conta é conectada.</li>
     </ul>
