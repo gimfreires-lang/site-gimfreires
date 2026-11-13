@@ -446,7 +446,7 @@
           </a>
           <a class="botao botao-secundario" href="#projeto">Ver os projetos</a>
         </div>
-        <p class="abertura-nota">Feito em Cascavel, PR. Sete projetos com prévia para você abrir e testar.</p>
+        <p class="abertura-nota">Feito em Cascavel, PR. Seis projetos com prévia para você abrir e testar.</p>
       </div>
 
       <div class="cupom-sombra">
@@ -477,15 +477,14 @@
   <section class="projetos" id="projeto" aria-labelledby="titulo-vitrine">
     <div class="container">
       <h2 id="titulo-vitrine">Projetos</h2>
-      <!-- TEXTO A CONFERIR: se os sete já usam o sistema no dia a dia, você pode voltar para "Sete negócios do Paraná usando o sistema." -->
-      <p class="intro">Sete projetos feitos para negócios do Paraná. Escolha o ramo mais parecido com o seu e veja as telas reais. Cada um tem uma prévia navegável: abra, clique nos botões e veja como o cliente e a equipe usam no dia a dia.</p>
+      <!-- TEXTO A CONFERIR: se os seis já usam o sistema no dia a dia, você pode voltar para "Seis negócios do Paraná usando o sistema." -->
+      <p class="intro">Seis projetos feitos para negócios do Paraná. Escolha o ramo mais parecido com o seu e veja as telas reais. Cada um tem uma prévia navegável: abra, clique nos botões e veja como o cliente e a equipe usam no dia a dia.</p>
 
       <!-- Uma aba por projeto. Para incluir um projeto novo: uma linha aqui e um <article class="painel"> com o mesmo id lá embaixo. -->
       <nav class="abas" aria-label="Projetos por ramo">
         <a href="#clube">Conveniência</a>
         <a href="#explosom">Eletrônicos</a>
         <a href="#stillo">Oficina</a>
-        <a href="#kelly">Massagem</a>
         <a href="#broetto">Barbearia</a>
         <a href="#agrosat">Topografia</a>
         <a href="#fretesflaviareolon">Transportes <span class="selo-novo">NOVO</span></a>
@@ -569,35 +568,6 @@
         <div class="projeto-rodape">
           <p>Adaptado ao ramo: carro cadastrado pela placa (antiga ou Mercosul), etapas da OS do orçamento à entrega, link de acompanhamento para o cliente, OS impressa e loja de peças com a marca da oficina.</p>
           <a class="botao botao-principal" href="stillo/">Ver a prévia do sistema</a>
-        </div>
-      </article>
-
-      <article class="painel" id="kelly">
-        <p class="painel-ramo">Massagem e bem-estar</p>
-        <h3>Kelly Terapeuta Sensorial</h3>
-        <p class="intro">Massagem sensorial em Cascavel, com atendimento para homens, mulheres e casais. O cliente escolhe a experiência, vê o valor e reserva o horário pelo site, sem precisar chamar no direct. No painel, a Kelly acompanha a agenda, os clientes fiéis, o caixa e o faturamento do mês.</p>
-
-        <div class="projeto-grade">
-          <figure>
-            <img src="img/kelly-desktop.webp" width="1200" height="833" loading="lazy" decoding="async" alt="Página inicial do site da Kelly Terapeuta Sensorial no computador, em vinho e dourado, com o botão para agendar.">
-            <figcaption>O site no computador</figcaption>
-          </figure>
-          <figure>
-            <img src="img/kelly-celular.webp" width="420" height="862" loading="lazy" decoding="async" alt="Lista de experiências do site da Kelly no celular, com preço e duração de cada sessão.">
-            <figcaption>As experiências no celular</figcaption>
-          </figure>
-          <figure>
-            <img src="img/kelly-agendamento.webp" width="420" height="862" loading="lazy" decoding="async" alt="Janela de agendamento no celular, com a data, a experiência escolhida e o horário.">
-            <figcaption>O agendamento no celular</figcaption>
-          </figure>
-        </div>
-
-        <div class="projeto-rodape">
-          <p>Adaptado ao ramo: a identidade vinho e dourado do Instagram dela, cardápio de experiências com preço e duração, aviso de atendimento só para maiores de 18 anos, bloqueio de horários e clube de clientes fiéis. Junto vai uma apresentação em slides para mostrar o projeto.</p>
-          <div class="acoes">
-            <a class="botao botao-secundario" href="kelly/apresentacao/">Ver a apresentação</a>
-            <a class="botao botao-principal" href="kelly/">Ver a prévia do sistema</a>
-          </div>
         </div>
       </article>
 
@@ -719,7 +689,7 @@
   <section class="ramos" aria-labelledby="titulo-ramos">
     <div class="container">
       <h2 id="titulo-ramos">Adapto para o seu ramo</h2>
-      <p class="intro">O sistema já rodou como brechó e já foi adaptado para conveniência, loja de eletrônicos, oficina mecânica, barbearia, massagem terapêutica, topografia e transportadora. Nome, cores, logo, categorias e textos mudam para combinar com o seu negócio.</p>
+      <p class="intro">O sistema já rodou como brechó e já foi adaptado para conveniência, loja de eletrônicos, oficina mecânica, barbearia, topografia e transportadora. Nome, cores, logo, categorias e textos mudam para combinar com o seu negócio.</p>
       <ul class="etiquetas">
         <li>Conveniência e bebidas</li>
         <li>Eletrônicos e som</li>
@@ -868,7 +838,7 @@
   // os links já vêm prontos no HTML; o script só troca o número se você mudar a constante acima.
   document.getElementById('ano').textContent = new Date().getFullYear();
 
-  // Projetos em abas. Sem JavaScript, os sete projetos aparecem um embaixo do outro.
+  // Projetos em abas. Sem JavaScript, os seis projetos aparecem um embaixo do outro.
   (function () {
     const lista = document.querySelector('.abas');
     if (!lista) return;
